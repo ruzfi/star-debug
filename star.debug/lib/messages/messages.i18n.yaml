@@ -55,6 +55,7 @@ general:
   should_not_be_empty: Should not be empty
   yes: yes
   no: no
+  not_specified: not specified
 
 recent:
   search: Search

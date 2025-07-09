@@ -355,6 +355,11 @@ class GeneralMessagesUk extends GeneralMessages {
   /// "ні"
   /// ```
   String get no => """ні""";
+
+  /// ```dart
+  /// "не вказано"
+  /// ```
+  String get not_specified => """не вказано""";
 }
 
 class RecentMessagesUk extends RecentMessages {
@@ -2357,6 +2362,7 @@ Map<String, String> get messagesUkMap => {
   """general.should_not_be_empty""": """Має бути заповненим""",
   """general.yes""": """так""",
   """general.no""": """ні""",
+  """general.not_specified""": """не вказано""",
   """recent.search""": """Пошук""",
   """recent.no_options""": """Пустий список""",
   """my.my_starlinks""": """Мої Старлінки""",

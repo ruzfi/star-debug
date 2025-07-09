@@ -354,6 +354,11 @@ class GeneralMessages {
   /// "no"
   /// ```
   String get no => """no""";
+
+  /// ```dart
+  /// "not specified"
+  /// ```
+  String get not_specified => """not specified""";
 }
 
 class RecentMessages {
@@ -2356,6 +2361,7 @@ Map<String, String> get messagesMap => {
   """general.should_not_be_empty""": """Should not be empty""",
   """general.yes""": """yes""",
   """general.no""": """no""",
+  """general.not_specified""": """not specified""",
   """recent.search""": """Search""",
   """recent.no_options""": """No options to show""",
   """my.my_starlinks""": """My Starlinks""",

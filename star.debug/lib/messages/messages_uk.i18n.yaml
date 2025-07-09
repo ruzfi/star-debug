@@ -54,7 +54,7 @@ general:
   should_not_be_empty: Має бути заповненим
   yes: так
   no: ні
-
+  not_specified: не вказано
 
 recent:
   search: Пошук
