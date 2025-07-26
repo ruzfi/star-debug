@@ -1434,6 +1434,18 @@ class DishGetStatusGrpcMessages {
   String get patches_valid => """patches_valid""";
 
   /// ```dart
+  /// "Bandwidth restriction (download)"
+  /// ```
+  String get dlBandwidthRestrictedReason =>
+      """Bandwidth restriction (download)""";
+
+  /// ```dart
+  /// "Bandwidth restriction (upload)"
+  /// ```
+  String get ulBandwidthRestrictedReason =>
+      """Bandwidth restriction (upload)""";
+
+  /// ```dart
   /// "Downlink Throughput"
   /// ```
   String get downlink_throughput_bps => """Downlink Throughput""";
@@ -2596,6 +2608,10 @@ with internet access and dish access. You can find this setting in
       """avg_prolonged_obstruction_valid""",
   """grpc.DishGetStatus.time_obstructed""": """time_obstructed""",
   """grpc.DishGetStatus.patches_valid""": """patches_valid""",
+  """grpc.DishGetStatus.dlBandwidthRestrictedReason""":
+      """Bandwidth restriction (download)""",
+  """grpc.DishGetStatus.ulBandwidthRestrictedReason""":
+      """Bandwidth restriction (upload)""",
   """grpc.DishGetStatus.downlink_throughput_bps""": """Downlink Throughput""",
   """grpc.DishGetStatus.uplink_throughput_bps""": """Uplink Throughput""",
   """grpc.DishGetStatus.pop_ping_drop_rate""": """PoP ping drop rate""",

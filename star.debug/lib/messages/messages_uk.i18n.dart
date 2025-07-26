@@ -1436,6 +1436,17 @@ class DishGetStatusGrpcMessagesUk extends DishGetStatusGrpcMessages {
   String get patches_valid => """patches_valid""";
 
   /// ```dart
+  /// "Обмеження швидкості (download)"
+  /// ```
+  String get dlBandwidthRestrictedReason =>
+      """Обмеження швидкості (download)""";
+
+  /// ```dart
+  /// "Обмеження швидкості (upload)"
+  /// ```
+  String get ulBandwidthRestrictedReason => """Обмеження швидкості (upload)""";
+
+  /// ```dart
   /// "Downlink Throughput"
   /// ```
   String get downlink_throughput_bps => """Downlink Throughput""";
@@ -2593,6 +2604,10 @@ Map<String, String> get messagesUkMap => {
       """avg_prolonged_obstruction_valid""",
   """grpc.DishGetStatus.time_obstructed""": """time_obstructed""",
   """grpc.DishGetStatus.patches_valid""": """patches_valid""",
+  """grpc.DishGetStatus.dlBandwidthRestrictedReason""":
+      """Обмеження швидкості (download)""",
+  """grpc.DishGetStatus.ulBandwidthRestrictedReason""":
+      """Обмеження швидкості (upload)""",
   """grpc.DishGetStatus.downlink_throughput_bps""": """Downlink Throughput""",
   """grpc.DishGetStatus.uplink_throughput_bps""": """Uplink Throughput""",
   """grpc.DishGetStatus.pop_ping_drop_rate""": """PoP ping drop rate""",
