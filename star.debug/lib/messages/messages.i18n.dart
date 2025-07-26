@@ -354,6 +354,11 @@ class GeneralMessages {
   /// "no"
   /// ```
   String get no => """no""";
+
+  /// ```dart
+  /// "not specified"
+  /// ```
+  String get not_specified => """not specified""";
 }
 
 class RecentMessages {
@@ -1429,6 +1434,18 @@ class DishGetStatusGrpcMessages {
   String get patches_valid => """patches_valid""";
 
   /// ```dart
+  /// "Bandwidth restriction (download)"
+  /// ```
+  String get dlBandwidthRestrictedReason =>
+      """Bandwidth restriction (download)""";
+
+  /// ```dart
+  /// "Bandwidth restriction (upload)"
+  /// ```
+  String get ulBandwidthRestrictedReason =>
+      """Bandwidth restriction (upload)""";
+
+  /// ```dart
   /// "Downlink Throughput"
   /// ```
   String get downlink_throughput_bps => """Downlink Throughput""";
@@ -2356,6 +2373,7 @@ Map<String, String> get messagesMap => {
   """general.should_not_be_empty""": """Should not be empty""",
   """general.yes""": """yes""",
   """general.no""": """no""",
+  """general.not_specified""": """not specified""",
   """recent.search""": """Search""",
   """recent.no_options""": """No options to show""",
   """my.my_starlinks""": """My Starlinks""",
@@ -2590,6 +2608,10 @@ with internet access and dish access. You can find this setting in
       """avg_prolonged_obstruction_valid""",
   """grpc.DishGetStatus.time_obstructed""": """time_obstructed""",
   """grpc.DishGetStatus.patches_valid""": """patches_valid""",
+  """grpc.DishGetStatus.dlBandwidthRestrictedReason""":
+      """Bandwidth restriction (download)""",
+  """grpc.DishGetStatus.ulBandwidthRestrictedReason""":
+      """Bandwidth restriction (upload)""",
   """grpc.DishGetStatus.downlink_throughput_bps""": """Downlink Throughput""",
   """grpc.DishGetStatus.uplink_throughput_bps""": """Uplink Throughput""",
   """grpc.DishGetStatus.pop_ping_drop_rate""": """PoP ping drop rate""",

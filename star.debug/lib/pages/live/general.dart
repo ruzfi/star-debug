@@ -99,7 +99,10 @@ class _GeneralTabState extends State<GeneralTab> with TickerProviderStateMixin {
       else {
         var b1 = KVWidgetBuilder(context, theme);
         b1.kv(M.grpc.DeviceInfo.id, status.deviceInfo.id);
-        b1.kv(M.general.version, Instant.fromEpochSeconds(status.deviceInfo.generationNumber.toInt()).inUtc().toString("yyyy-MM-dd"));
+        if (status.deviceInfo.generationNumber.isZero)
+          b1.kv(M.general.version, M.general.not_specified);
+        else
+          b1.kv(M.general.version, Instant.fromEpochSeconds(status.deviceInfo.generationNumber.toInt()).inUtc().toString("yyyy-MM-dd"));
 
         {
           String code = "${status.disablementCode}";
