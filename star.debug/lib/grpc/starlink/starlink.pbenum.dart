@@ -110,6 +110,8 @@ class User extends $pb.ProtobufEnum {
   static const User SENSITIVE_COMMANDING =
       User._(7, _omitEnumNames ? '' : 'SENSITIVE_COMMANDING');
   static const User LAN_TLS = User._(8, _omitEnumNames ? '' : 'LAN_TLS');
+  static const User CLOUD_INDIA =
+      User._(9, _omitEnumNames ? '' : 'CLOUD_INDIA');
 
   static const $core.List<User> values = <User>[
     NO_USER,
@@ -121,10 +123,11 @@ class User extends $pb.ProtobufEnum {
     GUEST_LAN,
     SENSITIVE_COMMANDING,
     LAN_TLS,
+    CLOUD_INDIA,
   ];
 
   static final $core.List<User?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 8);
+      $pb.ProtobufEnum.$_initByValueList(values, 9);
   static User? valueOf($core.int value) =>
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 
@@ -461,6 +464,69 @@ class SpeedtestError extends $pb.ProtobufEnum {
   const SpeedtestError._(super.value, super.name);
 }
 
+/// SpaceX.API.Satellites.Network.UtDisablementCode is an enum:
+class UtDisablementCode extends $pb.ProtobufEnum {
+  static const UtDisablementCode UNKNOWN_STATE =
+      UtDisablementCode._(0, _omitEnumNames ? '' : 'UNKNOWN_STATE');
+  static const UtDisablementCode OKAY =
+      UtDisablementCode._(1, _omitEnumNames ? '' : 'OKAY');
+  static const UtDisablementCode NO_ACTIVE_ACCOUNT =
+      UtDisablementCode._(2, _omitEnumNames ? '' : 'NO_ACTIVE_ACCOUNT');
+  static const UtDisablementCode TOO_FAR_FROM_SERVICE_ADDRESS =
+      UtDisablementCode._(
+          3, _omitEnumNames ? '' : 'TOO_FAR_FROM_SERVICE_ADDRESS');
+  static const UtDisablementCode IN_OCEAN =
+      UtDisablementCode._(4, _omitEnumNames ? '' : 'IN_OCEAN');
+  static const UtDisablementCode BLOCKED_COUNTRY =
+      UtDisablementCode._(6, _omitEnumNames ? '' : 'BLOCKED_COUNTRY');
+  static const UtDisablementCode DATA_OVERAGE_SANDBOX_POLICY =
+      UtDisablementCode._(
+          7, _omitEnumNames ? '' : 'DATA_OVERAGE_SANDBOX_POLICY');
+  static const UtDisablementCode CELL_IS_DISABLED =
+      UtDisablementCode._(8, _omitEnumNames ? '' : 'CELL_IS_DISABLED');
+  static const UtDisablementCode ROAM_RESTRICTED =
+      UtDisablementCode._(10, _omitEnumNames ? '' : 'ROAM_RESTRICTED');
+  static const UtDisablementCode UNKNOWN_LOCATION =
+      UtDisablementCode._(11, _omitEnumNames ? '' : 'UNKNOWN_LOCATION');
+  static const UtDisablementCode ACCOUNT_DISABLED =
+      UtDisablementCode._(12, _omitEnumNames ? '' : 'ACCOUNT_DISABLED');
+  static const UtDisablementCode UNSUPPORTED_VERSION =
+      UtDisablementCode._(13, _omitEnumNames ? '' : 'UNSUPPORTED_VERSION');
+  static const UtDisablementCode MOVING_TOO_FAST_FOR_POLICY =
+      UtDisablementCode._(
+          14, _omitEnumNames ? '' : 'MOVING_TOO_FAST_FOR_POLICY');
+  static const UtDisablementCode UNDER_AVIATION_FLYOVER_LIMITS =
+      UtDisablementCode._(
+          15, _omitEnumNames ? '' : 'UNDER_AVIATION_FLYOVER_LIMITS');
+  static const UtDisablementCode BLOCKED_AREA =
+      UtDisablementCode._(16, _omitEnumNames ? '' : 'BLOCKED_AREA');
+
+  static const $core.List<UtDisablementCode> values = <UtDisablementCode>[
+    UNKNOWN_STATE,
+    OKAY,
+    NO_ACTIVE_ACCOUNT,
+    TOO_FAR_FROM_SERVICE_ADDRESS,
+    IN_OCEAN,
+    BLOCKED_COUNTRY,
+    DATA_OVERAGE_SANDBOX_POLICY,
+    CELL_IS_DISABLED,
+    ROAM_RESTRICTED,
+    UNKNOWN_LOCATION,
+    ACCOUNT_DISABLED,
+    UNSUPPORTED_VERSION,
+    MOVING_TOO_FAST_FOR_POLICY,
+    UNDER_AVIATION_FLYOVER_LIMITS,
+    BLOCKED_AREA,
+  ];
+
+  static final $core.List<UtDisablementCode?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 16);
+  static UtDisablementCode? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const UtDisablementCode._(super.value, super.name);
+}
+
 /// SpaceX.API.Device.UserMobilityClass is an enum:
 class UserMobilityClass extends $pb.ProtobufEnum {
   static const UserMobilityClass STATIONARY =
@@ -727,6 +793,29 @@ class RebootReason extends $pb.ProtobufEnum {
   const RebootReason._(super.value, super.name);
 }
 
+/// SpaceX.API.Device.AccountShard is an enum:
+class AccountShard extends $pb.ProtobufEnum {
+  static const AccountShard ACCOUNT_SHARD_UNKNOWN =
+      AccountShard._(0, _omitEnumNames ? '' : 'ACCOUNT_SHARD_UNKNOWN');
+  static const AccountShard ACCOUNT_SHARD_DEFAULT =
+      AccountShard._(1, _omitEnumNames ? '' : 'ACCOUNT_SHARD_DEFAULT');
+  static const AccountShard ACCOUNT_SHARD_INDIA =
+      AccountShard._(2, _omitEnumNames ? '' : 'ACCOUNT_SHARD_INDIA');
+
+  static const $core.List<AccountShard> values = <AccountShard>[
+    ACCOUNT_SHARD_UNKNOWN,
+    ACCOUNT_SHARD_DEFAULT,
+    ACCOUNT_SHARD_INDIA,
+  ];
+
+  static final $core.List<AccountShard?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 2);
+  static AccountShard? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const AccountShard._(super.value, super.name);
+}
+
 /// SpaceX.API.Device.EventSeverity is an enum:
 class EventSeverity extends $pb.ProtobufEnum {
   static const EventSeverity EVENT_SEVERITY_UNKNOWN =
@@ -796,6 +885,86 @@ class EventReason extends $pb.ProtobufEnum {
   static const EventReason EVENT_REASON_ROUTER_THERMAL_THROTTLED =
       EventReason._(
           18, _omitEnumNames ? '' : 'EVENT_REASON_ROUTER_THERMAL_THROTTLED');
+  static const EventReason EVENT_REASON_OUTAGE_SKY_SEARCH =
+      EventReason._(19, _omitEnumNames ? '' : 'EVENT_REASON_OUTAGE_SKY_SEARCH');
+  static const EventReason EVENT_REASON_ROUTER_REBOOT_CONFIG_UPDATE =
+      EventReason._(
+          20, _omitEnumNames ? '' : 'EVENT_REASON_ROUTER_REBOOT_CONFIG_UPDATE');
+  static const EventReason EVENT_REASON_ROUTER_PUBLIC_IPV4_CHANGE =
+      EventReason._(
+          21, _omitEnumNames ? '' : 'EVENT_REASON_ROUTER_PUBLIC_IPV4_CHANGE');
+  static const EventReason EVENT_REASON_UT_ALERT_RAIN_SNR_PERSISTENTLY_LOW =
+      EventReason._(
+          22,
+          _omitEnumNames
+              ? ''
+              : 'EVENT_REASON_UT_ALERT_RAIN_SNR_PERSISTENTLY_LOW');
+  static const EventReason EVENT_REASON_UT_ALERT_ETH_NO_LINK = EventReason._(
+      23, _omitEnumNames ? '' : 'EVENT_REASON_UT_ALERT_ETH_NO_LINK');
+  static const EventReason EVENT_REASON_UT_ALERT_ETH_SLOW_LINK = EventReason._(
+      24, _omitEnumNames ? '' : 'EVENT_REASON_UT_ALERT_ETH_SLOW_LINK');
+  static const EventReason EVENT_REASON_UT_ALERT_ETH_SLOW_LINK_100 =
+      EventReason._(
+          25, _omitEnumNames ? '' : 'EVENT_REASON_UT_ALERT_ETH_SLOW_LINK_100');
+  static const EventReason EVENT_REASON_ROUTER_POP_IPV4_PING_DROP =
+      EventReason._(
+          26, _omitEnumNames ? '' : 'EVENT_REASON_ROUTER_POP_IPV4_PING_DROP');
+  static const EventReason EVENT_REASON_ROUTER_POP_IPV6_PING_DROP =
+      EventReason._(
+          27, _omitEnumNames ? '' : 'EVENT_REASON_ROUTER_POP_IPV6_PING_DROP');
+  static const EventReason EVENT_REASON_ROUTER_LAN_ETH_HIGH_PACKET_LOSS =
+      EventReason._(28,
+          _omitEnumNames ? '' : 'EVENT_REASON_ROUTER_LAN_ETH_HIGH_PACKET_LOSS');
+  static const EventReason EVENT_REASON_ROUTER_WAN_ETH_HIGH_PACKET_LOSS =
+      EventReason._(29,
+          _omitEnumNames ? '' : 'EVENT_REASON_ROUTER_WAN_ETH_HIGH_PACKET_LOSS');
+  static const EventReason EVENT_REASON_ROUTER_DHCP_SERVER_FAIL_TO_START =
+      EventReason._(
+          30,
+          _omitEnumNames
+              ? ''
+              : 'EVENT_REASON_ROUTER_DHCP_SERVER_FAIL_TO_START');
+  static const EventReason EVENT_REASON_ROUTER_DHCP_SERVER_EXHAUSTED =
+      EventReason._(31,
+          _omitEnumNames ? '' : 'EVENT_REASON_ROUTER_DHCP_SERVER_EXHAUSTED');
+  static const EventReason EVENT_REASON_ROUTER_DNS_IPV4_SERVER_FAIL_TO_START =
+      EventReason._(
+          32,
+          _omitEnumNames
+              ? ''
+              : 'EVENT_REASON_ROUTER_DNS_IPV4_SERVER_FAIL_TO_START');
+  static const EventReason EVENT_REASON_ROUTER_DNS_IPV6_SERVER_FAIL_TO_START =
+      EventReason._(
+          33,
+          _omitEnumNames
+              ? ''
+              : 'EVENT_REASON_ROUTER_DNS_IPV6_SERVER_FAIL_TO_START');
+  static const EventReason EVENT_REASON_ROUTER_SET_CUSTOM_DNS_DISALLOWED =
+      EventReason._(
+          34,
+          _omitEnumNames
+              ? ''
+              : 'EVENT_REASON_ROUTER_SET_CUSTOM_DNS_DISALLOWED');
+  static const EventReason EVENT_REASON_ROUTER_SET_CUSTOM_DNS_ALLOWED =
+      EventReason._(35,
+          _omitEnumNames ? '' : 'EVENT_REASON_ROUTER_SET_CUSTOM_DNS_ALLOWED');
+  static const EventReason EVENT_REASON_ROUTER_MAX_WIRELESS_CLIENTS =
+      EventReason._(
+          36, _omitEnumNames ? '' : 'EVENT_REASON_ROUTER_MAX_WIRELESS_CLIENTS');
+  static const EventReason EVENT_REASON_ROUTER_MAX_5GHIGH_WIRELESS_CLIENTS =
+      EventReason._(
+          37,
+          _omitEnumNames
+              ? ''
+              : 'EVENT_REASON_ROUTER_MAX_5GHIGH_WIRELESS_CLIENTS');
+  static const EventReason EVENT_REASON_ROUTER_MESH_TOPOLOGY_CHANGING_OFTEN =
+      EventReason._(
+          38,
+          _omitEnumNames
+              ? ''
+              : 'EVENT_REASON_ROUTER_MESH_TOPOLOGY_CHANGING_OFTEN');
+  static const EventReason EVENT_REASON_ROUTER_CONNTRACK_FULL = EventReason._(
+      39, _omitEnumNames ? '' : 'EVENT_REASON_ROUTER_CONNTRACK_FULL');
 
   static const $core.List<EventReason> values = <EventReason>[
     EVENT_REASON_UNKNOWN,
@@ -817,10 +986,31 @@ class EventReason extends $pb.ProtobufEnum {
     EVENT_REASON_ROUTER_CONFIG_UPDATE,
     EVENT_REASON_ROUTER_SOFTWARE_UPDATE,
     EVENT_REASON_ROUTER_THERMAL_THROTTLED,
+    EVENT_REASON_OUTAGE_SKY_SEARCH,
+    EVENT_REASON_ROUTER_REBOOT_CONFIG_UPDATE,
+    EVENT_REASON_ROUTER_PUBLIC_IPV4_CHANGE,
+    EVENT_REASON_UT_ALERT_RAIN_SNR_PERSISTENTLY_LOW,
+    EVENT_REASON_UT_ALERT_ETH_NO_LINK,
+    EVENT_REASON_UT_ALERT_ETH_SLOW_LINK,
+    EVENT_REASON_UT_ALERT_ETH_SLOW_LINK_100,
+    EVENT_REASON_ROUTER_POP_IPV4_PING_DROP,
+    EVENT_REASON_ROUTER_POP_IPV6_PING_DROP,
+    EVENT_REASON_ROUTER_LAN_ETH_HIGH_PACKET_LOSS,
+    EVENT_REASON_ROUTER_WAN_ETH_HIGH_PACKET_LOSS,
+    EVENT_REASON_ROUTER_DHCP_SERVER_FAIL_TO_START,
+    EVENT_REASON_ROUTER_DHCP_SERVER_EXHAUSTED,
+    EVENT_REASON_ROUTER_DNS_IPV4_SERVER_FAIL_TO_START,
+    EVENT_REASON_ROUTER_DNS_IPV6_SERVER_FAIL_TO_START,
+    EVENT_REASON_ROUTER_SET_CUSTOM_DNS_DISALLOWED,
+    EVENT_REASON_ROUTER_SET_CUSTOM_DNS_ALLOWED,
+    EVENT_REASON_ROUTER_MAX_WIRELESS_CLIENTS,
+    EVENT_REASON_ROUTER_MAX_5GHIGH_WIRELESS_CLIENTS,
+    EVENT_REASON_ROUTER_MESH_TOPOLOGY_CHANGING_OFTEN,
+    EVENT_REASON_ROUTER_CONNTRACK_FULL,
   ];
 
   static final $core.List<EventReason?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 18);
+      $pb.ProtobufEnum.$_initByValueList(values, 39);
   static EventReason? valueOf($core.int value) =>
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 
@@ -969,6 +1159,54 @@ class WifiSetupRequirementState extends $pb.ProtobufEnum {
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 
   const WifiSetupRequirementState._(super.value, super.name);
+}
+
+/// SpaceX.API.Device.CalibrationPartitionsState is an enum:
+class CalibrationPartitionsState extends $pb.ProtobufEnum {
+  static const CalibrationPartitionsState
+      CALIBRATION_PARTITIONS_STATE_UNSPECIFIED = CalibrationPartitionsState._(
+          0, _omitEnumNames ? '' : 'CALIBRATION_PARTITIONS_STATE_UNSPECIFIED');
+  static const CalibrationPartitionsState
+      CALIBRATION_PARTITIONS_STATE_ABSENT_BOTH_SIDES =
+      CalibrationPartitionsState._(
+          1,
+          _omitEnumNames
+              ? ''
+              : 'CALIBRATION_PARTITIONS_STATE_ABSENT_BOTH_SIDES');
+  static const CalibrationPartitionsState
+      CALIBRATION_PARTITIONS_STATE_CONTENTS_EQUAL =
+      CalibrationPartitionsState._(2,
+          _omitEnumNames ? '' : 'CALIBRATION_PARTITIONS_STATE_CONTENTS_EQUAL');
+  static const CalibrationPartitionsState
+      CALIBRATION_PARTITIONS_STATE_CONTENTS_NOT_EQUAL =
+      CalibrationPartitionsState._(
+          3,
+          _omitEnumNames
+              ? ''
+              : 'CALIBRATION_PARTITIONS_STATE_CONTENTS_NOT_EQUAL');
+  static const CalibrationPartitionsState
+      CALIBRATION_PARTITIONS_STATE_COMPARISON_FAILED =
+      CalibrationPartitionsState._(
+          4,
+          _omitEnumNames
+              ? ''
+              : 'CALIBRATION_PARTITIONS_STATE_COMPARISON_FAILED');
+
+  static const $core.List<CalibrationPartitionsState> values =
+      <CalibrationPartitionsState>[
+    CALIBRATION_PARTITIONS_STATE_UNSPECIFIED,
+    CALIBRATION_PARTITIONS_STATE_ABSENT_BOTH_SIDES,
+    CALIBRATION_PARTITIONS_STATE_CONTENTS_EQUAL,
+    CALIBRATION_PARTITIONS_STATE_CONTENTS_NOT_EQUAL,
+    CALIBRATION_PARTITIONS_STATE_COMPARISON_FAILED,
+  ];
+
+  static final $core.List<CalibrationPartitionsState?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 4);
+  static CalibrationPartitionsState? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const CalibrationPartitionsState._(super.value, super.name);
 }
 
 /// SpaceX.API.Device.WifiSecurity is an enum:
@@ -1656,6 +1894,8 @@ class DishOutage_Cause extends $pb.ProtobufEnum {
       DishOutage_Cause._(10, _omitEnumNames ? '' : 'CABLE_TEST');
   static const DishOutage_Cause SLEEPING =
       DishOutage_Cause._(11, _omitEnumNames ? '' : 'SLEEPING');
+  static const DishOutage_Cause SKY_SEARCH =
+      DishOutage_Cause._(13, _omitEnumNames ? '' : 'SKY_SEARCH');
 
   static const $core.List<DishOutage_Cause> values = <DishOutage_Cause>[
     UNKNOWN,
@@ -1670,10 +1910,11 @@ class DishOutage_Cause extends $pb.ProtobufEnum {
     ACTUATOR_ACTIVITY,
     CABLE_TEST,
     SLEEPING,
+    SKY_SEARCH,
   ];
 
   static final $core.List<DishOutage_Cause?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 11);
+      $pb.ProtobufEnum.$_initByValueList(values, 13);
   static DishOutage_Cause? valueOf($core.int value) =>
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 
