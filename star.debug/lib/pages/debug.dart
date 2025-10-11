@@ -195,6 +195,14 @@ class _DebugPageState extends State<DebugPage> with TickerProviderStateMixin {
       ],
     ));
 
+    res.add(Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        reqButton("DishInhibitRfRequest True", () => Request(dishInhibitRf: DishInhibitRfRequest(inhibitRf: true)), router: false),
+        reqButton("DishInhibitRfRequest False", () => Request(dishInhibitRf: DishInhibitRfRequest(inhibitRf: false)), router: false),
+      ],
+    ));
+
     res.add(InkWell(
       onTap: () async {
         if (text.isEmpty)

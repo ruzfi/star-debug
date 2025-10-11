@@ -1,4 +1,8 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:flutter/material.dart' hide Notification, Card, ConnectionState;
+import 'package:grpc/grpc.dart';
 import 'package:recase/recase.dart';
 import 'package:star_debug/grpc/starlink/network.pb.dart';
 import 'package:star_debug/grpc/starlink/starlink.pbgrpc.dart';
@@ -12,6 +16,8 @@ import 'package:star_debug/utils/snapshot.dart';
 import 'package:star_debug/utils/view_options.dart';
 import 'package:time_machine2/time_machine2.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+
+import '../../utils/log_utils.dart';
 
 const String _TAG="DishWidget";
 
@@ -46,6 +52,72 @@ class _DishWidgetState extends State<DishWidget> with TickerProviderStateMixin {
     );
   }
 
+  // Future<String> withConnectedHandleJson( Request req, {bool router = false}) async {
+  //   return await withConnected((stub, channel) async {
+  //     var resp = await stub.handle(req);
+  //
+  //     log("Received response: ${jsonEncode(resp.toProto3Json())}");
+  //
+  //     return JsonEncoder.withIndent("  ").convert(resp.toProto3Json());
+  //   }, router: router) ?? "";
+  // }
+  //
+  // Widget reqButton(String name, Request Function() reqBuilder, {bool router = false}){
+  //   return OutlinedButton(onPressed: () async {
+  //     text = await withConnectedHandleJson(reqBuilder(), router: router);
+  //     img = null;
+  //     setState(() {});
+  //   }, child: Text(name));
+  // }
+  Widget reqButton(String name, Request Function() reqBuilder, {bool router = false}){
+    return OutlinedButton(
+        onPressed: () async {
+          try {
+            var text = await withConnectedHandleJson(reqBuilder(), router: router);
+            R.showSnackBarText(text);
+          }finally{
+          }
+        },
+        style: OutlinedButton.styleFrom(padding: EdgeInsets.fromLTRB(5,3,5,3)),
+        child: Text(name)
+    );
+  }
+
+  Future<String> withConnectedHandleJson( Request req, {bool router = false}) async {
+    return await withConnected((stub, channel) async {
+      var resp = await stub.handle(req, options: CallOptions(timeout: Duration(seconds: 3)));
+
+      log("Received response: ${jsonEncode(resp.toProto3Json())}");
+
+      return JsonEncoder.withIndent("  ").convert(resp.toProto3Json());
+    }, router: router) ?? "";
+  }
+  Future<T?> withConnected<T>(Future<T> Function(DeviceClient stub, ClientChannel channel) callback, {bool router = false} ) async {
+    final channel = ClientChannel(
+      router ? '192.168.1.1' : '192.168.100.1',
+      port: router ? 9000 : 9200,
+      options: ChannelOptions(
+        credentials: ChannelCredentials.insecure(),
+        codecRegistry: CodecRegistry(codecs: const [GzipCodec(), IdentityCodec()]),
+        connectionTimeout: Duration(seconds: 3),
+        idleTimeout: Duration(seconds: 10),
+      ),
+    );
+    final stub = DeviceClient(channel);
+
+    try {
+      T res = await callback(stub, channel);
+      return res;
+    } catch (e, s) {
+      LogUtils.ers(_TAG, "", e, s);
+      R.showSnackBarText("$e");
+    }
+    finally {
+      await channel.shutdown();
+    }
+
+    return null;
+  }
   List<Widget> _buildBody(){
     List<Widget> rows = [];
 
@@ -54,6 +126,14 @@ class _DishWidgetState extends State<DishWidget> with TickerProviderStateMixin {
       {
         var b = KVWidgetBuilder(context, theme);
         b.header(M.header.general);
+
+        b.widgets.add( Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            reqButton("DishInhibitRfRequest True", () => Request(dishInhibitRf: DishInhibitRfRequest(inhibitRf: true)), router: false),
+            reqButton("DishInhibitRfRequest False", () => Request(dishInhibitRf: DishInhibitRfRequest(inhibitRf: false)), router: false),
+          ],
+        ));
 
         if (status.hasDeviceState()) {
           if (status.deviceState.hasUptimeS())
@@ -101,6 +181,9 @@ class _DishWidgetState extends State<DishWidget> with TickerProviderStateMixin {
                 status.outage.cause,
                 hint: Format.formatEnumHint(M.grpc.DishOutage.cause__hint, DishOutage_Cause.values),
                 ok: false
+            );
+            b.kv("DidSwitch",
+                status.outage.didSwitch,
             );
         }
 
