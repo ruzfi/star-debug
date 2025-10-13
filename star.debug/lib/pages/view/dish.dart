@@ -11,7 +11,7 @@ import 'package:star_debug/utils/format.dart';
 import 'package:star_debug/utils/kv_widget.dart';
 import 'package:star_debug/utils/snapshot.dart';
 import 'package:star_debug/utils/view_options.dart';
-import 'package:time_machine/time_machine.dart';
+import 'package:time_machine2/time_machine2.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 const String _TAG="DishWidget";

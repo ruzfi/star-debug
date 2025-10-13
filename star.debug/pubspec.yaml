@@ -32,7 +32,7 @@ dependencies:
   firebase_crashlytics: any
   firebase_analytics: any
   clipboard: ^2.0.2
-  time_machine: 0.9.17
+  time_machine2: 0.12.1
   flutter_timezone: ^5.0.0
   upgrader: ^12.1.0
   file_picker: any
@@ -82,8 +82,8 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - packages/time_machine/data/cultures/cultures.bin
-    - packages/time_machine/data/tzdb/tzdb.bin
+    - packages/time_machine2/data/cultures/cultures.bin
+    - packages/time_machine2/data/tzdb/tzdb.bin
     - assets/images/
     - assets/images/devices/
   # To add assets to your application, add an assets section, like this:
