@@ -215,9 +215,6 @@ class _DishTabState extends State<DishTab> with TickerProviderStateMixin {
       rows.addAll(b.widgets);
     }
 
-    () async {
-      print("${await FlutterTimezone.getLocalTimezone()}}:  ${Instant.fromEpochMilliseconds(1760277506000).inLocalZone()} ${LocalDateTime.now()}");
-    }();
   }
 
 }
