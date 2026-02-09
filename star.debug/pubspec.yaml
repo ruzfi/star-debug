@@ -65,14 +65,23 @@ dev_dependencies:
   # The lint set provided by the package is activated in the `analysis_options.yaml`
   flutter_lints: ^6.0.0
 
+#flutter_launcher_icons:
+#  android: "launcher_icon"
+#  ios: true
+#  remove_alpha_ios: true
+#  image_path_ios: "_misc/logo_transparent.png"
+#  image_path_android: "_misc/logo_transparent.png"
+#  adaptive_icon_background: "#000000"
+#  adaptive_icon_foreground: "_misc/logo_transparent.png"
+
 flutter_launcher_icons:
-  android: "launcher_icon"
+  android: true
   ios: true
+  image_path: "_misc/logo.png"
+  adaptive_icon_background: "_misc/logo-back.png"
+  adaptive_icon_foreground: "_misc/logo-front.png"
   remove_alpha_ios: true
-  image_path_ios: "_misc/logo.png"
-  image_path_android: "_misc/logo.png"
-  adaptive_icon_background: "#000000"
-  adaptive_icon_foreground: "_misc/logo.png"
+  min_sdk_android: 21
 
 # The following section is specific to Flutter packages.
 flutter:
