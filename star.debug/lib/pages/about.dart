@@ -41,14 +41,16 @@ class _AboutPageState extends State<AboutPage> with TickerProviderStateMixin {
           key: scaffoldKey,
           appBar: _buildBar(context) as PreferredSizeWidget?,
           drawer: AppDrawer(selectedRoute: Routes.DEBUG),
-          body: Stack(
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
-                children: _buildBody(),
-              ),
-            ],
+          body: SafeArea(
+            child: Stack(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: _buildBody(),
+                ),
+              ],
+            ),
           )
       ),
     );
