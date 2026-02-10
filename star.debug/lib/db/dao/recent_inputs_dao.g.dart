@@ -36,4 +36,17 @@ mixin _$RecentInputsDaoMixin on DatabaseAccessor<Database> {
       readsFrom: {recentInputs},
     ).asyncMap(recentInputs.mapFromRow);
   }
+
+  RecentInputsDaoManager get managers => RecentInputsDaoManager(this);
+}
+
+class RecentInputsDaoManager {
+  final _$RecentInputsDaoMixin _db;
+  RecentInputsDaoManager(this._db);
+  $$RecentInputsTableTableManager get recentInputs =>
+      $$RecentInputsTableTableManager(_db.attachedDatabase, _db.recentInputs);
+  $$DishLogsTableTableManager get dishLogs =>
+      $$DishLogsTableTableManager(_db.attachedDatabase, _db.dishLogs);
+  $$DishesTableTableManager get dishes =>
+      $$DishesTableTableManager(_db.attachedDatabase, _db.dishes);
 }

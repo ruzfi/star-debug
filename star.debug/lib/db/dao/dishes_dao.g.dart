@@ -101,6 +101,19 @@ mixin _$DishesDaoMixin on DatabaseAccessor<Database> {
       readsFrom: {dishLogs},
     ).asyncMap(dishLogs.mapFromRow);
   }
+
+  DishesDaoManager get managers => DishesDaoManager(this);
+}
+
+class DishesDaoManager {
+  final _$DishesDaoMixin _db;
+  DishesDaoManager(this._db);
+  $$DishesTableTableManager get dishes =>
+      $$DishesTableTableManager(_db.attachedDatabase, _db.dishes);
+  $$DishLogsTableTableManager get dishLogs =>
+      $$DishLogsTableTableManager(_db.attachedDatabase, _db.dishLogs);
+  $$RecentInputsTableTableManager get recentInputs =>
+      $$RecentInputsTableTableManager(_db.attachedDatabase, _db.recentInputs);
 }
 
 class GetDishesResult {

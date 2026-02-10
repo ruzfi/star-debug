@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: curly_braces_in_flow_control_structures
 // ignore_for_file: deprecated_member_use_from_same_package, library_prefixes
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, prefer_relative_imports
 
 import 'dart:core' as $core;
 
@@ -41,12 +41,12 @@ class Status extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Status'),
       createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'code', $pb.PbFieldType.O3)
+    ..aI(1, _omitFieldNames ? '' : 'code')
     ..aOS(2, _omitFieldNames ? '' : 'message')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  Status clone() => Status()..mergeFromMessage(this);
+  Status clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   Status copyWith(void Function(Status) updates) =>
       super.copyWith((message) => updates(message as Status)) as Status;
@@ -58,7 +58,6 @@ class Status extends $pb.GeneratedMessage {
   static Status create() => Status._();
   @$core.override
   Status createEmptyInstance() => create();
-  static $pb.PbList<Status> createRepeated() => $pb.PbList<Status>();
   @$core.pragma('dart2js:noInline')
   static Status getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Status>(create);
