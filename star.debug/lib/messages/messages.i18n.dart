@@ -2871,8 +2871,7 @@ Moreover, in the case of a moving router, its route can be followed.
   """grpc.DeviceInfo.x_build_date""": """Build date""",
   """grpc.DeviceInfo.x_timezone""": """Timezone""",
   """grpc.BootInfo.last_reason""": """Last reason""",
-  """grpc.BootInfo.last_reason__hint""":
-      """The possible options are:
+  """grpc.BootInfo.last_reason__hint""": """The possible options are:
 
 - **UNKNOWN**
 - **FORGOTTEN** - Boot reason was not recorded.
@@ -2965,8 +2964,7 @@ Moreover, in the case of a moving router, its route can be followed.
   """grpc.DishInitDuration.stableConnection_hint""":
       """The terminal has received a stable connection to the network.""",
   """grpc.DishConfig.snow_melt_mode""": """Snow melt mode""",
-  """grpc.DishConfig.snow_melt_mode__hint""":
-      """The possible options are:
+  """grpc.DishConfig.snow_melt_mode__hint""": """The possible options are:
 
 - **AUTO** - The dish automatically melts snow when detected.
 - **ALWAYS_ON** - Snow melting heater is always on.
@@ -2983,8 +2981,7 @@ with internet access and dish access. You can find this setting in
 *Advanced* -> *Debug Data* -> *Allow access on local network*.
 """,
   """grpc.DishConfig.level_dish_mode""": """Level dish mode""",
-  """grpc.DishConfig.level_dish_mode__hint""":
-      """The possible options are:
+  """grpc.DishConfig.level_dish_mode__hint""": """The possible options are:
 
 - **TILT_LIKE_NORMAL** - The dish tilts normally to track satellites.
 - **FORCE_LEVEL** - The dish is forced to stay level (horizontal).
@@ -3086,8 +3083,7 @@ with internet access and dish access. You can find this setting in
   """grpc.DishGetStatus.is_snr_above_noise_floor__hint""":
       """Whether the Signal-to-Noise Ratio is above the minimum threshold required for reliable communication.""",
   """grpc.DishGetStatus.class_of_service""": """Class of service""",
-  """grpc.DishGetStatus.class_of_service__hint""":
-      """The possible options are:
+  """grpc.DishGetStatus.class_of_service__hint""": """The possible options are:
 
 - **UNKNOWN**
 - **CONSUMER** - Residential Starlink plan.
@@ -3116,8 +3112,7 @@ with internet access and dish access. You can find this setting in
   """grpc.DishGetStatus.has_actuators__hint""":
       """Whether the dish has motorized actuators for tilting and rotating.""",
   """grpc.DishGetStatus.actuator_state""": """Actuators state""",
-  """grpc.DishGetStatus.actuator_state__hint""":
-      """The possible options are:
+  """grpc.DishGetStatus.actuator_state__hint""": """The possible options are:
 
 - **IDLE** - Actuators are idle, dish is in normal operating position.
 - **FULL_TILT** - Dish is fully tilted.

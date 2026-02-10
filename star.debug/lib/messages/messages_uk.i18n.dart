@@ -1149,8 +1149,7 @@ class DishGpsStatsGrpcMessagesUk extends DishGpsStatsGrpcMessages {
   /// ```dart
   /// "Чи отримала тарілка дійсний GPS-фікс."
   /// ```
-  String get gps_valid__hint =>
-      """Чи отримала тарілка дійсний GPS-фікс.""";
+  String get gps_valid__hint => """Чи отримала тарілка дійсний GPS-фікс.""";
 
   /// ```dart
   /// "GPS супутники"
@@ -3170,7 +3169,8 @@ Map<String, String> get messagesUkMap => {
       """Panel boresight Elevation angle, deg""",
   """grpc.AlignmentStats.attitude_estimation_state""":
       """Attitude estimation state""",
-  """grpc.AlignmentStats.attitude_estimation_state__hint""": """Можливі варіанти:
+  """grpc.AlignmentStats.attitude_estimation_state__hint""":
+      """Можливі варіанти:
 
 - **FILTER_RESET** - Фільтр орієнтації скинуто, оцінка ще не розпочата.
 - **FILTER_UNCONVERGED** - Фільтр орієнтації працює, але ще не збігся.
