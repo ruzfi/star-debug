@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: curly_braces_in_flow_control_structures
 // ignore_for_file: deprecated_member_use_from_same_package, library_prefixes
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, prefer_relative_imports
 
 import 'dart:core' as $core;
 
@@ -81,6 +81,7 @@ enum Request_Request {
   resetButton,
   setPerVehicleConfig,
   dishAviationTest,
+  dishInhibitRf,
   wifiSetConfig,
   wifiGetClients,
   wifiSetup,
@@ -103,6 +104,10 @@ enum Request_Request {
   wifiBackhaulStats,
   wifiToggleUmbilicalMode,
   wifiClientSandbox,
+  wifiRunDebugNetsys,
+  wifiResetEthPhy,
+  wifiFlushHardwareNat,
+  wifiWriteCalibration,
   transceiverIfLoopbackTest,
   transceiverGetStatus,
   transceiverGetTelemetry,
@@ -173,6 +178,7 @@ class Request extends $pb.GeneratedMessage {
     ResetButtonRequest? resetButton,
     SoftwareUpdateRequest? setPerVehicleConfig,
     DishAviationTestRequest? dishAviationTest,
+    DishInhibitRfRequest? dishInhibitRf,
     WifiSetConfigRequest? wifiSetConfig,
     WifiGetClientsRequest? wifiGetClients,
     WifiSetupRequest? wifiSetup,
@@ -196,6 +202,10 @@ class Request extends $pb.GeneratedMessage {
     WifiBackhaulStatsRequest? wifiBackhaulStats,
     WifiToggleUmbilicalModeRequest? wifiToggleUmbilicalMode,
     WifiClientSandboxRequest? wifiClientSandbox,
+    WifiRunDebugNetsysRequest? wifiRunDebugNetsys,
+    WifiResetEthPhyRequest? wifiResetEthPhy,
+    WifiFlushHardwareNatRequest? wifiFlushHardwareNat,
+    WifiWriteCalibrationRequest? wifiWriteCalibration,
     TransceiverIFLoopbackTestRequest? transceiverIfLoopbackTest,
     TransceiverGetStatusRequest? transceiverGetStatus,
     TransceiverGetTelemetryRequest? transceiverGetTelemetry,
@@ -274,6 +284,7 @@ class Request extends $pb.GeneratedMessage {
     if (setPerVehicleConfig != null)
       result.setPerVehicleConfig = setPerVehicleConfig;
     if (dishAviationTest != null) result.dishAviationTest = dishAviationTest;
+    if (dishInhibitRf != null) result.dishInhibitRf = dishInhibitRf;
     if (wifiSetConfig != null) result.wifiSetConfig = wifiSetConfig;
     if (wifiGetClients != null) result.wifiGetClients = wifiGetClients;
     if (wifiSetup != null) result.wifiSetup = wifiSetup;
@@ -306,6 +317,13 @@ class Request extends $pb.GeneratedMessage {
     if (wifiToggleUmbilicalMode != null)
       result.wifiToggleUmbilicalMode = wifiToggleUmbilicalMode;
     if (wifiClientSandbox != null) result.wifiClientSandbox = wifiClientSandbox;
+    if (wifiRunDebugNetsys != null)
+      result.wifiRunDebugNetsys = wifiRunDebugNetsys;
+    if (wifiResetEthPhy != null) result.wifiResetEthPhy = wifiResetEthPhy;
+    if (wifiFlushHardwareNat != null)
+      result.wifiFlushHardwareNat = wifiFlushHardwareNat;
+    if (wifiWriteCalibration != null)
+      result.wifiWriteCalibration = wifiWriteCalibration;
     if (transceiverIfLoopbackTest != null)
       result.transceiverIfLoopbackTest = transceiverIfLoopbackTest;
     if (transceiverGetStatus != null)
@@ -382,6 +400,7 @@ class Request extends $pb.GeneratedMessage {
     2022: Request_Request.resetButton,
     2023: Request_Request.setPerVehicleConfig,
     2024: Request_Request.dishAviationTest,
+    2026: Request_Request.dishInhibitRf,
     3001: Request_Request.wifiSetConfig,
     3002: Request_Request.wifiGetClients,
     3003: Request_Request.wifiSetup,
@@ -404,6 +423,10 @@ class Request extends $pb.GeneratedMessage {
     3029: Request_Request.wifiBackhaulStats,
     3030: Request_Request.wifiToggleUmbilicalMode,
     3031: Request_Request.wifiClientSandbox,
+    3032: Request_Request.wifiRunDebugNetsys,
+    3033: Request_Request.wifiResetEthPhy,
+    3034: Request_Request.wifiFlushHardwareNat,
+    3035: Request_Request.wifiWriteCalibration,
     4001: Request_Request.transceiverIfLoopbackTest,
     4003: Request_Request.transceiverGetStatus,
     4004: Request_Request.transceiverGetTelemetry,
@@ -472,6 +495,7 @@ class Request extends $pb.GeneratedMessage {
       2022,
       2023,
       2024,
+      2026,
       3001,
       3002,
       3003,
@@ -494,6 +518,10 @@ class Request extends $pb.GeneratedMessage {
       3029,
       3030,
       3031,
+      3032,
+      3033,
+      3034,
+      3035,
       4001,
       4003,
       4004,
@@ -634,6 +662,8 @@ class Request extends $pb.GeneratedMessage {
     ..aOM<DishAviationTestRequest>(
         2024, _omitFieldNames ? '' : 'dishAviationTest',
         subBuilder: DishAviationTestRequest.create)
+    ..aOM<DishInhibitRfRequest>(2026, _omitFieldNames ? '' : 'dishInhibitRf',
+        subBuilder: DishInhibitRfRequest.create)
     ..aOM<WifiSetConfigRequest>(3001, _omitFieldNames ? '' : 'wifiSetConfig',
         subBuilder: WifiSetConfigRequest.create)
     ..aOM<WifiGetClientsRequest>(3002, _omitFieldNames ? '' : 'wifiGetClients',
@@ -693,6 +723,18 @@ class Request extends $pb.GeneratedMessage {
     ..aOM<WifiClientSandboxRequest>(
         3031, _omitFieldNames ? '' : 'wifiClientSandbox',
         subBuilder: WifiClientSandboxRequest.create)
+    ..aOM<WifiRunDebugNetsysRequest>(
+        3032, _omitFieldNames ? '' : 'wifiRunDebugNetsys',
+        subBuilder: WifiRunDebugNetsysRequest.create)
+    ..aOM<WifiResetEthPhyRequest>(
+        3033, _omitFieldNames ? '' : 'wifiResetEthPhy',
+        subBuilder: WifiResetEthPhyRequest.create)
+    ..aOM<WifiFlushHardwareNatRequest>(
+        3034, _omitFieldNames ? '' : 'wifiFlushHardwareNat',
+        subBuilder: WifiFlushHardwareNatRequest.create)
+    ..aOM<WifiWriteCalibrationRequest>(
+        3035, _omitFieldNames ? '' : 'wifiWriteCalibration',
+        subBuilder: WifiWriteCalibrationRequest.create)
     ..aOM<TransceiverIFLoopbackTestRequest>(
         4001, _omitFieldNames ? '' : 'transceiverIfLoopbackTest',
         subBuilder: TransceiverIFLoopbackTestRequest.create)
@@ -707,7 +749,7 @@ class Request extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  Request clone() => Request()..mergeFromMessage(this);
+  Request clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   Request copyWith(void Function(Request) updates) =>
       super.copyWith((message) => updates(message as Request)) as Request;
@@ -719,13 +761,186 @@ class Request extends $pb.GeneratedMessage {
   static Request create() => Request._();
   @$core.override
   Request createEmptyInstance() => create();
-  static $pb.PbList<Request> createRepeated() => $pb.PbList<Request>();
   @$core.pragma('dart2js:noInline')
   static Request getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Request>(create);
   static Request? _defaultInstance;
 
+  @$pb.TagNumber(15)
+  @$pb.TagNumber(1001)
+  @$pb.TagNumber(1003)
+  @$pb.TagNumber(1004)
+  @$pb.TagNumber(1005)
+  @$pb.TagNumber(1006)
+  @$pb.TagNumber(1007)
+  @$pb.TagNumber(1008)
+  @$pb.TagNumber(1009)
+  @$pb.TagNumber(1010)
+  @$pb.TagNumber(1011)
+  @$pb.TagNumber(1012)
+  @$pb.TagNumber(1013)
+  @$pb.TagNumber(1014)
+  @$pb.TagNumber(1015)
+  @$pb.TagNumber(1016)
+  @$pb.TagNumber(1017)
+  @$pb.TagNumber(1019)
+  @$pb.TagNumber(1020)
+  @$pb.TagNumber(1021)
+  @$pb.TagNumber(1022)
+  @$pb.TagNumber(1023)
+  @$pb.TagNumber(1027)
+  @$pb.TagNumber(1028)
+  @$pb.TagNumber(1029)
+  @$pb.TagNumber(1030)
+  @$pb.TagNumber(1031)
+  @$pb.TagNumber(1032)
+  @$pb.TagNumber(1033)
+  @$pb.TagNumber(1034)
+  @$pb.TagNumber(1035)
+  @$pb.TagNumber(1036)
+  @$pb.TagNumber(1037)
+  @$pb.TagNumber(1038)
+  @$pb.TagNumber(1039)
+  @$pb.TagNumber(1040)
+  @$pb.TagNumber(1041)
+  @$pb.TagNumber(1078)
+  @$pb.TagNumber(2002)
+  @$pb.TagNumber(2003)
+  @$pb.TagNumber(2007)
+  @$pb.TagNumber(2008)
+  @$pb.TagNumber(2009)
+  @$pb.TagNumber(2010)
+  @$pb.TagNumber(2011)
+  @$pb.TagNumber(2013)
+  @$pb.TagNumber(2014)
+  @$pb.TagNumber(2015)
+  @$pb.TagNumber(2017)
+  @$pb.TagNumber(2018)
+  @$pb.TagNumber(2019)
+  @$pb.TagNumber(2020)
+  @$pb.TagNumber(2021)
+  @$pb.TagNumber(2022)
+  @$pb.TagNumber(2023)
+  @$pb.TagNumber(2024)
+  @$pb.TagNumber(2026)
+  @$pb.TagNumber(3001)
+  @$pb.TagNumber(3002)
+  @$pb.TagNumber(3003)
+  @$pb.TagNumber(3007)
+  @$pb.TagNumber(3009)
+  @$pb.TagNumber(3012)
+  @$pb.TagNumber(3013)
+  @$pb.TagNumber(3015)
+  @$pb.TagNumber(3016)
+  @$pb.TagNumber(3017)
+  @$pb.TagNumber(3018)
+  @$pb.TagNumber(3019)
+  @$pb.TagNumber(3020)
+  @$pb.TagNumber(3021)
+  @$pb.TagNumber(3024)
+  @$pb.TagNumber(3025)
+  @$pb.TagNumber(3026)
+  @$pb.TagNumber(3027)
+  @$pb.TagNumber(3028)
+  @$pb.TagNumber(3029)
+  @$pb.TagNumber(3030)
+  @$pb.TagNumber(3031)
+  @$pb.TagNumber(3032)
+  @$pb.TagNumber(3033)
+  @$pb.TagNumber(3034)
+  @$pb.TagNumber(3035)
+  @$pb.TagNumber(4001)
+  @$pb.TagNumber(4003)
+  @$pb.TagNumber(4004)
+  @$pb.TagNumber(6000)
   Request_Request whichRequest() => _Request_RequestByTag[$_whichOneof(0)]!;
+  @$pb.TagNumber(15)
+  @$pb.TagNumber(1001)
+  @$pb.TagNumber(1003)
+  @$pb.TagNumber(1004)
+  @$pb.TagNumber(1005)
+  @$pb.TagNumber(1006)
+  @$pb.TagNumber(1007)
+  @$pb.TagNumber(1008)
+  @$pb.TagNumber(1009)
+  @$pb.TagNumber(1010)
+  @$pb.TagNumber(1011)
+  @$pb.TagNumber(1012)
+  @$pb.TagNumber(1013)
+  @$pb.TagNumber(1014)
+  @$pb.TagNumber(1015)
+  @$pb.TagNumber(1016)
+  @$pb.TagNumber(1017)
+  @$pb.TagNumber(1019)
+  @$pb.TagNumber(1020)
+  @$pb.TagNumber(1021)
+  @$pb.TagNumber(1022)
+  @$pb.TagNumber(1023)
+  @$pb.TagNumber(1027)
+  @$pb.TagNumber(1028)
+  @$pb.TagNumber(1029)
+  @$pb.TagNumber(1030)
+  @$pb.TagNumber(1031)
+  @$pb.TagNumber(1032)
+  @$pb.TagNumber(1033)
+  @$pb.TagNumber(1034)
+  @$pb.TagNumber(1035)
+  @$pb.TagNumber(1036)
+  @$pb.TagNumber(1037)
+  @$pb.TagNumber(1038)
+  @$pb.TagNumber(1039)
+  @$pb.TagNumber(1040)
+  @$pb.TagNumber(1041)
+  @$pb.TagNumber(1078)
+  @$pb.TagNumber(2002)
+  @$pb.TagNumber(2003)
+  @$pb.TagNumber(2007)
+  @$pb.TagNumber(2008)
+  @$pb.TagNumber(2009)
+  @$pb.TagNumber(2010)
+  @$pb.TagNumber(2011)
+  @$pb.TagNumber(2013)
+  @$pb.TagNumber(2014)
+  @$pb.TagNumber(2015)
+  @$pb.TagNumber(2017)
+  @$pb.TagNumber(2018)
+  @$pb.TagNumber(2019)
+  @$pb.TagNumber(2020)
+  @$pb.TagNumber(2021)
+  @$pb.TagNumber(2022)
+  @$pb.TagNumber(2023)
+  @$pb.TagNumber(2024)
+  @$pb.TagNumber(2026)
+  @$pb.TagNumber(3001)
+  @$pb.TagNumber(3002)
+  @$pb.TagNumber(3003)
+  @$pb.TagNumber(3007)
+  @$pb.TagNumber(3009)
+  @$pb.TagNumber(3012)
+  @$pb.TagNumber(3013)
+  @$pb.TagNumber(3015)
+  @$pb.TagNumber(3016)
+  @$pb.TagNumber(3017)
+  @$pb.TagNumber(3018)
+  @$pb.TagNumber(3019)
+  @$pb.TagNumber(3020)
+  @$pb.TagNumber(3021)
+  @$pb.TagNumber(3024)
+  @$pb.TagNumber(3025)
+  @$pb.TagNumber(3026)
+  @$pb.TagNumber(3027)
+  @$pb.TagNumber(3028)
+  @$pb.TagNumber(3029)
+  @$pb.TagNumber(3030)
+  @$pb.TagNumber(3031)
+  @$pb.TagNumber(3032)
+  @$pb.TagNumber(3033)
+  @$pb.TagNumber(3034)
+  @$pb.TagNumber(3035)
+  @$pb.TagNumber(4001)
+  @$pb.TagNumber(4003)
+  @$pb.TagNumber(4004)
+  @$pb.TagNumber(6000)
   void clearRequest() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -1396,320 +1611,378 @@ class Request extends $pb.GeneratedMessage {
   @$pb.TagNumber(2024)
   DishAviationTestRequest ensureDishAviationTest() => $_ensure(58);
 
+  @$pb.TagNumber(2026)
+  DishInhibitRfRequest get dishInhibitRf => $_getN(59);
+  @$pb.TagNumber(2026)
+  set dishInhibitRf(DishInhibitRfRequest value) => $_setField(2026, value);
+  @$pb.TagNumber(2026)
+  $core.bool hasDishInhibitRf() => $_has(59);
+  @$pb.TagNumber(2026)
+  void clearDishInhibitRf() => $_clearField(2026);
+  @$pb.TagNumber(2026)
+  DishInhibitRfRequest ensureDishInhibitRf() => $_ensure(59);
+
   @$pb.TagNumber(3001)
-  WifiSetConfigRequest get wifiSetConfig => $_getN(59);
+  WifiSetConfigRequest get wifiSetConfig => $_getN(60);
   @$pb.TagNumber(3001)
   set wifiSetConfig(WifiSetConfigRequest value) => $_setField(3001, value);
   @$pb.TagNumber(3001)
-  $core.bool hasWifiSetConfig() => $_has(59);
+  $core.bool hasWifiSetConfig() => $_has(60);
   @$pb.TagNumber(3001)
   void clearWifiSetConfig() => $_clearField(3001);
   @$pb.TagNumber(3001)
-  WifiSetConfigRequest ensureWifiSetConfig() => $_ensure(59);
+  WifiSetConfigRequest ensureWifiSetConfig() => $_ensure(60);
 
   @$pb.TagNumber(3002)
-  WifiGetClientsRequest get wifiGetClients => $_getN(60);
+  WifiGetClientsRequest get wifiGetClients => $_getN(61);
   @$pb.TagNumber(3002)
   set wifiGetClients(WifiGetClientsRequest value) => $_setField(3002, value);
   @$pb.TagNumber(3002)
-  $core.bool hasWifiGetClients() => $_has(60);
+  $core.bool hasWifiGetClients() => $_has(61);
   @$pb.TagNumber(3002)
   void clearWifiGetClients() => $_clearField(3002);
   @$pb.TagNumber(3002)
-  WifiGetClientsRequest ensureWifiGetClients() => $_ensure(60);
+  WifiGetClientsRequest ensureWifiGetClients() => $_ensure(61);
 
   @$pb.TagNumber(3003)
-  WifiSetupRequest get wifiSetup => $_getN(61);
+  WifiSetupRequest get wifiSetup => $_getN(62);
   @$pb.TagNumber(3003)
   set wifiSetup(WifiSetupRequest value) => $_setField(3003, value);
   @$pb.TagNumber(3003)
-  $core.bool hasWifiSetup() => $_has(61);
+  $core.bool hasWifiSetup() => $_has(62);
   @$pb.TagNumber(3003)
   void clearWifiSetup() => $_clearField(3003);
   @$pb.TagNumber(3003)
-  WifiSetupRequest ensureWifiSetup() => $_ensure(61);
+  WifiSetupRequest ensureWifiSetup() => $_ensure(62);
 
   @$pb.TagNumber(3007)
-  WifiGetPingMetricsRequest get wifiGetPingMetrics => $_getN(62);
+  WifiGetPingMetricsRequest get wifiGetPingMetrics => $_getN(63);
   @$pb.TagNumber(3007)
   set wifiGetPingMetrics(WifiGetPingMetricsRequest value) =>
       $_setField(3007, value);
   @$pb.TagNumber(3007)
-  $core.bool hasWifiGetPingMetrics() => $_has(62);
+  $core.bool hasWifiGetPingMetrics() => $_has(63);
   @$pb.TagNumber(3007)
   void clearWifiGetPingMetrics() => $_clearField(3007);
   @$pb.TagNumber(3007)
-  WifiGetPingMetricsRequest ensureWifiGetPingMetrics() => $_ensure(62);
+  WifiGetPingMetricsRequest ensureWifiGetPingMetrics() => $_ensure(63);
 
   @$pb.TagNumber(3009)
-  WifiGetConfigRequest get wifiGetConfig => $_getN(63);
+  WifiGetConfigRequest get wifiGetConfig => $_getN(64);
   @$pb.TagNumber(3009)
   set wifiGetConfig(WifiGetConfigRequest value) => $_setField(3009, value);
   @$pb.TagNumber(3009)
-  $core.bool hasWifiGetConfig() => $_has(63);
+  $core.bool hasWifiGetConfig() => $_has(64);
   @$pb.TagNumber(3009)
   void clearWifiGetConfig() => $_clearField(3009);
   @$pb.TagNumber(3009)
-  WifiGetConfigRequest ensureWifiGetConfig() => $_ensure(63);
+  WifiGetConfigRequest ensureWifiGetConfig() => $_ensure(64);
 
   @$pb.TagNumber(3012)
-  WifiSetMeshDeviceTrustRequest get wifiSetMeshDeviceTrust => $_getN(64);
+  WifiSetMeshDeviceTrustRequest get wifiSetMeshDeviceTrust => $_getN(65);
   @$pb.TagNumber(3012)
   set wifiSetMeshDeviceTrust(WifiSetMeshDeviceTrustRequest value) =>
       $_setField(3012, value);
   @$pb.TagNumber(3012)
-  $core.bool hasWifiSetMeshDeviceTrust() => $_has(64);
+  $core.bool hasWifiSetMeshDeviceTrust() => $_has(65);
   @$pb.TagNumber(3012)
   void clearWifiSetMeshDeviceTrust() => $_clearField(3012);
   @$pb.TagNumber(3012)
-  WifiSetMeshDeviceTrustRequest ensureWifiSetMeshDeviceTrust() => $_ensure(64);
+  WifiSetMeshDeviceTrustRequest ensureWifiSetMeshDeviceTrust() => $_ensure(65);
 
   @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(3013)
-  WifiSetMeshConfigRequest get wifiSetMeshConfig => $_getN(65);
+  WifiSetMeshConfigRequest get wifiSetMeshConfig => $_getN(66);
   @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(3013)
   set wifiSetMeshConfig(WifiSetMeshConfigRequest value) =>
       $_setField(3013, value);
   @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(3013)
-  $core.bool hasWifiSetMeshConfig() => $_has(65);
+  $core.bool hasWifiSetMeshConfig() => $_has(66);
   @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(3013)
   void clearWifiSetMeshConfig() => $_clearField(3013);
   @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(3013)
-  WifiSetMeshConfigRequest ensureWifiSetMeshConfig() => $_ensure(65);
+  WifiSetMeshConfigRequest ensureWifiSetMeshConfig() => $_ensure(66);
 
   @$pb.TagNumber(3015)
-  WifiGetClientHistoryRequest get wifiGetClientHistory => $_getN(66);
+  WifiGetClientHistoryRequest get wifiGetClientHistory => $_getN(67);
   @$pb.TagNumber(3015)
   set wifiGetClientHistory(WifiGetClientHistoryRequest value) =>
       $_setField(3015, value);
   @$pb.TagNumber(3015)
-  $core.bool hasWifiGetClientHistory() => $_has(66);
+  $core.bool hasWifiGetClientHistory() => $_has(67);
   @$pb.TagNumber(3015)
   void clearWifiGetClientHistory() => $_clearField(3015);
   @$pb.TagNumber(3015)
-  WifiGetClientHistoryRequest ensureWifiGetClientHistory() => $_ensure(66);
+  WifiGetClientHistoryRequest ensureWifiGetClientHistory() => $_ensure(67);
 
   @$pb.TagNumber(3016)
-  WifiSetAviationConformedRequest get wifiSetAviationConformed => $_getN(67);
+  WifiSetAviationConformedRequest get wifiSetAviationConformed => $_getN(68);
   @$pb.TagNumber(3016)
   set wifiSetAviationConformed(WifiSetAviationConformedRequest value) =>
       $_setField(3016, value);
   @$pb.TagNumber(3016)
-  $core.bool hasWifiSetAviationConformed() => $_has(67);
+  $core.bool hasWifiSetAviationConformed() => $_has(68);
   @$pb.TagNumber(3016)
   void clearWifiSetAviationConformed() => $_clearField(3016);
   @$pb.TagNumber(3016)
   WifiSetAviationConformedRequest ensureWifiSetAviationConformed() =>
-      $_ensure(67);
+      $_ensure(68);
 
   @$pb.TagNumber(3017)
-  WifiSetClientGivenNameRequest get wifiSetClientGivenName => $_getN(68);
+  WifiSetClientGivenNameRequest get wifiSetClientGivenName => $_getN(69);
   @$pb.TagNumber(3017)
   set wifiSetClientGivenName(WifiSetClientGivenNameRequest value) =>
       $_setField(3017, value);
   @$pb.TagNumber(3017)
-  $core.bool hasWifiSetClientGivenName() => $_has(68);
+  $core.bool hasWifiSetClientGivenName() => $_has(69);
   @$pb.TagNumber(3017)
   void clearWifiSetClientGivenName() => $_clearField(3017);
   @$pb.TagNumber(3017)
-  WifiSetClientGivenNameRequest ensureWifiSetClientGivenName() => $_ensure(68);
+  WifiSetClientGivenNameRequest ensureWifiSetClientGivenName() => $_ensure(69);
 
   @$pb.TagNumber(3018)
-  WifiSelfTestRequest get wifiSelfTest => $_getN(69);
+  WifiSelfTestRequest get wifiSelfTest => $_getN(70);
   @$pb.TagNumber(3018)
   set wifiSelfTest(WifiSelfTestRequest value) => $_setField(3018, value);
   @$pb.TagNumber(3018)
-  $core.bool hasWifiSelfTest() => $_has(69);
+  $core.bool hasWifiSelfTest() => $_has(70);
   @$pb.TagNumber(3018)
   void clearWifiSelfTest() => $_clearField(3018);
   @$pb.TagNumber(3018)
-  WifiSelfTestRequest ensureWifiSelfTest() => $_ensure(69);
+  WifiSelfTestRequest ensureWifiSelfTest() => $_ensure(70);
 
   @$pb.TagNumber(3019)
-  WifiCalibrationModeRequest get wifiCalibrationMode => $_getN(70);
+  WifiCalibrationModeRequest get wifiCalibrationMode => $_getN(71);
   @$pb.TagNumber(3019)
   set wifiCalibrationMode(WifiCalibrationModeRequest value) =>
       $_setField(3019, value);
   @$pb.TagNumber(3019)
-  $core.bool hasWifiCalibrationMode() => $_has(70);
+  $core.bool hasWifiCalibrationMode() => $_has(71);
   @$pb.TagNumber(3019)
   void clearWifiCalibrationMode() => $_clearField(3019);
   @$pb.TagNumber(3019)
-  WifiCalibrationModeRequest ensureWifiCalibrationMode() => $_ensure(70);
+  WifiCalibrationModeRequest ensureWifiCalibrationMode() => $_ensure(71);
 
   @$pb.TagNumber(3020)
-  WifiGuestInfoRequest get wifiGuestInfo => $_getN(71);
+  WifiGuestInfoRequest get wifiGuestInfo => $_getN(72);
   @$pb.TagNumber(3020)
   set wifiGuestInfo(WifiGuestInfoRequest value) => $_setField(3020, value);
   @$pb.TagNumber(3020)
-  $core.bool hasWifiGuestInfo() => $_has(71);
+  $core.bool hasWifiGuestInfo() => $_has(72);
   @$pb.TagNumber(3020)
   void clearWifiGuestInfo() => $_clearField(3020);
   @$pb.TagNumber(3020)
-  WifiGuestInfoRequest ensureWifiGuestInfo() => $_ensure(71);
+  WifiGuestInfoRequest ensureWifiGuestInfo() => $_ensure(72);
 
   @$pb.TagNumber(3021)
-  WifiRfTestRequest get wifiRfTest => $_getN(72);
+  WifiRfTestRequest get wifiRfTest => $_getN(73);
   @$pb.TagNumber(3021)
   set wifiRfTest(WifiRfTestRequest value) => $_setField(3021, value);
   @$pb.TagNumber(3021)
-  $core.bool hasWifiRfTest() => $_has(72);
+  $core.bool hasWifiRfTest() => $_has(73);
   @$pb.TagNumber(3021)
   void clearWifiRfTest() => $_clearField(3021);
   @$pb.TagNumber(3021)
-  WifiRfTestRequest ensureWifiRfTest() => $_ensure(72);
+  WifiRfTestRequest ensureWifiRfTest() => $_ensure(73);
 
   @$pb.TagNumber(3024)
-  WifiGetFirewallRequest get wifiGetFirewall => $_getN(73);
+  WifiGetFirewallRequest get wifiGetFirewall => $_getN(74);
   @$pb.TagNumber(3024)
   set wifiGetFirewall(WifiGetFirewallRequest value) => $_setField(3024, value);
   @$pb.TagNumber(3024)
-  $core.bool hasWifiGetFirewall() => $_has(73);
+  $core.bool hasWifiGetFirewall() => $_has(74);
   @$pb.TagNumber(3024)
   void clearWifiGetFirewall() => $_clearField(3024);
   @$pb.TagNumber(3024)
-  WifiGetFirewallRequest ensureWifiGetFirewall() => $_ensure(73);
+  WifiGetFirewallRequest ensureWifiGetFirewall() => $_ensure(74);
 
   @$pb.TagNumber(3025)
-  WifiTogglePoeNegotiationRequest get wifiTogglePoeNegotiation => $_getN(74);
+  WifiTogglePoeNegotiationRequest get wifiTogglePoeNegotiation => $_getN(75);
   @$pb.TagNumber(3025)
   set wifiTogglePoeNegotiation(WifiTogglePoeNegotiationRequest value) =>
       $_setField(3025, value);
   @$pb.TagNumber(3025)
-  $core.bool hasWifiTogglePoeNegotiation() => $_has(74);
+  $core.bool hasWifiTogglePoeNegotiation() => $_has(75);
   @$pb.TagNumber(3025)
   void clearWifiTogglePoeNegotiation() => $_clearField(3025);
   @$pb.TagNumber(3025)
   WifiTogglePoeNegotiationRequest ensureWifiTogglePoeNegotiation() =>
-      $_ensure(74);
+      $_ensure(75);
 
   @$pb.TagNumber(3026)
-  WifiFactoryTestCommandRequest get wifiFactoryTestCommand => $_getN(75);
+  WifiFactoryTestCommandRequest get wifiFactoryTestCommand => $_getN(76);
   @$pb.TagNumber(3026)
   set wifiFactoryTestCommand(WifiFactoryTestCommandRequest value) =>
       $_setField(3026, value);
   @$pb.TagNumber(3026)
-  $core.bool hasWifiFactoryTestCommand() => $_has(75);
+  $core.bool hasWifiFactoryTestCommand() => $_has(76);
   @$pb.TagNumber(3026)
   void clearWifiFactoryTestCommand() => $_clearField(3026);
   @$pb.TagNumber(3026)
-  WifiFactoryTestCommandRequest ensureWifiFactoryTestCommand() => $_ensure(75);
+  WifiFactoryTestCommandRequest ensureWifiFactoryTestCommand() => $_ensure(76);
 
   @$pb.TagNumber(3027)
-  WifiStartLocalTelemProxyRequest get wifiStartLocalTelemProxy => $_getN(76);
+  WifiStartLocalTelemProxyRequest get wifiStartLocalTelemProxy => $_getN(77);
   @$pb.TagNumber(3027)
   set wifiStartLocalTelemProxy(WifiStartLocalTelemProxyRequest value) =>
       $_setField(3027, value);
   @$pb.TagNumber(3027)
-  $core.bool hasWifiStartLocalTelemProxy() => $_has(76);
+  $core.bool hasWifiStartLocalTelemProxy() => $_has(77);
   @$pb.TagNumber(3027)
   void clearWifiStartLocalTelemProxy() => $_clearField(3027);
   @$pb.TagNumber(3027)
   WifiStartLocalTelemProxyRequest ensureWifiStartLocalTelemProxy() =>
-      $_ensure(76);
+      $_ensure(77);
 
   @$pb.TagNumber(3028)
-  WifiRunSelfTestRequest get wifiRunSelfTest => $_getN(77);
+  WifiRunSelfTestRequest get wifiRunSelfTest => $_getN(78);
   @$pb.TagNumber(3028)
   set wifiRunSelfTest(WifiRunSelfTestRequest value) => $_setField(3028, value);
   @$pb.TagNumber(3028)
-  $core.bool hasWifiRunSelfTest() => $_has(77);
+  $core.bool hasWifiRunSelfTest() => $_has(78);
   @$pb.TagNumber(3028)
   void clearWifiRunSelfTest() => $_clearField(3028);
   @$pb.TagNumber(3028)
-  WifiRunSelfTestRequest ensureWifiRunSelfTest() => $_ensure(77);
+  WifiRunSelfTestRequest ensureWifiRunSelfTest() => $_ensure(78);
 
   @$pb.TagNumber(3029)
-  WifiBackhaulStatsRequest get wifiBackhaulStats => $_getN(78);
+  WifiBackhaulStatsRequest get wifiBackhaulStats => $_getN(79);
   @$pb.TagNumber(3029)
   set wifiBackhaulStats(WifiBackhaulStatsRequest value) =>
       $_setField(3029, value);
   @$pb.TagNumber(3029)
-  $core.bool hasWifiBackhaulStats() => $_has(78);
+  $core.bool hasWifiBackhaulStats() => $_has(79);
   @$pb.TagNumber(3029)
   void clearWifiBackhaulStats() => $_clearField(3029);
   @$pb.TagNumber(3029)
-  WifiBackhaulStatsRequest ensureWifiBackhaulStats() => $_ensure(78);
+  WifiBackhaulStatsRequest ensureWifiBackhaulStats() => $_ensure(79);
 
   @$pb.TagNumber(3030)
-  WifiToggleUmbilicalModeRequest get wifiToggleUmbilicalMode => $_getN(79);
+  WifiToggleUmbilicalModeRequest get wifiToggleUmbilicalMode => $_getN(80);
   @$pb.TagNumber(3030)
   set wifiToggleUmbilicalMode(WifiToggleUmbilicalModeRequest value) =>
       $_setField(3030, value);
   @$pb.TagNumber(3030)
-  $core.bool hasWifiToggleUmbilicalMode() => $_has(79);
+  $core.bool hasWifiToggleUmbilicalMode() => $_has(80);
   @$pb.TagNumber(3030)
   void clearWifiToggleUmbilicalMode() => $_clearField(3030);
   @$pb.TagNumber(3030)
   WifiToggleUmbilicalModeRequest ensureWifiToggleUmbilicalMode() =>
-      $_ensure(79);
+      $_ensure(80);
 
   @$pb.TagNumber(3031)
-  WifiClientSandboxRequest get wifiClientSandbox => $_getN(80);
+  WifiClientSandboxRequest get wifiClientSandbox => $_getN(81);
   @$pb.TagNumber(3031)
   set wifiClientSandbox(WifiClientSandboxRequest value) =>
       $_setField(3031, value);
   @$pb.TagNumber(3031)
-  $core.bool hasWifiClientSandbox() => $_has(80);
+  $core.bool hasWifiClientSandbox() => $_has(81);
   @$pb.TagNumber(3031)
   void clearWifiClientSandbox() => $_clearField(3031);
   @$pb.TagNumber(3031)
-  WifiClientSandboxRequest ensureWifiClientSandbox() => $_ensure(80);
+  WifiClientSandboxRequest ensureWifiClientSandbox() => $_ensure(81);
+
+  @$pb.TagNumber(3032)
+  WifiRunDebugNetsysRequest get wifiRunDebugNetsys => $_getN(82);
+  @$pb.TagNumber(3032)
+  set wifiRunDebugNetsys(WifiRunDebugNetsysRequest value) =>
+      $_setField(3032, value);
+  @$pb.TagNumber(3032)
+  $core.bool hasWifiRunDebugNetsys() => $_has(82);
+  @$pb.TagNumber(3032)
+  void clearWifiRunDebugNetsys() => $_clearField(3032);
+  @$pb.TagNumber(3032)
+  WifiRunDebugNetsysRequest ensureWifiRunDebugNetsys() => $_ensure(82);
+
+  @$pb.TagNumber(3033)
+  WifiResetEthPhyRequest get wifiResetEthPhy => $_getN(83);
+  @$pb.TagNumber(3033)
+  set wifiResetEthPhy(WifiResetEthPhyRequest value) => $_setField(3033, value);
+  @$pb.TagNumber(3033)
+  $core.bool hasWifiResetEthPhy() => $_has(83);
+  @$pb.TagNumber(3033)
+  void clearWifiResetEthPhy() => $_clearField(3033);
+  @$pb.TagNumber(3033)
+  WifiResetEthPhyRequest ensureWifiResetEthPhy() => $_ensure(83);
+
+  @$pb.TagNumber(3034)
+  WifiFlushHardwareNatRequest get wifiFlushHardwareNat => $_getN(84);
+  @$pb.TagNumber(3034)
+  set wifiFlushHardwareNat(WifiFlushHardwareNatRequest value) =>
+      $_setField(3034, value);
+  @$pb.TagNumber(3034)
+  $core.bool hasWifiFlushHardwareNat() => $_has(84);
+  @$pb.TagNumber(3034)
+  void clearWifiFlushHardwareNat() => $_clearField(3034);
+  @$pb.TagNumber(3034)
+  WifiFlushHardwareNatRequest ensureWifiFlushHardwareNat() => $_ensure(84);
+
+  @$pb.TagNumber(3035)
+  WifiWriteCalibrationRequest get wifiWriteCalibration => $_getN(85);
+  @$pb.TagNumber(3035)
+  set wifiWriteCalibration(WifiWriteCalibrationRequest value) =>
+      $_setField(3035, value);
+  @$pb.TagNumber(3035)
+  $core.bool hasWifiWriteCalibration() => $_has(85);
+  @$pb.TagNumber(3035)
+  void clearWifiWriteCalibration() => $_clearField(3035);
+  @$pb.TagNumber(3035)
+  WifiWriteCalibrationRequest ensureWifiWriteCalibration() => $_ensure(85);
 
   @$pb.TagNumber(4001)
-  TransceiverIFLoopbackTestRequest get transceiverIfLoopbackTest => $_getN(81);
+  TransceiverIFLoopbackTestRequest get transceiverIfLoopbackTest => $_getN(86);
   @$pb.TagNumber(4001)
   set transceiverIfLoopbackTest(TransceiverIFLoopbackTestRequest value) =>
       $_setField(4001, value);
   @$pb.TagNumber(4001)
-  $core.bool hasTransceiverIfLoopbackTest() => $_has(81);
+  $core.bool hasTransceiverIfLoopbackTest() => $_has(86);
   @$pb.TagNumber(4001)
   void clearTransceiverIfLoopbackTest() => $_clearField(4001);
   @$pb.TagNumber(4001)
   TransceiverIFLoopbackTestRequest ensureTransceiverIfLoopbackTest() =>
-      $_ensure(81);
+      $_ensure(86);
 
   @$pb.TagNumber(4003)
-  TransceiverGetStatusRequest get transceiverGetStatus => $_getN(82);
+  TransceiverGetStatusRequest get transceiverGetStatus => $_getN(87);
   @$pb.TagNumber(4003)
   set transceiverGetStatus(TransceiverGetStatusRequest value) =>
       $_setField(4003, value);
   @$pb.TagNumber(4003)
-  $core.bool hasTransceiverGetStatus() => $_has(82);
+  $core.bool hasTransceiverGetStatus() => $_has(87);
   @$pb.TagNumber(4003)
   void clearTransceiverGetStatus() => $_clearField(4003);
   @$pb.TagNumber(4003)
-  TransceiverGetStatusRequest ensureTransceiverGetStatus() => $_ensure(82);
+  TransceiverGetStatusRequest ensureTransceiverGetStatus() => $_ensure(87);
 
   @$pb.TagNumber(4004)
-  TransceiverGetTelemetryRequest get transceiverGetTelemetry => $_getN(83);
+  TransceiverGetTelemetryRequest get transceiverGetTelemetry => $_getN(88);
   @$pb.TagNumber(4004)
   set transceiverGetTelemetry(TransceiverGetTelemetryRequest value) =>
       $_setField(4004, value);
   @$pb.TagNumber(4004)
-  $core.bool hasTransceiverGetTelemetry() => $_has(83);
+  $core.bool hasTransceiverGetTelemetry() => $_has(88);
   @$pb.TagNumber(4004)
   void clearTransceiverGetTelemetry() => $_clearField(4004);
   @$pb.TagNumber(4004)
   TransceiverGetTelemetryRequest ensureTransceiverGetTelemetry() =>
-      $_ensure(83);
+      $_ensure(88);
 
   /// .SpaceX.API.Device.Services.Unlock.StartUnlockRequest start_unlock = 5000;
   /// .SpaceX.API.Device.Services.Unlock.FinishUnlockRequest finish_unlock = 5001;
   @$pb.TagNumber(6000)
-  GetDiagnosticsRequest get getDiagnostics => $_getN(84);
+  GetDiagnosticsRequest get getDiagnostics => $_getN(89);
   @$pb.TagNumber(6000)
   set getDiagnostics(GetDiagnosticsRequest value) => $_setField(6000, value);
   @$pb.TagNumber(6000)
-  $core.bool hasGetDiagnostics() => $_has(84);
+  $core.bool hasGetDiagnostics() => $_has(89);
   @$pb.TagNumber(6000)
   void clearGetDiagnostics() => $_clearField(6000);
   @$pb.TagNumber(6000)
-  GetDiagnosticsRequest ensureGetDiagnostics() => $_ensure(84);
+  GetDiagnosticsRequest ensureGetDiagnostics() => $_ensure(89);
 }
 
 /// SpaceX.API.Device.SignedData is a message:
@@ -1745,7 +2018,7 @@ class SignedData extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SignedData clone() => SignedData()..mergeFromMessage(this);
+  SignedData clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   SignedData copyWith(void Function(SignedData) updates) =>
       super.copyWith((message) => updates(message as SignedData)) as SignedData;
@@ -1757,7 +2030,6 @@ class SignedData extends $pb.GeneratedMessage {
   static SignedData create() => SignedData._();
   @$core.override
   SignedData createEmptyInstance() => create();
-  static $pb.PbList<SignedData> createRepeated() => $pb.PbList<SignedData>();
   @$core.pragma('dart2js:noInline')
   static SignedData getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SignedData>(create);
@@ -1803,7 +2075,7 @@ class RebootRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  RebootRequest clone() => RebootRequest()..mergeFromMessage(this);
+  RebootRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   RebootRequest copyWith(void Function(RebootRequest) updates) =>
       super.copyWith((message) => updates(message as RebootRequest))
@@ -1816,8 +2088,6 @@ class RebootRequest extends $pb.GeneratedMessage {
   static RebootRequest create() => RebootRequest._();
   @$core.override
   RebootRequest createEmptyInstance() => create();
-  static $pb.PbList<RebootRequest> createRepeated() =>
-      $pb.PbList<RebootRequest>();
   @$core.pragma('dart2js:noInline')
   static RebootRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RebootRequest>(create);
@@ -1856,15 +2126,14 @@ class SpeedTestRequest extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aOM<SpeedTestStats>(1, _omitFieldNames ? '' : 'clientSpeedtest',
         subBuilder: SpeedTestStats.create)
-    ..a<$core.double>(
-        2, _omitFieldNames ? '' : 'clientRssi', $pb.PbFieldType.OF)
+    ..aD(2, _omitFieldNames ? '' : 'clientRssi', fieldType: $pb.PbFieldType.OF)
     ..aOM<ClientPlatform>(3, _omitFieldNames ? '' : 'clientPlatform',
         subBuilder: ClientPlatform.create)
-    ..a<$core.int>(4, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU3)
+    ..aI(4, _omitFieldNames ? '' : 'id', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SpeedTestRequest clone() => SpeedTestRequest()..mergeFromMessage(this);
+  SpeedTestRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   SpeedTestRequest copyWith(void Function(SpeedTestRequest) updates) =>
       super.copyWith((message) => updates(message as SpeedTestRequest))
@@ -1877,8 +2146,6 @@ class SpeedTestRequest extends $pb.GeneratedMessage {
   static SpeedTestRequest create() => SpeedTestRequest._();
   @$core.override
   SpeedTestRequest createEmptyInstance() => create();
-  static $pb.PbList<SpeedTestRequest> createRepeated() =>
-      $pb.PbList<SpeedTestRequest>();
   @$core.pragma('dart2js:noInline')
   static SpeedTestRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SpeedTestRequest>(create);
@@ -1963,26 +2230,22 @@ class SpeedTestStats extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.double>(
-        1, _omitFieldNames ? '' : 'uploadMbps', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        2, _omitFieldNames ? '' : 'downloadMbps', $pb.PbFieldType.OF)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'latencyMs', $pb.PbFieldType.OF)
+    ..aD(1, _omitFieldNames ? '' : 'uploadMbps', fieldType: $pb.PbFieldType.OF)
+    ..aD(2, _omitFieldNames ? '' : 'downloadMbps',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(3, _omitFieldNames ? '' : 'latencyMs', fieldType: $pb.PbFieldType.OF)
     ..a<$fixnum.Int64>(
         4, _omitFieldNames ? '' : 'startTime', $pb.PbFieldType.OU6,
         defaultOrMaker: $fixnum.Int64.ZERO)
     ..aInt64(5, _omitFieldNames ? '' : 'uploadStartTime')
     ..aInt64(6, _omitFieldNames ? '' : 'downloadStartTime')
-    ..e<SpeedTestStats_Target>(
-        7, _omitFieldNames ? '' : 'target', $pb.PbFieldType.OE,
-        defaultOrMaker: SpeedTestStats_Target.UNKNOWN,
-        valueOf: SpeedTestStats_Target.valueOf,
+    ..aE<SpeedTestStats_Target>(7, _omitFieldNames ? '' : 'target',
         enumValues: SpeedTestStats_Target.values)
-    ..a<$core.int>(8, _omitFieldNames ? '' : 'tcpStreams', $pb.PbFieldType.OU3)
+    ..aI(8, _omitFieldNames ? '' : 'tcpStreams', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SpeedTestStats clone() => SpeedTestStats()..mergeFromMessage(this);
+  SpeedTestStats clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   SpeedTestStats copyWith(void Function(SpeedTestStats) updates) =>
       super.copyWith((message) => updates(message as SpeedTestStats))
@@ -1995,8 +2258,6 @@ class SpeedTestStats extends $pb.GeneratedMessage {
   static SpeedTestStats create() => SpeedTestStats._();
   @$core.override
   SpeedTestStats createEmptyInstance() => create();
-  static $pb.PbList<SpeedTestStats> createRepeated() =>
-      $pb.PbList<SpeedTestStats>();
   @$core.pragma('dart2js:noInline')
   static SpeedTestStats getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SpeedTestStats>(create);
@@ -2111,19 +2372,16 @@ class ClientPlatform extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..e<ClientPlatform_Platform>(
-        1, _omitFieldNames ? '' : 'platform', $pb.PbFieldType.OE,
-        defaultOrMaker: ClientPlatform_Platform.UNKNOWN,
-        valueOf: ClientPlatform_Platform.valueOf,
+    ..aE<ClientPlatform_Platform>(1, _omitFieldNames ? '' : 'platform',
         enumValues: ClientPlatform_Platform.values)
-    ..a<$core.double>(
-        2, _omitFieldNames ? '' : 'majorVersion', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        3, _omitFieldNames ? '' : 'minorVersion', $pb.PbFieldType.OF)
+    ..aD(2, _omitFieldNames ? '' : 'majorVersion',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(3, _omitFieldNames ? '' : 'minorVersion',
+        fieldType: $pb.PbFieldType.OF)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ClientPlatform clone() => ClientPlatform()..mergeFromMessage(this);
+  ClientPlatform clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ClientPlatform copyWith(void Function(ClientPlatform) updates) =>
       super.copyWith((message) => updates(message as ClientPlatform))
@@ -2136,8 +2394,6 @@ class ClientPlatform extends $pb.GeneratedMessage {
   static ClientPlatform create() => ClientPlatform._();
   @$core.override
   ClientPlatform createEmptyInstance() => create();
-  static $pb.PbList<ClientPlatform> createRepeated() =>
-      $pb.PbList<ClientPlatform>();
   @$core.pragma('dart2js:noInline')
   static ClientPlatform getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ClientPlatform>(create);
@@ -2195,14 +2451,12 @@ class GetStatusRequest extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..e<RouterRole>(1, _omitFieldNames ? '' : 'routerRole', $pb.PbFieldType.OE,
-        defaultOrMaker: RouterRole.UNSPECIFIED,
-        valueOf: RouterRole.valueOf,
+    ..aE<RouterRole>(1, _omitFieldNames ? '' : 'routerRole',
         enumValues: RouterRole.values)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetStatusRequest clone() => GetStatusRequest()..mergeFromMessage(this);
+  GetStatusRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetStatusRequest copyWith(void Function(GetStatusRequest) updates) =>
       super.copyWith((message) => updates(message as GetStatusRequest))
@@ -2215,8 +2469,6 @@ class GetStatusRequest extends $pb.GeneratedMessage {
   static GetStatusRequest create() => GetStatusRequest._();
   @$core.override
   GetStatusRequest createEmptyInstance() => create();
-  static $pb.PbList<GetStatusRequest> createRepeated() =>
-      $pb.PbList<GetStatusRequest>();
   @$core.pragma('dart2js:noInline')
   static GetStatusRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetStatusRequest>(create);
@@ -2261,7 +2513,7 @@ class AuthenticateRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  AuthenticateRequest clone() => AuthenticateRequest()..mergeFromMessage(this);
+  AuthenticateRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   AuthenticateRequest copyWith(void Function(AuthenticateRequest) updates) =>
       super.copyWith((message) => updates(message as AuthenticateRequest))
@@ -2274,8 +2526,6 @@ class AuthenticateRequest extends $pb.GeneratedMessage {
   static AuthenticateRequest create() => AuthenticateRequest._();
   @$core.override
   AuthenticateRequest createEmptyInstance() => create();
-  static $pb.PbList<AuthenticateRequest> createRepeated() =>
-      $pb.PbList<AuthenticateRequest>();
   @$core.pragma('dart2js:noInline')
   static AuthenticateRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<AuthenticateRequest>(create);
@@ -2314,7 +2564,7 @@ class GetNextIdRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetNextIdRequest clone() => GetNextIdRequest()..mergeFromMessage(this);
+  GetNextIdRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetNextIdRequest copyWith(void Function(GetNextIdRequest) updates) =>
       super.copyWith((message) => updates(message as GetNextIdRequest))
@@ -2327,8 +2577,6 @@ class GetNextIdRequest extends $pb.GeneratedMessage {
   static GetNextIdRequest create() => GetNextIdRequest._();
   @$core.override
   GetNextIdRequest createEmptyInstance() => create();
-  static $pb.PbList<GetNextIdRequest> createRepeated() =>
-      $pb.PbList<GetNextIdRequest>();
   @$core.pragma('dart2js:noInline')
   static GetNextIdRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetNextIdRequest>(create);
@@ -2356,7 +2604,7 @@ class GetHistoryRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetHistoryRequest clone() => GetHistoryRequest()..mergeFromMessage(this);
+  GetHistoryRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetHistoryRequest copyWith(void Function(GetHistoryRequest) updates) =>
       super.copyWith((message) => updates(message as GetHistoryRequest))
@@ -2369,8 +2617,6 @@ class GetHistoryRequest extends $pb.GeneratedMessage {
   static GetHistoryRequest create() => GetHistoryRequest._();
   @$core.override
   GetHistoryRequest createEmptyInstance() => create();
-  static $pb.PbList<GetHistoryRequest> createRepeated() =>
-      $pb.PbList<GetHistoryRequest>();
   @$core.pragma('dart2js:noInline')
   static GetHistoryRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetHistoryRequest>(create);
@@ -2398,8 +2644,7 @@ class GetDeviceInfoRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetDeviceInfoRequest clone() =>
-      GetDeviceInfoRequest()..mergeFromMessage(this);
+  GetDeviceInfoRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetDeviceInfoRequest copyWith(void Function(GetDeviceInfoRequest) updates) =>
       super.copyWith((message) => updates(message as GetDeviceInfoRequest))
@@ -2412,8 +2657,6 @@ class GetDeviceInfoRequest extends $pb.GeneratedMessage {
   static GetDeviceInfoRequest create() => GetDeviceInfoRequest._();
   @$core.override
   GetDeviceInfoRequest createEmptyInstance() => create();
-  static $pb.PbList<GetDeviceInfoRequest> createRepeated() =>
-      $pb.PbList<GetDeviceInfoRequest>();
   @$core.pragma('dart2js:noInline')
   static GetDeviceInfoRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetDeviceInfoRequest>(create);
@@ -2441,7 +2684,7 @@ class GetPingRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetPingRequest clone() => GetPingRequest()..mergeFromMessage(this);
+  GetPingRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetPingRequest copyWith(void Function(GetPingRequest) updates) =>
       super.copyWith((message) => updates(message as GetPingRequest))
@@ -2454,8 +2697,6 @@ class GetPingRequest extends $pb.GeneratedMessage {
   static GetPingRequest create() => GetPingRequest._();
   @$core.override
   GetPingRequest createEmptyInstance() => create();
-  static $pb.PbList<GetPingRequest> createRepeated() =>
-      $pb.PbList<GetPingRequest>();
   @$core.pragma('dart2js:noInline')
   static GetPingRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetPingRequest>(create);
@@ -2486,13 +2727,12 @@ class SetTrustedKeysRequest extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..pc<PublicKey>(1, _omitFieldNames ? '' : 'keys', $pb.PbFieldType.PM,
+    ..pPM<PublicKey>(1, _omitFieldNames ? '' : 'keys',
         subBuilder: PublicKey.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SetTrustedKeysRequest clone() =>
-      SetTrustedKeysRequest()..mergeFromMessage(this);
+  SetTrustedKeysRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   SetTrustedKeysRequest copyWith(
           void Function(SetTrustedKeysRequest) updates) =>
@@ -2506,8 +2746,6 @@ class SetTrustedKeysRequest extends $pb.GeneratedMessage {
   static SetTrustedKeysRequest create() => SetTrustedKeysRequest._();
   @$core.override
   SetTrustedKeysRequest createEmptyInstance() => create();
-  static $pb.PbList<SetTrustedKeysRequest> createRepeated() =>
-      $pb.PbList<SetTrustedKeysRequest>();
   @$core.pragma('dart2js:noInline')
   static SetTrustedKeysRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SetTrustedKeysRequest>(create);
@@ -2552,14 +2790,11 @@ class PublicKey extends $pb.GeneratedMessage {
         valueOf: Capability.valueOf,
         enumValues: Capability.values,
         defaultEnumValue: Capability.READ)
-    ..e<User>(3, _omitFieldNames ? '' : 'user', $pb.PbFieldType.OE,
-        defaultOrMaker: User.NO_USER,
-        valueOf: User.valueOf,
-        enumValues: User.values)
+    ..aE<User>(3, _omitFieldNames ? '' : 'user', enumValues: User.values)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  PublicKey clone() => PublicKey()..mergeFromMessage(this);
+  PublicKey clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   PublicKey copyWith(void Function(PublicKey) updates) =>
       super.copyWith((message) => updates(message as PublicKey)) as PublicKey;
@@ -2571,7 +2806,6 @@ class PublicKey extends $pb.GeneratedMessage {
   static PublicKey create() => PublicKey._();
   @$core.override
   PublicKey createEmptyInstance() => create();
-  static $pb.PbList<PublicKey> createRepeated() => $pb.PbList<PublicKey>();
   @$core.pragma('dart2js:noInline')
   static PublicKey getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PublicKey>(create);
@@ -2621,7 +2855,7 @@ class FactoryResetRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  FactoryResetRequest clone() => FactoryResetRequest()..mergeFromMessage(this);
+  FactoryResetRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   FactoryResetRequest copyWith(void Function(FactoryResetRequest) updates) =>
       super.copyWith((message) => updates(message as FactoryResetRequest))
@@ -2634,8 +2868,6 @@ class FactoryResetRequest extends $pb.GeneratedMessage {
   static FactoryResetRequest create() => FactoryResetRequest._();
   @$core.override
   FactoryResetRequest createEmptyInstance() => create();
-  static $pb.PbList<FactoryResetRequest> createRepeated() =>
-      $pb.PbList<FactoryResetRequest>();
   @$core.pragma('dart2js:noInline')
   static FactoryResetRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<FactoryResetRequest>(create);
@@ -2663,7 +2895,7 @@ class GetLogRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetLogRequest clone() => GetLogRequest()..mergeFromMessage(this);
+  GetLogRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetLogRequest copyWith(void Function(GetLogRequest) updates) =>
       super.copyWith((message) => updates(message as GetLogRequest))
@@ -2676,8 +2908,6 @@ class GetLogRequest extends $pb.GeneratedMessage {
   static GetLogRequest create() => GetLogRequest._();
   @$core.override
   GetLogRequest createEmptyInstance() => create();
-  static $pb.PbList<GetLogRequest> createRepeated() =>
-      $pb.PbList<GetLogRequest>();
   @$core.pragma('dart2js:noInline')
   static GetLogRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetLogRequest>(create);
@@ -2724,7 +2954,7 @@ class SetSkuRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SetSkuRequest clone() => SetSkuRequest()..mergeFromMessage(this);
+  SetSkuRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   SetSkuRequest copyWith(void Function(SetSkuRequest) updates) =>
       super.copyWith((message) => updates(message as SetSkuRequest))
@@ -2737,8 +2967,6 @@ class SetSkuRequest extends $pb.GeneratedMessage {
   static SetSkuRequest create() => SetSkuRequest._();
   @$core.override
   SetSkuRequest createEmptyInstance() => create();
-  static $pb.PbList<SetSkuRequest> createRepeated() =>
-      $pb.PbList<SetSkuRequest>();
   @$core.pragma('dart2js:noInline')
   static SetSkuRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SetSkuRequest>(create);
@@ -2818,7 +3046,7 @@ class UpdateRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  UpdateRequest clone() => UpdateRequest()..mergeFromMessage(this);
+  UpdateRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   UpdateRequest copyWith(void Function(UpdateRequest) updates) =>
       super.copyWith((message) => updates(message as UpdateRequest))
@@ -2831,8 +3059,6 @@ class UpdateRequest extends $pb.GeneratedMessage {
   static UpdateRequest create() => UpdateRequest._();
   @$core.override
   UpdateRequest createEmptyInstance() => create();
-  static $pb.PbList<UpdateRequest> createRepeated() =>
-      $pb.PbList<UpdateRequest>();
   @$core.pragma('dart2js:noInline')
   static UpdateRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<UpdateRequest>(create);
@@ -2869,8 +3095,7 @@ class GetNetworkInterfacesRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetNetworkInterfacesRequest clone() =>
-      GetNetworkInterfacesRequest()..mergeFromMessage(this);
+  GetNetworkInterfacesRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetNetworkInterfacesRequest copyWith(
           void Function(GetNetworkInterfacesRequest) updates) =>
@@ -2886,8 +3111,6 @@ class GetNetworkInterfacesRequest extends $pb.GeneratedMessage {
       GetNetworkInterfacesRequest._();
   @$core.override
   GetNetworkInterfacesRequest createEmptyInstance() => create();
-  static $pb.PbList<GetNetworkInterfacesRequest> createRepeated() =>
-      $pb.PbList<GetNetworkInterfacesRequest>();
   @$core.pragma('dart2js:noInline')
   static GetNetworkInterfacesRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetNetworkInterfacesRequest>(create);
@@ -2921,11 +3144,11 @@ class PingHostRequest extends $pb.GeneratedMessage {
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
     ..aOS(3, _omitFieldNames ? '' : 'address')
-    ..a<$core.int>(4, _omitFieldNames ? '' : 'size', $pb.PbFieldType.OU3)
+    ..aI(4, _omitFieldNames ? '' : 'size', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  PingHostRequest clone() => PingHostRequest()..mergeFromMessage(this);
+  PingHostRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   PingHostRequest copyWith(void Function(PingHostRequest) updates) =>
       super.copyWith((message) => updates(message as PingHostRequest))
@@ -2938,8 +3161,6 @@ class PingHostRequest extends $pb.GeneratedMessage {
   static PingHostRequest create() => PingHostRequest._();
   @$core.override
   PingHostRequest createEmptyInstance() => create();
-  static $pb.PbList<PingHostRequest> createRepeated() =>
-      $pb.PbList<PingHostRequest>();
   @$core.pragma('dart2js:noInline')
   static PingHostRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<PingHostRequest>(create);
@@ -2988,14 +3209,12 @@ class GetLocationRequest extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..e<PositionSource>(1, _omitFieldNames ? '' : 'source', $pb.PbFieldType.OE,
-        defaultOrMaker: PositionSource.AUTO,
-        valueOf: PositionSource.valueOf,
+    ..aE<PositionSource>(1, _omitFieldNames ? '' : 'source',
         enumValues: PositionSource.values)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetLocationRequest clone() => GetLocationRequest()..mergeFromMessage(this);
+  GetLocationRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetLocationRequest copyWith(void Function(GetLocationRequest) updates) =>
       super.copyWith((message) => updates(message as GetLocationRequest))
@@ -3008,8 +3227,6 @@ class GetLocationRequest extends $pb.GeneratedMessage {
   static GetLocationRequest create() => GetLocationRequest._();
   @$core.override
   GetLocationRequest createEmptyInstance() => create();
-  static $pb.PbList<GetLocationRequest> createRepeated() =>
-      $pb.PbList<GetLocationRequest>();
   @$core.pragma('dart2js:noInline')
   static GetLocationRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetLocationRequest>(create);
@@ -3046,7 +3263,7 @@ class GetHeapDumpRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetHeapDumpRequest clone() => GetHeapDumpRequest()..mergeFromMessage(this);
+  GetHeapDumpRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetHeapDumpRequest copyWith(void Function(GetHeapDumpRequest) updates) =>
       super.copyWith((message) => updates(message as GetHeapDumpRequest))
@@ -3059,8 +3276,6 @@ class GetHeapDumpRequest extends $pb.GeneratedMessage {
   static GetHeapDumpRequest create() => GetHeapDumpRequest._();
   @$core.override
   GetHeapDumpRequest createEmptyInstance() => create();
-  static $pb.PbList<GetHeapDumpRequest> createRepeated() =>
-      $pb.PbList<GetHeapDumpRequest>();
   @$core.pragma('dart2js:noInline')
   static GetHeapDumpRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetHeapDumpRequest>(create);
@@ -3088,8 +3303,7 @@ class RestartControlRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  RestartControlRequest clone() =>
-      RestartControlRequest()..mergeFromMessage(this);
+  RestartControlRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   RestartControlRequest copyWith(
           void Function(RestartControlRequest) updates) =>
@@ -3103,8 +3317,6 @@ class RestartControlRequest extends $pb.GeneratedMessage {
   static RestartControlRequest create() => RestartControlRequest._();
   @$core.override
   RestartControlRequest createEmptyInstance() => create();
-  static $pb.PbList<RestartControlRequest> createRepeated() =>
-      $pb.PbList<RestartControlRequest>();
   @$core.pragma('dart2js:noInline')
   static RestartControlRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RestartControlRequest>(create);
@@ -3139,7 +3351,7 @@ class FuseRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  FuseRequest clone() => FuseRequest()..mergeFromMessage(this);
+  FuseRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   FuseRequest copyWith(void Function(FuseRequest) updates) =>
       super.copyWith((message) => updates(message as FuseRequest))
@@ -3152,7 +3364,6 @@ class FuseRequest extends $pb.GeneratedMessage {
   static FuseRequest create() => FuseRequest._();
   @$core.override
   FuseRequest createEmptyInstance() => create();
-  static $pb.PbList<FuseRequest> createRepeated() => $pb.PbList<FuseRequest>();
   @$core.pragma('dart2js:noInline')
   static FuseRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<FuseRequest>(create);
@@ -3189,8 +3400,7 @@ class GetPersistentStatsRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetPersistentStatsRequest clone() =>
-      GetPersistentStatsRequest()..mergeFromMessage(this);
+  GetPersistentStatsRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetPersistentStatsRequest copyWith(
           void Function(GetPersistentStatsRequest) updates) =>
@@ -3204,8 +3414,6 @@ class GetPersistentStatsRequest extends $pb.GeneratedMessage {
   static GetPersistentStatsRequest create() => GetPersistentStatsRequest._();
   @$core.override
   GetPersistentStatsRequest createEmptyInstance() => create();
-  static $pb.PbList<GetPersistentStatsRequest> createRepeated() =>
-      $pb.PbList<GetPersistentStatsRequest>();
   @$core.pragma('dart2js:noInline')
   static GetPersistentStatsRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetPersistentStatsRequest>(create);
@@ -3233,8 +3441,7 @@ class GetConnectionsRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetConnectionsRequest clone() =>
-      GetConnectionsRequest()..mergeFromMessage(this);
+  GetConnectionsRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetConnectionsRequest copyWith(
           void Function(GetConnectionsRequest) updates) =>
@@ -3248,8 +3455,6 @@ class GetConnectionsRequest extends $pb.GeneratedMessage {
   static GetConnectionsRequest create() => GetConnectionsRequest._();
   @$core.override
   GetConnectionsRequest createEmptyInstance() => create();
-  static $pb.PbList<GetConnectionsRequest> createRepeated() =>
-      $pb.PbList<GetConnectionsRequest>();
   @$core.pragma('dart2js:noInline')
   static GetConnectionsRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetConnectionsRequest>(create);
@@ -3277,8 +3482,7 @@ class StartSpeedtestRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  StartSpeedtestRequest clone() =>
-      StartSpeedtestRequest()..mergeFromMessage(this);
+  StartSpeedtestRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   StartSpeedtestRequest copyWith(
           void Function(StartSpeedtestRequest) updates) =>
@@ -3292,8 +3496,6 @@ class StartSpeedtestRequest extends $pb.GeneratedMessage {
   static StartSpeedtestRequest create() => StartSpeedtestRequest._();
   @$core.override
   StartSpeedtestRequest createEmptyInstance() => create();
-  static $pb.PbList<StartSpeedtestRequest> createRepeated() =>
-      $pb.PbList<StartSpeedtestRequest>();
   @$core.pragma('dart2js:noInline')
   static StartSpeedtestRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<StartSpeedtestRequest>(create);
@@ -3321,8 +3523,7 @@ class GetSpeedtestStatusRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetSpeedtestStatusRequest clone() =>
-      GetSpeedtestStatusRequest()..mergeFromMessage(this);
+  GetSpeedtestStatusRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetSpeedtestStatusRequest copyWith(
           void Function(GetSpeedtestStatusRequest) updates) =>
@@ -3336,8 +3537,6 @@ class GetSpeedtestStatusRequest extends $pb.GeneratedMessage {
   static GetSpeedtestStatusRequest create() => GetSpeedtestStatusRequest._();
   @$core.override
   GetSpeedtestStatusRequest createEmptyInstance() => create();
-  static $pb.PbList<GetSpeedtestStatusRequest> createRepeated() =>
-      $pb.PbList<GetSpeedtestStatusRequest>();
   @$core.pragma('dart2js:noInline')
   static GetSpeedtestStatusRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetSpeedtestStatusRequest>(create);
@@ -3380,22 +3579,20 @@ class ReportClientSpeedtestRequest extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU3)
+    ..aI(1, _omitFieldNames ? '' : 'id', fieldType: $pb.PbFieldType.OU3)
     ..aOM<SpeedTestStats>(2, _omitFieldNames ? '' : 'clientSpeedtest',
         subBuilder: SpeedTestStats.create)
-    ..a<$core.double>(
-        3, _omitFieldNames ? '' : 'clientRssi', $pb.PbFieldType.OF)
+    ..aD(3, _omitFieldNames ? '' : 'clientRssi', fieldType: $pb.PbFieldType.OF)
     ..aOM<ClientPlatform>(4, _omitFieldNames ? '' : 'clientPlatform',
         subBuilder: ClientPlatform.create)
     ..aOM<SpeedTestStats>(5, _omitFieldNames ? '' : 'wifiSpeedtest',
         subBuilder: SpeedTestStats.create)
     ..aOS(6, _omitFieldNames ? '' : 'appVersion')
-    ..a<$core.int>(7, _omitFieldNames ? '' : 'appBuild', $pb.PbFieldType.OU3)
+    ..aI(7, _omitFieldNames ? '' : 'appBuild', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ReportClientSpeedtestRequest clone() =>
-      ReportClientSpeedtestRequest()..mergeFromMessage(this);
+  ReportClientSpeedtestRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ReportClientSpeedtestRequest copyWith(
           void Function(ReportClientSpeedtestRequest) updates) =>
@@ -3411,8 +3608,6 @@ class ReportClientSpeedtestRequest extends $pb.GeneratedMessage {
       ReportClientSpeedtestRequest._();
   @$core.override
   ReportClientSpeedtestRequest createEmptyInstance() => create();
-  static $pb.PbList<ReportClientSpeedtestRequest> createRepeated() =>
-      $pb.PbList<ReportClientSpeedtestRequest>();
   @$core.pragma('dart2js:noInline')
   static ReportClientSpeedtestRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ReportClientSpeedtestRequest>(create);
@@ -3509,8 +3704,7 @@ class InitiateRemoteSshRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  InitiateRemoteSshRequest clone() =>
-      InitiateRemoteSshRequest()..mergeFromMessage(this);
+  InitiateRemoteSshRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   InitiateRemoteSshRequest copyWith(
           void Function(InitiateRemoteSshRequest) updates) =>
@@ -3524,8 +3718,6 @@ class InitiateRemoteSshRequest extends $pb.GeneratedMessage {
   static InitiateRemoteSshRequest create() => InitiateRemoteSshRequest._();
   @$core.override
   InitiateRemoteSshRequest createEmptyInstance() => create();
-  static $pb.PbList<InitiateRemoteSshRequest> createRepeated() =>
-      $pb.PbList<InitiateRemoteSshRequest>();
   @$core.pragma('dart2js:noInline')
   static InitiateRemoteSshRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<InitiateRemoteSshRequest>(create);
@@ -3560,7 +3752,7 @@ class SelfTestRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SelfTestRequest clone() => SelfTestRequest()..mergeFromMessage(this);
+  SelfTestRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   SelfTestRequest copyWith(void Function(SelfTestRequest) updates) =>
       super.copyWith((message) => updates(message as SelfTestRequest))
@@ -3573,8 +3765,6 @@ class SelfTestRequest extends $pb.GeneratedMessage {
   static SelfTestRequest create() => SelfTestRequest._();
   @$core.override
   SelfTestRequest createEmptyInstance() => create();
-  static $pb.PbList<SelfTestRequest> createRepeated() =>
-      $pb.PbList<SelfTestRequest>();
   @$core.pragma('dart2js:noInline')
   static SelfTestRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SelfTestRequest>(create);
@@ -3620,17 +3810,14 @@ class SetTestModeRequest extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..e<SetTestModeRequest_RfMode>(
-        1, _omitFieldNames ? '' : 'rfMode', $pb.PbFieldType.OE,
-        defaultOrMaker: SetTestModeRequest_RfMode.RX,
-        valueOf: SetTestModeRequest_RfMode.valueOf,
+    ..aE<SetTestModeRequest_RfMode>(1, _omitFieldNames ? '' : 'rfMode',
         enumValues: SetTestModeRequest_RfMode.values)
     ..aOB(1001, _omitFieldNames ? '' : 'disableLossOfCommFdir')
     ..aOB(1002, _omitFieldNames ? '' : 'enableRulesOverride')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SetTestModeRequest clone() => SetTestModeRequest()..mergeFromMessage(this);
+  SetTestModeRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   SetTestModeRequest copyWith(void Function(SetTestModeRequest) updates) =>
       super.copyWith((message) => updates(message as SetTestModeRequest))
@@ -3643,8 +3830,6 @@ class SetTestModeRequest extends $pb.GeneratedMessage {
   static SetTestModeRequest create() => SetTestModeRequest._();
   @$core.override
   SetTestModeRequest createEmptyInstance() => create();
-  static $pb.PbList<SetTestModeRequest> createRepeated() =>
-      $pb.PbList<SetTestModeRequest>();
   @$core.pragma('dart2js:noInline')
   static SetTestModeRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SetTestModeRequest>(create);
@@ -3718,8 +3903,7 @@ class SoftwareUpdateRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SoftwareUpdateRequest clone() =>
-      SoftwareUpdateRequest()..mergeFromMessage(this);
+  SoftwareUpdateRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   SoftwareUpdateRequest copyWith(
           void Function(SoftwareUpdateRequest) updates) =>
@@ -3733,8 +3917,6 @@ class SoftwareUpdateRequest extends $pb.GeneratedMessage {
   static SoftwareUpdateRequest create() => SoftwareUpdateRequest._();
   @$core.override
   SoftwareUpdateRequest createEmptyInstance() => create();
-  static $pb.PbList<SoftwareUpdateRequest> createRepeated() =>
-      $pb.PbList<SoftwareUpdateRequest>();
   @$core.pragma('dart2js:noInline')
   static SoftwareUpdateRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SoftwareUpdateRequest>(create);
@@ -3801,12 +3983,11 @@ class EnableDebugTelemRequest extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'durationM', $pb.PbFieldType.OU3)
+    ..aI(1, _omitFieldNames ? '' : 'durationM', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  EnableDebugTelemRequest clone() =>
-      EnableDebugTelemRequest()..mergeFromMessage(this);
+  EnableDebugTelemRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   EnableDebugTelemRequest copyWith(
           void Function(EnableDebugTelemRequest) updates) =>
@@ -3820,8 +4001,6 @@ class EnableDebugTelemRequest extends $pb.GeneratedMessage {
   static EnableDebugTelemRequest create() => EnableDebugTelemRequest._();
   @$core.override
   EnableDebugTelemRequest createEmptyInstance() => create();
-  static $pb.PbList<EnableDebugTelemRequest> createRepeated() =>
-      $pb.PbList<EnableDebugTelemRequest>();
   @$core.pragma('dart2js:noInline')
   static EnableDebugTelemRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<EnableDebugTelemRequest>(create);
@@ -3858,7 +4037,7 @@ class IQCaptureRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  IQCaptureRequest clone() => IQCaptureRequest()..mergeFromMessage(this);
+  IQCaptureRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   IQCaptureRequest copyWith(void Function(IQCaptureRequest) updates) =>
       super.copyWith((message) => updates(message as IQCaptureRequest))
@@ -3871,8 +4050,6 @@ class IQCaptureRequest extends $pb.GeneratedMessage {
   static IQCaptureRequest create() => IQCaptureRequest._();
   @$core.override
   IQCaptureRequest createEmptyInstance() => create();
-  static $pb.PbList<IQCaptureRequest> createRepeated() =>
-      $pb.PbList<IQCaptureRequest>();
   @$core.pragma('dart2js:noInline')
   static IQCaptureRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<IQCaptureRequest>(create);
@@ -3900,8 +4077,7 @@ class GetRadioStatsRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetRadioStatsRequest clone() =>
-      GetRadioStatsRequest()..mergeFromMessage(this);
+  GetRadioStatsRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetRadioStatsRequest copyWith(void Function(GetRadioStatsRequest) updates) =>
       super.copyWith((message) => updates(message as GetRadioStatsRequest))
@@ -3914,8 +4090,6 @@ class GetRadioStatsRequest extends $pb.GeneratedMessage {
   static GetRadioStatsRequest create() => GetRadioStatsRequest._();
   @$core.override
   GetRadioStatsRequest createEmptyInstance() => create();
-  static $pb.PbList<GetRadioStatsRequest> createRepeated() =>
-      $pb.PbList<GetRadioStatsRequest>();
   @$core.pragma('dart2js:noInline')
   static GetRadioStatsRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetRadioStatsRequest>(create);
@@ -3943,7 +4117,7 @@ class GetTimeRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetTimeRequest clone() => GetTimeRequest()..mergeFromMessage(this);
+  GetTimeRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetTimeRequest copyWith(void Function(GetTimeRequest) updates) =>
       super.copyWith((message) => updates(message as GetTimeRequest))
@@ -3956,8 +4130,6 @@ class GetTimeRequest extends $pb.GeneratedMessage {
   static GetTimeRequest create() => GetTimeRequest._();
   @$core.override
   GetTimeRequest createEmptyInstance() => create();
-  static $pb.PbList<GetTimeRequest> createRepeated() =>
-      $pb.PbList<GetTimeRequest>();
   @$core.pragma('dart2js:noInline')
   static GetTimeRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetTimeRequest>(create);
@@ -3988,12 +4160,11 @@ class RunIperfServerRequest extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'durationS', $pb.PbFieldType.OU3)
+    ..aI(1, _omitFieldNames ? '' : 'durationS', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  RunIperfServerRequest clone() =>
-      RunIperfServerRequest()..mergeFromMessage(this);
+  RunIperfServerRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   RunIperfServerRequest copyWith(
           void Function(RunIperfServerRequest) updates) =>
@@ -4007,8 +4178,6 @@ class RunIperfServerRequest extends $pb.GeneratedMessage {
   static RunIperfServerRequest create() => RunIperfServerRequest._();
   @$core.override
   RunIperfServerRequest createEmptyInstance() => create();
-  static $pb.PbList<RunIperfServerRequest> createRepeated() =>
-      $pb.PbList<RunIperfServerRequest>();
   @$core.pragma('dart2js:noInline')
   static RunIperfServerRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RunIperfServerRequest>(create);
@@ -4051,12 +4220,11 @@ class TcpConnectivityTestRequest extends $pb.GeneratedMessage {
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'target')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'port', $pb.PbFieldType.OU3)
+    ..aI(2, _omitFieldNames ? '' : 'port', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  TcpConnectivityTestRequest clone() =>
-      TcpConnectivityTestRequest()..mergeFromMessage(this);
+  TcpConnectivityTestRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   TcpConnectivityTestRequest copyWith(
           void Function(TcpConnectivityTestRequest) updates) =>
@@ -4071,8 +4239,6 @@ class TcpConnectivityTestRequest extends $pb.GeneratedMessage {
   static TcpConnectivityTestRequest create() => TcpConnectivityTestRequest._();
   @$core.override
   TcpConnectivityTestRequest createEmptyInstance() => create();
-  static $pb.PbList<TcpConnectivityTestRequest> createRepeated() =>
-      $pb.PbList<TcpConnectivityTestRequest>();
   @$core.pragma('dart2js:noInline')
   static TcpConnectivityTestRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<TcpConnectivityTestRequest>(create);
@@ -4126,17 +4292,14 @@ class UdpConnectivityTestRequest extends $pb.GeneratedMessage {
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'target')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'port', $pb.PbFieldType.OU3)
-    ..e<UdpConnectivityTestRequest_UDPProbeDataType>(
-        3, _omitFieldNames ? '' : 'probeData', $pb.PbFieldType.OE,
-        defaultOrMaker: UdpConnectivityTestRequest_UDPProbeDataType.EMPTY,
-        valueOf: UdpConnectivityTestRequest_UDPProbeDataType.valueOf,
+    ..aI(2, _omitFieldNames ? '' : 'port', fieldType: $pb.PbFieldType.OU3)
+    ..aE<UdpConnectivityTestRequest_UDPProbeDataType>(
+        3, _omitFieldNames ? '' : 'probeData',
         enumValues: UdpConnectivityTestRequest_UDPProbeDataType.values)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  UdpConnectivityTestRequest clone() =>
-      UdpConnectivityTestRequest()..mergeFromMessage(this);
+  UdpConnectivityTestRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   UdpConnectivityTestRequest copyWith(
           void Function(UdpConnectivityTestRequest) updates) =>
@@ -4151,8 +4314,6 @@ class UdpConnectivityTestRequest extends $pb.GeneratedMessage {
   static UdpConnectivityTestRequest create() => UdpConnectivityTestRequest._();
   @$core.override
   UdpConnectivityTestRequest createEmptyInstance() => create();
-  static $pb.PbList<UdpConnectivityTestRequest> createRepeated() =>
-      $pb.PbList<UdpConnectivityTestRequest>();
   @$core.pragma('dart2js:noInline')
   static UdpConnectivityTestRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<UdpConnectivityTestRequest>(create);
@@ -4208,8 +4369,7 @@ class GetGoroutineStackTracesRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetGoroutineStackTracesRequest clone() =>
-      GetGoroutineStackTracesRequest()..mergeFromMessage(this);
+  GetGoroutineStackTracesRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetGoroutineStackTracesRequest copyWith(
           void Function(GetGoroutineStackTracesRequest) updates) =>
@@ -4225,8 +4385,6 @@ class GetGoroutineStackTracesRequest extends $pb.GeneratedMessage {
       GetGoroutineStackTracesRequest._();
   @$core.override
   GetGoroutineStackTracesRequest createEmptyInstance() => create();
-  static $pb.PbList<GetGoroutineStackTracesRequest> createRepeated() =>
-      $pb.PbList<GetGoroutineStackTracesRequest>();
   @$core.pragma('dart2js:noInline')
   static GetGoroutineStackTracesRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetGoroutineStackTracesRequest>(create);
@@ -4261,7 +4419,7 @@ class DishStowRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishStowRequest clone() => DishStowRequest()..mergeFromMessage(this);
+  DishStowRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishStowRequest copyWith(void Function(DishStowRequest) updates) =>
       super.copyWith((message) => updates(message as DishStowRequest))
@@ -4274,8 +4432,6 @@ class DishStowRequest extends $pb.GeneratedMessage {
   static DishStowRequest create() => DishStowRequest._();
   @$core.override
   DishStowRequest createEmptyInstance() => create();
-  static $pb.PbList<DishStowRequest> createRepeated() =>
-      $pb.PbList<DishStowRequest>();
   @$core.pragma('dart2js:noInline')
   static DishStowRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishStowRequest>(create);
@@ -4312,8 +4468,7 @@ class DishGetContextRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishGetContextRequest clone() =>
-      DishGetContextRequest()..mergeFromMessage(this);
+  DishGetContextRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishGetContextRequest copyWith(
           void Function(DishGetContextRequest) updates) =>
@@ -4327,8 +4482,6 @@ class DishGetContextRequest extends $pb.GeneratedMessage {
   static DishGetContextRequest create() => DishGetContextRequest._();
   @$core.override
   DishGetContextRequest createEmptyInstance() => create();
-  static $pb.PbList<DishGetContextRequest> createRepeated() =>
-      $pb.PbList<DishGetContextRequest>();
   @$core.pragma('dart2js:noInline')
   static DishGetContextRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishGetContextRequest>(create);
@@ -4414,13 +4567,12 @@ class DishSetEmcRequest extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'theta', $pb.PbFieldType.OD)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'phi', $pb.PbFieldType.OD)
-    ..a<$core.int>(3, _omitFieldNames ? '' : 'rxChan', $pb.PbFieldType.OU3)
-    ..a<$core.int>(4, _omitFieldNames ? '' : 'txChan', $pb.PbFieldType.OU3)
-    ..a<$core.int>(5, _omitFieldNames ? '' : 'modulation', $pb.PbFieldType.OU3)
-    ..a<$core.double>(
-        7, _omitFieldNames ? '' : 'desiredTiltAngle', $pb.PbFieldType.OD)
+    ..aD(1, _omitFieldNames ? '' : 'theta')
+    ..aD(2, _omitFieldNames ? '' : 'phi')
+    ..aI(3, _omitFieldNames ? '' : 'rxChan', fieldType: $pb.PbFieldType.OU3)
+    ..aI(4, _omitFieldNames ? '' : 'txChan', fieldType: $pb.PbFieldType.OU3)
+    ..aI(5, _omitFieldNames ? '' : 'modulation', fieldType: $pb.PbFieldType.OU3)
+    ..aD(7, _omitFieldNames ? '' : 'desiredTiltAngle')
     ..aOB(8, _omitFieldNames ? '' : 'chanOverride')
     ..aOB(9, _omitFieldNames ? '' : 'thetaEnabled')
     ..aOB(10, _omitFieldNames ? '' : 'phiEnabled')
@@ -4434,22 +4586,17 @@ class DishSetEmcRequest extends $pb.GeneratedMessage {
     ..aOB(19, _omitFieldNames ? '' : 'tiltToStowed')
     ..aOB(20, _omitFieldNames ? '' : 'reboot')
     ..aOB(21, _omitFieldNames ? '' : 'continuousMotorTest')
-    ..a<$core.double>(
-        22, _omitFieldNames ? '' : 'distanceOverrideMeters', $pb.PbFieldType.OD)
-    ..a<$core.int>(
-        24, _omitFieldNames ? '' : 'countryCodeOverride', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        25, _omitFieldNames ? '' : 'txDutyCycleOverride', $pb.PbFieldType.O3)
-    ..a<$core.int>(
-        26, _omitFieldNames ? '' : 'rxDutyCycleOverride', $pb.PbFieldType.O3)
-    ..a<$core.double>(27, _omitFieldNames ? '' : 'eirpLegalLimitDbwOverride',
-        $pb.PbFieldType.OD)
-    ..a<$core.double>(
-        28, _omitFieldNames ? '' : 'eirpAdjustmentDb', $pb.PbFieldType.OD)
+    ..aD(22, _omitFieldNames ? '' : 'distanceOverrideMeters')
+    ..aI(24, _omitFieldNames ? '' : 'countryCodeOverride',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(25, _omitFieldNames ? '' : 'txDutyCycleOverride')
+    ..aI(26, _omitFieldNames ? '' : 'rxDutyCycleOverride')
+    ..aD(27, _omitFieldNames ? '' : 'eirpLegalLimitDbwOverride')
+    ..aD(28, _omitFieldNames ? '' : 'eirpAdjustmentDb')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishSetEmcRequest clone() => DishSetEmcRequest()..mergeFromMessage(this);
+  DishSetEmcRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishSetEmcRequest copyWith(void Function(DishSetEmcRequest) updates) =>
       super.copyWith((message) => updates(message as DishSetEmcRequest))
@@ -4462,8 +4609,6 @@ class DishSetEmcRequest extends $pb.GeneratedMessage {
   static DishSetEmcRequest create() => DishSetEmcRequest._();
   @$core.override
   DishSetEmcRequest createEmptyInstance() => create();
-  static $pb.PbList<DishSetEmcRequest> createRepeated() =>
-      $pb.PbList<DishSetEmcRequest>();
   @$core.pragma('dart2js:noInline')
   static DishSetEmcRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishSetEmcRequest>(create);
@@ -4716,8 +4861,7 @@ class DishGetObstructionMapRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishGetObstructionMapRequest clone() =>
-      DishGetObstructionMapRequest()..mergeFromMessage(this);
+  DishGetObstructionMapRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishGetObstructionMapRequest copyWith(
           void Function(DishGetObstructionMapRequest) updates) =>
@@ -4733,8 +4877,6 @@ class DishGetObstructionMapRequest extends $pb.GeneratedMessage {
       DishGetObstructionMapRequest._();
   @$core.override
   DishGetObstructionMapRequest createEmptyInstance() => create();
-  static $pb.PbList<DishGetObstructionMapRequest> createRepeated() =>
-      $pb.PbList<DishGetObstructionMapRequest>();
   @$core.pragma('dart2js:noInline')
   static DishGetObstructionMapRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishGetObstructionMapRequest>(create);
@@ -4762,7 +4904,7 @@ class DishGetEmcRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishGetEmcRequest clone() => DishGetEmcRequest()..mergeFromMessage(this);
+  DishGetEmcRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishGetEmcRequest copyWith(void Function(DishGetEmcRequest) updates) =>
       super.copyWith((message) => updates(message as DishGetEmcRequest))
@@ -4775,8 +4917,6 @@ class DishGetEmcRequest extends $pb.GeneratedMessage {
   static DishGetEmcRequest create() => DishGetEmcRequest._();
   @$core.override
   DishGetEmcRequest createEmptyInstance() => create();
-  static $pb.PbList<DishGetEmcRequest> createRepeated() =>
-      $pb.PbList<DishGetEmcRequest>();
   @$core.pragma('dart2js:noInline')
   static DishGetEmcRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishGetEmcRequest>(create);
@@ -4812,8 +4952,7 @@ class DishSetConfigRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishSetConfigRequest clone() =>
-      DishSetConfigRequest()..mergeFromMessage(this);
+  DishSetConfigRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishSetConfigRequest copyWith(void Function(DishSetConfigRequest) updates) =>
       super.copyWith((message) => updates(message as DishSetConfigRequest))
@@ -4826,8 +4965,6 @@ class DishSetConfigRequest extends $pb.GeneratedMessage {
   static DishSetConfigRequest create() => DishSetConfigRequest._();
   @$core.override
   DishSetConfigRequest createEmptyInstance() => create();
-  static $pb.PbList<DishSetConfigRequest> createRepeated() =>
-      $pb.PbList<DishSetConfigRequest>();
   @$core.pragma('dart2js:noInline')
   static DishSetConfigRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishSetConfigRequest>(create);
@@ -4916,30 +5053,22 @@ class DishConfig extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..e<DishConfig_SnowMeltMode>(
-        1, _omitFieldNames ? '' : 'snowMeltMode', $pb.PbFieldType.OE,
-        defaultOrMaker: DishConfig_SnowMeltMode.AUTO,
-        valueOf: DishConfig_SnowMeltMode.valueOf,
+    ..aE<DishConfig_SnowMeltMode>(1, _omitFieldNames ? '' : 'snowMeltMode',
         enumValues: DishConfig_SnowMeltMode.values)
-    ..e<DishConfig_LocationRequestMode>(
-        2, _omitFieldNames ? '' : 'locationRequestMode', $pb.PbFieldType.OE,
-        defaultOrMaker: DishConfig_LocationRequestMode.NONE,
-        valueOf: DishConfig_LocationRequestMode.valueOf,
+    ..aE<DishConfig_LocationRequestMode>(
+        2, _omitFieldNames ? '' : 'locationRequestMode',
         enumValues: DishConfig_LocationRequestMode.values)
-    ..e<DishConfig_LevelDishMode>(
-        3, _omitFieldNames ? '' : 'levelDishMode', $pb.PbFieldType.OE,
-        defaultOrMaker: DishConfig_LevelDishMode.TILT_LIKE_NORMAL,
-        valueOf: DishConfig_LevelDishMode.valueOf,
+    ..aE<DishConfig_LevelDishMode>(3, _omitFieldNames ? '' : 'levelDishMode',
         enumValues: DishConfig_LevelDishMode.values)
-    ..a<$core.int>(
-        4, _omitFieldNames ? '' : 'powerSaveStartMinutes', $pb.PbFieldType.OU3)
-    ..a<$core.int>(5, _omitFieldNames ? '' : 'powerSaveDurationMinutes',
-        $pb.PbFieldType.OU3)
+    ..aI(4, _omitFieldNames ? '' : 'powerSaveStartMinutes',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(5, _omitFieldNames ? '' : 'powerSaveDurationMinutes',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOB(6, _omitFieldNames ? '' : 'powerSaveMode')
     ..aOB(7, _omitFieldNames ? '' : 'swupdateThreeDayDeferralEnabled')
-    ..a<$core.int>(8, _omitFieldNames ? '' : 'assetClass', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        9, _omitFieldNames ? '' : 'swupdateRebootHour', $pb.PbFieldType.OU3)
+    ..aI(8, _omitFieldNames ? '' : 'assetClass', fieldType: $pb.PbFieldType.OU3)
+    ..aI(9, _omitFieldNames ? '' : 'swupdateRebootHour',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOB(1001, _omitFieldNames ? '' : 'applySnowMeltMode')
     ..aOB(2001, _omitFieldNames ? '' : 'applyLocationRequestMode')
     ..aOB(3001, _omitFieldNames ? '' : 'applyLevelDishMode')
@@ -4952,7 +5081,7 @@ class DishConfig extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishConfig clone() => DishConfig()..mergeFromMessage(this);
+  DishConfig clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishConfig copyWith(void Function(DishConfig) updates) =>
       super.copyWith((message) => updates(message as DishConfig)) as DishConfig;
@@ -4964,7 +5093,6 @@ class DishConfig extends $pb.GeneratedMessage {
   static DishConfig create() => DishConfig._();
   @$core.override
   DishConfig createEmptyInstance() => create();
-  static $pb.PbList<DishConfig> createRepeated() => $pb.PbList<DishConfig>();
   @$core.pragma('dart2js:noInline')
   static DishConfig getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishConfig>(create);
@@ -5156,8 +5284,7 @@ class DishGetConfigRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishGetConfigRequest clone() =>
-      DishGetConfigRequest()..mergeFromMessage(this);
+  DishGetConfigRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishGetConfigRequest copyWith(void Function(DishGetConfigRequest) updates) =>
       super.copyWith((message) => updates(message as DishGetConfigRequest))
@@ -5170,8 +5297,6 @@ class DishGetConfigRequest extends $pb.GeneratedMessage {
   static DishGetConfigRequest create() => DishGetConfigRequest._();
   @$core.override
   DishGetConfigRequest createEmptyInstance() => create();
-  static $pb.PbList<DishGetConfigRequest> createRepeated() =>
-      $pb.PbList<DishGetConfigRequest>();
   @$core.pragma('dart2js:noInline')
   static DishGetConfigRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishGetConfigRequest>(create);
@@ -5208,16 +5333,15 @@ class DishPowerSaveRequest extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.int>(
-        1, _omitFieldNames ? '' : 'powerSaveStartMinutes', $pb.PbFieldType.OU3)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'powerSaveDurationMinutes',
-        $pb.PbFieldType.OU3)
+    ..aI(1, _omitFieldNames ? '' : 'powerSaveStartMinutes',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(2, _omitFieldNames ? '' : 'powerSaveDurationMinutes',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOB(3, _omitFieldNames ? '' : 'enablePowerSave')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishPowerSaveRequest clone() =>
-      DishPowerSaveRequest()..mergeFromMessage(this);
+  DishPowerSaveRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishPowerSaveRequest copyWith(void Function(DishPowerSaveRequest) updates) =>
       super.copyWith((message) => updates(message as DishPowerSaveRequest))
@@ -5230,8 +5354,6 @@ class DishPowerSaveRequest extends $pb.GeneratedMessage {
   static DishPowerSaveRequest create() => DishPowerSaveRequest._();
   @$core.override
   DishPowerSaveRequest createEmptyInstance() => create();
-  static $pb.PbList<DishPowerSaveRequest> createRepeated() =>
-      $pb.PbList<DishPowerSaveRequest>();
   @$core.pragma('dart2js:noInline')
   static DishPowerSaveRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishPowerSaveRequest>(create);
@@ -5293,8 +5415,7 @@ class DishInhibitGpsRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishInhibitGpsRequest clone() =>
-      DishInhibitGpsRequest()..mergeFromMessage(this);
+  DishInhibitGpsRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishInhibitGpsRequest copyWith(
           void Function(DishInhibitGpsRequest) updates) =>
@@ -5308,8 +5429,6 @@ class DishInhibitGpsRequest extends $pb.GeneratedMessage {
   static DishInhibitGpsRequest create() => DishInhibitGpsRequest._();
   @$core.override
   DishInhibitGpsRequest createEmptyInstance() => create();
-  static $pb.PbList<DishInhibitGpsRequest> createRepeated() =>
-      $pb.PbList<DishInhibitGpsRequest>();
   @$core.pragma('dart2js:noInline')
   static DishInhibitGpsRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishInhibitGpsRequest>(create);
@@ -5349,11 +5468,11 @@ class DishGetDataRequest extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU3)
+    ..aI(1, _omitFieldNames ? '' : 'id', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishGetDataRequest clone() => DishGetDataRequest()..mergeFromMessage(this);
+  DishGetDataRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishGetDataRequest copyWith(void Function(DishGetDataRequest) updates) =>
       super.copyWith((message) => updates(message as DishGetDataRequest))
@@ -5366,8 +5485,6 @@ class DishGetDataRequest extends $pb.GeneratedMessage {
   static DishGetDataRequest create() => DishGetDataRequest._();
   @$core.override
   DishGetDataRequest createEmptyInstance() => create();
-  static $pb.PbList<DishGetDataRequest> createRepeated() =>
-      $pb.PbList<DishGetDataRequest>();
   @$core.pragma('dart2js:noInline')
   static DishGetDataRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishGetDataRequest>(create);
@@ -5404,8 +5521,7 @@ class DishClearObstructionMapRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishClearObstructionMapRequest clone() =>
-      DishClearObstructionMapRequest()..mergeFromMessage(this);
+  DishClearObstructionMapRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishClearObstructionMapRequest copyWith(
           void Function(DishClearObstructionMapRequest) updates) =>
@@ -5421,8 +5537,6 @@ class DishClearObstructionMapRequest extends $pb.GeneratedMessage {
       DishClearObstructionMapRequest._();
   @$core.override
   DishClearObstructionMapRequest createEmptyInstance() => create();
-  static $pb.PbList<DishClearObstructionMapRequest> createRepeated() =>
-      $pb.PbList<DishClearObstructionMapRequest>();
   @$core.pragma('dart2js:noInline')
   static DishClearObstructionMapRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishClearObstructionMapRequest>(create);
@@ -5457,8 +5571,7 @@ class DishSetMaxPowerTestModeRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishSetMaxPowerTestModeRequest clone() =>
-      DishSetMaxPowerTestModeRequest()..mergeFromMessage(this);
+  DishSetMaxPowerTestModeRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishSetMaxPowerTestModeRequest copyWith(
           void Function(DishSetMaxPowerTestModeRequest) updates) =>
@@ -5474,8 +5587,6 @@ class DishSetMaxPowerTestModeRequest extends $pb.GeneratedMessage {
       DishSetMaxPowerTestModeRequest._();
   @$core.override
   DishSetMaxPowerTestModeRequest createEmptyInstance() => create();
-  static $pb.PbList<DishSetMaxPowerTestModeRequest> createRepeated() =>
-      $pb.PbList<DishSetMaxPowerTestModeRequest>();
   @$core.pragma('dart2js:noInline')
   static DishSetMaxPowerTestModeRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishSetMaxPowerTestModeRequest>(create);
@@ -5520,8 +5631,7 @@ class DishActivateRssiScanRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishActivateRssiScanRequest clone() =>
-      DishActivateRssiScanRequest()..mergeFromMessage(this);
+  DishActivateRssiScanRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishActivateRssiScanRequest copyWith(
           void Function(DishActivateRssiScanRequest) updates) =>
@@ -5537,8 +5647,6 @@ class DishActivateRssiScanRequest extends $pb.GeneratedMessage {
       DishActivateRssiScanRequest._();
   @$core.override
   DishActivateRssiScanRequest createEmptyInstance() => create();
-  static $pb.PbList<DishActivateRssiScanRequest> createRepeated() =>
-      $pb.PbList<DishActivateRssiScanRequest>();
   @$core.pragma('dart2js:noInline')
   static DishActivateRssiScanRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishActivateRssiScanRequest>(create);
@@ -5580,12 +5688,11 @@ class DishActivateRssiScan extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'channel', $pb.PbFieldType.OU3)
+    ..aI(1, _omitFieldNames ? '' : 'channel', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishActivateRssiScan clone() =>
-      DishActivateRssiScan()..mergeFromMessage(this);
+  DishActivateRssiScan clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishActivateRssiScan copyWith(void Function(DishActivateRssiScan) updates) =>
       super.copyWith((message) => updates(message as DishActivateRssiScan))
@@ -5598,8 +5705,6 @@ class DishActivateRssiScan extends $pb.GeneratedMessage {
   static DishActivateRssiScan create() => DishActivateRssiScan._();
   @$core.override
   DishActivateRssiScan createEmptyInstance() => create();
-  static $pb.PbList<DishActivateRssiScan> createRepeated() =>
-      $pb.PbList<DishActivateRssiScan>();
   @$core.pragma('dart2js:noInline')
   static DishActivateRssiScan getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishActivateRssiScan>(create);
@@ -5636,8 +5741,7 @@ class DishGetRssiScanResultRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishGetRssiScanResultRequest clone() =>
-      DishGetRssiScanResultRequest()..mergeFromMessage(this);
+  DishGetRssiScanResultRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishGetRssiScanResultRequest copyWith(
           void Function(DishGetRssiScanResultRequest) updates) =>
@@ -5653,8 +5757,6 @@ class DishGetRssiScanResultRequest extends $pb.GeneratedMessage {
       DishGetRssiScanResultRequest._();
   @$core.override
   DishGetRssiScanResultRequest createEmptyInstance() => create();
-  static $pb.PbList<DishGetRssiScanResultRequest> createRepeated() =>
-      $pb.PbList<DishGetRssiScanResultRequest>();
   @$core.pragma('dart2js:noInline')
   static DishGetRssiScanResultRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishGetRssiScanResultRequest>(create);
@@ -5689,8 +5791,7 @@ class DishFactoryResetRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishFactoryResetRequest clone() =>
-      DishFactoryResetRequest()..mergeFromMessage(this);
+  DishFactoryResetRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishFactoryResetRequest copyWith(
           void Function(DishFactoryResetRequest) updates) =>
@@ -5704,8 +5805,6 @@ class DishFactoryResetRequest extends $pb.GeneratedMessage {
   static DishFactoryResetRequest create() => DishFactoryResetRequest._();
   @$core.override
   DishFactoryResetRequest createEmptyInstance() => create();
-  static $pb.PbList<DishFactoryResetRequest> createRepeated() =>
-      $pb.PbList<DishFactoryResetRequest>();
   @$core.pragma('dart2js:noInline')
   static DishFactoryResetRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishFactoryResetRequest>(create);
@@ -5749,7 +5848,7 @@ class ResetButtonRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ResetButtonRequest clone() => ResetButtonRequest()..mergeFromMessage(this);
+  ResetButtonRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ResetButtonRequest copyWith(void Function(ResetButtonRequest) updates) =>
       super.copyWith((message) => updates(message as ResetButtonRequest))
@@ -5762,8 +5861,6 @@ class ResetButtonRequest extends $pb.GeneratedMessage {
   static ResetButtonRequest create() => ResetButtonRequest._();
   @$core.override
   ResetButtonRequest createEmptyInstance() => create();
-  static $pb.PbList<ResetButtonRequest> createRepeated() =>
-      $pb.PbList<ResetButtonRequest>();
   @$core.pragma('dart2js:noInline')
   static ResetButtonRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ResetButtonRequest>(create);
@@ -5817,23 +5914,19 @@ class DishAviationTestRequest extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.double>(
-        1, _omitFieldNames ? '' : 'thermalDemandFraction', $pb.PbFieldType.OF)
+    ..aD(1, _omitFieldNames ? '' : 'thermalDemandFraction',
+        fieldType: $pb.PbFieldType.OF)
     ..aOB(2, _omitFieldNames ? '' : 'applyThermalDemandFraction')
-    ..e<DishAviationTestRequest_EthSpeed>(
-        3, _omitFieldNames ? '' : 'ethSpeed', $pb.PbFieldType.OE,
-        defaultOrMaker: DishAviationTestRequest_EthSpeed.ETH_SPEED_100_MBPS,
-        valueOf: DishAviationTestRequest_EthSpeed.valueOf,
+    ..aE<DishAviationTestRequest_EthSpeed>(3, _omitFieldNames ? '' : 'ethSpeed',
         enumValues: DishAviationTestRequest_EthSpeed.values)
     ..aOB(4, _omitFieldNames ? '' : 'applyEthSpeed')
-    ..a<$core.int>(
-        5, _omitFieldNames ? '' : 'ethAmplitudeRegisters', $pb.PbFieldType.OU3)
+    ..aI(5, _omitFieldNames ? '' : 'ethAmplitudeRegisters',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOB(6, _omitFieldNames ? '' : 'applyEthAmplitudeRegisters')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishAviationTestRequest clone() =>
-      DishAviationTestRequest()..mergeFromMessage(this);
+  DishAviationTestRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishAviationTestRequest copyWith(
           void Function(DishAviationTestRequest) updates) =>
@@ -5847,8 +5940,6 @@ class DishAviationTestRequest extends $pb.GeneratedMessage {
   static DishAviationTestRequest create() => DishAviationTestRequest._();
   @$core.override
   DishAviationTestRequest createEmptyInstance() => create();
-  static $pb.PbList<DishAviationTestRequest> createRepeated() =>
-      $pb.PbList<DishAviationTestRequest>();
   @$core.pragma('dart2js:noInline')
   static DishAviationTestRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishAviationTestRequest>(create);
@@ -5909,6 +6000,62 @@ class DishAviationTestRequest extends $pb.GeneratedMessage {
   void clearApplyEthAmplitudeRegisters() => $_clearField(6);
 }
 
+/// SpaceX.API.Device.DishInhibitRfRequest is a message:
+class DishInhibitRfRequest extends $pb.GeneratedMessage {
+  factory DishInhibitRfRequest({
+    $core.bool? inhibitRf,
+  }) {
+    final result = create();
+    if (inhibitRf != null) result.inhibitRf = inhibitRf;
+    return result;
+  }
+
+  DishInhibitRfRequest._();
+
+  factory DishInhibitRfRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory DishInhibitRfRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'DishInhibitRfRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
+      createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'inhibitRf')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  DishInhibitRfRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  DishInhibitRfRequest copyWith(void Function(DishInhibitRfRequest) updates) =>
+      super.copyWith((message) => updates(message as DishInhibitRfRequest))
+          as DishInhibitRfRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static DishInhibitRfRequest create() => DishInhibitRfRequest._();
+  @$core.override
+  DishInhibitRfRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static DishInhibitRfRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DishInhibitRfRequest>(create);
+  static DishInhibitRfRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get inhibitRf => $_getBF(0);
+  @$pb.TagNumber(1)
+  set inhibitRf($core.bool value) => $_setBool(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasInhibitRf() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearInhibitRf() => $_clearField(1);
+}
+
 /// SpaceX.API.Device.WifiSetConfigRequest is a message:
 class WifiSetConfigRequest extends $pb.GeneratedMessage {
   factory WifiSetConfigRequest({
@@ -5938,8 +6085,7 @@ class WifiSetConfigRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiSetConfigRequest clone() =>
-      WifiSetConfigRequest()..mergeFromMessage(this);
+  WifiSetConfigRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiSetConfigRequest copyWith(void Function(WifiSetConfigRequest) updates) =>
       super.copyWith((message) => updates(message as WifiSetConfigRequest))
@@ -5952,8 +6098,6 @@ class WifiSetConfigRequest extends $pb.GeneratedMessage {
   static WifiSetConfigRequest create() => WifiSetConfigRequest._();
   @$core.override
   WifiSetConfigRequest createEmptyInstance() => create();
-  static $pb.PbList<WifiSetConfigRequest> createRepeated() =>
-      $pb.PbList<WifiSetConfigRequest>();
   @$core.pragma('dart2js:noInline')
   static WifiSetConfigRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiSetConfigRequest>(create);
@@ -5978,6 +6122,7 @@ enum WifiConfig_BasicServiceSet_Auth {
   authWpa2Wpa3,
   authRadius,
   authOpenEncrypted,
+  authOnboardRadius,
   notSet
 }
 
@@ -5995,6 +6140,7 @@ class WifiConfig_BasicServiceSet extends $pb.GeneratedMessage {
     AuthWpa2Wpa3? authWpa2Wpa3,
     AuthRadius? authRadius,
     AuthOpenEncrypted? authOpenEncrypted,
+    AuthOnboardRadius? authOnboardRadius,
   }) {
     final result = create();
     if (bssid != null) result.bssid = bssid;
@@ -6009,6 +6155,7 @@ class WifiConfig_BasicServiceSet extends $pb.GeneratedMessage {
     if (authWpa2Wpa3 != null) result.authWpa2Wpa3 = authWpa2Wpa3;
     if (authRadius != null) result.authRadius = authRadius;
     if (authOpenEncrypted != null) result.authOpenEncrypted = authOpenEncrypted;
+    if (authOnboardRadius != null) result.authOnboardRadius = authOnboardRadius;
     return result;
   }
 
@@ -6029,6 +6176,7 @@ class WifiConfig_BasicServiceSet extends $pb.GeneratedMessage {
     2004: WifiConfig_BasicServiceSet_Auth.authWpa2Wpa3,
     2005: WifiConfig_BasicServiceSet_Auth.authRadius,
     2006: WifiConfig_BasicServiceSet_Auth.authOpenEncrypted,
+    2007: WifiConfig_BasicServiceSet_Auth.authOnboardRadius,
     0: WifiConfig_BasicServiceSet_Auth.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
@@ -6036,13 +6184,10 @@ class WifiConfig_BasicServiceSet extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..oo(0, [2001, 2002, 2003, 2004, 2005, 2006])
+    ..oo(0, [2001, 2002, 2003, 2004, 2005, 2006, 2007])
     ..aOS(1003, _omitFieldNames ? '' : 'bssid')
     ..aOS(1005, _omitFieldNames ? '' : 'ssid')
-    ..e<WifiConfig_Band>(
-        1011, _omitFieldNames ? '' : 'band', $pb.PbFieldType.OE,
-        defaultOrMaker: WifiConfig_Band.RF_UNKNOWN,
-        valueOf: WifiConfig_Band.valueOf,
+    ..aE<WifiConfig_Band>(1011, _omitFieldNames ? '' : 'band',
         enumValues: WifiConfig_Band.values)
     ..aOB(1013, _omitFieldNames ? '' : 'disable')
     ..aOB(1015, _omitFieldNames ? '' : 'hidden')
@@ -6059,11 +6204,12 @@ class WifiConfig_BasicServiceSet extends $pb.GeneratedMessage {
         subBuilder: AuthRadius.create)
     ..aOM<AuthOpenEncrypted>(2006, _omitFieldNames ? '' : 'authOpenEncrypted',
         subBuilder: AuthOpenEncrypted.create)
+    ..aOM<AuthOnboardRadius>(2007, _omitFieldNames ? '' : 'authOnboardRadius',
+        subBuilder: AuthOnboardRadius.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiConfig_BasicServiceSet clone() =>
-      WifiConfig_BasicServiceSet()..mergeFromMessage(this);
+  WifiConfig_BasicServiceSet clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiConfig_BasicServiceSet copyWith(
           void Function(WifiConfig_BasicServiceSet) updates) =>
@@ -6078,15 +6224,27 @@ class WifiConfig_BasicServiceSet extends $pb.GeneratedMessage {
   static WifiConfig_BasicServiceSet create() => WifiConfig_BasicServiceSet._();
   @$core.override
   WifiConfig_BasicServiceSet createEmptyInstance() => create();
-  static $pb.PbList<WifiConfig_BasicServiceSet> createRepeated() =>
-      $pb.PbList<WifiConfig_BasicServiceSet>();
   @$core.pragma('dart2js:noInline')
   static WifiConfig_BasicServiceSet getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiConfig_BasicServiceSet>(create);
   static WifiConfig_BasicServiceSet? _defaultInstance;
 
+  @$pb.TagNumber(2001)
+  @$pb.TagNumber(2002)
+  @$pb.TagNumber(2003)
+  @$pb.TagNumber(2004)
+  @$pb.TagNumber(2005)
+  @$pb.TagNumber(2006)
+  @$pb.TagNumber(2007)
   WifiConfig_BasicServiceSet_Auth whichAuth() =>
       _WifiConfig_BasicServiceSet_AuthByTag[$_whichOneof(0)]!;
+  @$pb.TagNumber(2001)
+  @$pb.TagNumber(2002)
+  @$pb.TagNumber(2003)
+  @$pb.TagNumber(2004)
+  @$pb.TagNumber(2005)
+  @$pb.TagNumber(2006)
+  @$pb.TagNumber(2007)
   void clearAuth() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1003)
@@ -6208,6 +6366,17 @@ class WifiConfig_BasicServiceSet extends $pb.GeneratedMessage {
   void clearAuthOpenEncrypted() => $_clearField(2006);
   @$pb.TagNumber(2006)
   AuthOpenEncrypted ensureAuthOpenEncrypted() => $_ensure(11);
+
+  @$pb.TagNumber(2007)
+  AuthOnboardRadius get authOnboardRadius => $_getN(12);
+  @$pb.TagNumber(2007)
+  set authOnboardRadius(AuthOnboardRadius value) => $_setField(2007, value);
+  @$pb.TagNumber(2007)
+  $core.bool hasAuthOnboardRadius() => $_has(12);
+  @$pb.TagNumber(2007)
+  void clearAuthOnboardRadius() => $_clearField(2007);
+  @$pb.TagNumber(2007)
+  AuthOnboardRadius ensureAuthOnboardRadius() => $_ensure(12);
 }
 
 class WifiConfig_DnsForwardRule extends $pb.GeneratedMessage {
@@ -6240,8 +6409,7 @@ class WifiConfig_DnsForwardRule extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiConfig_DnsForwardRule clone() =>
-      WifiConfig_DnsForwardRule()..mergeFromMessage(this);
+  WifiConfig_DnsForwardRule clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiConfig_DnsForwardRule copyWith(
           void Function(WifiConfig_DnsForwardRule) updates) =>
@@ -6255,8 +6423,6 @@ class WifiConfig_DnsForwardRule extends $pb.GeneratedMessage {
   static WifiConfig_DnsForwardRule create() => WifiConfig_DnsForwardRule._();
   @$core.override
   WifiConfig_DnsForwardRule createEmptyInstance() => create();
-  static $pb.PbList<WifiConfig_DnsForwardRule> createRepeated() =>
-      $pb.PbList<WifiConfig_DnsForwardRule>();
   @$core.pragma('dart2js:noInline')
   static WifiConfig_DnsForwardRule getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiConfig_DnsForwardRule>(create);
@@ -6299,8 +6465,7 @@ class WifiConfig_DnsStaticEntry extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiConfig_DnsStaticEntry clone() =>
-      WifiConfig_DnsStaticEntry()..mergeFromMessage(this);
+  WifiConfig_DnsStaticEntry clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiConfig_DnsStaticEntry copyWith(
           void Function(WifiConfig_DnsStaticEntry) updates) =>
@@ -6314,8 +6479,6 @@ class WifiConfig_DnsStaticEntry extends $pb.GeneratedMessage {
   static WifiConfig_DnsStaticEntry create() => WifiConfig_DnsStaticEntry._();
   @$core.override
   WifiConfig_DnsStaticEntry createEmptyInstance() => create();
-  static $pb.PbList<WifiConfig_DnsStaticEntry> createRepeated() =>
-      $pb.PbList<WifiConfig_DnsStaticEntry>();
   @$core.pragma('dart2js:noInline')
   static WifiConfig_DnsStaticEntry getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiConfig_DnsStaticEntry>(create);
@@ -6350,8 +6513,11 @@ class WifiConfig_Network extends $pb.GeneratedMessage {
     $core.int? networkGroups,
     $core.Iterable<WifiConfig_DnsStaticEntry>? dnsStaticEntries,
     $core.Iterable<WifiConfig_DnsForwardRule>? dnsForwardRules,
-    $core.bool? disableWhenOffline,
+    @$core.Deprecated('This field is deprecated.')
+    $core.bool? disableWhenOfflineOld,
     $core.Iterable<WifiConfig_StaticRoute>? staticRoutes,
+    $core.bool? disableWhenOffline,
+    TlsConfig? onboardRadiusTlsConfig,
   }) {
     final result = create();
     if (ipv4 != null) result.ipv4 = ipv4;
@@ -6378,9 +6544,13 @@ class WifiConfig_Network extends $pb.GeneratedMessage {
     if (dnsStaticEntries != null)
       result.dnsStaticEntries.addAll(dnsStaticEntries);
     if (dnsForwardRules != null) result.dnsForwardRules.addAll(dnsForwardRules);
+    if (disableWhenOfflineOld != null)
+      result.disableWhenOfflineOld = disableWhenOfflineOld;
+    if (staticRoutes != null) result.staticRoutes.addAll(staticRoutes);
     if (disableWhenOffline != null)
       result.disableWhenOffline = disableWhenOffline;
-    if (staticRoutes != null) result.staticRoutes.addAll(staticRoutes);
+    if (onboardRadiusTlsConfig != null)
+      result.onboardRadiusTlsConfig = onboardRadiusTlsConfig;
     return result;
   }
 
@@ -6399,45 +6569,47 @@ class WifiConfig_Network extends $pb.GeneratedMessage {
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
     ..aOS(1003, _omitFieldNames ? '' : 'ipv4')
-    ..pc<WifiConfig_BasicServiceSet>(
-        1007, _omitFieldNames ? '' : 'basicServiceSets', $pb.PbFieldType.PM,
+    ..pPM<WifiConfig_BasicServiceSet>(
+        1007, _omitFieldNames ? '' : 'basicServiceSets',
         subBuilder: WifiConfig_BasicServiceSet.create)
     ..aOB(1008, _omitFieldNames ? '' : 'clientIsolation')
     ..aOB(1009, _omitFieldNames ? '' : 'guest')
     ..aOS(1010, _omitFieldNames ? '' : 'landing')
     ..aOS(1011, _omitFieldNames ? '' : 'domain')
-    ..a<$core.int>(
-        1012, _omitFieldNames ? '' : 'dhcpv4Start', $pb.PbFieldType.OU3)
+    ..aI(1012, _omitFieldNames ? '' : 'dhcpv4Start',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOB(1013, _omitFieldNames ? '' : 'internal')
-    ..a<$core.int>(1014, _omitFieldNames ? '' : 'vlan', $pb.PbFieldType.OU3)
+    ..aI(1014, _omitFieldNames ? '' : 'vlan', fieldType: $pb.PbFieldType.OU3)
     ..aOB(1015, _omitFieldNames ? '' : 'dhcpDisabled')
-    ..a<$core.int>(1016, _omitFieldNames ? '' : 'dhcpv4LeaseDurationS',
-        $pb.PbFieldType.OU3)
+    ..aI(1016, _omitFieldNames ? '' : 'dhcpv4LeaseDurationS',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOB(1017, _omitFieldNames ? '' : 'landingPageV2')
     ..aOB(1020, _omitFieldNames ? '' : 'sandboxEnabled')
     ..pPS(1022, _omitFieldNames ? '' : 'sandboxDomainAllowList')
-    ..a<$core.int>(
-        1023, _omitFieldNames ? '' : 'sandboxId', $pb.PbFieldType.OU3)
+    ..aI(1023, _omitFieldNames ? '' : 'sandboxId',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOM<CaptivePortal>(1024, _omitFieldNames ? '' : 'captivePortal',
         subBuilder: CaptivePortal.create)
-    ..a<$core.int>(
-        1025, _omitFieldNames ? '' : 'dhcpv4End', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        1026, _omitFieldNames ? '' : 'networkGroups', $pb.PbFieldType.OU3)
-    ..pc<WifiConfig_DnsStaticEntry>(
-        1027, _omitFieldNames ? '' : 'dnsStaticEntries', $pb.PbFieldType.PM,
+    ..aI(1025, _omitFieldNames ? '' : 'dhcpv4End',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(1026, _omitFieldNames ? '' : 'networkGroups',
+        fieldType: $pb.PbFieldType.OU3)
+    ..pPM<WifiConfig_DnsStaticEntry>(
+        1027, _omitFieldNames ? '' : 'dnsStaticEntries',
         subBuilder: WifiConfig_DnsStaticEntry.create)
-    ..pc<WifiConfig_DnsForwardRule>(
-        1028, _omitFieldNames ? '' : 'dnsForwardRules', $pb.PbFieldType.PM,
+    ..pPM<WifiConfig_DnsForwardRule>(
+        1028, _omitFieldNames ? '' : 'dnsForwardRules',
         subBuilder: WifiConfig_DnsForwardRule.create)
-    ..aOB(1029, _omitFieldNames ? '' : 'disableWhenOffline')
-    ..pc<WifiConfig_StaticRoute>(
-        1030, _omitFieldNames ? '' : 'staticRoutes', $pb.PbFieldType.PM,
+    ..aOB(1029, _omitFieldNames ? '' : 'disableWhenOfflineOld')
+    ..pPM<WifiConfig_StaticRoute>(1030, _omitFieldNames ? '' : 'staticRoutes',
         subBuilder: WifiConfig_StaticRoute.create)
+    ..aOB(1031, _omitFieldNames ? '' : 'disableWhenOffline')
+    ..aOM<TlsConfig>(1032, _omitFieldNames ? '' : 'onboardRadiusTlsConfig',
+        subBuilder: TlsConfig.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiConfig_Network clone() => WifiConfig_Network()..mergeFromMessage(this);
+  WifiConfig_Network clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiConfig_Network copyWith(void Function(WifiConfig_Network) updates) =>
       super.copyWith((message) => updates(message as WifiConfig_Network))
@@ -6450,8 +6622,6 @@ class WifiConfig_Network extends $pb.GeneratedMessage {
   static WifiConfig_Network create() => WifiConfig_Network._();
   @$core.override
   WifiConfig_Network createEmptyInstance() => create();
-  static $pb.PbList<WifiConfig_Network> createRepeated() =>
-      $pb.PbList<WifiConfig_Network>();
   @$core.pragma('dart2js:noInline')
   static WifiConfig_Network getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiConfig_Network>(create);
@@ -6615,17 +6785,41 @@ class WifiConfig_Network extends $pb.GeneratedMessage {
   @$pb.TagNumber(1028)
   $pb.PbList<WifiConfig_DnsForwardRule> get dnsForwardRules => $_getList(19);
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(1029)
-  $core.bool get disableWhenOffline => $_getBF(20);
+  $core.bool get disableWhenOfflineOld => $_getBF(20);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(1029)
-  set disableWhenOffline($core.bool value) => $_setBool(20, value);
+  set disableWhenOfflineOld($core.bool value) => $_setBool(20, value);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(1029)
-  $core.bool hasDisableWhenOffline() => $_has(20);
+  $core.bool hasDisableWhenOfflineOld() => $_has(20);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(1029)
-  void clearDisableWhenOffline() => $_clearField(1029);
+  void clearDisableWhenOfflineOld() => $_clearField(1029);
 
   @$pb.TagNumber(1030)
   $pb.PbList<WifiConfig_StaticRoute> get staticRoutes => $_getList(21);
+
+  @$pb.TagNumber(1031)
+  $core.bool get disableWhenOffline => $_getBF(22);
+  @$pb.TagNumber(1031)
+  set disableWhenOffline($core.bool value) => $_setBool(22, value);
+  @$pb.TagNumber(1031)
+  $core.bool hasDisableWhenOffline() => $_has(22);
+  @$pb.TagNumber(1031)
+  void clearDisableWhenOffline() => $_clearField(1031);
+
+  @$pb.TagNumber(1032)
+  TlsConfig get onboardRadiusTlsConfig => $_getN(23);
+  @$pb.TagNumber(1032)
+  set onboardRadiusTlsConfig(TlsConfig value) => $_setField(1032, value);
+  @$pb.TagNumber(1032)
+  $core.bool hasOnboardRadiusTlsConfig() => $_has(23);
+  @$pb.TagNumber(1032)
+  void clearOnboardRadiusTlsConfig() => $_clearField(1032);
+  @$pb.TagNumber(1032)
+  TlsConfig ensureOnboardRadiusTlsConfig() => $_ensure(23);
 }
 
 class WifiConfig_StaticRoute extends $pb.GeneratedMessage {
@@ -6658,8 +6852,7 @@ class WifiConfig_StaticRoute extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiConfig_StaticRoute clone() =>
-      WifiConfig_StaticRoute()..mergeFromMessage(this);
+  WifiConfig_StaticRoute clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiConfig_StaticRoute copyWith(
           void Function(WifiConfig_StaticRoute) updates) =>
@@ -6673,8 +6866,6 @@ class WifiConfig_StaticRoute extends $pb.GeneratedMessage {
   static WifiConfig_StaticRoute create() => WifiConfig_StaticRoute._();
   @$core.override
   WifiConfig_StaticRoute createEmptyInstance() => create();
-  static $pb.PbList<WifiConfig_StaticRoute> createRepeated() =>
-      $pb.PbList<WifiConfig_StaticRoute>();
   @$core.pragma('dart2js:noInline')
   static WifiConfig_StaticRoute getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiConfig_StaticRoute>(create);
@@ -6726,13 +6917,12 @@ class WifiConfig_UnbridgedEthPort_StaticRoute extends $pb.GeneratedMessage {
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'subnet')
-    ..a<$core.int>(
-        2, _omitFieldNames ? '' : 'networkGroups', $pb.PbFieldType.OU3)
+    ..aI(2, _omitFieldNames ? '' : 'networkGroups',
+        fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiConfig_UnbridgedEthPort_StaticRoute clone() =>
-      WifiConfig_UnbridgedEthPort_StaticRoute()..mergeFromMessage(this);
+  WifiConfig_UnbridgedEthPort_StaticRoute clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiConfig_UnbridgedEthPort_StaticRoute copyWith(
           void Function(WifiConfig_UnbridgedEthPort_StaticRoute) updates) =>
@@ -6748,8 +6938,6 @@ class WifiConfig_UnbridgedEthPort_StaticRoute extends $pb.GeneratedMessage {
       WifiConfig_UnbridgedEthPort_StaticRoute._();
   @$core.override
   WifiConfig_UnbridgedEthPort_StaticRoute createEmptyInstance() => create();
-  static $pb.PbList<WifiConfig_UnbridgedEthPort_StaticRoute> createRepeated() =>
-      $pb.PbList<WifiConfig_UnbridgedEthPort_StaticRoute>();
   @$core.pragma('dart2js:noInline')
   static WifiConfig_UnbridgedEthPort_StaticRoute getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<
@@ -6818,12 +7006,12 @@ class WifiConfig_UnbridgedEthPort extends $pb.GeneratedMessage {
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
     ..oo(0, [5, 6])
-    ..a<$core.int>(
-        1, _omitFieldNames ? '' : 'lanPortIndex', $pb.PbFieldType.OU3)
+    ..aI(1, _omitFieldNames ? '' : 'lanPortIndex',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOS(2, _omitFieldNames ? '' : 'ip')
     ..aOS(3, _omitFieldNames ? '' : 'gateway')
-    ..pc<WifiConfig_UnbridgedEthPort_StaticRoute>(
-        4, _omitFieldNames ? '' : 'staticRoutes', $pb.PbFieldType.PM,
+    ..pPM<WifiConfig_UnbridgedEthPort_StaticRoute>(
+        4, _omitFieldNames ? '' : 'staticRoutes',
         subBuilder: WifiConfig_UnbridgedEthPort_StaticRoute.create)
     ..aOM<WanNone>(5, _omitFieldNames ? '' : 'wanNone',
         subBuilder: WanNone.create)
@@ -6833,8 +7021,7 @@ class WifiConfig_UnbridgedEthPort extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiConfig_UnbridgedEthPort clone() =>
-      WifiConfig_UnbridgedEthPort()..mergeFromMessage(this);
+  WifiConfig_UnbridgedEthPort clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiConfig_UnbridgedEthPort copyWith(
           void Function(WifiConfig_UnbridgedEthPort) updates) =>
@@ -6850,15 +7037,17 @@ class WifiConfig_UnbridgedEthPort extends $pb.GeneratedMessage {
       WifiConfig_UnbridgedEthPort._();
   @$core.override
   WifiConfig_UnbridgedEthPort createEmptyInstance() => create();
-  static $pb.PbList<WifiConfig_UnbridgedEthPort> createRepeated() =>
-      $pb.PbList<WifiConfig_UnbridgedEthPort>();
   @$core.pragma('dart2js:noInline')
   static WifiConfig_UnbridgedEthPort getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiConfig_UnbridgedEthPort>(create);
   static WifiConfig_UnbridgedEthPort? _defaultInstance;
 
+  @$pb.TagNumber(5)
+  @$pb.TagNumber(6)
   WifiConfig_UnbridgedEthPort_Wan whichWan() =>
       _WifiConfig_UnbridgedEthPort_WanByTag[$_whichOneof(0)]!;
+  @$pb.TagNumber(5)
+  @$pb.TagNumber(6)
   void clearWan() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -7046,6 +7235,9 @@ class WifiConfig extends $pb.GeneratedMessage {
     $core.bool? onlyOverflightCountriesUsingDefault,
     $core.bool? disableSandboxFailOpen,
     $core.bool? applyDisableSandboxFailOpen,
+    $core.bool? customDnsDisabled,
+    @$core.Deprecated('This field is deprecated.')
+    $core.bool? applyCustomDnsDisabled,
     BootInfo? boot,
     $core.Iterable<$core.MapEntry<$core.String, MeshConfig>>?
         meshConfigsUpdates,
@@ -7224,6 +7416,9 @@ class WifiConfig extends $pb.GeneratedMessage {
       result.disableSandboxFailOpen = disableSandboxFailOpen;
     if (applyDisableSandboxFailOpen != null)
       result.applyDisableSandboxFailOpen = applyDisableSandboxFailOpen;
+    if (customDnsDisabled != null) result.customDnsDisabled = customDnsDisabled;
+    if (applyCustomDnsDisabled != null)
+      result.applyCustomDnsDisabled = applyCustomDnsDisabled;
     if (boot != null) result.boot = boot;
     if (meshConfigsUpdates != null)
       result.meshConfigsUpdates.addEntries(meshConfigsUpdates);
@@ -7258,20 +7453,17 @@ class WifiConfig extends $pb.GeneratedMessage {
     ..oo(0, [4001, 4002, 4003])
     ..aOS(3, _omitFieldNames ? '' : 'countryCode')
     ..aOB(7, _omitFieldNames ? '' : 'setupComplete')
-    ..a<$core.int>(9, _omitFieldNames ? '' : 'version', $pb.PbFieldType.OU3)
+    ..aI(9, _omitFieldNames ? '' : 'version', fieldType: $pb.PbFieldType.OU3)
     ..aOS(12, _omitFieldNames ? '' : 'macWan')
     ..aOS(13, _omitFieldNames ? '' : 'macLan')
-    ..a<$core.int>(
-        19, _omitFieldNames ? '' : 'channel2ghz', $pb.PbFieldType.OU3,
-        protoName: 'channel_2ghz')
-    ..a<$core.int>(
-        20, _omitFieldNames ? '' : 'channel5ghz', $pb.PbFieldType.OU3,
-        protoName: 'channel_5ghz')
-    ..pc<PublicKey>(
-        22, _omitFieldNames ? '' : 'dynamicKeys', $pb.PbFieldType.PM,
+    ..aI(19, _omitFieldNames ? '' : 'channel2ghz',
+        protoName: 'channel_2ghz', fieldType: $pb.PbFieldType.OU3)
+    ..aI(20, _omitFieldNames ? '' : 'channel5ghz',
+        protoName: 'channel_5ghz', fieldType: $pb.PbFieldType.OU3)
+    ..pPM<PublicKey>(22, _omitFieldNames ? '' : 'dynamicKeys',
         subBuilder: PublicKey.create)
     ..aOB(23, _omitFieldNames ? '' : 'isRepeater')
-    ..a<$core.int>(26, _omitFieldNames ? '' : 'bootCount', $pb.PbFieldType.O3)
+    ..aI(26, _omitFieldNames ? '' : 'bootCount')
     ..pPS(30, _omitFieldNames ? '' : 'nameservers')
     ..aOB(31, _omitFieldNames ? '' : 'bypassMode')
     ..m<$core.String, MeshConfig>(33, _omitFieldNames ? '' : 'meshConfigs',
@@ -7286,34 +7478,19 @@ class WifiConfig extends $pb.GeneratedMessage {
     ..a<$fixnum.Int64>(
         43, _omitFieldNames ? '' : 'incarnation', $pb.PbFieldType.OU6,
         defaultOrMaker: $fixnum.Int64.ZERO)
-    ..e<WifiConfig_WirelessMode>(
-        44, _omitFieldNames ? '' : 'wirelessMode2ghz', $pb.PbFieldType.OE,
+    ..aE<WifiConfig_WirelessMode>(44, _omitFieldNames ? '' : 'wirelessMode2ghz',
         protoName: 'wireless_mode_2ghz',
-        defaultOrMaker: WifiConfig_WirelessMode.WIRELESS_MODE_DEFAULT,
-        valueOf: WifiConfig_WirelessMode.valueOf,
         enumValues: WifiConfig_WirelessMode.values)
-    ..e<WifiConfig_WirelessMode>(
-        45, _omitFieldNames ? '' : 'wirelessMode5ghz', $pb.PbFieldType.OE,
+    ..aE<WifiConfig_WirelessMode>(45, _omitFieldNames ? '' : 'wirelessMode5ghz',
         protoName: 'wireless_mode_5ghz',
-        defaultOrMaker: WifiConfig_WirelessMode.WIRELESS_MODE_DEFAULT,
-        valueOf: WifiConfig_WirelessMode.valueOf,
         enumValues: WifiConfig_WirelessMode.values)
-    ..e<WifiConfig_HTBandwidth>(
-        46, _omitFieldNames ? '' : 'htBandwidth2ghz', $pb.PbFieldType.OE,
+    ..aE<WifiConfig_HTBandwidth>(46, _omitFieldNames ? '' : 'htBandwidth2ghz',
         protoName: 'ht_bandwidth_2ghz',
-        defaultOrMaker: WifiConfig_HTBandwidth.HT_BANDWIDTH_DEFAULT,
-        valueOf: WifiConfig_HTBandwidth.valueOf,
         enumValues: WifiConfig_HTBandwidth.values)
-    ..e<WifiConfig_HTBandwidth>(
-        47, _omitFieldNames ? '' : 'htBandwidth5ghz', $pb.PbFieldType.OE,
+    ..aE<WifiConfig_HTBandwidth>(47, _omitFieldNames ? '' : 'htBandwidth5ghz',
         protoName: 'ht_bandwidth_5ghz',
-        defaultOrMaker: WifiConfig_HTBandwidth.HT_BANDWIDTH_DEFAULT,
-        valueOf: WifiConfig_HTBandwidth.valueOf,
         enumValues: WifiConfig_HTBandwidth.values)
-    ..e<WifiConfig_VHTBandwidth>(
-        48, _omitFieldNames ? '' : 'vhtBandwidth', $pb.PbFieldType.OE,
-        defaultOrMaker: WifiConfig_VHTBandwidth.VHT_BANDWIDTH_DEFAULT,
-        valueOf: WifiConfig_VHTBandwidth.valueOf,
+    ..aE<WifiConfig_VHTBandwidth>(48, _omitFieldNames ? '' : 'vhtBandwidth',
         enumValues: WifiConfig_VHTBandwidth.values)
     ..aOB(49, _omitFieldNames ? '' : 'isAviation')
     ..aOB(50, _omitFieldNames ? '' : 'secureDns')
@@ -7323,30 +7500,22 @@ class WifiConfig extends $pb.GeneratedMessage {
     ..aOB(54, _omitFieldNames ? '' : 'customPowerTable')
     ..aOB(55, _omitFieldNames ? '' : 'usePublicServices')
     ..aOB(56, _omitFieldNames ? '' : 'disableAutomatedSpeedtests')
-    ..a<$core.int>(
-        57, _omitFieldNames ? '' : 'channel5ghzHigh', $pb.PbFieldType.OU3,
-        protoName: 'channel_5ghz_high')
-    ..e<WifiConfig_WirelessMode>(
-        58, _omitFieldNames ? '' : 'wirelessMode5ghzHigh', $pb.PbFieldType.OE,
+    ..aI(57, _omitFieldNames ? '' : 'channel5ghzHigh',
+        protoName: 'channel_5ghz_high', fieldType: $pb.PbFieldType.OU3)
+    ..aE<WifiConfig_WirelessMode>(
+        58, _omitFieldNames ? '' : 'wirelessMode5ghzHigh',
         protoName: 'wireless_mode_5ghz_high',
-        defaultOrMaker: WifiConfig_WirelessMode.WIRELESS_MODE_DEFAULT,
-        valueOf: WifiConfig_WirelessMode.valueOf,
         enumValues: WifiConfig_WirelessMode.values)
-    ..e<WifiConfig_HTBandwidth>(
-        59, _omitFieldNames ? '' : 'htBandwidth5ghzHigh', $pb.PbFieldType.OE,
+    ..aE<WifiConfig_HTBandwidth>(
+        59, _omitFieldNames ? '' : 'htBandwidth5ghzHigh',
         protoName: 'ht_bandwidth_5ghz_high',
-        defaultOrMaker: WifiConfig_HTBandwidth.HT_BANDWIDTH_DEFAULT,
-        valueOf: WifiConfig_HTBandwidth.valueOf,
         enumValues: WifiConfig_HTBandwidth.values)
-    ..e<WifiConfig_VHTBandwidth>(
-        60, _omitFieldNames ? '' : 'vhtBandwidth5ghzHigh', $pb.PbFieldType.OE,
+    ..aE<WifiConfig_VHTBandwidth>(
+        60, _omitFieldNames ? '' : 'vhtBandwidth5ghzHigh',
         protoName: 'vht_bandwidth_5ghz_high',
-        defaultOrMaker: WifiConfig_VHTBandwidth.VHT_BANDWIDTH_DEFAULT,
-        valueOf: WifiConfig_VHTBandwidth.valueOf,
         enumValues: WifiConfig_VHTBandwidth.values)
     ..aOB(61, _omitFieldNames ? '' : 'enableUmbilicalVlan')
-    ..pc<ClientName>(
-        62, _omitFieldNames ? '' : 'clientNames', $pb.PbFieldType.PM,
+    ..pPM<ClientName>(62, _omitFieldNames ? '' : 'clientNames',
         subBuilder: ClientName.create)
     ..aOB(63, _omitFieldNames ? '' : 'outdoorMode')
     ..aOB(64, _omitFieldNames ? '' : 'disable2ghz', protoName: 'disable_2ghz')
@@ -7355,42 +7524,26 @@ class WifiConfig extends $pb.GeneratedMessage {
         protoName: 'disable_5ghz_high')
     ..aOB(67, _omitFieldNames ? '' : 'disableXMeshBackhaul')
     ..aOS(68, _omitFieldNames ? '' : 'goldenBssid')
-    ..e<IfaceType>(
-        69, _omitFieldNames ? '' : 'goldenIfaceType', $pb.PbFieldType.OE,
-        defaultOrMaker: IfaceType.IFACE_TYPE_UNKNOWN,
-        valueOf: IfaceType.valueOf,
+    ..aE<IfaceType>(69, _omitFieldNames ? '' : 'goldenIfaceType',
         enumValues: IfaceType.values)
-    ..e<TxPowerLevel>(
-        70, _omitFieldNames ? '' : 'txPowerLevel2ghz', $pb.PbFieldType.OE,
-        protoName: 'tx_power_level_2ghz',
-        defaultOrMaker: TxPowerLevel.TX_POWER_LEVEL_100,
-        valueOf: TxPowerLevel.valueOf,
-        enumValues: TxPowerLevel.values)
-    ..e<TxPowerLevel>(
-        71, _omitFieldNames ? '' : 'txPowerLevel5ghz', $pb.PbFieldType.OE,
-        protoName: 'tx_power_level_5ghz',
-        defaultOrMaker: TxPowerLevel.TX_POWER_LEVEL_100,
-        valueOf: TxPowerLevel.valueOf,
-        enumValues: TxPowerLevel.values)
-    ..e<TxPowerLevel>(
-        72, _omitFieldNames ? '' : 'txPowerLevel5ghzHigh', $pb.PbFieldType.OE,
-        protoName: 'tx_power_level_5ghz_high',
-        defaultOrMaker: TxPowerLevel.TX_POWER_LEVEL_100,
-        valueOf: TxPowerLevel.valueOf,
-        enumValues: TxPowerLevel.values)
+    ..aE<TxPowerLevel>(70, _omitFieldNames ? '' : 'txPowerLevel2ghz',
+        protoName: 'tx_power_level_2ghz', enumValues: TxPowerLevel.values)
+    ..aE<TxPowerLevel>(71, _omitFieldNames ? '' : 'txPowerLevel5ghz',
+        protoName: 'tx_power_level_5ghz', enumValues: TxPowerLevel.values)
+    ..aE<TxPowerLevel>(72, _omitFieldNames ? '' : 'txPowerLevel5ghzHigh',
+        protoName: 'tx_power_level_5ghz_high', enumValues: TxPowerLevel.values)
     ..aOB(73, _omitFieldNames ? '' : 'disablePendingUpdateReboot')
-    ..pc<ClientConfig>(
-        74, _omitFieldNames ? '' : 'clientConfigs', $pb.PbFieldType.PM,
+    ..pPM<ClientConfig>(74, _omitFieldNames ? '' : 'clientConfigs',
         subBuilder: ClientConfig.create)
     ..aOB(75, _omitFieldNames ? '' : 'disableSetWifiConfigFromController')
     ..a<$core.List<$core.int>>(
         76, _omitFieldNames ? '' : 'clientKey', $pb.PbFieldType.OY)
-    ..a<$core.int>(
-        77, _omitFieldNames ? '' : 'wanHostDscpMark', $pb.PbFieldType.O3)
-    ..a<$core.int>(78, _omitFieldNames ? '' : 'tag', $pb.PbFieldType.OU3)
+    ..aI(77, _omitFieldNames ? '' : 'wanHostDscpMark')
+    ..aI(78, _omitFieldNames ? '' : 'tag', fieldType: $pb.PbFieldType.OU3)
     ..aOB(79, _omitFieldNames ? '' : 'debugPopPings')
     ..aOB(80, _omitFieldNames ? '' : 'clientTester')
-    ..a<$core.int>(81, _omitFieldNames ? '' : 'assetClass', $pb.PbFieldType.OU3)
+    ..aI(81, _omitFieldNames ? '' : 'assetClass',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOB(94, _omitFieldNames ? '' : 'debugPings')
     ..aOB(95, _omitFieldNames ? '' : 'disableBandSteering')
     ..aOB(1010, _omitFieldNames ? '' : 'applySetupComplete')
@@ -7459,8 +7612,7 @@ class WifiConfig extends $pb.GeneratedMessage {
     ..aOB(1097, _omitFieldNames ? '' : 'disableWirelessMeshOnboarding')
     ..aOB(1098, _omitFieldNames ? '' : 'applyDisableWirelessMeshOnboarding')
     ..aOB(1099, _omitFieldNames ? '' : 'applyAssetClass')
-    ..pc<WifiConfig_Network>(
-        1100, _omitFieldNames ? '' : 'networks', $pb.PbFieldType.PM,
+    ..pPM<WifiConfig_Network>(1100, _omitFieldNames ? '' : 'networks',
         subBuilder: WifiConfig_Network.create)
     ..aOB(1101, _omitFieldNames ? '' : 'applyNetworks')
     ..aOB(1106, _omitFieldNames ? '' : 'applyDebugPings')
@@ -7470,13 +7622,15 @@ class WifiConfig extends $pb.GeneratedMessage {
     ..aOB(1109, _omitFieldNames ? '' : 'applyDisableBandSteering')
     ..pPS(1110, _omitFieldNames ? '' : 'onlyOverflightCountries')
     ..aOB(1111, _omitFieldNames ? '' : 'applyOnlyOverflightCountries')
-    ..pc<WifiConfig_UnbridgedEthPort>(
-        1112, _omitFieldNames ? '' : 'unbridgedEthPorts', $pb.PbFieldType.PM,
+    ..pPM<WifiConfig_UnbridgedEthPort>(
+        1112, _omitFieldNames ? '' : 'unbridgedEthPorts',
         subBuilder: WifiConfig_UnbridgedEthPort.create)
     ..aOB(1113, _omitFieldNames ? '' : 'applyUnbridgedEthPorts')
     ..aOB(1114, _omitFieldNames ? '' : 'onlyOverflightCountriesUsingDefault')
     ..aOB(1115, _omitFieldNames ? '' : 'disableSandboxFailOpen')
     ..aOB(1116, _omitFieldNames ? '' : 'applyDisableSandboxFailOpen')
+    ..aOB(1117, _omitFieldNames ? '' : 'customDnsDisabled')
+    ..aOB(1118, _omitFieldNames ? '' : 'applyCustomDnsDisabled')
     ..aOM<BootInfo>(3001, _omitFieldNames ? '' : 'boot',
         subBuilder: BootInfo.create)
     ..m<$core.String, MeshConfig>(
@@ -7496,7 +7650,7 @@ class WifiConfig extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiConfig clone() => WifiConfig()..mergeFromMessage(this);
+  WifiConfig clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiConfig copyWith(void Function(WifiConfig) updates) =>
       super.copyWith((message) => updates(message as WifiConfig)) as WifiConfig;
@@ -7508,14 +7662,19 @@ class WifiConfig extends $pb.GeneratedMessage {
   static WifiConfig create() => WifiConfig._();
   @$core.override
   WifiConfig createEmptyInstance() => create();
-  static $pb.PbList<WifiConfig> createRepeated() => $pb.PbList<WifiConfig>();
   @$core.pragma('dart2js:noInline')
   static WifiConfig getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiConfig>(create);
   static WifiConfig? _defaultInstance;
 
+  @$pb.TagNumber(4001)
+  @$pb.TagNumber(4002)
+  @$pb.TagNumber(4003)
   WifiConfig_WanTrafficControl whichWanTrafficControl() =>
       _WifiConfig_WanTrafficControlByTag[$_whichOneof(0)]!;
+  @$pb.TagNumber(4001)
+  @$pb.TagNumber(4002)
+  @$pb.TagNumber(4003)
   void clearWanTrafficControl() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(3)
@@ -8563,52 +8722,74 @@ class WifiConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(1116)
   void clearApplyDisableSandboxFailOpen() => $_clearField(1116);
 
+  @$pb.TagNumber(1117)
+  $core.bool get customDnsDisabled => $_getBF(118);
+  @$pb.TagNumber(1117)
+  set customDnsDisabled($core.bool value) => $_setBool(118, value);
+  @$pb.TagNumber(1117)
+  $core.bool hasCustomDnsDisabled() => $_has(118);
+  @$pb.TagNumber(1117)
+  void clearCustomDnsDisabled() => $_clearField(1117);
+
+  @$core.Deprecated('This field is deprecated.')
+  @$pb.TagNumber(1118)
+  $core.bool get applyCustomDnsDisabled => $_getBF(119);
+  @$core.Deprecated('This field is deprecated.')
+  @$pb.TagNumber(1118)
+  set applyCustomDnsDisabled($core.bool value) => $_setBool(119, value);
+  @$core.Deprecated('This field is deprecated.')
+  @$pb.TagNumber(1118)
+  $core.bool hasApplyCustomDnsDisabled() => $_has(119);
+  @$core.Deprecated('This field is deprecated.')
+  @$pb.TagNumber(1118)
+  void clearApplyCustomDnsDisabled() => $_clearField(1118);
+
   @$pb.TagNumber(3001)
-  BootInfo get boot => $_getN(118);
+  BootInfo get boot => $_getN(120);
   @$pb.TagNumber(3001)
   set boot(BootInfo value) => $_setField(3001, value);
   @$pb.TagNumber(3001)
-  $core.bool hasBoot() => $_has(118);
+  $core.bool hasBoot() => $_has(120);
   @$pb.TagNumber(3001)
   void clearBoot() => $_clearField(3001);
   @$pb.TagNumber(3001)
-  BootInfo ensureBoot() => $_ensure(118);
+  BootInfo ensureBoot() => $_ensure(120);
 
   @$pb.TagNumber(3033)
-  $pb.PbMap<$core.String, MeshConfig> get meshConfigsUpdates => $_getMap(119);
+  $pb.PbMap<$core.String, MeshConfig> get meshConfigsUpdates => $_getMap(121);
 
   @$pb.TagNumber(4001)
-  NoTrafficControl get wanNoTrafficControl => $_getN(120);
+  NoTrafficControl get wanNoTrafficControl => $_getN(122);
   @$pb.TagNumber(4001)
   set wanNoTrafficControl(NoTrafficControl value) => $_setField(4001, value);
   @$pb.TagNumber(4001)
-  $core.bool hasWanNoTrafficControl() => $_has(120);
+  $core.bool hasWanNoTrafficControl() => $_has(122);
   @$pb.TagNumber(4001)
   void clearWanNoTrafficControl() => $_clearField(4001);
   @$pb.TagNumber(4001)
-  NoTrafficControl ensureWanNoTrafficControl() => $_ensure(120);
+  NoTrafficControl ensureWanNoTrafficControl() => $_ensure(122);
 
   @$pb.TagNumber(4002)
-  AckSuppression get wanAckSuppression => $_getN(121);
+  AckSuppression get wanAckSuppression => $_getN(123);
   @$pb.TagNumber(4002)
   set wanAckSuppression(AckSuppression value) => $_setField(4002, value);
   @$pb.TagNumber(4002)
-  $core.bool hasWanAckSuppression() => $_has(121);
+  $core.bool hasWanAckSuppression() => $_has(123);
   @$pb.TagNumber(4002)
   void clearWanAckSuppression() => $_clearField(4002);
   @$pb.TagNumber(4002)
-  AckSuppression ensureWanAckSuppression() => $_ensure(121);
+  AckSuppression ensureWanAckSuppression() => $_ensure(123);
 
   @$pb.TagNumber(4003)
-  CakeRateLimit get wanCakeRateLimit => $_getN(122);
+  CakeRateLimit get wanCakeRateLimit => $_getN(124);
   @$pb.TagNumber(4003)
   set wanCakeRateLimit(CakeRateLimit value) => $_setField(4003, value);
   @$pb.TagNumber(4003)
-  $core.bool hasWanCakeRateLimit() => $_has(122);
+  $core.bool hasWanCakeRateLimit() => $_has(124);
   @$pb.TagNumber(4003)
   void clearWanCakeRateLimit() => $_clearField(4003);
   @$pb.TagNumber(4003)
-  CakeRateLimit ensureWanCakeRateLimit() => $_ensure(122);
+  CakeRateLimit ensureWanCakeRateLimit() => $_ensure(124);
 }
 
 /// SpaceX.API.Device.MeshConfig is a message:
@@ -8651,9 +8832,7 @@ class MeshConfig extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'displayName')
     ..aOB(2, _omitFieldNames ? '' : 'applyDisplayName')
-    ..e<MeshAuth>(3, _omitFieldNames ? '' : 'auth', $pb.PbFieldType.OE,
-        defaultOrMaker: MeshAuth.MESH_AUTH_UNKNOWN,
-        valueOf: MeshAuth.valueOf,
+    ..aE<MeshAuth>(3, _omitFieldNames ? '' : 'auth',
         enumValues: MeshAuth.values)
     ..aOB(4, _omitFieldNames ? '' : 'applyAuth')
     ..aInt64(5, _omitFieldNames ? '' : 'lastConnected')
@@ -8666,7 +8845,7 @@ class MeshConfig extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  MeshConfig clone() => MeshConfig()..mergeFromMessage(this);
+  MeshConfig clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   MeshConfig copyWith(void Function(MeshConfig) updates) =>
       super.copyWith((message) => updates(message as MeshConfig)) as MeshConfig;
@@ -8678,7 +8857,6 @@ class MeshConfig extends $pb.GeneratedMessage {
   static MeshConfig create() => MeshConfig._();
   @$core.override
   MeshConfig createEmptyInstance() => create();
-  static $pb.PbList<MeshConfig> createRepeated() => $pb.PbList<MeshConfig>();
   @$core.pragma('dart2js:noInline')
   static MeshConfig getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<MeshConfig>(create);
@@ -8788,7 +8966,7 @@ class ClientName extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ClientName clone() => ClientName()..mergeFromMessage(this);
+  ClientName clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ClientName copyWith(void Function(ClientName) updates) =>
       super.copyWith((message) => updates(message as ClientName)) as ClientName;
@@ -8800,7 +8978,6 @@ class ClientName extends $pb.GeneratedMessage {
   static ClientName create() => ClientName._();
   @$core.override
   ClientName createEmptyInstance() => create();
-  static $pb.PbList<ClientName> createRepeated() => $pb.PbList<ClientName>();
   @$core.pragma('dart2js:noInline')
   static ClientName getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ClientName>(create);
@@ -8858,17 +9035,16 @@ class ClientConfig extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'clientId', $pb.PbFieldType.OU3)
+    ..aI(1, _omitFieldNames ? '' : 'clientId', fieldType: $pb.PbFieldType.OU3)
     ..aOS(2, _omitFieldNames ? '' : 'macAddress')
     ..aOS(3, _omitFieldNames ? '' : 'givenName')
-    ..pc<WeeklyBlockSchedule>(
-        5, _omitFieldNames ? '' : 'weeklyBlockSchedules', $pb.PbFieldType.PM,
+    ..pPM<WeeklyBlockSchedule>(5, _omitFieldNames ? '' : 'weeklyBlockSchedules',
         subBuilder: WeeklyBlockSchedule.create)
     ..aOS(6, _omitFieldNames ? '' : 'groupId')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ClientConfig clone() => ClientConfig()..mergeFromMessage(this);
+  ClientConfig clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ClientConfig copyWith(void Function(ClientConfig) updates) =>
       super.copyWith((message) => updates(message as ClientConfig))
@@ -8881,8 +9057,6 @@ class ClientConfig extends $pb.GeneratedMessage {
   static ClientConfig create() => ClientConfig._();
   @$core.override
   ClientConfig createEmptyInstance() => create();
-  static $pb.PbList<ClientConfig> createRepeated() =>
-      $pb.PbList<ClientConfig>();
   @$core.pragma('dart2js:noInline')
   static ClientConfig getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ClientConfig>(create);
@@ -8953,14 +9127,13 @@ class WeeklyBlockSchedule_BlockRange extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.int>(
-        1, _omitFieldNames ? '' : 'startMinutes', $pb.PbFieldType.OU3)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'endMinutes', $pb.PbFieldType.OU3)
+    ..aI(1, _omitFieldNames ? '' : 'startMinutes',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(2, _omitFieldNames ? '' : 'endMinutes', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WeeklyBlockSchedule_BlockRange clone() =>
-      WeeklyBlockSchedule_BlockRange()..mergeFromMessage(this);
+  WeeklyBlockSchedule_BlockRange clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WeeklyBlockSchedule_BlockRange copyWith(
           void Function(WeeklyBlockSchedule_BlockRange) updates) =>
@@ -8976,8 +9149,6 @@ class WeeklyBlockSchedule_BlockRange extends $pb.GeneratedMessage {
       WeeklyBlockSchedule_BlockRange._();
   @$core.override
   WeeklyBlockSchedule_BlockRange createEmptyInstance() => create();
-  static $pb.PbList<WeeklyBlockSchedule_BlockRange> createRepeated() =>
-      $pb.PbList<WeeklyBlockSchedule_BlockRange>();
   @$core.pragma('dart2js:noInline')
   static WeeklyBlockSchedule_BlockRange getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WeeklyBlockSchedule_BlockRange>(create);
@@ -9028,14 +9199,14 @@ class WeeklyBlockSchedule extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..pc<WeeklyBlockSchedule_BlockRange>(
-        1, _omitFieldNames ? '' : 'blockRanges', $pb.PbFieldType.PM,
+    ..pPM<WeeklyBlockSchedule_BlockRange>(
+        1, _omitFieldNames ? '' : 'blockRanges',
         subBuilder: WeeklyBlockSchedule_BlockRange.create)
     ..aOS(2, _omitFieldNames ? '' : 'groupId')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WeeklyBlockSchedule clone() => WeeklyBlockSchedule()..mergeFromMessage(this);
+  WeeklyBlockSchedule clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WeeklyBlockSchedule copyWith(void Function(WeeklyBlockSchedule) updates) =>
       super.copyWith((message) => updates(message as WeeklyBlockSchedule))
@@ -9048,8 +9219,6 @@ class WeeklyBlockSchedule extends $pb.GeneratedMessage {
   static WeeklyBlockSchedule create() => WeeklyBlockSchedule._();
   @$core.override
   WeeklyBlockSchedule createEmptyInstance() => create();
-  static $pb.PbList<WeeklyBlockSchedule> createRepeated() =>
-      $pb.PbList<WeeklyBlockSchedule>();
   @$core.pragma('dart2js:noInline')
   static WeeklyBlockSchedule getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WeeklyBlockSchedule>(create);
@@ -9110,7 +9279,7 @@ class HttpServer extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  HttpServer clone() => HttpServer()..mergeFromMessage(this);
+  HttpServer clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   HttpServer copyWith(void Function(HttpServer) updates) =>
       super.copyWith((message) => updates(message as HttpServer)) as HttpServer;
@@ -9122,7 +9291,6 @@ class HttpServer extends $pb.GeneratedMessage {
   static HttpServer create() => HttpServer._();
   @$core.override
   HttpServer createEmptyInstance() => create();
-  static $pb.PbList<HttpServer> createRepeated() => $pb.PbList<HttpServer>();
   @$core.pragma('dart2js:noInline')
   static HttpServer getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<HttpServer>(create);
@@ -9175,10 +9343,14 @@ class TlsConfig extends $pb.GeneratedMessage {
   factory TlsConfig({
     $core.String? key,
     $core.String? cert,
+    $core.String? clientCaCert,
+    $core.String? serverCaCert,
   }) {
     final result = create();
     if (key != null) result.key = key;
     if (cert != null) result.cert = cert;
+    if (clientCaCert != null) result.clientCaCert = clientCaCert;
+    if (serverCaCert != null) result.serverCaCert = serverCaCert;
     return result;
   }
 
@@ -9198,10 +9370,12 @@ class TlsConfig extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'key')
     ..aOS(2, _omitFieldNames ? '' : 'cert')
+    ..aOS(3, _omitFieldNames ? '' : 'clientCaCert')
+    ..aOS(4, _omitFieldNames ? '' : 'serverCaCert')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  TlsConfig clone() => TlsConfig()..mergeFromMessage(this);
+  TlsConfig clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   TlsConfig copyWith(void Function(TlsConfig) updates) =>
       super.copyWith((message) => updates(message as TlsConfig)) as TlsConfig;
@@ -9213,7 +9387,6 @@ class TlsConfig extends $pb.GeneratedMessage {
   static TlsConfig create() => TlsConfig._();
   @$core.override
   TlsConfig createEmptyInstance() => create();
-  static $pb.PbList<TlsConfig> createRepeated() => $pb.PbList<TlsConfig>();
   @$core.pragma('dart2js:noInline')
   static TlsConfig getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TlsConfig>(create);
@@ -9236,6 +9409,24 @@ class TlsConfig extends $pb.GeneratedMessage {
   $core.bool hasCert() => $_has(1);
   @$pb.TagNumber(2)
   void clearCert() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get clientCaCert => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set clientCaCert($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasClientCaCert() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearClientCaCert() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get serverCaCert => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set serverCaCert($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasServerCaCert() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearServerCaCert() => $_clearField(4);
 }
 
 /// SpaceX.API.Device.BootInfo is a message:
@@ -9289,29 +9480,24 @@ class BootInfo extends $pb.GeneratedMessage {
         keyFieldType: $pb.PbFieldType.O3,
         valueFieldType: $pb.PbFieldType.O3,
         packageName: const $pb.PackageName('SpaceX.API.Device'))
-    ..e<BootReason>(2, _omitFieldNames ? '' : 'lastReason', $pb.PbFieldType.OE,
-        defaultOrMaker: BootReason.BOOT_REASON_UNKNOWN,
-        valueOf: BootReason.valueOf,
+    ..aE<BootReason>(2, _omitFieldNames ? '' : 'lastReason',
         enumValues: BootReason.values)
-    ..a<$core.int>(3, _omitFieldNames ? '' : 'lastCount', $pb.PbFieldType.O3)
+    ..aI(3, _omitFieldNames ? '' : 'lastCount')
     ..m<$core.int, $core.int>(4, _omitFieldNames ? '' : 'countByReasonDelta',
         entryClassName: 'BootInfo.CountByReasonDeltaEntry',
         keyFieldType: $pb.PbFieldType.O3,
         valueFieldType: $pb.PbFieldType.O3,
         packageName: const $pb.PackageName('SpaceX.API.Device'))
     ..aOB(5, _omitFieldNames ? '' : 'crashBoot')
-    ..a<$core.int>(
-        6, _omitFieldNames ? '' : 'crashBootCount', $pb.PbFieldType.O3)
+    ..aI(6, _omitFieldNames ? '' : 'crashBootCount')
     ..aOS(7, _omitFieldNames ? '' : 'evenSideSoftwareVersion')
     ..aOS(8, _omitFieldNames ? '' : 'oddSideSoftwareVersion')
-    ..a<$core.int>(
-        9, _omitFieldNames ? '' : 'apiVersionOddSide', $pb.PbFieldType.O3)
-    ..a<$core.int>(
-        10, _omitFieldNames ? '' : 'apiVersionEvenSide', $pb.PbFieldType.O3)
+    ..aI(9, _omitFieldNames ? '' : 'apiVersionOddSide')
+    ..aI(10, _omitFieldNames ? '' : 'apiVersionEvenSide')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  BootInfo clone() => BootInfo()..mergeFromMessage(this);
+  BootInfo clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   BootInfo copyWith(void Function(BootInfo) updates) =>
       super.copyWith((message) => updates(message as BootInfo)) as BootInfo;
@@ -9323,7 +9509,6 @@ class BootInfo extends $pb.GeneratedMessage {
   static BootInfo create() => BootInfo._();
   @$core.override
   BootInfo createEmptyInstance() => create();
-  static $pb.PbList<BootInfo> createRepeated() => $pb.PbList<BootInfo>();
   @$core.pragma('dart2js:noInline')
   static BootInfo getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BootInfo>(create);
@@ -9429,7 +9614,7 @@ class NoTrafficControl extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  NoTrafficControl clone() => NoTrafficControl()..mergeFromMessage(this);
+  NoTrafficControl clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   NoTrafficControl copyWith(void Function(NoTrafficControl) updates) =>
       super.copyWith((message) => updates(message as NoTrafficControl))
@@ -9442,8 +9627,6 @@ class NoTrafficControl extends $pb.GeneratedMessage {
   static NoTrafficControl create() => NoTrafficControl._();
   @$core.override
   NoTrafficControl createEmptyInstance() => create();
-  static $pb.PbList<NoTrafficControl> createRepeated() =>
-      $pb.PbList<NoTrafficControl>();
   @$core.pragma('dart2js:noInline')
   static NoTrafficControl getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<NoTrafficControl>(create);
@@ -9486,20 +9669,20 @@ class AckSuppression extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'ackMark', $pb.PbFieldType.OU3)
-    ..a<$core.double>(
-        2, _omitFieldNames ? '' : 'htbAckQueueRate', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        3, _omitFieldNames ? '' : 'htbAckQueueCeil', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        4, _omitFieldNames ? '' : 'cakeQueueBandwidth', $pb.PbFieldType.OF)
+    ..aI(1, _omitFieldNames ? '' : 'ackMark', fieldType: $pb.PbFieldType.OU3)
+    ..aD(2, _omitFieldNames ? '' : 'htbAckQueueRate',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(3, _omitFieldNames ? '' : 'htbAckQueueCeil',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(4, _omitFieldNames ? '' : 'cakeQueueBandwidth',
+        fieldType: $pb.PbFieldType.OF)
     ..aOB(5, _omitFieldNames ? '' : 'cakeAckFilterAggressive')
-    ..a<$core.double>(
-        6, _omitFieldNames ? '' : 'cakeManualRtt', $pb.PbFieldType.OF)
+    ..aD(6, _omitFieldNames ? '' : 'cakeManualRtt',
+        fieldType: $pb.PbFieldType.OF)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  AckSuppression clone() => AckSuppression()..mergeFromMessage(this);
+  AckSuppression clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   AckSuppression copyWith(void Function(AckSuppression) updates) =>
       super.copyWith((message) => updates(message as AckSuppression))
@@ -9512,8 +9695,6 @@ class AckSuppression extends $pb.GeneratedMessage {
   static AckSuppression create() => AckSuppression._();
   @$core.override
   AckSuppression createEmptyInstance() => create();
-  static $pb.PbList<AckSuppression> createRepeated() =>
-      $pb.PbList<AckSuppression>();
   @$core.pragma('dart2js:noInline')
   static AckSuppression getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<AckSuppression>(create);
@@ -9611,23 +9792,18 @@ class CakeRateLimit extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'hostMark', $pb.PbFieldType.OU3)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'bandwidth', $pb.PbFieldType.OF)
-    ..e<CakePriorityQueueParameter>(
-        3, _omitFieldNames ? '' : 'priorityQueueParameter', $pb.PbFieldType.OE,
-        defaultOrMaker: CakePriorityQueueParameter.DIFFSERV3,
-        valueOf: CakePriorityQueueParameter.valueOf,
+    ..aI(1, _omitFieldNames ? '' : 'hostMark', fieldType: $pb.PbFieldType.OU3)
+    ..aD(2, _omitFieldNames ? '' : 'bandwidth', fieldType: $pb.PbFieldType.OF)
+    ..aE<CakePriorityQueueParameter>(
+        3, _omitFieldNames ? '' : 'priorityQueueParameter',
         enumValues: CakePriorityQueueParameter.values)
-    ..e<CakeAckFilter>(
-        4, _omitFieldNames ? '' : 'ackFilter', $pb.PbFieldType.OE,
-        defaultOrMaker: CakeAckFilter.NO_ACK_FILTER,
-        valueOf: CakeAckFilter.valueOf,
+    ..aE<CakeAckFilter>(4, _omitFieldNames ? '' : 'ackFilter',
         enumValues: CakeAckFilter.values)
-    ..a<$core.double>(6, _omitFieldNames ? '' : 'manualRtt', $pb.PbFieldType.OF)
+    ..aD(6, _omitFieldNames ? '' : 'manualRtt', fieldType: $pb.PbFieldType.OF)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  CakeRateLimit clone() => CakeRateLimit()..mergeFromMessage(this);
+  CakeRateLimit clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   CakeRateLimit copyWith(void Function(CakeRateLimit) updates) =>
       super.copyWith((message) => updates(message as CakeRateLimit))
@@ -9640,8 +9816,6 @@ class CakeRateLimit extends $pb.GeneratedMessage {
   static CakeRateLimit create() => CakeRateLimit._();
   @$core.override
   CakeRateLimit createEmptyInstance() => create();
-  static $pb.PbList<CakeRateLimit> createRepeated() =>
-      $pb.PbList<CakeRateLimit>();
   @$core.pragma('dart2js:noInline')
   static CakeRateLimit getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<CakeRateLimit>(create);
@@ -9719,7 +9893,7 @@ class AuthOpen extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  AuthOpen clone() => AuthOpen()..mergeFromMessage(this);
+  AuthOpen clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   AuthOpen copyWith(void Function(AuthOpen) updates) =>
       super.copyWith((message) => updates(message as AuthOpen)) as AuthOpen;
@@ -9731,7 +9905,6 @@ class AuthOpen extends $pb.GeneratedMessage {
   static AuthOpen create() => AuthOpen._();
   @$core.override
   AuthOpen createEmptyInstance() => create();
-  static $pb.PbList<AuthOpen> createRepeated() => $pb.PbList<AuthOpen>();
   @$core.pragma('dart2js:noInline')
   static AuthOpen getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<AuthOpen>(create);
@@ -9766,7 +9939,7 @@ class AuthWpa2 extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  AuthWpa2 clone() => AuthWpa2()..mergeFromMessage(this);
+  AuthWpa2 clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   AuthWpa2 copyWith(void Function(AuthWpa2) updates) =>
       super.copyWith((message) => updates(message as AuthWpa2)) as AuthWpa2;
@@ -9778,7 +9951,6 @@ class AuthWpa2 extends $pb.GeneratedMessage {
   static AuthWpa2 create() => AuthWpa2._();
   @$core.override
   AuthWpa2 createEmptyInstance() => create();
-  static $pb.PbList<AuthWpa2> createRepeated() => $pb.PbList<AuthWpa2>();
   @$core.pragma('dart2js:noInline')
   static AuthWpa2 getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<AuthWpa2>(create);
@@ -9822,7 +9994,7 @@ class AuthWpa3 extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  AuthWpa3 clone() => AuthWpa3()..mergeFromMessage(this);
+  AuthWpa3 clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   AuthWpa3 copyWith(void Function(AuthWpa3) updates) =>
       super.copyWith((message) => updates(message as AuthWpa3)) as AuthWpa3;
@@ -9834,7 +10006,6 @@ class AuthWpa3 extends $pb.GeneratedMessage {
   static AuthWpa3 create() => AuthWpa3._();
   @$core.override
   AuthWpa3 createEmptyInstance() => create();
-  static $pb.PbList<AuthWpa3> createRepeated() => $pb.PbList<AuthWpa3>();
   @$core.pragma('dart2js:noInline')
   static AuthWpa3 getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<AuthWpa3>(create);
@@ -9878,7 +10049,7 @@ class AuthWpa2Wpa3 extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  AuthWpa2Wpa3 clone() => AuthWpa2Wpa3()..mergeFromMessage(this);
+  AuthWpa2Wpa3 clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   AuthWpa2Wpa3 copyWith(void Function(AuthWpa2Wpa3) updates) =>
       super.copyWith((message) => updates(message as AuthWpa2Wpa3))
@@ -9891,8 +10062,6 @@ class AuthWpa2Wpa3 extends $pb.GeneratedMessage {
   static AuthWpa2Wpa3 create() => AuthWpa2Wpa3._();
   @$core.override
   AuthWpa2Wpa3 createEmptyInstance() => create();
-  static $pb.PbList<AuthWpa2Wpa3> createRepeated() =>
-      $pb.PbList<AuthWpa2Wpa3>();
   @$core.pragma('dart2js:noInline')
   static AuthWpa2Wpa3 getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<AuthWpa2Wpa3>(create);
@@ -9945,14 +10114,12 @@ class AuthRadius extends $pb.GeneratedMessage {
     ..aOS(3, _omitFieldNames ? '' : 'serverCa')
     ..aOS(4, _omitFieldNames ? '' : 'serverCaBase64',
         protoName: 'server_ca_base_64')
-    ..e<Protocol>(5, _omitFieldNames ? '' : 'transport', $pb.PbFieldType.OE,
-        defaultOrMaker: Protocol.TCP,
-        valueOf: Protocol.valueOf,
+    ..aE<Protocol>(5, _omitFieldNames ? '' : 'transport',
         enumValues: Protocol.values)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  AuthRadius clone() => AuthRadius()..mergeFromMessage(this);
+  AuthRadius clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   AuthRadius copyWith(void Function(AuthRadius) updates) =>
       super.copyWith((message) => updates(message as AuthRadius)) as AuthRadius;
@@ -9964,7 +10131,6 @@ class AuthRadius extends $pb.GeneratedMessage {
   static AuthRadius create() => AuthRadius._();
   @$core.override
   AuthRadius createEmptyInstance() => create();
-  static $pb.PbList<AuthRadius> createRepeated() => $pb.PbList<AuthRadius>();
   @$core.pragma('dart2js:noInline')
   static AuthRadius getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<AuthRadius>(create);
@@ -10041,7 +10207,7 @@ class AuthOpenEncrypted extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  AuthOpenEncrypted clone() => AuthOpenEncrypted()..mergeFromMessage(this);
+  AuthOpenEncrypted clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   AuthOpenEncrypted copyWith(void Function(AuthOpenEncrypted) updates) =>
       super.copyWith((message) => updates(message as AuthOpenEncrypted))
@@ -10054,12 +10220,50 @@ class AuthOpenEncrypted extends $pb.GeneratedMessage {
   static AuthOpenEncrypted create() => AuthOpenEncrypted._();
   @$core.override
   AuthOpenEncrypted createEmptyInstance() => create();
-  static $pb.PbList<AuthOpenEncrypted> createRepeated() =>
-      $pb.PbList<AuthOpenEncrypted>();
   @$core.pragma('dart2js:noInline')
   static AuthOpenEncrypted getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<AuthOpenEncrypted>(create);
   static AuthOpenEncrypted? _defaultInstance;
+}
+
+/// SpaceX.API.Device.AuthOnboardRadius is a message:
+class AuthOnboardRadius extends $pb.GeneratedMessage {
+  factory AuthOnboardRadius() => create();
+
+  AuthOnboardRadius._();
+
+  factory AuthOnboardRadius.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory AuthOnboardRadius.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'AuthOnboardRadius',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  AuthOnboardRadius clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  AuthOnboardRadius copyWith(void Function(AuthOnboardRadius) updates) =>
+      super.copyWith((message) => updates(message as AuthOnboardRadius))
+          as AuthOnboardRadius;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static AuthOnboardRadius create() => AuthOnboardRadius._();
+  @$core.override
+  AuthOnboardRadius createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static AuthOnboardRadius getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<AuthOnboardRadius>(create);
+  static AuthOnboardRadius? _defaultInstance;
 }
 
 /// SpaceX.API.Device.CaptivePortal is a message:
@@ -10094,7 +10298,7 @@ class CaptivePortal extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  CaptivePortal clone() => CaptivePortal()..mergeFromMessage(this);
+  CaptivePortal clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   CaptivePortal copyWith(void Function(CaptivePortal) updates) =>
       super.copyWith((message) => updates(message as CaptivePortal))
@@ -10107,8 +10311,6 @@ class CaptivePortal extends $pb.GeneratedMessage {
   static CaptivePortal create() => CaptivePortal._();
   @$core.override
   CaptivePortal createEmptyInstance() => create();
-  static $pb.PbList<CaptivePortal> createRepeated() =>
-      $pb.PbList<CaptivePortal>();
   @$core.pragma('dart2js:noInline')
   static CaptivePortal getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<CaptivePortal>(create);
@@ -10160,12 +10362,12 @@ class StaticRoute extends $pb.GeneratedMessage {
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'subnet')
-    ..a<$core.int>(
-        2, _omitFieldNames ? '' : 'networkGroups', $pb.PbFieldType.OU3)
+    ..aI(2, _omitFieldNames ? '' : 'networkGroups',
+        fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  StaticRoute clone() => StaticRoute()..mergeFromMessage(this);
+  StaticRoute clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   StaticRoute copyWith(void Function(StaticRoute) updates) =>
       super.copyWith((message) => updates(message as StaticRoute))
@@ -10178,7 +10380,6 @@ class StaticRoute extends $pb.GeneratedMessage {
   static StaticRoute create() => StaticRoute._();
   @$core.override
   StaticRoute createEmptyInstance() => create();
-  static $pb.PbList<StaticRoute> createRepeated() => $pb.PbList<StaticRoute>();
   @$core.pragma('dart2js:noInline')
   static StaticRoute getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<StaticRoute>(create);
@@ -10224,7 +10425,7 @@ class WanNone extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WanNone clone() => WanNone()..mergeFromMessage(this);
+  WanNone clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WanNone copyWith(void Function(WanNone) updates) =>
       super.copyWith((message) => updates(message as WanNone)) as WanNone;
@@ -10236,7 +10437,6 @@ class WanNone extends $pb.GeneratedMessage {
   static WanNone create() => WanNone._();
   @$core.override
   WanNone createEmptyInstance() => create();
-  static $pb.PbList<WanNone> createRepeated() => $pb.PbList<WanNone>();
   @$core.pragma('dart2js:noInline')
   static WanNone getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<WanNone>(create);
@@ -10271,8 +10471,7 @@ class WanStarlinkRouterPair extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WanStarlinkRouterPair clone() =>
-      WanStarlinkRouterPair()..mergeFromMessage(this);
+  WanStarlinkRouterPair clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WanStarlinkRouterPair copyWith(
           void Function(WanStarlinkRouterPair) updates) =>
@@ -10286,8 +10485,6 @@ class WanStarlinkRouterPair extends $pb.GeneratedMessage {
   static WanStarlinkRouterPair create() => WanStarlinkRouterPair._();
   @$core.override
   WanStarlinkRouterPair createEmptyInstance() => create();
-  static $pb.PbList<WanStarlinkRouterPair> createRepeated() =>
-      $pb.PbList<WanStarlinkRouterPair>();
   @$core.pragma('dart2js:noInline')
   static WanStarlinkRouterPair getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WanStarlinkRouterPair>(create);
@@ -10324,8 +10521,7 @@ class WifiGetClientsRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiGetClientsRequest clone() =>
-      WifiGetClientsRequest()..mergeFromMessage(this);
+  WifiGetClientsRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiGetClientsRequest copyWith(
           void Function(WifiGetClientsRequest) updates) =>
@@ -10339,8 +10535,6 @@ class WifiGetClientsRequest extends $pb.GeneratedMessage {
   static WifiGetClientsRequest create() => WifiGetClientsRequest._();
   @$core.override
   WifiGetClientsRequest createEmptyInstance() => create();
-  static $pb.PbList<WifiGetClientsRequest> createRepeated() =>
-      $pb.PbList<WifiGetClientsRequest>();
   @$core.pragma('dart2js:noInline')
   static WifiGetClientsRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiGetClientsRequest>(create);
@@ -10384,7 +10578,7 @@ class WifiSetupRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiSetupRequest clone() => WifiSetupRequest()..mergeFromMessage(this);
+  WifiSetupRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiSetupRequest copyWith(void Function(WifiSetupRequest) updates) =>
       super.copyWith((message) => updates(message as WifiSetupRequest))
@@ -10397,8 +10591,6 @@ class WifiSetupRequest extends $pb.GeneratedMessage {
   static WifiSetupRequest create() => WifiSetupRequest._();
   @$core.override
   WifiSetupRequest createEmptyInstance() => create();
-  static $pb.PbList<WifiSetupRequest> createRepeated() =>
-      $pb.PbList<WifiSetupRequest>();
   @$core.pragma('dart2js:noInline')
   static WifiSetupRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiSetupRequest>(create);
@@ -10462,8 +10654,7 @@ class WifiGetPingMetricsRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiGetPingMetricsRequest clone() =>
-      WifiGetPingMetricsRequest()..mergeFromMessage(this);
+  WifiGetPingMetricsRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiGetPingMetricsRequest copyWith(
           void Function(WifiGetPingMetricsRequest) updates) =>
@@ -10477,8 +10668,6 @@ class WifiGetPingMetricsRequest extends $pb.GeneratedMessage {
   static WifiGetPingMetricsRequest create() => WifiGetPingMetricsRequest._();
   @$core.override
   WifiGetPingMetricsRequest createEmptyInstance() => create();
-  static $pb.PbList<WifiGetPingMetricsRequest> createRepeated() =>
-      $pb.PbList<WifiGetPingMetricsRequest>();
   @$core.pragma('dart2js:noInline')
   static WifiGetPingMetricsRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiGetPingMetricsRequest>(create);
@@ -10506,8 +10695,7 @@ class WifiGetConfigRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiGetConfigRequest clone() =>
-      WifiGetConfigRequest()..mergeFromMessage(this);
+  WifiGetConfigRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiGetConfigRequest copyWith(void Function(WifiGetConfigRequest) updates) =>
       super.copyWith((message) => updates(message as WifiGetConfigRequest))
@@ -10520,8 +10708,6 @@ class WifiGetConfigRequest extends $pb.GeneratedMessage {
   static WifiGetConfigRequest create() => WifiGetConfigRequest._();
   @$core.override
   WifiGetConfigRequest createEmptyInstance() => create();
-  static $pb.PbList<WifiGetConfigRequest> createRepeated() =>
-      $pb.PbList<WifiGetConfigRequest>();
   @$core.pragma('dart2js:noInline')
   static WifiGetConfigRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiGetConfigRequest>(create);
@@ -10555,15 +10741,12 @@ class WifiSetMeshDeviceTrustRequest extends $pb.GeneratedMessage {
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'deviceId')
-    ..e<MeshAuth>(2, _omitFieldNames ? '' : 'auth', $pb.PbFieldType.OE,
-        defaultOrMaker: MeshAuth.MESH_AUTH_UNKNOWN,
-        valueOf: MeshAuth.valueOf,
+    ..aE<MeshAuth>(2, _omitFieldNames ? '' : 'auth',
         enumValues: MeshAuth.values)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiSetMeshDeviceTrustRequest clone() =>
-      WifiSetMeshDeviceTrustRequest()..mergeFromMessage(this);
+  WifiSetMeshDeviceTrustRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiSetMeshDeviceTrustRequest copyWith(
           void Function(WifiSetMeshDeviceTrustRequest) updates) =>
@@ -10579,8 +10762,6 @@ class WifiSetMeshDeviceTrustRequest extends $pb.GeneratedMessage {
       WifiSetMeshDeviceTrustRequest._();
   @$core.override
   WifiSetMeshDeviceTrustRequest createEmptyInstance() => create();
-  static $pb.PbList<WifiSetMeshDeviceTrustRequest> createRepeated() =>
-      $pb.PbList<WifiSetMeshDeviceTrustRequest>();
   @$core.pragma('dart2js:noInline')
   static WifiSetMeshDeviceTrustRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiSetMeshDeviceTrustRequest>(create);
@@ -10637,8 +10818,7 @@ class WifiSetMeshConfigRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiSetMeshConfigRequest clone() =>
-      WifiSetMeshConfigRequest()..mergeFromMessage(this);
+  WifiSetMeshConfigRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiSetMeshConfigRequest copyWith(
           void Function(WifiSetMeshConfigRequest) updates) =>
@@ -10652,8 +10832,6 @@ class WifiSetMeshConfigRequest extends $pb.GeneratedMessage {
   static WifiSetMeshConfigRequest create() => WifiSetMeshConfigRequest._();
   @$core.override
   WifiSetMeshConfigRequest createEmptyInstance() => create();
-  static $pb.PbList<WifiSetMeshConfigRequest> createRepeated() =>
-      $pb.PbList<WifiSetMeshConfigRequest>();
   @$core.pragma('dart2js:noInline')
   static WifiSetMeshConfigRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiSetMeshConfigRequest>(create);
@@ -10707,12 +10885,11 @@ class WifiGetClientHistoryRequest extends $pb.GeneratedMessage {
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'macAddress')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'clientId', $pb.PbFieldType.OU3)
+    ..aI(2, _omitFieldNames ? '' : 'clientId', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiGetClientHistoryRequest clone() =>
-      WifiGetClientHistoryRequest()..mergeFromMessage(this);
+  WifiGetClientHistoryRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiGetClientHistoryRequest copyWith(
           void Function(WifiGetClientHistoryRequest) updates) =>
@@ -10728,8 +10905,6 @@ class WifiGetClientHistoryRequest extends $pb.GeneratedMessage {
       WifiGetClientHistoryRequest._();
   @$core.override
   WifiGetClientHistoryRequest createEmptyInstance() => create();
-  static $pb.PbList<WifiGetClientHistoryRequest> createRepeated() =>
-      $pb.PbList<WifiGetClientHistoryRequest>();
   @$core.pragma('dart2js:noInline')
   static WifiGetClientHistoryRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiGetClientHistoryRequest>(create);
@@ -10779,8 +10954,7 @@ class WifiSetAviationConformedRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiSetAviationConformedRequest clone() =>
-      WifiSetAviationConformedRequest()..mergeFromMessage(this);
+  WifiSetAviationConformedRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiSetAviationConformedRequest copyWith(
           void Function(WifiSetAviationConformedRequest) updates) =>
@@ -10796,8 +10970,6 @@ class WifiSetAviationConformedRequest extends $pb.GeneratedMessage {
       WifiSetAviationConformedRequest._();
   @$core.override
   WifiSetAviationConformedRequest createEmptyInstance() => create();
-  static $pb.PbList<WifiSetAviationConformedRequest> createRepeated() =>
-      $pb.PbList<WifiSetAviationConformedRequest>();
   @$core.pragma('dart2js:noInline')
   static WifiSetAviationConformedRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiSetAviationConformedRequest>(
@@ -10838,8 +11010,7 @@ class WifiSetClientGivenNameRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiSetClientGivenNameRequest clone() =>
-      WifiSetClientGivenNameRequest()..mergeFromMessage(this);
+  WifiSetClientGivenNameRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiSetClientGivenNameRequest copyWith(
           void Function(WifiSetClientGivenNameRequest) updates) =>
@@ -10855,8 +11026,6 @@ class WifiSetClientGivenNameRequest extends $pb.GeneratedMessage {
       WifiSetClientGivenNameRequest._();
   @$core.override
   WifiSetClientGivenNameRequest createEmptyInstance() => create();
-  static $pb.PbList<WifiSetClientGivenNameRequest> createRepeated() =>
-      $pb.PbList<WifiSetClientGivenNameRequest>();
   @$core.pragma('dart2js:noInline')
   static WifiSetClientGivenNameRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiSetClientGivenNameRequest>(create);
@@ -10911,7 +11080,7 @@ class WifiSelfTestRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiSelfTestRequest clone() => WifiSelfTestRequest()..mergeFromMessage(this);
+  WifiSelfTestRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiSelfTestRequest copyWith(void Function(WifiSelfTestRequest) updates) =>
       super.copyWith((message) => updates(message as WifiSelfTestRequest))
@@ -10924,8 +11093,6 @@ class WifiSelfTestRequest extends $pb.GeneratedMessage {
   static WifiSelfTestRequest create() => WifiSelfTestRequest._();
   @$core.override
   WifiSelfTestRequest createEmptyInstance() => create();
-  static $pb.PbList<WifiSelfTestRequest> createRepeated() =>
-      $pb.PbList<WifiSelfTestRequest>();
   @$core.pragma('dart2js:noInline')
   static WifiSelfTestRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiSelfTestRequest>(create);
@@ -10953,8 +11120,7 @@ class WifiCalibrationModeRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiCalibrationModeRequest clone() =>
-      WifiCalibrationModeRequest()..mergeFromMessage(this);
+  WifiCalibrationModeRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiCalibrationModeRequest copyWith(
           void Function(WifiCalibrationModeRequest) updates) =>
@@ -10969,8 +11135,6 @@ class WifiCalibrationModeRequest extends $pb.GeneratedMessage {
   static WifiCalibrationModeRequest create() => WifiCalibrationModeRequest._();
   @$core.override
   WifiCalibrationModeRequest createEmptyInstance() => create();
-  static $pb.PbList<WifiCalibrationModeRequest> createRepeated() =>
-      $pb.PbList<WifiCalibrationModeRequest>();
   @$core.pragma('dart2js:noInline')
   static WifiCalibrationModeRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiCalibrationModeRequest>(create);
@@ -10998,8 +11162,7 @@ class WifiGuestInfoRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiGuestInfoRequest clone() =>
-      WifiGuestInfoRequest()..mergeFromMessage(this);
+  WifiGuestInfoRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiGuestInfoRequest copyWith(void Function(WifiGuestInfoRequest) updates) =>
       super.copyWith((message) => updates(message as WifiGuestInfoRequest))
@@ -11012,8 +11175,6 @@ class WifiGuestInfoRequest extends $pb.GeneratedMessage {
   static WifiGuestInfoRequest create() => WifiGuestInfoRequest._();
   @$core.override
   WifiGuestInfoRequest createEmptyInstance() => create();
-  static $pb.PbList<WifiGuestInfoRequest> createRepeated() =>
-      $pb.PbList<WifiGuestInfoRequest>();
   @$core.pragma('dart2js:noInline')
   static WifiGuestInfoRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiGuestInfoRequest>(create);
@@ -11062,32 +11223,30 @@ class WifiRfTestRequest extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.int>(
-        1, _omitFieldNames ? '' : 'numMeasurements', $pb.PbFieldType.OU3)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'channel2ghz', $pb.PbFieldType.OU3,
-        protoName: 'channel_2ghz')
-    ..a<$core.int>(3, _omitFieldNames ? '' : 'channel5ghz', $pb.PbFieldType.OU3,
-        protoName: 'channel_5ghz')
-    ..a<$core.int>(
-        4, _omitFieldNames ? '' : 'channel5ghzHigh', $pb.PbFieldType.OU3,
-        protoName: 'channel_5ghz_high')
-    ..a<$core.int>(5, _omitFieldNames ? '' : 'mcs2ghz', $pb.PbFieldType.OU3,
-        protoName: 'mcs_2ghz')
-    ..a<$core.int>(6, _omitFieldNames ? '' : 'mcs5ghz', $pb.PbFieldType.OU3,
-        protoName: 'mcs_5ghz')
-    ..a<$core.int>(7, _omitFieldNames ? '' : 'mcs5ghzHigh', $pb.PbFieldType.OU3,
-        protoName: 'mcs_5ghz_high')
-    ..a<$core.int>(8, _omitFieldNames ? '' : 'phyMode2ghz', $pb.PbFieldType.OU3,
-        protoName: 'phy_mode_2ghz')
-    ..a<$core.int>(9, _omitFieldNames ? '' : 'phyMode5ghz', $pb.PbFieldType.OU3,
-        protoName: 'phy_mode_5ghz')
-    ..a<$core.int>(
-        10, _omitFieldNames ? '' : 'phyMode5ghzHigh', $pb.PbFieldType.OU3,
-        protoName: 'phy_mode_5ghz_high')
+    ..aI(1, _omitFieldNames ? '' : 'numMeasurements',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(2, _omitFieldNames ? '' : 'channel2ghz',
+        protoName: 'channel_2ghz', fieldType: $pb.PbFieldType.OU3)
+    ..aI(3, _omitFieldNames ? '' : 'channel5ghz',
+        protoName: 'channel_5ghz', fieldType: $pb.PbFieldType.OU3)
+    ..aI(4, _omitFieldNames ? '' : 'channel5ghzHigh',
+        protoName: 'channel_5ghz_high', fieldType: $pb.PbFieldType.OU3)
+    ..aI(5, _omitFieldNames ? '' : 'mcs2ghz',
+        protoName: 'mcs_2ghz', fieldType: $pb.PbFieldType.OU3)
+    ..aI(6, _omitFieldNames ? '' : 'mcs5ghz',
+        protoName: 'mcs_5ghz', fieldType: $pb.PbFieldType.OU3)
+    ..aI(7, _omitFieldNames ? '' : 'mcs5ghzHigh',
+        protoName: 'mcs_5ghz_high', fieldType: $pb.PbFieldType.OU3)
+    ..aI(8, _omitFieldNames ? '' : 'phyMode2ghz',
+        protoName: 'phy_mode_2ghz', fieldType: $pb.PbFieldType.OU3)
+    ..aI(9, _omitFieldNames ? '' : 'phyMode5ghz',
+        protoName: 'phy_mode_5ghz', fieldType: $pb.PbFieldType.OU3)
+    ..aI(10, _omitFieldNames ? '' : 'phyMode5ghzHigh',
+        protoName: 'phy_mode_5ghz_high', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiRfTestRequest clone() => WifiRfTestRequest()..mergeFromMessage(this);
+  WifiRfTestRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiRfTestRequest copyWith(void Function(WifiRfTestRequest) updates) =>
       super.copyWith((message) => updates(message as WifiRfTestRequest))
@@ -11100,8 +11259,6 @@ class WifiRfTestRequest extends $pb.GeneratedMessage {
   static WifiRfTestRequest create() => WifiRfTestRequest._();
   @$core.override
   WifiRfTestRequest createEmptyInstance() => create();
-  static $pb.PbList<WifiRfTestRequest> createRepeated() =>
-      $pb.PbList<WifiRfTestRequest>();
   @$core.pragma('dart2js:noInline')
   static WifiRfTestRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiRfTestRequest>(create);
@@ -11219,8 +11376,7 @@ class WifiGetFirewallRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiGetFirewallRequest clone() =>
-      WifiGetFirewallRequest()..mergeFromMessage(this);
+  WifiGetFirewallRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiGetFirewallRequest copyWith(
           void Function(WifiGetFirewallRequest) updates) =>
@@ -11234,8 +11390,6 @@ class WifiGetFirewallRequest extends $pb.GeneratedMessage {
   static WifiGetFirewallRequest create() => WifiGetFirewallRequest._();
   @$core.override
   WifiGetFirewallRequest createEmptyInstance() => create();
-  static $pb.PbList<WifiGetFirewallRequest> createRepeated() =>
-      $pb.PbList<WifiGetFirewallRequest>();
   @$core.pragma('dart2js:noInline')
   static WifiGetFirewallRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiGetFirewallRequest>(create);
@@ -11270,8 +11424,7 @@ class WifiTogglePoeNegotiationRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiTogglePoeNegotiationRequest clone() =>
-      WifiTogglePoeNegotiationRequest()..mergeFromMessage(this);
+  WifiTogglePoeNegotiationRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiTogglePoeNegotiationRequest copyWith(
           void Function(WifiTogglePoeNegotiationRequest) updates) =>
@@ -11287,8 +11440,6 @@ class WifiTogglePoeNegotiationRequest extends $pb.GeneratedMessage {
       WifiTogglePoeNegotiationRequest._();
   @$core.override
   WifiTogglePoeNegotiationRequest createEmptyInstance() => create();
-  static $pb.PbList<WifiTogglePoeNegotiationRequest> createRepeated() =>
-      $pb.PbList<WifiTogglePoeNegotiationRequest>();
   @$core.pragma('dart2js:noInline')
   static WifiTogglePoeNegotiationRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiTogglePoeNegotiationRequest>(
@@ -11357,8 +11508,7 @@ class WifiFactoryTestCommandRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiFactoryTestCommandRequest clone() =>
-      WifiFactoryTestCommandRequest()..mergeFromMessage(this);
+  WifiFactoryTestCommandRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiFactoryTestCommandRequest copyWith(
           void Function(WifiFactoryTestCommandRequest) updates) =>
@@ -11374,15 +11524,19 @@ class WifiFactoryTestCommandRequest extends $pb.GeneratedMessage {
       WifiFactoryTestCommandRequest._();
   @$core.override
   WifiFactoryTestCommandRequest createEmptyInstance() => create();
-  static $pb.PbList<WifiFactoryTestCommandRequest> createRepeated() =>
-      $pb.PbList<WifiFactoryTestCommandRequest>();
   @$core.pragma('dart2js:noInline')
   static WifiFactoryTestCommandRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiFactoryTestCommandRequest>(create);
   static WifiFactoryTestCommandRequest? _defaultInstance;
 
+  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  @$pb.TagNumber(3)
   WifiFactoryTestCommandRequest_Command whichCommand() =>
       _WifiFactoryTestCommandRequest_CommandByTag[$_whichOneof(0)]!;
+  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  @$pb.TagNumber(3)
   void clearCommand() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -11449,15 +11603,12 @@ class IwprivCommand extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'iface')
     ..aOS(2, _omitFieldNames ? '' : 'arg')
-    ..e<IwprivCommand_Ioctl>(
-        3, _omitFieldNames ? '' : 'ioctl', $pb.PbFieldType.OE,
-        defaultOrMaker: IwprivCommand_Ioctl.IOCTL_SET,
-        valueOf: IwprivCommand_Ioctl.valueOf,
+    ..aE<IwprivCommand_Ioctl>(3, _omitFieldNames ? '' : 'ioctl',
         enumValues: IwprivCommand_Ioctl.values)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  IwprivCommand clone() => IwprivCommand()..mergeFromMessage(this);
+  IwprivCommand clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   IwprivCommand copyWith(void Function(IwprivCommand) updates) =>
       super.copyWith((message) => updates(message as IwprivCommand))
@@ -11470,8 +11621,6 @@ class IwprivCommand extends $pb.GeneratedMessage {
   static IwprivCommand create() => IwprivCommand._();
   @$core.override
   IwprivCommand createEmptyInstance() => create();
-  static $pb.PbList<IwprivCommand> createRepeated() =>
-      $pb.PbList<IwprivCommand>();
   @$core.pragma('dart2js:noInline')
   static IwprivCommand getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<IwprivCommand>(create);
@@ -11536,7 +11685,7 @@ class IpLinkSetCommand extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  IpLinkSetCommand clone() => IpLinkSetCommand()..mergeFromMessage(this);
+  IpLinkSetCommand clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   IpLinkSetCommand copyWith(void Function(IpLinkSetCommand) updates) =>
       super.copyWith((message) => updates(message as IpLinkSetCommand))
@@ -11549,8 +11698,6 @@ class IpLinkSetCommand extends $pb.GeneratedMessage {
   static IpLinkSetCommand create() => IpLinkSetCommand._();
   @$core.override
   IpLinkSetCommand createEmptyInstance() => create();
-  static $pb.PbList<IpLinkSetCommand> createRepeated() =>
-      $pb.PbList<IpLinkSetCommand>();
   @$core.pragma('dart2js:noInline')
   static IpLinkSetCommand getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<IpLinkSetCommand>(create);
@@ -11609,7 +11756,7 @@ class IpAddrSetCommand extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  IpAddrSetCommand clone() => IpAddrSetCommand()..mergeFromMessage(this);
+  IpAddrSetCommand clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   IpAddrSetCommand copyWith(void Function(IpAddrSetCommand) updates) =>
       super.copyWith((message) => updates(message as IpAddrSetCommand))
@@ -11622,8 +11769,6 @@ class IpAddrSetCommand extends $pb.GeneratedMessage {
   static IpAddrSetCommand create() => IpAddrSetCommand._();
   @$core.override
   IpAddrSetCommand createEmptyInstance() => create();
-  static $pb.PbList<IpAddrSetCommand> createRepeated() =>
-      $pb.PbList<IpAddrSetCommand>();
   @$core.pragma('dart2js:noInline')
   static IpAddrSetCommand getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<IpAddrSetCommand>(create);
@@ -11681,12 +11826,11 @@ class WifiStartLocalTelemProxyRequest extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'port', $pb.PbFieldType.O3)
+    ..aI(1, _omitFieldNames ? '' : 'port')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiStartLocalTelemProxyRequest clone() =>
-      WifiStartLocalTelemProxyRequest()..mergeFromMessage(this);
+  WifiStartLocalTelemProxyRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiStartLocalTelemProxyRequest copyWith(
           void Function(WifiStartLocalTelemProxyRequest) updates) =>
@@ -11702,8 +11846,6 @@ class WifiStartLocalTelemProxyRequest extends $pb.GeneratedMessage {
       WifiStartLocalTelemProxyRequest._();
   @$core.override
   WifiStartLocalTelemProxyRequest createEmptyInstance() => create();
-  static $pb.PbList<WifiStartLocalTelemProxyRequest> createRepeated() =>
-      $pb.PbList<WifiStartLocalTelemProxyRequest>();
   @$core.pragma('dart2js:noInline')
   static WifiStartLocalTelemProxyRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiStartLocalTelemProxyRequest>(
@@ -11741,8 +11883,7 @@ class WifiRunSelfTestRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiRunSelfTestRequest clone() =>
-      WifiRunSelfTestRequest()..mergeFromMessage(this);
+  WifiRunSelfTestRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiRunSelfTestRequest copyWith(
           void Function(WifiRunSelfTestRequest) updates) =>
@@ -11756,8 +11897,6 @@ class WifiRunSelfTestRequest extends $pb.GeneratedMessage {
   static WifiRunSelfTestRequest create() => WifiRunSelfTestRequest._();
   @$core.override
   WifiRunSelfTestRequest createEmptyInstance() => create();
-  static $pb.PbList<WifiRunSelfTestRequest> createRepeated() =>
-      $pb.PbList<WifiRunSelfTestRequest>();
   @$core.pragma('dart2js:noInline')
   static WifiRunSelfTestRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiRunSelfTestRequest>(create);
@@ -11785,8 +11924,7 @@ class WifiBackhaulStatsRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiBackhaulStatsRequest clone() =>
-      WifiBackhaulStatsRequest()..mergeFromMessage(this);
+  WifiBackhaulStatsRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiBackhaulStatsRequest copyWith(
           void Function(WifiBackhaulStatsRequest) updates) =>
@@ -11800,8 +11938,6 @@ class WifiBackhaulStatsRequest extends $pb.GeneratedMessage {
   static WifiBackhaulStatsRequest create() => WifiBackhaulStatsRequest._();
   @$core.override
   WifiBackhaulStatsRequest createEmptyInstance() => create();
-  static $pb.PbList<WifiBackhaulStatsRequest> createRepeated() =>
-      $pb.PbList<WifiBackhaulStatsRequest>();
   @$core.pragma('dart2js:noInline')
   static WifiBackhaulStatsRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiBackhaulStatsRequest>(create);
@@ -11836,8 +11972,7 @@ class WifiToggleUmbilicalModeRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiToggleUmbilicalModeRequest clone() =>
-      WifiToggleUmbilicalModeRequest()..mergeFromMessage(this);
+  WifiToggleUmbilicalModeRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiToggleUmbilicalModeRequest copyWith(
           void Function(WifiToggleUmbilicalModeRequest) updates) =>
@@ -11853,8 +11988,6 @@ class WifiToggleUmbilicalModeRequest extends $pb.GeneratedMessage {
       WifiToggleUmbilicalModeRequest._();
   @$core.override
   WifiToggleUmbilicalModeRequest createEmptyInstance() => create();
-  static $pb.PbList<WifiToggleUmbilicalModeRequest> createRepeated() =>
-      $pb.PbList<WifiToggleUmbilicalModeRequest>();
   @$core.pragma('dart2js:noInline')
   static WifiToggleUmbilicalModeRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiToggleUmbilicalModeRequest>(create);
@@ -11899,8 +12032,8 @@ class WifiClientSandboxRequest extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..pc<WifiClientSandboxStatus>(
-        1, _omitFieldNames ? '' : 'clientSandboxStatus', $pb.PbFieldType.PM,
+    ..pPM<WifiClientSandboxStatus>(
+        1, _omitFieldNames ? '' : 'clientSandboxStatus',
         subBuilder: WifiClientSandboxStatus.create)
     ..pc<WifiClientSandboxAlert>(
         2, _omitFieldNames ? '' : 'alerts', $pb.PbFieldType.KE,
@@ -11913,8 +12046,7 @@ class WifiClientSandboxRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiClientSandboxRequest clone() =>
-      WifiClientSandboxRequest()..mergeFromMessage(this);
+  WifiClientSandboxRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiClientSandboxRequest copyWith(
           void Function(WifiClientSandboxRequest) updates) =>
@@ -11928,8 +12060,6 @@ class WifiClientSandboxRequest extends $pb.GeneratedMessage {
   static WifiClientSandboxRequest create() => WifiClientSandboxRequest._();
   @$core.override
   WifiClientSandboxRequest createEmptyInstance() => create();
-  static $pb.PbList<WifiClientSandboxRequest> createRepeated() =>
-      $pb.PbList<WifiClientSandboxRequest>();
   @$core.pragma('dart2js:noInline')
   static WifiClientSandboxRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiClientSandboxRequest>(create);
@@ -11980,13 +12110,12 @@ class WifiClientSandboxStatus extends $pb.GeneratedMessage {
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'client')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'sandbox', $pb.PbFieldType.OU3)
+    ..aI(2, _omitFieldNames ? '' : 'sandbox', fieldType: $pb.PbFieldType.OU3)
     ..aOB(3, _omitFieldNames ? '' : 'sandboxed')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiClientSandboxStatus clone() =>
-      WifiClientSandboxStatus()..mergeFromMessage(this);
+  WifiClientSandboxStatus clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiClientSandboxStatus copyWith(
           void Function(WifiClientSandboxStatus) updates) =>
@@ -12000,8 +12129,6 @@ class WifiClientSandboxStatus extends $pb.GeneratedMessage {
   static WifiClientSandboxStatus create() => WifiClientSandboxStatus._();
   @$core.override
   WifiClientSandboxStatus createEmptyInstance() => create();
-  static $pb.PbList<WifiClientSandboxStatus> createRepeated() =>
-      $pb.PbList<WifiClientSandboxStatus>();
   @$core.pragma('dart2js:noInline')
   static WifiClientSandboxStatus getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiClientSandboxStatus>(create);
@@ -12035,6 +12162,191 @@ class WifiClientSandboxStatus extends $pb.GeneratedMessage {
   void clearSandboxed() => $_clearField(3);
 }
 
+/// SpaceX.API.Device.WifiRunDebugNetsysRequest is a message:
+class WifiRunDebugNetsysRequest extends $pb.GeneratedMessage {
+  factory WifiRunDebugNetsysRequest() => create();
+
+  WifiRunDebugNetsysRequest._();
+
+  factory WifiRunDebugNetsysRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory WifiRunDebugNetsysRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'WifiRunDebugNetsysRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  WifiRunDebugNetsysRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  WifiRunDebugNetsysRequest copyWith(
+          void Function(WifiRunDebugNetsysRequest) updates) =>
+      super.copyWith((message) => updates(message as WifiRunDebugNetsysRequest))
+          as WifiRunDebugNetsysRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static WifiRunDebugNetsysRequest create() => WifiRunDebugNetsysRequest._();
+  @$core.override
+  WifiRunDebugNetsysRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static WifiRunDebugNetsysRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<WifiRunDebugNetsysRequest>(create);
+  static WifiRunDebugNetsysRequest? _defaultInstance;
+}
+
+/// SpaceX.API.Device.WifiResetEthPhyRequest is a message:
+class WifiResetEthPhyRequest extends $pb.GeneratedMessage {
+  factory WifiResetEthPhyRequest() => create();
+
+  WifiResetEthPhyRequest._();
+
+  factory WifiResetEthPhyRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory WifiResetEthPhyRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'WifiResetEthPhyRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  WifiResetEthPhyRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  WifiResetEthPhyRequest copyWith(
+          void Function(WifiResetEthPhyRequest) updates) =>
+      super.copyWith((message) => updates(message as WifiResetEthPhyRequest))
+          as WifiResetEthPhyRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static WifiResetEthPhyRequest create() => WifiResetEthPhyRequest._();
+  @$core.override
+  WifiResetEthPhyRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static WifiResetEthPhyRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<WifiResetEthPhyRequest>(create);
+  static WifiResetEthPhyRequest? _defaultInstance;
+}
+
+/// SpaceX.API.Device.WifiFlushHardwareNatRequest is a message:
+class WifiFlushHardwareNatRequest extends $pb.GeneratedMessage {
+  factory WifiFlushHardwareNatRequest() => create();
+
+  WifiFlushHardwareNatRequest._();
+
+  factory WifiFlushHardwareNatRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory WifiFlushHardwareNatRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'WifiFlushHardwareNatRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  WifiFlushHardwareNatRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  WifiFlushHardwareNatRequest copyWith(
+          void Function(WifiFlushHardwareNatRequest) updates) =>
+      super.copyWith(
+              (message) => updates(message as WifiFlushHardwareNatRequest))
+          as WifiFlushHardwareNatRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static WifiFlushHardwareNatRequest create() =>
+      WifiFlushHardwareNatRequest._();
+  @$core.override
+  WifiFlushHardwareNatRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static WifiFlushHardwareNatRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<WifiFlushHardwareNatRequest>(create);
+  static WifiFlushHardwareNatRequest? _defaultInstance;
+}
+
+/// SpaceX.API.Device.WifiWriteCalibrationRequest is a message:
+class WifiWriteCalibrationRequest extends $pb.GeneratedMessage {
+  factory WifiWriteCalibrationRequest({
+    $core.List<$core.int>? calibrationImage,
+  }) {
+    final result = create();
+    if (calibrationImage != null) result.calibrationImage = calibrationImage;
+    return result;
+  }
+
+  WifiWriteCalibrationRequest._();
+
+  factory WifiWriteCalibrationRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory WifiWriteCalibrationRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'WifiWriteCalibrationRequest',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
+      createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(
+        1, _omitFieldNames ? '' : 'calibrationImage', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  WifiWriteCalibrationRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  WifiWriteCalibrationRequest copyWith(
+          void Function(WifiWriteCalibrationRequest) updates) =>
+      super.copyWith(
+              (message) => updates(message as WifiWriteCalibrationRequest))
+          as WifiWriteCalibrationRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static WifiWriteCalibrationRequest create() =>
+      WifiWriteCalibrationRequest._();
+  @$core.override
+  WifiWriteCalibrationRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static WifiWriteCalibrationRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<WifiWriteCalibrationRequest>(create);
+  static WifiWriteCalibrationRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$core.int> get calibrationImage => $_getN(0);
+  @$pb.TagNumber(1)
+  set calibrationImage($core.List<$core.int> value) => $_setBytes(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasCalibrationImage() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCalibrationImage() => $_clearField(1);
+}
+
 /// SpaceX.API.Device.TransceiverIFLoopbackTestRequest is a message:
 class TransceiverIFLoopbackTestRequest extends $pb.GeneratedMessage {
   factory TransceiverIFLoopbackTestRequest({
@@ -12064,8 +12376,7 @@ class TransceiverIFLoopbackTestRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  TransceiverIFLoopbackTestRequest clone() =>
-      TransceiverIFLoopbackTestRequest()..mergeFromMessage(this);
+  TransceiverIFLoopbackTestRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   TransceiverIFLoopbackTestRequest copyWith(
           void Function(TransceiverIFLoopbackTestRequest) updates) =>
@@ -12081,8 +12392,6 @@ class TransceiverIFLoopbackTestRequest extends $pb.GeneratedMessage {
       TransceiverIFLoopbackTestRequest._();
   @$core.override
   TransceiverIFLoopbackTestRequest createEmptyInstance() => create();
-  static $pb.PbList<TransceiverIFLoopbackTestRequest> createRepeated() =>
-      $pb.PbList<TransceiverIFLoopbackTestRequest>();
   @$core.pragma('dart2js:noInline')
   static TransceiverIFLoopbackTestRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<TransceiverIFLoopbackTestRequest>(
@@ -12120,8 +12429,7 @@ class TransceiverGetStatusRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  TransceiverGetStatusRequest clone() =>
-      TransceiverGetStatusRequest()..mergeFromMessage(this);
+  TransceiverGetStatusRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   TransceiverGetStatusRequest copyWith(
           void Function(TransceiverGetStatusRequest) updates) =>
@@ -12137,8 +12445,6 @@ class TransceiverGetStatusRequest extends $pb.GeneratedMessage {
       TransceiverGetStatusRequest._();
   @$core.override
   TransceiverGetStatusRequest createEmptyInstance() => create();
-  static $pb.PbList<TransceiverGetStatusRequest> createRepeated() =>
-      $pb.PbList<TransceiverGetStatusRequest>();
   @$core.pragma('dart2js:noInline')
   static TransceiverGetStatusRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<TransceiverGetStatusRequest>(create);
@@ -12166,8 +12472,7 @@ class TransceiverGetTelemetryRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  TransceiverGetTelemetryRequest clone() =>
-      TransceiverGetTelemetryRequest()..mergeFromMessage(this);
+  TransceiverGetTelemetryRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   TransceiverGetTelemetryRequest copyWith(
           void Function(TransceiverGetTelemetryRequest) updates) =>
@@ -12183,8 +12488,6 @@ class TransceiverGetTelemetryRequest extends $pb.GeneratedMessage {
       TransceiverGetTelemetryRequest._();
   @$core.override
   TransceiverGetTelemetryRequest createEmptyInstance() => create();
-  static $pb.PbList<TransceiverGetTelemetryRequest> createRepeated() =>
-      $pb.PbList<TransceiverGetTelemetryRequest>();
   @$core.pragma('dart2js:noInline')
   static TransceiverGetTelemetryRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<TransceiverGetTelemetryRequest>(create);
@@ -12212,7 +12515,7 @@ class StartUnlockRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  StartUnlockRequest clone() => StartUnlockRequest()..mergeFromMessage(this);
+  StartUnlockRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   StartUnlockRequest copyWith(void Function(StartUnlockRequest) updates) =>
       super.copyWith((message) => updates(message as StartUnlockRequest))
@@ -12225,8 +12528,6 @@ class StartUnlockRequest extends $pb.GeneratedMessage {
   static StartUnlockRequest create() => StartUnlockRequest._();
   @$core.override
   StartUnlockRequest createEmptyInstance() => create();
-  static $pb.PbList<StartUnlockRequest> createRepeated() =>
-      $pb.PbList<StartUnlockRequest>();
   @$core.pragma('dart2js:noInline')
   static StartUnlockRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<StartUnlockRequest>(create);
@@ -12266,7 +12567,7 @@ class FinishUnlockRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  FinishUnlockRequest clone() => FinishUnlockRequest()..mergeFromMessage(this);
+  FinishUnlockRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   FinishUnlockRequest copyWith(void Function(FinishUnlockRequest) updates) =>
       super.copyWith((message) => updates(message as FinishUnlockRequest))
@@ -12279,8 +12580,6 @@ class FinishUnlockRequest extends $pb.GeneratedMessage {
   static FinishUnlockRequest create() => FinishUnlockRequest._();
   @$core.override
   FinishUnlockRequest createEmptyInstance() => create();
-  static $pb.PbList<FinishUnlockRequest> createRepeated() =>
-      $pb.PbList<FinishUnlockRequest>();
   @$core.pragma('dart2js:noInline')
   static FinishUnlockRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<FinishUnlockRequest>(create);
@@ -12326,8 +12625,7 @@ class GetDiagnosticsRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetDiagnosticsRequest clone() =>
-      GetDiagnosticsRequest()..mergeFromMessage(this);
+  GetDiagnosticsRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetDiagnosticsRequest copyWith(
           void Function(GetDiagnosticsRequest) updates) =>
@@ -12341,8 +12639,6 @@ class GetDiagnosticsRequest extends $pb.GeneratedMessage {
   static GetDiagnosticsRequest create() => GetDiagnosticsRequest._();
   @$core.override
   GetDiagnosticsRequest createEmptyInstance() => create();
-  static $pb.PbList<GetDiagnosticsRequest> createRepeated() =>
-      $pb.PbList<GetDiagnosticsRequest>();
   @$core.pragma('dart2js:noInline')
   static GetDiagnosticsRequest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetDiagnosticsRequest>(create);
@@ -12398,6 +12694,7 @@ enum Response_Response {
   resetButton,
   setPerVehicleConfig,
   dishAviationTest,
+  dishInhibitRf,
   wifiSetConfig,
   wifiGetClients,
   wifiSetup,
@@ -12418,6 +12715,9 @@ enum Response_Response {
   wifiBackhaulStats,
   wifiClientSandbox,
   wifiUpdate,
+  wifiRunDebugNetsys,
+  wifiResetEthPhy,
+  wifiFlushHardwareNat,
   transceiverIfLoopbackTest,
   transceiverGetStatus,
   transceiverGetTelemetry,
@@ -12481,6 +12781,7 @@ class Response extends $pb.GeneratedMessage {
     ResetButtonResponse? resetButton,
     SetPerVehicleConfigResponse? setPerVehicleConfig,
     DishAviationTestResponse? dishAviationTest,
+    DishInhibitRfResponse? dishInhibitRf,
     WifiSetConfigResponse? wifiSetConfig,
     WifiGetClientsResponse? wifiGetClients,
     WifiSetupResponse? wifiSetup,
@@ -12502,6 +12803,9 @@ class Response extends $pb.GeneratedMessage {
     WifiBackhaulStatsResponse? wifiBackhaulStats,
     WifiClientSandboxResponse? wifiClientSandbox,
     WifiUpdateResponse? wifiUpdate,
+    WifiRunDebugNetsysResponse? wifiRunDebugNetsys,
+    WifiResetEthPhyResponse? wifiResetEthPhy,
+    WifiFlushHardwareNatResponse? wifiFlushHardwareNat,
     TransceiverIFLoopbackTestResponse? transceiverIfLoopbackTest,
     TransceiverGetStatusResponse? transceiverGetStatus,
     TransceiverGetTelemetryResponse? transceiverGetTelemetry,
@@ -12570,6 +12874,7 @@ class Response extends $pb.GeneratedMessage {
     if (setPerVehicleConfig != null)
       result.setPerVehicleConfig = setPerVehicleConfig;
     if (dishAviationTest != null) result.dishAviationTest = dishAviationTest;
+    if (dishInhibitRf != null) result.dishInhibitRf = dishInhibitRf;
     if (wifiSetConfig != null) result.wifiSetConfig = wifiSetConfig;
     if (wifiGetClients != null) result.wifiGetClients = wifiGetClients;
     if (wifiSetup != null) result.wifiSetup = wifiSetup;
@@ -12595,6 +12900,11 @@ class Response extends $pb.GeneratedMessage {
     if (wifiBackhaulStats != null) result.wifiBackhaulStats = wifiBackhaulStats;
     if (wifiClientSandbox != null) result.wifiClientSandbox = wifiClientSandbox;
     if (wifiUpdate != null) result.wifiUpdate = wifiUpdate;
+    if (wifiRunDebugNetsys != null)
+      result.wifiRunDebugNetsys = wifiRunDebugNetsys;
+    if (wifiResetEthPhy != null) result.wifiResetEthPhy = wifiResetEthPhy;
+    if (wifiFlushHardwareNat != null)
+      result.wifiFlushHardwareNat = wifiFlushHardwareNat;
     if (transceiverIfLoopbackTest != null)
       result.transceiverIfLoopbackTest = transceiverIfLoopbackTest;
     if (transceiverGetStatus != null)
@@ -12667,6 +12977,7 @@ class Response extends $pb.GeneratedMessage {
     2022: Response_Response.resetButton,
     2023: Response_Response.setPerVehicleConfig,
     2024: Response_Response.dishAviationTest,
+    2026: Response_Response.dishInhibitRf,
     3001: Response_Response.wifiSetConfig,
     3002: Response_Response.wifiGetClients,
     3003: Response_Response.wifiSetup,
@@ -12687,6 +12998,9 @@ class Response extends $pb.GeneratedMessage {
     3026: Response_Response.wifiBackhaulStats,
     3027: Response_Response.wifiClientSandbox,
     3028: Response_Response.wifiUpdate,
+    3029: Response_Response.wifiRunDebugNetsys,
+    3030: Response_Response.wifiResetEthPhy,
+    3031: Response_Response.wifiFlushHardwareNat,
     4001: Response_Response.transceiverIfLoopbackTest,
     4003: Response_Response.transceiverGetStatus,
     4004: Response_Response.transceiverGetTelemetry,
@@ -12748,6 +13062,7 @@ class Response extends $pb.GeneratedMessage {
       2022,
       2023,
       2024,
+      2026,
       3001,
       3002,
       3003,
@@ -12768,6 +13083,9 @@ class Response extends $pb.GeneratedMessage {
       3026,
       3027,
       3028,
+      3029,
+      3030,
+      3031,
       4001,
       4003,
       4004,
@@ -12892,6 +13210,8 @@ class Response extends $pb.GeneratedMessage {
     ..aOM<DishAviationTestResponse>(
         2024, _omitFieldNames ? '' : 'dishAviationTest',
         subBuilder: DishAviationTestResponse.create)
+    ..aOM<DishInhibitRfResponse>(2026, _omitFieldNames ? '' : 'dishInhibitRf',
+        subBuilder: DishInhibitRfResponse.create)
     ..aOM<WifiSetConfigResponse>(3001, _omitFieldNames ? '' : 'wifiSetConfig',
         subBuilder: WifiSetConfigResponse.create)
     ..aOM<WifiGetClientsResponse>(3002, _omitFieldNames ? '' : 'wifiGetClients',
@@ -12942,6 +13262,15 @@ class Response extends $pb.GeneratedMessage {
         subBuilder: WifiClientSandboxResponse.create)
     ..aOM<WifiUpdateResponse>(3028, _omitFieldNames ? '' : 'wifiUpdate',
         subBuilder: WifiUpdateResponse.create)
+    ..aOM<WifiRunDebugNetsysResponse>(
+        3029, _omitFieldNames ? '' : 'wifiRunDebugNetsys',
+        subBuilder: WifiRunDebugNetsysResponse.create)
+    ..aOM<WifiResetEthPhyResponse>(
+        3030, _omitFieldNames ? '' : 'wifiResetEthPhy',
+        subBuilder: WifiResetEthPhyResponse.create)
+    ..aOM<WifiFlushHardwareNatResponse>(
+        3031, _omitFieldNames ? '' : 'wifiFlushHardwareNat',
+        subBuilder: WifiFlushHardwareNatResponse.create)
     ..aOM<TransceiverIFLoopbackTestResponse>(
         4001, _omitFieldNames ? '' : 'transceiverIfLoopbackTest',
         subBuilder: TransceiverIFLoopbackTestResponse.create)
@@ -12960,7 +13289,7 @@ class Response extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  Response clone() => Response()..mergeFromMessage(this);
+  Response clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   Response copyWith(void Function(Response) updates) =>
       super.copyWith((message) => updates(message as Response)) as Response;
@@ -12972,14 +13301,167 @@ class Response extends $pb.GeneratedMessage {
   static Response create() => Response._();
   @$core.override
   Response createEmptyInstance() => create();
-  static $pb.PbList<Response> createRepeated() => $pb.PbList<Response>();
   @$core.pragma('dart2js:noInline')
   static Response getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Response>(create);
   static Response? _defaultInstance;
 
+  @$pb.TagNumber(1001)
+  @$pb.TagNumber(1003)
+  @$pb.TagNumber(1004)
+  @$pb.TagNumber(1006)
+  @$pb.TagNumber(1009)
+  @$pb.TagNumber(1010)
+  @$pb.TagNumber(1011)
+  @$pb.TagNumber(1012)
+  @$pb.TagNumber(1013)
+  @$pb.TagNumber(1014)
+  @$pb.TagNumber(1015)
+  @$pb.TagNumber(1016)
+  @$pb.TagNumber(1017)
+  @$pb.TagNumber(1019)
+  @$pb.TagNumber(1020)
+  @$pb.TagNumber(1021)
+  @$pb.TagNumber(1023)
+  @$pb.TagNumber(1027)
+  @$pb.TagNumber(1028)
+  @$pb.TagNumber(1029)
+  @$pb.TagNumber(1030)
+  @$pb.TagNumber(1031)
+  @$pb.TagNumber(1032)
+  @$pb.TagNumber(1033)
+  @$pb.TagNumber(1034)
+  @$pb.TagNumber(1035)
+  @$pb.TagNumber(1037)
+  @$pb.TagNumber(1038)
+  @$pb.TagNumber(1041)
+  @$pb.TagNumber(2002)
+  @$pb.TagNumber(2003)
+  @$pb.TagNumber(2004)
+  @$pb.TagNumber(2005)
+  @$pb.TagNumber(2006)
+  @$pb.TagNumber(2007)
+  @$pb.TagNumber(2008)
+  @$pb.TagNumber(2009)
+  @$pb.TagNumber(2010)
+  @$pb.TagNumber(2011)
+  @$pb.TagNumber(2013)
+  @$pb.TagNumber(2015)
+  @$pb.TagNumber(2018)
+  @$pb.TagNumber(2019)
+  @$pb.TagNumber(2020)
+  @$pb.TagNumber(2021)
+  @$pb.TagNumber(2022)
+  @$pb.TagNumber(2023)
+  @$pb.TagNumber(2024)
+  @$pb.TagNumber(2026)
+  @$pb.TagNumber(3001)
+  @$pb.TagNumber(3002)
+  @$pb.TagNumber(3003)
+  @$pb.TagNumber(3004)
+  @$pb.TagNumber(3005)
+  @$pb.TagNumber(3006)
+  @$pb.TagNumber(3007)
+  @$pb.TagNumber(3009)
+  @$pb.TagNumber(3012)
+  @$pb.TagNumber(3013)
+  @$pb.TagNumber(3015)
+  @$pb.TagNumber(3016)
+  @$pb.TagNumber(3020)
+  @$pb.TagNumber(3021)
+  @$pb.TagNumber(3022)
+  @$pb.TagNumber(3024)
+  @$pb.TagNumber(3025)
+  @$pb.TagNumber(3026)
+  @$pb.TagNumber(3027)
+  @$pb.TagNumber(3028)
+  @$pb.TagNumber(3029)
+  @$pb.TagNumber(3030)
+  @$pb.TagNumber(3031)
+  @$pb.TagNumber(4001)
+  @$pb.TagNumber(4003)
+  @$pb.TagNumber(4004)
+  @$pb.TagNumber(6000)
+  @$pb.TagNumber(6001)
   Response_Response whichResponse() =>
       _Response_ResponseByTag[$_whichOneof(0)]!;
+  @$pb.TagNumber(1001)
+  @$pb.TagNumber(1003)
+  @$pb.TagNumber(1004)
+  @$pb.TagNumber(1006)
+  @$pb.TagNumber(1009)
+  @$pb.TagNumber(1010)
+  @$pb.TagNumber(1011)
+  @$pb.TagNumber(1012)
+  @$pb.TagNumber(1013)
+  @$pb.TagNumber(1014)
+  @$pb.TagNumber(1015)
+  @$pb.TagNumber(1016)
+  @$pb.TagNumber(1017)
+  @$pb.TagNumber(1019)
+  @$pb.TagNumber(1020)
+  @$pb.TagNumber(1021)
+  @$pb.TagNumber(1023)
+  @$pb.TagNumber(1027)
+  @$pb.TagNumber(1028)
+  @$pb.TagNumber(1029)
+  @$pb.TagNumber(1030)
+  @$pb.TagNumber(1031)
+  @$pb.TagNumber(1032)
+  @$pb.TagNumber(1033)
+  @$pb.TagNumber(1034)
+  @$pb.TagNumber(1035)
+  @$pb.TagNumber(1037)
+  @$pb.TagNumber(1038)
+  @$pb.TagNumber(1041)
+  @$pb.TagNumber(2002)
+  @$pb.TagNumber(2003)
+  @$pb.TagNumber(2004)
+  @$pb.TagNumber(2005)
+  @$pb.TagNumber(2006)
+  @$pb.TagNumber(2007)
+  @$pb.TagNumber(2008)
+  @$pb.TagNumber(2009)
+  @$pb.TagNumber(2010)
+  @$pb.TagNumber(2011)
+  @$pb.TagNumber(2013)
+  @$pb.TagNumber(2015)
+  @$pb.TagNumber(2018)
+  @$pb.TagNumber(2019)
+  @$pb.TagNumber(2020)
+  @$pb.TagNumber(2021)
+  @$pb.TagNumber(2022)
+  @$pb.TagNumber(2023)
+  @$pb.TagNumber(2024)
+  @$pb.TagNumber(2026)
+  @$pb.TagNumber(3001)
+  @$pb.TagNumber(3002)
+  @$pb.TagNumber(3003)
+  @$pb.TagNumber(3004)
+  @$pb.TagNumber(3005)
+  @$pb.TagNumber(3006)
+  @$pb.TagNumber(3007)
+  @$pb.TagNumber(3009)
+  @$pb.TagNumber(3012)
+  @$pb.TagNumber(3013)
+  @$pb.TagNumber(3015)
+  @$pb.TagNumber(3016)
+  @$pb.TagNumber(3020)
+  @$pb.TagNumber(3021)
+  @$pb.TagNumber(3022)
+  @$pb.TagNumber(3024)
+  @$pb.TagNumber(3025)
+  @$pb.TagNumber(3026)
+  @$pb.TagNumber(3027)
+  @$pb.TagNumber(3028)
+  @$pb.TagNumber(3029)
+  @$pb.TagNumber(3030)
+  @$pb.TagNumber(3031)
+  @$pb.TagNumber(4001)
+  @$pb.TagNumber(4003)
+  @$pb.TagNumber(4004)
+  @$pb.TagNumber(6000)
+  @$pb.TagNumber(6001)
   void clearResponse() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -13562,303 +14044,349 @@ class Response extends $pb.GeneratedMessage {
   @$pb.TagNumber(2024)
   DishAviationTestResponse ensureDishAviationTest() => $_ensure(50);
 
+  @$pb.TagNumber(2026)
+  DishInhibitRfResponse get dishInhibitRf => $_getN(51);
+  @$pb.TagNumber(2026)
+  set dishInhibitRf(DishInhibitRfResponse value) => $_setField(2026, value);
+  @$pb.TagNumber(2026)
+  $core.bool hasDishInhibitRf() => $_has(51);
+  @$pb.TagNumber(2026)
+  void clearDishInhibitRf() => $_clearField(2026);
+  @$pb.TagNumber(2026)
+  DishInhibitRfResponse ensureDishInhibitRf() => $_ensure(51);
+
   @$pb.TagNumber(3001)
-  WifiSetConfigResponse get wifiSetConfig => $_getN(51);
+  WifiSetConfigResponse get wifiSetConfig => $_getN(52);
   @$pb.TagNumber(3001)
   set wifiSetConfig(WifiSetConfigResponse value) => $_setField(3001, value);
   @$pb.TagNumber(3001)
-  $core.bool hasWifiSetConfig() => $_has(51);
+  $core.bool hasWifiSetConfig() => $_has(52);
   @$pb.TagNumber(3001)
   void clearWifiSetConfig() => $_clearField(3001);
   @$pb.TagNumber(3001)
-  WifiSetConfigResponse ensureWifiSetConfig() => $_ensure(51);
+  WifiSetConfigResponse ensureWifiSetConfig() => $_ensure(52);
 
   @$pb.TagNumber(3002)
-  WifiGetClientsResponse get wifiGetClients => $_getN(52);
+  WifiGetClientsResponse get wifiGetClients => $_getN(53);
   @$pb.TagNumber(3002)
   set wifiGetClients(WifiGetClientsResponse value) => $_setField(3002, value);
   @$pb.TagNumber(3002)
-  $core.bool hasWifiGetClients() => $_has(52);
+  $core.bool hasWifiGetClients() => $_has(53);
   @$pb.TagNumber(3002)
   void clearWifiGetClients() => $_clearField(3002);
   @$pb.TagNumber(3002)
-  WifiGetClientsResponse ensureWifiGetClients() => $_ensure(52);
+  WifiGetClientsResponse ensureWifiGetClients() => $_ensure(53);
 
   @$pb.TagNumber(3003)
-  WifiSetupResponse get wifiSetup => $_getN(53);
+  WifiSetupResponse get wifiSetup => $_getN(54);
   @$pb.TagNumber(3003)
   set wifiSetup(WifiSetupResponse value) => $_setField(3003, value);
   @$pb.TagNumber(3003)
-  $core.bool hasWifiSetup() => $_has(53);
+  $core.bool hasWifiSetup() => $_has(54);
   @$pb.TagNumber(3003)
   void clearWifiSetup() => $_clearField(3003);
   @$pb.TagNumber(3003)
-  WifiSetupResponse ensureWifiSetup() => $_ensure(53);
+  WifiSetupResponse ensureWifiSetup() => $_ensure(54);
 
   @$pb.TagNumber(3004)
-  WifiGetStatusResponse get wifiGetStatus => $_getN(54);
+  WifiGetStatusResponse get wifiGetStatus => $_getN(55);
   @$pb.TagNumber(3004)
   set wifiGetStatus(WifiGetStatusResponse value) => $_setField(3004, value);
   @$pb.TagNumber(3004)
-  $core.bool hasWifiGetStatus() => $_has(54);
+  $core.bool hasWifiGetStatus() => $_has(55);
   @$pb.TagNumber(3004)
   void clearWifiGetStatus() => $_clearField(3004);
   @$pb.TagNumber(3004)
-  WifiGetStatusResponse ensureWifiGetStatus() => $_ensure(54);
+  WifiGetStatusResponse ensureWifiGetStatus() => $_ensure(55);
 
   @$pb.TagNumber(3005)
-  WifiAuthenticateResponse get wifiAuthenticate => $_getN(55);
+  WifiAuthenticateResponse get wifiAuthenticate => $_getN(56);
   @$pb.TagNumber(3005)
   set wifiAuthenticate(WifiAuthenticateResponse value) =>
       $_setField(3005, value);
   @$pb.TagNumber(3005)
-  $core.bool hasWifiAuthenticate() => $_has(55);
+  $core.bool hasWifiAuthenticate() => $_has(56);
   @$pb.TagNumber(3005)
   void clearWifiAuthenticate() => $_clearField(3005);
   @$pb.TagNumber(3005)
-  WifiAuthenticateResponse ensureWifiAuthenticate() => $_ensure(55);
+  WifiAuthenticateResponse ensureWifiAuthenticate() => $_ensure(56);
 
   @$pb.TagNumber(3006)
-  WifiGetHistoryResponse get wifiGetHistory => $_getN(56);
+  WifiGetHistoryResponse get wifiGetHistory => $_getN(57);
   @$pb.TagNumber(3006)
   set wifiGetHistory(WifiGetHistoryResponse value) => $_setField(3006, value);
   @$pb.TagNumber(3006)
-  $core.bool hasWifiGetHistory() => $_has(56);
+  $core.bool hasWifiGetHistory() => $_has(57);
   @$pb.TagNumber(3006)
   void clearWifiGetHistory() => $_clearField(3006);
   @$pb.TagNumber(3006)
-  WifiGetHistoryResponse ensureWifiGetHistory() => $_ensure(56);
+  WifiGetHistoryResponse ensureWifiGetHistory() => $_ensure(57);
 
   @$pb.TagNumber(3007)
-  WifiGetPingMetricsResponse get wifiGetPingMetrics => $_getN(57);
+  WifiGetPingMetricsResponse get wifiGetPingMetrics => $_getN(58);
   @$pb.TagNumber(3007)
   set wifiGetPingMetrics(WifiGetPingMetricsResponse value) =>
       $_setField(3007, value);
   @$pb.TagNumber(3007)
-  $core.bool hasWifiGetPingMetrics() => $_has(57);
+  $core.bool hasWifiGetPingMetrics() => $_has(58);
   @$pb.TagNumber(3007)
   void clearWifiGetPingMetrics() => $_clearField(3007);
   @$pb.TagNumber(3007)
-  WifiGetPingMetricsResponse ensureWifiGetPingMetrics() => $_ensure(57);
+  WifiGetPingMetricsResponse ensureWifiGetPingMetrics() => $_ensure(58);
 
   @$pb.TagNumber(3009)
-  WifiGetConfigResponse get wifiGetConfig => $_getN(58);
+  WifiGetConfigResponse get wifiGetConfig => $_getN(59);
   @$pb.TagNumber(3009)
   set wifiGetConfig(WifiGetConfigResponse value) => $_setField(3009, value);
   @$pb.TagNumber(3009)
-  $core.bool hasWifiGetConfig() => $_has(58);
+  $core.bool hasWifiGetConfig() => $_has(59);
   @$pb.TagNumber(3009)
   void clearWifiGetConfig() => $_clearField(3009);
   @$pb.TagNumber(3009)
-  WifiGetConfigResponse ensureWifiGetConfig() => $_ensure(58);
+  WifiGetConfigResponse ensureWifiGetConfig() => $_ensure(59);
 
   @$pb.TagNumber(3012)
-  WifiSetMeshDeviceTrustResponse get wifiSetMeshDeviceTrust => $_getN(59);
+  WifiSetMeshDeviceTrustResponse get wifiSetMeshDeviceTrust => $_getN(60);
   @$pb.TagNumber(3012)
   set wifiSetMeshDeviceTrust(WifiSetMeshDeviceTrustResponse value) =>
       $_setField(3012, value);
   @$pb.TagNumber(3012)
-  $core.bool hasWifiSetMeshDeviceTrust() => $_has(59);
+  $core.bool hasWifiSetMeshDeviceTrust() => $_has(60);
   @$pb.TagNumber(3012)
   void clearWifiSetMeshDeviceTrust() => $_clearField(3012);
   @$pb.TagNumber(3012)
-  WifiSetMeshDeviceTrustResponse ensureWifiSetMeshDeviceTrust() => $_ensure(59);
+  WifiSetMeshDeviceTrustResponse ensureWifiSetMeshDeviceTrust() => $_ensure(60);
 
   @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(3013)
-  WifiSetMeshConfigResponse get wifiSetMeshConfig => $_getN(60);
+  WifiSetMeshConfigResponse get wifiSetMeshConfig => $_getN(61);
   @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(3013)
   set wifiSetMeshConfig(WifiSetMeshConfigResponse value) =>
       $_setField(3013, value);
   @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(3013)
-  $core.bool hasWifiSetMeshConfig() => $_has(60);
+  $core.bool hasWifiSetMeshConfig() => $_has(61);
   @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(3013)
   void clearWifiSetMeshConfig() => $_clearField(3013);
   @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(3013)
-  WifiSetMeshConfigResponse ensureWifiSetMeshConfig() => $_ensure(60);
+  WifiSetMeshConfigResponse ensureWifiSetMeshConfig() => $_ensure(61);
 
   @$pb.TagNumber(3015)
-  WifiGetClientHistoryResponse get wifiGetClientHistory => $_getN(61);
+  WifiGetClientHistoryResponse get wifiGetClientHistory => $_getN(62);
   @$pb.TagNumber(3015)
   set wifiGetClientHistory(WifiGetClientHistoryResponse value) =>
       $_setField(3015, value);
   @$pb.TagNumber(3015)
-  $core.bool hasWifiGetClientHistory() => $_has(61);
+  $core.bool hasWifiGetClientHistory() => $_has(62);
   @$pb.TagNumber(3015)
   void clearWifiGetClientHistory() => $_clearField(3015);
   @$pb.TagNumber(3015)
-  WifiGetClientHistoryResponse ensureWifiGetClientHistory() => $_ensure(61);
+  WifiGetClientHistoryResponse ensureWifiGetClientHistory() => $_ensure(62);
 
   @$pb.TagNumber(3016)
-  WifiSelfTestResponse get wifiSelfTest => $_getN(62);
+  WifiSelfTestResponse get wifiSelfTest => $_getN(63);
   @$pb.TagNumber(3016)
   set wifiSelfTest(WifiSelfTestResponse value) => $_setField(3016, value);
   @$pb.TagNumber(3016)
-  $core.bool hasWifiSelfTest() => $_has(62);
+  $core.bool hasWifiSelfTest() => $_has(63);
   @$pb.TagNumber(3016)
   void clearWifiSelfTest() => $_clearField(3016);
   @$pb.TagNumber(3016)
-  WifiSelfTestResponse ensureWifiSelfTest() => $_ensure(62);
+  WifiSelfTestResponse ensureWifiSelfTest() => $_ensure(63);
 
   @$pb.TagNumber(3020)
-  WifiGuestInfoResponse get wifiGuestInfo => $_getN(63);
+  WifiGuestInfoResponse get wifiGuestInfo => $_getN(64);
   @$pb.TagNumber(3020)
   set wifiGuestInfo(WifiGuestInfoResponse value) => $_setField(3020, value);
   @$pb.TagNumber(3020)
-  $core.bool hasWifiGuestInfo() => $_has(63);
+  $core.bool hasWifiGuestInfo() => $_has(64);
   @$pb.TagNumber(3020)
   void clearWifiGuestInfo() => $_clearField(3020);
   @$pb.TagNumber(3020)
-  WifiGuestInfoResponse ensureWifiGuestInfo() => $_ensure(63);
+  WifiGuestInfoResponse ensureWifiGuestInfo() => $_ensure(64);
 
   @$pb.TagNumber(3021)
-  WifiRfTestResponse get wifiRfTest => $_getN(64);
+  WifiRfTestResponse get wifiRfTest => $_getN(65);
   @$pb.TagNumber(3021)
   set wifiRfTest(WifiRfTestResponse value) => $_setField(3021, value);
   @$pb.TagNumber(3021)
-  $core.bool hasWifiRfTest() => $_has(64);
+  $core.bool hasWifiRfTest() => $_has(65);
   @$pb.TagNumber(3021)
   void clearWifiRfTest() => $_clearField(3021);
   @$pb.TagNumber(3021)
-  WifiRfTestResponse ensureWifiRfTest() => $_ensure(64);
+  WifiRfTestResponse ensureWifiRfTest() => $_ensure(65);
 
   @$pb.TagNumber(3022)
-  WifiGetPersistentStatsResponse get wifiGetPersistentStats => $_getN(65);
+  WifiGetPersistentStatsResponse get wifiGetPersistentStats => $_getN(66);
   @$pb.TagNumber(3022)
   set wifiGetPersistentStats(WifiGetPersistentStatsResponse value) =>
       $_setField(3022, value);
   @$pb.TagNumber(3022)
-  $core.bool hasWifiGetPersistentStats() => $_has(65);
+  $core.bool hasWifiGetPersistentStats() => $_has(66);
   @$pb.TagNumber(3022)
   void clearWifiGetPersistentStats() => $_clearField(3022);
   @$pb.TagNumber(3022)
-  WifiGetPersistentStatsResponse ensureWifiGetPersistentStats() => $_ensure(65);
+  WifiGetPersistentStatsResponse ensureWifiGetPersistentStats() => $_ensure(66);
 
   @$pb.TagNumber(3024)
-  WifiGetFirewallResponse get wifiGetFirewall => $_getN(66);
+  WifiGetFirewallResponse get wifiGetFirewall => $_getN(67);
   @$pb.TagNumber(3024)
   set wifiGetFirewall(WifiGetFirewallResponse value) => $_setField(3024, value);
   @$pb.TagNumber(3024)
-  $core.bool hasWifiGetFirewall() => $_has(66);
+  $core.bool hasWifiGetFirewall() => $_has(67);
   @$pb.TagNumber(3024)
   void clearWifiGetFirewall() => $_clearField(3024);
   @$pb.TagNumber(3024)
-  WifiGetFirewallResponse ensureWifiGetFirewall() => $_ensure(66);
+  WifiGetFirewallResponse ensureWifiGetFirewall() => $_ensure(67);
 
   @$pb.TagNumber(3025)
-  WifiFactoryTestCommandResponse get wifiFactoryTestCommand => $_getN(67);
+  WifiFactoryTestCommandResponse get wifiFactoryTestCommand => $_getN(68);
   @$pb.TagNumber(3025)
   set wifiFactoryTestCommand(WifiFactoryTestCommandResponse value) =>
       $_setField(3025, value);
   @$pb.TagNumber(3025)
-  $core.bool hasWifiFactoryTestCommand() => $_has(67);
+  $core.bool hasWifiFactoryTestCommand() => $_has(68);
   @$pb.TagNumber(3025)
   void clearWifiFactoryTestCommand() => $_clearField(3025);
   @$pb.TagNumber(3025)
-  WifiFactoryTestCommandResponse ensureWifiFactoryTestCommand() => $_ensure(67);
+  WifiFactoryTestCommandResponse ensureWifiFactoryTestCommand() => $_ensure(68);
 
   @$pb.TagNumber(3026)
-  WifiBackhaulStatsResponse get wifiBackhaulStats => $_getN(68);
+  WifiBackhaulStatsResponse get wifiBackhaulStats => $_getN(69);
   @$pb.TagNumber(3026)
   set wifiBackhaulStats(WifiBackhaulStatsResponse value) =>
       $_setField(3026, value);
   @$pb.TagNumber(3026)
-  $core.bool hasWifiBackhaulStats() => $_has(68);
+  $core.bool hasWifiBackhaulStats() => $_has(69);
   @$pb.TagNumber(3026)
   void clearWifiBackhaulStats() => $_clearField(3026);
   @$pb.TagNumber(3026)
-  WifiBackhaulStatsResponse ensureWifiBackhaulStats() => $_ensure(68);
+  WifiBackhaulStatsResponse ensureWifiBackhaulStats() => $_ensure(69);
 
   @$pb.TagNumber(3027)
-  WifiClientSandboxResponse get wifiClientSandbox => $_getN(69);
+  WifiClientSandboxResponse get wifiClientSandbox => $_getN(70);
   @$pb.TagNumber(3027)
   set wifiClientSandbox(WifiClientSandboxResponse value) =>
       $_setField(3027, value);
   @$pb.TagNumber(3027)
-  $core.bool hasWifiClientSandbox() => $_has(69);
+  $core.bool hasWifiClientSandbox() => $_has(70);
   @$pb.TagNumber(3027)
   void clearWifiClientSandbox() => $_clearField(3027);
   @$pb.TagNumber(3027)
-  WifiClientSandboxResponse ensureWifiClientSandbox() => $_ensure(69);
+  WifiClientSandboxResponse ensureWifiClientSandbox() => $_ensure(70);
 
   @$pb.TagNumber(3028)
-  WifiUpdateResponse get wifiUpdate => $_getN(70);
+  WifiUpdateResponse get wifiUpdate => $_getN(71);
   @$pb.TagNumber(3028)
   set wifiUpdate(WifiUpdateResponse value) => $_setField(3028, value);
   @$pb.TagNumber(3028)
-  $core.bool hasWifiUpdate() => $_has(70);
+  $core.bool hasWifiUpdate() => $_has(71);
   @$pb.TagNumber(3028)
   void clearWifiUpdate() => $_clearField(3028);
   @$pb.TagNumber(3028)
-  WifiUpdateResponse ensureWifiUpdate() => $_ensure(70);
+  WifiUpdateResponse ensureWifiUpdate() => $_ensure(71);
+
+  @$pb.TagNumber(3029)
+  WifiRunDebugNetsysResponse get wifiRunDebugNetsys => $_getN(72);
+  @$pb.TagNumber(3029)
+  set wifiRunDebugNetsys(WifiRunDebugNetsysResponse value) =>
+      $_setField(3029, value);
+  @$pb.TagNumber(3029)
+  $core.bool hasWifiRunDebugNetsys() => $_has(72);
+  @$pb.TagNumber(3029)
+  void clearWifiRunDebugNetsys() => $_clearField(3029);
+  @$pb.TagNumber(3029)
+  WifiRunDebugNetsysResponse ensureWifiRunDebugNetsys() => $_ensure(72);
+
+  @$pb.TagNumber(3030)
+  WifiResetEthPhyResponse get wifiResetEthPhy => $_getN(73);
+  @$pb.TagNumber(3030)
+  set wifiResetEthPhy(WifiResetEthPhyResponse value) => $_setField(3030, value);
+  @$pb.TagNumber(3030)
+  $core.bool hasWifiResetEthPhy() => $_has(73);
+  @$pb.TagNumber(3030)
+  void clearWifiResetEthPhy() => $_clearField(3030);
+  @$pb.TagNumber(3030)
+  WifiResetEthPhyResponse ensureWifiResetEthPhy() => $_ensure(73);
+
+  @$pb.TagNumber(3031)
+  WifiFlushHardwareNatResponse get wifiFlushHardwareNat => $_getN(74);
+  @$pb.TagNumber(3031)
+  set wifiFlushHardwareNat(WifiFlushHardwareNatResponse value) =>
+      $_setField(3031, value);
+  @$pb.TagNumber(3031)
+  $core.bool hasWifiFlushHardwareNat() => $_has(74);
+  @$pb.TagNumber(3031)
+  void clearWifiFlushHardwareNat() => $_clearField(3031);
+  @$pb.TagNumber(3031)
+  WifiFlushHardwareNatResponse ensureWifiFlushHardwareNat() => $_ensure(74);
 
   @$pb.TagNumber(4001)
-  TransceiverIFLoopbackTestResponse get transceiverIfLoopbackTest => $_getN(71);
+  TransceiverIFLoopbackTestResponse get transceiverIfLoopbackTest => $_getN(75);
   @$pb.TagNumber(4001)
   set transceiverIfLoopbackTest(TransceiverIFLoopbackTestResponse value) =>
       $_setField(4001, value);
   @$pb.TagNumber(4001)
-  $core.bool hasTransceiverIfLoopbackTest() => $_has(71);
+  $core.bool hasTransceiverIfLoopbackTest() => $_has(75);
   @$pb.TagNumber(4001)
   void clearTransceiverIfLoopbackTest() => $_clearField(4001);
   @$pb.TagNumber(4001)
   TransceiverIFLoopbackTestResponse ensureTransceiverIfLoopbackTest() =>
-      $_ensure(71);
+      $_ensure(75);
 
   @$pb.TagNumber(4003)
-  TransceiverGetStatusResponse get transceiverGetStatus => $_getN(72);
+  TransceiverGetStatusResponse get transceiverGetStatus => $_getN(76);
   @$pb.TagNumber(4003)
   set transceiverGetStatus(TransceiverGetStatusResponse value) =>
       $_setField(4003, value);
   @$pb.TagNumber(4003)
-  $core.bool hasTransceiverGetStatus() => $_has(72);
+  $core.bool hasTransceiverGetStatus() => $_has(76);
   @$pb.TagNumber(4003)
   void clearTransceiverGetStatus() => $_clearField(4003);
   @$pb.TagNumber(4003)
-  TransceiverGetStatusResponse ensureTransceiverGetStatus() => $_ensure(72);
+  TransceiverGetStatusResponse ensureTransceiverGetStatus() => $_ensure(76);
 
   @$pb.TagNumber(4004)
-  TransceiverGetTelemetryResponse get transceiverGetTelemetry => $_getN(73);
+  TransceiverGetTelemetryResponse get transceiverGetTelemetry => $_getN(77);
   @$pb.TagNumber(4004)
   set transceiverGetTelemetry(TransceiverGetTelemetryResponse value) =>
       $_setField(4004, value);
   @$pb.TagNumber(4004)
-  $core.bool hasTransceiverGetTelemetry() => $_has(73);
+  $core.bool hasTransceiverGetTelemetry() => $_has(77);
   @$pb.TagNumber(4004)
   void clearTransceiverGetTelemetry() => $_clearField(4004);
   @$pb.TagNumber(4004)
   TransceiverGetTelemetryResponse ensureTransceiverGetTelemetry() =>
-      $_ensure(73);
+      $_ensure(77);
 
   /// .SpaceX.API.Device.Services.Unlock.StartUnlockResponse start_unlock = 5000;
   /// .SpaceX.API.Device.Services.Unlock.FinishUnlockResponse finish_unlock = 5001;
   @$pb.TagNumber(6000)
-  WifiGetDiagnosticsResponse get wifiGetDiagnostics => $_getN(74);
+  WifiGetDiagnosticsResponse get wifiGetDiagnostics => $_getN(78);
   @$pb.TagNumber(6000)
   set wifiGetDiagnostics(WifiGetDiagnosticsResponse value) =>
       $_setField(6000, value);
   @$pb.TagNumber(6000)
-  $core.bool hasWifiGetDiagnostics() => $_has(74);
+  $core.bool hasWifiGetDiagnostics() => $_has(78);
   @$pb.TagNumber(6000)
   void clearWifiGetDiagnostics() => $_clearField(6000);
   @$pb.TagNumber(6000)
-  WifiGetDiagnosticsResponse ensureWifiGetDiagnostics() => $_ensure(74);
+  WifiGetDiagnosticsResponse ensureWifiGetDiagnostics() => $_ensure(78);
 
   @$pb.TagNumber(6001)
-  DishGetDiagnosticsResponse get dishGetDiagnostics => $_getN(75);
+  DishGetDiagnosticsResponse get dishGetDiagnostics => $_getN(79);
   @$pb.TagNumber(6001)
   set dishGetDiagnostics(DishGetDiagnosticsResponse value) =>
       $_setField(6001, value);
   @$pb.TagNumber(6001)
-  $core.bool hasDishGetDiagnostics() => $_has(75);
+  $core.bool hasDishGetDiagnostics() => $_has(79);
   @$pb.TagNumber(6001)
   void clearDishGetDiagnostics() => $_clearField(6001);
   @$pb.TagNumber(6001)
-  DishGetDiagnosticsResponse ensureDishGetDiagnostics() => $_ensure(75);
+  DishGetDiagnosticsResponse ensureDishGetDiagnostics() => $_ensure(79);
 }
 
 /// SpaceX.API.Status.Status is a message:
@@ -13887,12 +14415,12 @@ class Status extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'code', $pb.PbFieldType.O3)
+    ..aI(1, _omitFieldNames ? '' : 'code')
     ..aOS(2, _omitFieldNames ? '' : 'message')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  Status clone() => Status()..mergeFromMessage(this);
+  Status clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   Status copyWith(void Function(Status) updates) =>
       super.copyWith((message) => updates(message as Status)) as Status;
@@ -13904,7 +14432,6 @@ class Status extends $pb.GeneratedMessage {
   static Status create() => Status._();
   @$core.override
   Status createEmptyInstance() => create();
-  static $pb.PbList<Status> createRepeated() => $pb.PbList<Status>();
   @$core.pragma('dart2js:noInline')
   static Status getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Status>(create);
@@ -13950,7 +14477,7 @@ class RebootResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  RebootResponse clone() => RebootResponse()..mergeFromMessage(this);
+  RebootResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   RebootResponse copyWith(void Function(RebootResponse) updates) =>
       super.copyWith((message) => updates(message as RebootResponse))
@@ -13963,8 +14490,6 @@ class RebootResponse extends $pb.GeneratedMessage {
   static RebootResponse create() => RebootResponse._();
   @$core.override
   RebootResponse createEmptyInstance() => create();
-  static $pb.PbList<RebootResponse> createRepeated() =>
-      $pb.PbList<RebootResponse>();
   @$core.pragma('dart2js:noInline')
   static RebootResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RebootResponse>(create);
@@ -14031,45 +14556,35 @@ class SpeedTestResponse extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.double>(
-        1, _omitFieldNames ? '' : 'downloadBps', $pb.PbFieldType.OF)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'uploadBps', $pb.PbFieldType.OF)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'latencyS', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        4, _omitFieldNames ? '' : 'downloadMbps', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        5, _omitFieldNames ? '' : 'uploadMbps', $pb.PbFieldType.OF)
-    ..a<$core.double>(6, _omitFieldNames ? '' : 'latencyMs', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        7, _omitFieldNames ? '' : 'downloadMbps1TcpConn', $pb.PbFieldType.OF,
-        protoName: 'download_mbps_1_tcp_conn')
-    ..a<$core.double>(
-        8, _omitFieldNames ? '' : 'uploadMbps1TcpConn', $pb.PbFieldType.OF,
-        protoName: 'upload_mbps_1_tcp_conn')
-    ..a<$core.double>(
-        9, _omitFieldNames ? '' : 'downloadMbps4TcpConn', $pb.PbFieldType.OF,
-        protoName: 'download_mbps_4_tcp_conn')
-    ..a<$core.double>(
-        10, _omitFieldNames ? '' : 'uploadMbps4TcpConn', $pb.PbFieldType.OF,
-        protoName: 'upload_mbps_4_tcp_conn')
-    ..a<$core.double>(
-        11, _omitFieldNames ? '' : 'downloadMbps16TcpConn', $pb.PbFieldType.OF,
-        protoName: 'download_mbps_16_tcp_conn')
-    ..a<$core.double>(
-        12, _omitFieldNames ? '' : 'uploadMbps16TcpConn', $pb.PbFieldType.OF,
-        protoName: 'upload_mbps_16_tcp_conn')
-    ..a<$core.double>(
-        13, _omitFieldNames ? '' : 'downloadMbps64TcpConn', $pb.PbFieldType.OF,
-        protoName: 'download_mbps_64_tcp_conn')
-    ..a<$core.double>(
-        14, _omitFieldNames ? '' : 'uploadMbps64TcpConn', $pb.PbFieldType.OF,
-        protoName: 'upload_mbps_64_tcp_conn')
+    ..aD(1, _omitFieldNames ? '' : 'downloadBps', fieldType: $pb.PbFieldType.OF)
+    ..aD(2, _omitFieldNames ? '' : 'uploadBps', fieldType: $pb.PbFieldType.OF)
+    ..aD(3, _omitFieldNames ? '' : 'latencyS', fieldType: $pb.PbFieldType.OF)
+    ..aD(4, _omitFieldNames ? '' : 'downloadMbps',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(5, _omitFieldNames ? '' : 'uploadMbps', fieldType: $pb.PbFieldType.OF)
+    ..aD(6, _omitFieldNames ? '' : 'latencyMs', fieldType: $pb.PbFieldType.OF)
+    ..aD(7, _omitFieldNames ? '' : 'downloadMbps1TcpConn',
+        protoName: 'download_mbps_1_tcp_conn', fieldType: $pb.PbFieldType.OF)
+    ..aD(8, _omitFieldNames ? '' : 'uploadMbps1TcpConn',
+        protoName: 'upload_mbps_1_tcp_conn', fieldType: $pb.PbFieldType.OF)
+    ..aD(9, _omitFieldNames ? '' : 'downloadMbps4TcpConn',
+        protoName: 'download_mbps_4_tcp_conn', fieldType: $pb.PbFieldType.OF)
+    ..aD(10, _omitFieldNames ? '' : 'uploadMbps4TcpConn',
+        protoName: 'upload_mbps_4_tcp_conn', fieldType: $pb.PbFieldType.OF)
+    ..aD(11, _omitFieldNames ? '' : 'downloadMbps16TcpConn',
+        protoName: 'download_mbps_16_tcp_conn', fieldType: $pb.PbFieldType.OF)
+    ..aD(12, _omitFieldNames ? '' : 'uploadMbps16TcpConn',
+        protoName: 'upload_mbps_16_tcp_conn', fieldType: $pb.PbFieldType.OF)
+    ..aD(13, _omitFieldNames ? '' : 'downloadMbps64TcpConn',
+        protoName: 'download_mbps_64_tcp_conn', fieldType: $pb.PbFieldType.OF)
+    ..aD(14, _omitFieldNames ? '' : 'uploadMbps64TcpConn',
+        protoName: 'upload_mbps_64_tcp_conn', fieldType: $pb.PbFieldType.OF)
     ..aOM<SpeedTestStats>(15, _omitFieldNames ? '' : 'routerSpeedtest',
         subBuilder: SpeedTestStats.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SpeedTestResponse clone() => SpeedTestResponse()..mergeFromMessage(this);
+  SpeedTestResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   SpeedTestResponse copyWith(void Function(SpeedTestResponse) updates) =>
       super.copyWith((message) => updates(message as SpeedTestResponse))
@@ -14082,8 +14597,6 @@ class SpeedTestResponse extends $pb.GeneratedMessage {
   static SpeedTestResponse create() => SpeedTestResponse._();
   @$core.override
   SpeedTestResponse createEmptyInstance() => create();
-  static $pb.PbList<SpeedTestResponse> createRepeated() =>
-      $pb.PbList<SpeedTestResponse>();
   @$core.pragma('dart2js:noInline')
   static SpeedTestResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SpeedTestResponse>(create);
@@ -14280,8 +14793,7 @@ class GetDeviceInfoResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetDeviceInfoResponse clone() =>
-      GetDeviceInfoResponse()..mergeFromMessage(this);
+  GetDeviceInfoResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetDeviceInfoResponse copyWith(
           void Function(GetDeviceInfoResponse) updates) =>
@@ -14295,8 +14807,6 @@ class GetDeviceInfoResponse extends $pb.GeneratedMessage {
   static GetDeviceInfoResponse create() => GetDeviceInfoResponse._();
   @$core.override
   GetDeviceInfoResponse createEmptyInstance() => create();
-  static $pb.PbList<GetDeviceInfoResponse> createRepeated() =>
-      $pb.PbList<GetDeviceInfoResponse>();
   @$core.pragma('dart2js:noInline')
   static GetDeviceInfoResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetDeviceInfoResponse>(create);
@@ -14375,24 +14885,23 @@ class DeviceInfo extends $pb.GeneratedMessage {
     ..aOS(2, _omitFieldNames ? '' : 'hardwareVersion')
     ..aOS(3, _omitFieldNames ? '' : 'softwareVersion')
     ..aOS(4, _omitFieldNames ? '' : 'countryCode')
-    ..a<$core.int>(5, _omitFieldNames ? '' : 'utcOffsetS', $pb.PbFieldType.O3)
+    ..aI(5, _omitFieldNames ? '' : 'utcOffsetS')
     ..aOB(6, _omitFieldNames ? '' : 'softwarePartitionsEqual')
     ..aOB(7, _omitFieldNames ? '' : 'isDev')
-    ..a<$core.int>(8, _omitFieldNames ? '' : 'bootcount', $pb.PbFieldType.O3)
-    ..a<$core.int>(
-        9, _omitFieldNames ? '' : 'antiRollbackVersion', $pb.PbFieldType.O3)
+    ..aI(8, _omitFieldNames ? '' : 'bootcount')
+    ..aI(9, _omitFieldNames ? '' : 'antiRollbackVersion')
     ..aOB(10, _omitFieldNames ? '' : 'isHitl')
     ..aOS(11, _omitFieldNames ? '' : 'manufacturedVersion')
     ..aInt64(12, _omitFieldNames ? '' : 'generationNumber')
     ..aOB(13, _omitFieldNames ? '' : 'dishCohoused')
-    ..a<$core.int>(14, _omitFieldNames ? '' : 'boardRev', $pb.PbFieldType.O3)
+    ..aI(14, _omitFieldNames ? '' : 'boardRev')
     ..aOS(15, _omitFieldNames ? '' : 'buildId')
     ..aOM<BootInfo>(1001, _omitFieldNames ? '' : 'boot',
         subBuilder: BootInfo.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DeviceInfo clone() => DeviceInfo()..mergeFromMessage(this);
+  DeviceInfo clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DeviceInfo copyWith(void Function(DeviceInfo) updates) =>
       super.copyWith((message) => updates(message as DeviceInfo)) as DeviceInfo;
@@ -14404,7 +14913,6 @@ class DeviceInfo extends $pb.GeneratedMessage {
   static DeviceInfo create() => DeviceInfo._();
   @$core.override
   DeviceInfo createEmptyInstance() => create();
-  static $pb.PbList<DeviceInfo> createRepeated() => $pb.PbList<DeviceInfo>();
   @$core.pragma('dart2js:noInline')
   static DeviceInfo getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DeviceInfo>(create);
@@ -14590,7 +15098,7 @@ class GetNextIdResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetNextIdResponse clone() => GetNextIdResponse()..mergeFromMessage(this);
+  GetNextIdResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetNextIdResponse copyWith(void Function(GetNextIdResponse) updates) =>
       super.copyWith((message) => updates(message as GetNextIdResponse))
@@ -14603,8 +15111,6 @@ class GetNextIdResponse extends $pb.GeneratedMessage {
   static GetNextIdResponse create() => GetNextIdResponse._();
   @$core.override
   GetNextIdResponse createEmptyInstance() => create();
-  static $pb.PbList<GetNextIdResponse> createRepeated() =>
-      $pb.PbList<GetNextIdResponse>();
   @$core.pragma('dart2js:noInline')
   static GetNextIdResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetNextIdResponse>(create);
@@ -14663,7 +15169,7 @@ class GetPingResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetPingResponse clone() => GetPingResponse()..mergeFromMessage(this);
+  GetPingResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetPingResponse copyWith(void Function(GetPingResponse) updates) =>
       super.copyWith((message) => updates(message as GetPingResponse))
@@ -14676,8 +15182,6 @@ class GetPingResponse extends $pb.GeneratedMessage {
   static GetPingResponse create() => GetPingResponse._();
   @$core.override
   GetPingResponse createEmptyInstance() => create();
-  static $pb.PbList<GetPingResponse> createRepeated() =>
-      $pb.PbList<GetPingResponse>();
   @$core.pragma('dart2js:noInline')
   static GetPingResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetPingResponse>(create);
@@ -14715,16 +15219,16 @@ class PingResult extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'dropRate', $pb.PbFieldType.OF,
-        protoName: 'dropRate')
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'latencyMs', $pb.PbFieldType.OF,
-        protoName: 'latencyMs')
+    ..aD(1, _omitFieldNames ? '' : 'dropRate',
+        protoName: 'dropRate', fieldType: $pb.PbFieldType.OF)
+    ..aD(2, _omitFieldNames ? '' : 'latencyMs',
+        protoName: 'latencyMs', fieldType: $pb.PbFieldType.OF)
     ..aOM<PingTarget>(3, _omitFieldNames ? '' : 'target',
         subBuilder: PingTarget.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  PingResult clone() => PingResult()..mergeFromMessage(this);
+  PingResult clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   PingResult copyWith(void Function(PingResult) updates) =>
       super.copyWith((message) => updates(message as PingResult)) as PingResult;
@@ -14736,7 +15240,6 @@ class PingResult extends $pb.GeneratedMessage {
   static PingResult create() => PingResult._();
   @$core.override
   PingResult createEmptyInstance() => create();
-  static $pb.PbList<PingResult> createRepeated() => $pb.PbList<PingResult>();
   @$core.pragma('dart2js:noInline')
   static PingResult getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<PingResult>(create);
@@ -14806,7 +15309,7 @@ class PingTarget extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  PingTarget clone() => PingTarget()..mergeFromMessage(this);
+  PingTarget clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   PingTarget copyWith(void Function(PingTarget) updates) =>
       super.copyWith((message) => updates(message as PingTarget)) as PingTarget;
@@ -14818,7 +15321,6 @@ class PingTarget extends $pb.GeneratedMessage {
   static PingTarget create() => PingTarget._();
   @$core.override
   PingTarget createEmptyInstance() => create();
-  static $pb.PbList<PingTarget> createRepeated() => $pb.PbList<PingTarget>();
   @$core.pragma('dart2js:noInline')
   static PingTarget getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<PingTarget>(create);
@@ -14873,8 +15375,7 @@ class SetTrustedKeysResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SetTrustedKeysResponse clone() =>
-      SetTrustedKeysResponse()..mergeFromMessage(this);
+  SetTrustedKeysResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   SetTrustedKeysResponse copyWith(
           void Function(SetTrustedKeysResponse) updates) =>
@@ -14888,8 +15389,6 @@ class SetTrustedKeysResponse extends $pb.GeneratedMessage {
   static SetTrustedKeysResponse create() => SetTrustedKeysResponse._();
   @$core.override
   SetTrustedKeysResponse createEmptyInstance() => create();
-  static $pb.PbList<SetTrustedKeysResponse> createRepeated() =>
-      $pb.PbList<SetTrustedKeysResponse>();
   @$core.pragma('dart2js:noInline')
   static SetTrustedKeysResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SetTrustedKeysResponse>(create);
@@ -14917,8 +15416,7 @@ class FactoryResetResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  FactoryResetResponse clone() =>
-      FactoryResetResponse()..mergeFromMessage(this);
+  FactoryResetResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   FactoryResetResponse copyWith(void Function(FactoryResetResponse) updates) =>
       super.copyWith((message) => updates(message as FactoryResetResponse))
@@ -14931,8 +15429,6 @@ class FactoryResetResponse extends $pb.GeneratedMessage {
   static FactoryResetResponse create() => FactoryResetResponse._();
   @$core.override
   FactoryResetResponse createEmptyInstance() => create();
-  static $pb.PbList<FactoryResetResponse> createRepeated() =>
-      $pb.PbList<FactoryResetResponse>();
   @$core.pragma('dart2js:noInline')
   static FactoryResetResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<FactoryResetResponse>(create);
@@ -14984,7 +15480,7 @@ class GetLogResponse_Logs extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetLogResponse_Logs clone() => GetLogResponse_Logs()..mergeFromMessage(this);
+  GetLogResponse_Logs clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetLogResponse_Logs copyWith(void Function(GetLogResponse_Logs) updates) =>
       super.copyWith((message) => updates(message as GetLogResponse_Logs))
@@ -14997,8 +15493,6 @@ class GetLogResponse_Logs extends $pb.GeneratedMessage {
   static GetLogResponse_Logs create() => GetLogResponse_Logs._();
   @$core.override
   GetLogResponse_Logs createEmptyInstance() => create();
-  static $pb.PbList<GetLogResponse_Logs> createRepeated() =>
-      $pb.PbList<GetLogResponse_Logs>();
   @$core.pragma('dart2js:noInline')
   static GetLogResponse_Logs getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetLogResponse_Logs>(create);
@@ -15109,7 +15603,7 @@ class GetLogResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetLogResponse clone() => GetLogResponse()..mergeFromMessage(this);
+  GetLogResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetLogResponse copyWith(void Function(GetLogResponse) updates) =>
       super.copyWith((message) => updates(message as GetLogResponse))
@@ -15122,8 +15616,6 @@ class GetLogResponse extends $pb.GeneratedMessage {
   static GetLogResponse create() => GetLogResponse._();
   @$core.override
   GetLogResponse createEmptyInstance() => create();
-  static $pb.PbList<GetLogResponse> createRepeated() =>
-      $pb.PbList<GetLogResponse>();
   @$core.pragma('dart2js:noInline')
   static GetLogResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetLogResponse>(create);
@@ -15212,7 +15704,7 @@ class SetSkuResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SetSkuResponse clone() => SetSkuResponse()..mergeFromMessage(this);
+  SetSkuResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   SetSkuResponse copyWith(void Function(SetSkuResponse) updates) =>
       super.copyWith((message) => updates(message as SetSkuResponse))
@@ -15225,8 +15717,6 @@ class SetSkuResponse extends $pb.GeneratedMessage {
   static SetSkuResponse create() => SetSkuResponse._();
   @$core.override
   SetSkuResponse createEmptyInstance() => create();
-  static $pb.PbList<SetSkuResponse> createRepeated() =>
-      $pb.PbList<SetSkuResponse>();
   @$core.pragma('dart2js:noInline')
   static SetSkuResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SetSkuResponse>(create);
@@ -15254,7 +15744,7 @@ class UpdateResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  UpdateResponse clone() => UpdateResponse()..mergeFromMessage(this);
+  UpdateResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   UpdateResponse copyWith(void Function(UpdateResponse) updates) =>
       super.copyWith((message) => updates(message as UpdateResponse))
@@ -15267,8 +15757,6 @@ class UpdateResponse extends $pb.GeneratedMessage {
   static UpdateResponse create() => UpdateResponse._();
   @$core.override
   UpdateResponse createEmptyInstance() => create();
-  static $pb.PbList<UpdateResponse> createRepeated() =>
-      $pb.PbList<UpdateResponse>();
   @$core.pragma('dart2js:noInline')
   static UpdateResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<UpdateResponse>(create);
@@ -15300,14 +15788,12 @@ class GetNetworkInterfacesResponse extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..pc<NetworkInterface>(
-        1006, _omitFieldNames ? '' : 'networkInterfaces', $pb.PbFieldType.PM,
+    ..pPM<NetworkInterface>(1006, _omitFieldNames ? '' : 'networkInterfaces',
         subBuilder: NetworkInterface.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetNetworkInterfacesResponse clone() =>
-      GetNetworkInterfacesResponse()..mergeFromMessage(this);
+  GetNetworkInterfacesResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetNetworkInterfacesResponse copyWith(
           void Function(GetNetworkInterfacesResponse) updates) =>
@@ -15323,8 +15809,6 @@ class GetNetworkInterfacesResponse extends $pb.GeneratedMessage {
       GetNetworkInterfacesResponse._();
   @$core.override
   GetNetworkInterfacesResponse createEmptyInstance() => create();
-  static $pb.PbList<GetNetworkInterfacesResponse> createRepeated() =>
-      $pb.PbList<GetNetworkInterfacesResponse>();
   @$core.pragma('dart2js:noInline')
   static GetNetworkInterfacesResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetNetworkInterfacesResponse>(create);
@@ -15371,8 +15855,7 @@ class NetworkInterface_RxStats extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  NetworkInterface_RxStats clone() =>
-      NetworkInterface_RxStats()..mergeFromMessage(this);
+  NetworkInterface_RxStats clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   NetworkInterface_RxStats copyWith(
           void Function(NetworkInterface_RxStats) updates) =>
@@ -15386,8 +15869,6 @@ class NetworkInterface_RxStats extends $pb.GeneratedMessage {
   static NetworkInterface_RxStats create() => NetworkInterface_RxStats._();
   @$core.override
   NetworkInterface_RxStats createEmptyInstance() => create();
-  static $pb.PbList<NetworkInterface_RxStats> createRepeated() =>
-      $pb.PbList<NetworkInterface_RxStats>();
   @$core.pragma('dart2js:noInline')
   static NetworkInterface_RxStats getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<NetworkInterface_RxStats>(create);
@@ -15453,8 +15934,7 @@ class NetworkInterface_TxStats extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  NetworkInterface_TxStats clone() =>
-      NetworkInterface_TxStats()..mergeFromMessage(this);
+  NetworkInterface_TxStats clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   NetworkInterface_TxStats copyWith(
           void Function(NetworkInterface_TxStats) updates) =>
@@ -15468,8 +15948,6 @@ class NetworkInterface_TxStats extends $pb.GeneratedMessage {
   static NetworkInterface_TxStats create() => NetworkInterface_TxStats._();
   @$core.override
   NetworkInterface_TxStats createEmptyInstance() => create();
-  static $pb.PbList<NetworkInterface_TxStats> createRepeated() =>
-      $pb.PbList<NetworkInterface_TxStats>();
   @$core.pragma('dart2js:noInline')
   static NetworkInterface_TxStats getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<NetworkInterface_TxStats>(create);
@@ -15564,7 +16042,7 @@ class NetworkInterface extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  NetworkInterface clone() => NetworkInterface()..mergeFromMessage(this);
+  NetworkInterface clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   NetworkInterface copyWith(void Function(NetworkInterface) updates) =>
       super.copyWith((message) => updates(message as NetworkInterface))
@@ -15577,15 +16055,19 @@ class NetworkInterface extends $pb.GeneratedMessage {
   static NetworkInterface create() => NetworkInterface._();
   @$core.override
   NetworkInterface createEmptyInstance() => create();
-  static $pb.PbList<NetworkInterface> createRepeated() =>
-      $pb.PbList<NetworkInterface>();
   @$core.pragma('dart2js:noInline')
   static NetworkInterface getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<NetworkInterface>(create);
   static NetworkInterface? _defaultInstance;
 
+  @$pb.TagNumber(1000)
+  @$pb.TagNumber(1001)
+  @$pb.TagNumber(1002)
   NetworkInterface_Interface whichInterface() =>
       _NetworkInterface_InterfaceByTag[$_whichOneof(0)]!;
+  @$pb.TagNumber(1000)
+  @$pb.TagNumber(1001)
+  @$pb.TagNumber(1002)
   void clearInterface() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -15708,18 +16190,14 @@ class EthernetNetworkInterface extends $pb.GeneratedMessage {
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
     ..aOB(1, _omitFieldNames ? '' : 'linkDetected')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'speedMbps', $pb.PbFieldType.OU3)
+    ..aI(2, _omitFieldNames ? '' : 'speedMbps', fieldType: $pb.PbFieldType.OU3)
     ..aOB(3, _omitFieldNames ? '' : 'autonegotiationOn')
-    ..e<EthernetNetworkInterface_Duplex>(
-        4, _omitFieldNames ? '' : 'duplex', $pb.PbFieldType.OE,
-        defaultOrMaker: EthernetNetworkInterface_Duplex.UNKNOWN,
-        valueOf: EthernetNetworkInterface_Duplex.valueOf,
+    ..aE<EthernetNetworkInterface_Duplex>(4, _omitFieldNames ? '' : 'duplex',
         enumValues: EthernetNetworkInterface_Duplex.values)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  EthernetNetworkInterface clone() =>
-      EthernetNetworkInterface()..mergeFromMessage(this);
+  EthernetNetworkInterface clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   EthernetNetworkInterface copyWith(
           void Function(EthernetNetworkInterface) updates) =>
@@ -15733,8 +16211,6 @@ class EthernetNetworkInterface extends $pb.GeneratedMessage {
   static EthernetNetworkInterface create() => EthernetNetworkInterface._();
   @$core.override
   EthernetNetworkInterface createEmptyInstance() => create();
-  static $pb.PbList<EthernetNetworkInterface> createRepeated() =>
-      $pb.PbList<EthernetNetworkInterface>();
   @$core.pragma('dart2js:noInline')
   static EthernetNetworkInterface getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<EthernetNetworkInterface>(create);
@@ -15810,20 +16286,20 @@ class WifiNetworkInterface_InvalidPacketCounts extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.int>(
-        1, _omitFieldNames ? '' : 'rxInvalidNwid', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        2, _omitFieldNames ? '' : 'rxInvalidCrypt', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        3, _omitFieldNames ? '' : 'rxInvalidFrag', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        4, _omitFieldNames ? '' : 'txExcessiveRetries', $pb.PbFieldType.OU3)
-    ..a<$core.int>(5, _omitFieldNames ? '' : 'invalidMisc', $pb.PbFieldType.OU3)
+    ..aI(1, _omitFieldNames ? '' : 'rxInvalidNwid',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(2, _omitFieldNames ? '' : 'rxInvalidCrypt',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(3, _omitFieldNames ? '' : 'rxInvalidFrag',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(4, _omitFieldNames ? '' : 'txExcessiveRetries',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(5, _omitFieldNames ? '' : 'invalidMisc',
+        fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiNetworkInterface_InvalidPacketCounts clone() =>
-      WifiNetworkInterface_InvalidPacketCounts()..mergeFromMessage(this);
+  WifiNetworkInterface_InvalidPacketCounts clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiNetworkInterface_InvalidPacketCounts copyWith(
           void Function(WifiNetworkInterface_InvalidPacketCounts) updates) =>
@@ -15839,9 +16315,6 @@ class WifiNetworkInterface_InvalidPacketCounts extends $pb.GeneratedMessage {
       WifiNetworkInterface_InvalidPacketCounts._();
   @$core.override
   WifiNetworkInterface_InvalidPacketCounts createEmptyInstance() => create();
-  static $pb.PbList<WifiNetworkInterface_InvalidPacketCounts>
-      createRepeated() =>
-          $pb.PbList<WifiNetworkInterface_InvalidPacketCounts>();
   @$core.pragma('dart2js:noInline')
   static WifiNetworkInterface_InvalidPacketCounts getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<
@@ -15932,20 +16405,16 @@ class WifiNetworkInterface extends $pb.GeneratedMessage {
     ..aOM<WifiNetworkInterface_InvalidPacketCounts>(
         2, _omitFieldNames ? '' : 'invalidPacketCounts',
         subBuilder: WifiNetworkInterface_InvalidPacketCounts.create)
-    ..a<$core.int>(3, _omitFieldNames ? '' : 'channel', $pb.PbFieldType.OU3)
-    ..a<$core.double>(
-        4, _omitFieldNames ? '' : 'linkQuality', $pb.PbFieldType.OD)
-    ..a<$core.double>(
-        5, _omitFieldNames ? '' : 'signalLevel', $pb.PbFieldType.OD)
-    ..a<$core.double>(
-        6, _omitFieldNames ? '' : 'noiseLevel', $pb.PbFieldType.OD)
-    ..a<$core.int>(
-        8, _omitFieldNames ? '' : 'missedBeacons', $pb.PbFieldType.OU3)
+    ..aI(3, _omitFieldNames ? '' : 'channel', fieldType: $pb.PbFieldType.OU3)
+    ..aD(4, _omitFieldNames ? '' : 'linkQuality')
+    ..aD(5, _omitFieldNames ? '' : 'signalLevel')
+    ..aD(6, _omitFieldNames ? '' : 'noiseLevel')
+    ..aI(8, _omitFieldNames ? '' : 'missedBeacons',
+        fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiNetworkInterface clone() =>
-      WifiNetworkInterface()..mergeFromMessage(this);
+  WifiNetworkInterface clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiNetworkInterface copyWith(void Function(WifiNetworkInterface) updates) =>
       super.copyWith((message) => updates(message as WifiNetworkInterface))
@@ -15958,8 +16427,6 @@ class WifiNetworkInterface extends $pb.GeneratedMessage {
   static WifiNetworkInterface create() => WifiNetworkInterface._();
   @$core.override
   WifiNetworkInterface createEmptyInstance() => create();
-  static $pb.PbList<WifiNetworkInterface> createRepeated() =>
-      $pb.PbList<WifiNetworkInterface>();
   @$core.pragma('dart2js:noInline')
   static WifiNetworkInterface getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiNetworkInterface>(create);
@@ -16052,8 +16519,7 @@ class BridgeNetworkInterface extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  BridgeNetworkInterface clone() =>
-      BridgeNetworkInterface()..mergeFromMessage(this);
+  BridgeNetworkInterface clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   BridgeNetworkInterface copyWith(
           void Function(BridgeNetworkInterface) updates) =>
@@ -16067,8 +16533,6 @@ class BridgeNetworkInterface extends $pb.GeneratedMessage {
   static BridgeNetworkInterface create() => BridgeNetworkInterface._();
   @$core.override
   BridgeNetworkInterface createEmptyInstance() => create();
-  static $pb.PbList<BridgeNetworkInterface> createRepeated() =>
-      $pb.PbList<BridgeNetworkInterface>();
   @$core.pragma('dart2js:noInline')
   static BridgeNetworkInterface getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<BridgeNetworkInterface>(create);
@@ -16107,7 +16571,7 @@ class PingHostResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  PingHostResponse clone() => PingHostResponse()..mergeFromMessage(this);
+  PingHostResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   PingHostResponse copyWith(void Function(PingHostResponse) updates) =>
       super.copyWith((message) => updates(message as PingHostResponse))
@@ -16120,8 +16584,6 @@ class PingHostResponse extends $pb.GeneratedMessage {
   static PingHostResponse create() => PingHostResponse._();
   @$core.override
   PingHostResponse createEmptyInstance() => create();
-  static $pb.PbList<PingHostResponse> createRepeated() =>
-      $pb.PbList<PingHostResponse>();
   @$core.pragma('dart2js:noInline')
   static PingHostResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<PingHostResponse>(create);
@@ -16174,19 +16636,15 @@ class GetLocationResponse extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aOM<LLAPosition>(1, _omitFieldNames ? '' : 'lla',
         subBuilder: LLAPosition.create)
-    ..e<PositionSource>(3, _omitFieldNames ? '' : 'source', $pb.PbFieldType.OE,
-        defaultOrMaker: PositionSource.AUTO,
-        valueOf: PositionSource.valueOf,
+    ..aE<PositionSource>(3, _omitFieldNames ? '' : 'source',
         enumValues: PositionSource.values)
-    ..a<$core.double>(4, _omitFieldNames ? '' : 'sigmaM', $pb.PbFieldType.OD)
-    ..a<$core.double>(
-        5, _omitFieldNames ? '' : 'horizontalSpeedMps', $pb.PbFieldType.OD)
-    ..a<$core.double>(
-        6, _omitFieldNames ? '' : 'verticalSpeedMps', $pb.PbFieldType.OD)
+    ..aD(4, _omitFieldNames ? '' : 'sigmaM')
+    ..aD(5, _omitFieldNames ? '' : 'horizontalSpeedMps')
+    ..aD(6, _omitFieldNames ? '' : 'verticalSpeedMps')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetLocationResponse clone() => GetLocationResponse()..mergeFromMessage(this);
+  GetLocationResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetLocationResponse copyWith(void Function(GetLocationResponse) updates) =>
       super.copyWith((message) => updates(message as GetLocationResponse))
@@ -16199,8 +16657,6 @@ class GetLocationResponse extends $pb.GeneratedMessage {
   static GetLocationResponse create() => GetLocationResponse._();
   @$core.override
   GetLocationResponse createEmptyInstance() => create();
-  static $pb.PbList<GetLocationResponse> createRepeated() =>
-      $pb.PbList<GetLocationResponse>();
   @$core.pragma('dart2js:noInline')
   static GetLocationResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetLocationResponse>(create);
@@ -16282,13 +16738,13 @@ class LLAPosition extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'lat', $pb.PbFieldType.OD)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'lon', $pb.PbFieldType.OD)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'alt', $pb.PbFieldType.OD)
+    ..aD(1, _omitFieldNames ? '' : 'lat')
+    ..aD(2, _omitFieldNames ? '' : 'lon')
+    ..aD(3, _omitFieldNames ? '' : 'alt')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  LLAPosition clone() => LLAPosition()..mergeFromMessage(this);
+  LLAPosition clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   LLAPosition copyWith(void Function(LLAPosition) updates) =>
       super.copyWith((message) => updates(message as LLAPosition))
@@ -16301,7 +16757,6 @@ class LLAPosition extends $pb.GeneratedMessage {
   static LLAPosition create() => LLAPosition._();
   @$core.override
   LLAPosition createEmptyInstance() => create();
-  static $pb.PbList<LLAPosition> createRepeated() => $pb.PbList<LLAPosition>();
   @$core.pragma('dart2js:noInline')
   static LLAPosition getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<LLAPosition>(create);
@@ -16363,7 +16818,7 @@ class GetHeapDumpResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetHeapDumpResponse clone() => GetHeapDumpResponse()..mergeFromMessage(this);
+  GetHeapDumpResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetHeapDumpResponse copyWith(void Function(GetHeapDumpResponse) updates) =>
       super.copyWith((message) => updates(message as GetHeapDumpResponse))
@@ -16376,8 +16831,6 @@ class GetHeapDumpResponse extends $pb.GeneratedMessage {
   static GetHeapDumpResponse create() => GetHeapDumpResponse._();
   @$core.override
   GetHeapDumpResponse createEmptyInstance() => create();
-  static $pb.PbList<GetHeapDumpResponse> createRepeated() =>
-      $pb.PbList<GetHeapDumpResponse>();
   @$core.pragma('dart2js:noInline')
   static GetHeapDumpResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetHeapDumpResponse>(create);
@@ -16414,8 +16867,7 @@ class RestartControlResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  RestartControlResponse clone() =>
-      RestartControlResponse()..mergeFromMessage(this);
+  RestartControlResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   RestartControlResponse copyWith(
           void Function(RestartControlResponse) updates) =>
@@ -16429,8 +16881,6 @@ class RestartControlResponse extends $pb.GeneratedMessage {
   static RestartControlResponse create() => RestartControlResponse._();
   @$core.override
   RestartControlResponse createEmptyInstance() => create();
-  static $pb.PbList<RestartControlResponse> createRepeated() =>
-      $pb.PbList<RestartControlResponse>();
   @$core.pragma('dart2js:noInline')
   static RestartControlResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RestartControlResponse>(create);
@@ -16458,7 +16908,7 @@ class FuseResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  FuseResponse clone() => FuseResponse()..mergeFromMessage(this);
+  FuseResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   FuseResponse copyWith(void Function(FuseResponse) updates) =>
       super.copyWith((message) => updates(message as FuseResponse))
@@ -16471,8 +16921,6 @@ class FuseResponse extends $pb.GeneratedMessage {
   static FuseResponse create() => FuseResponse._();
   @$core.override
   FuseResponse createEmptyInstance() => create();
-  static $pb.PbList<FuseResponse> createRepeated() =>
-      $pb.PbList<FuseResponse>();
   @$core.pragma('dart2js:noInline')
   static FuseResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<FuseResponse>(create);
@@ -16507,13 +16955,11 @@ class GetConnectionsResponse_ServiceConnection extends $pb.GeneratedMessage {
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'address')
-    ..a<$core.int>(
-        2, _omitFieldNames ? '' : 'secondsSinceSuccess', $pb.PbFieldType.O3)
+    ..aI(2, _omitFieldNames ? '' : 'secondsSinceSuccess')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetConnectionsResponse_ServiceConnection clone() =>
-      GetConnectionsResponse_ServiceConnection()..mergeFromMessage(this);
+  GetConnectionsResponse_ServiceConnection clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetConnectionsResponse_ServiceConnection copyWith(
           void Function(GetConnectionsResponse_ServiceConnection) updates) =>
@@ -16529,9 +16975,6 @@ class GetConnectionsResponse_ServiceConnection extends $pb.GeneratedMessage {
       GetConnectionsResponse_ServiceConnection._();
   @$core.override
   GetConnectionsResponse_ServiceConnection createEmptyInstance() => create();
-  static $pb.PbList<GetConnectionsResponse_ServiceConnection>
-      createRepeated() =>
-          $pb.PbList<GetConnectionsResponse_ServiceConnection>();
   @$core.pragma('dart2js:noInline')
   static GetConnectionsResponse_ServiceConnection getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<
@@ -16596,8 +17039,7 @@ class GetConnectionsResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetConnectionsResponse clone() =>
-      GetConnectionsResponse()..mergeFromMessage(this);
+  GetConnectionsResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetConnectionsResponse copyWith(
           void Function(GetConnectionsResponse) updates) =>
@@ -16611,8 +17053,6 @@ class GetConnectionsResponse extends $pb.GeneratedMessage {
   static GetConnectionsResponse create() => GetConnectionsResponse._();
   @$core.override
   GetConnectionsResponse createEmptyInstance() => create();
-  static $pb.PbList<GetConnectionsResponse> createRepeated() =>
-      $pb.PbList<GetConnectionsResponse>();
   @$core.pragma('dart2js:noInline')
   static GetConnectionsResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetConnectionsResponse>(create);
@@ -16644,8 +17084,7 @@ class StartSpeedtestResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  StartSpeedtestResponse clone() =>
-      StartSpeedtestResponse()..mergeFromMessage(this);
+  StartSpeedtestResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   StartSpeedtestResponse copyWith(
           void Function(StartSpeedtestResponse) updates) =>
@@ -16659,8 +17098,6 @@ class StartSpeedtestResponse extends $pb.GeneratedMessage {
   static StartSpeedtestResponse create() => StartSpeedtestResponse._();
   @$core.override
   StartSpeedtestResponse createEmptyInstance() => create();
-  static $pb.PbList<StartSpeedtestResponse> createRepeated() =>
-      $pb.PbList<StartSpeedtestResponse>();
   @$core.pragma('dart2js:noInline')
   static StartSpeedtestResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<StartSpeedtestResponse>(create);
@@ -16696,8 +17133,7 @@ class GetSpeedtestStatusResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetSpeedtestStatusResponse clone() =>
-      GetSpeedtestStatusResponse()..mergeFromMessage(this);
+  GetSpeedtestStatusResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetSpeedtestStatusResponse copyWith(
           void Function(GetSpeedtestStatusResponse) updates) =>
@@ -16712,8 +17148,6 @@ class GetSpeedtestStatusResponse extends $pb.GeneratedMessage {
   static GetSpeedtestStatusResponse create() => GetSpeedtestStatusResponse._();
   @$core.override
   GetSpeedtestStatusResponse createEmptyInstance() => create();
-  static $pb.PbList<GetSpeedtestStatusResponse> createRepeated() =>
-      $pb.PbList<GetSpeedtestStatusResponse>();
   @$core.pragma('dart2js:noInline')
   static GetSpeedtestStatusResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetSpeedtestStatusResponse>(create);
@@ -16758,15 +17192,12 @@ class SpeedtestStatus_Direction extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..p<$core.double>(
         1, _omitFieldNames ? '' : 'throughputsMbps', $pb.PbFieldType.KF)
-    ..e<SpeedtestError>(2, _omitFieldNames ? '' : 'err', $pb.PbFieldType.OE,
-        defaultOrMaker: SpeedtestError.SPEEDTEST_ERROR_NONE,
-        valueOf: SpeedtestError.valueOf,
+    ..aE<SpeedtestError>(2, _omitFieldNames ? '' : 'err',
         enumValues: SpeedtestError.values)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SpeedtestStatus_Direction clone() =>
-      SpeedtestStatus_Direction()..mergeFromMessage(this);
+  SpeedtestStatus_Direction clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   SpeedtestStatus_Direction copyWith(
           void Function(SpeedtestStatus_Direction) updates) =>
@@ -16780,8 +17211,6 @@ class SpeedtestStatus_Direction extends $pb.GeneratedMessage {
   static SpeedtestStatus_Direction create() => SpeedtestStatus_Direction._();
   @$core.override
   SpeedtestStatus_Direction createEmptyInstance() => create();
-  static $pb.PbList<SpeedtestStatus_Direction> createRepeated() =>
-      $pb.PbList<SpeedtestStatus_Direction>();
   @$core.pragma('dart2js:noInline')
   static SpeedtestStatus_Direction getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SpeedtestStatus_Direction>(create);
@@ -16831,7 +17260,7 @@ class SpeedtestStatus extends $pb.GeneratedMessage {
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
     ..aOB(1, _omitFieldNames ? '' : 'running')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'id', $pb.PbFieldType.OU3)
+    ..aI(2, _omitFieldNames ? '' : 'id', fieldType: $pb.PbFieldType.OU3)
     ..aOM<SpeedtestStatus_Direction>(1000, _omitFieldNames ? '' : 'up',
         subBuilder: SpeedtestStatus_Direction.create)
     ..aOM<SpeedtestStatus_Direction>(1001, _omitFieldNames ? '' : 'down',
@@ -16839,7 +17268,7 @@ class SpeedtestStatus extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SpeedtestStatus clone() => SpeedtestStatus()..mergeFromMessage(this);
+  SpeedtestStatus clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   SpeedtestStatus copyWith(void Function(SpeedtestStatus) updates) =>
       super.copyWith((message) => updates(message as SpeedtestStatus))
@@ -16852,8 +17281,6 @@ class SpeedtestStatus extends $pb.GeneratedMessage {
   static SpeedtestStatus create() => SpeedtestStatus._();
   @$core.override
   SpeedtestStatus createEmptyInstance() => create();
-  static $pb.PbList<SpeedtestStatus> createRepeated() =>
-      $pb.PbList<SpeedtestStatus>();
   @$core.pragma('dart2js:noInline')
   static SpeedtestStatus getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SpeedtestStatus>(create);
@@ -16921,8 +17348,7 @@ class ReportClientSpeedtestResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ReportClientSpeedtestResponse clone() =>
-      ReportClientSpeedtestResponse()..mergeFromMessage(this);
+  ReportClientSpeedtestResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ReportClientSpeedtestResponse copyWith(
           void Function(ReportClientSpeedtestResponse) updates) =>
@@ -16938,8 +17364,6 @@ class ReportClientSpeedtestResponse extends $pb.GeneratedMessage {
       ReportClientSpeedtestResponse._();
   @$core.override
   ReportClientSpeedtestResponse createEmptyInstance() => create();
-  static $pb.PbList<ReportClientSpeedtestResponse> createRepeated() =>
-      $pb.PbList<ReportClientSpeedtestResponse>();
   @$core.pragma('dart2js:noInline')
   static ReportClientSpeedtestResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ReportClientSpeedtestResponse>(create);
@@ -16974,15 +17398,14 @@ class InitiateRemoteSshResponse extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'port', $pb.PbFieldType.OU3)
+    ..aI(1, _omitFieldNames ? '' : 'port', fieldType: $pb.PbFieldType.OU3)
     ..aOS(2, _omitFieldNames ? '' : 'address')
     ..a<$core.List<$core.int>>(
         3, _omitFieldNames ? '' : 'stsafe', $pb.PbFieldType.OY)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  InitiateRemoteSshResponse clone() =>
-      InitiateRemoteSshResponse()..mergeFromMessage(this);
+  InitiateRemoteSshResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   InitiateRemoteSshResponse copyWith(
           void Function(InitiateRemoteSshResponse) updates) =>
@@ -16996,8 +17419,6 @@ class InitiateRemoteSshResponse extends $pb.GeneratedMessage {
   static InitiateRemoteSshResponse create() => InitiateRemoteSshResponse._();
   @$core.override
   InitiateRemoteSshResponse createEmptyInstance() => create();
-  static $pb.PbList<InitiateRemoteSshResponse> createRepeated() =>
-      $pb.PbList<InitiateRemoteSshResponse>();
   @$core.pragma('dart2js:noInline')
   static InitiateRemoteSshResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<InitiateRemoteSshResponse>(create);
@@ -17062,7 +17483,7 @@ class SelfTestResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SelfTestResponse clone() => SelfTestResponse()..mergeFromMessage(this);
+  SelfTestResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   SelfTestResponse copyWith(void Function(SelfTestResponse) updates) =>
       super.copyWith((message) => updates(message as SelfTestResponse))
@@ -17075,8 +17496,6 @@ class SelfTestResponse extends $pb.GeneratedMessage {
   static SelfTestResponse create() => SelfTestResponse._();
   @$core.override
   SelfTestResponse createEmptyInstance() => create();
-  static $pb.PbList<SelfTestResponse> createRepeated() =>
-      $pb.PbList<SelfTestResponse>();
   @$core.pragma('dart2js:noInline')
   static SelfTestResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SelfTestResponse>(create);
@@ -17122,7 +17541,7 @@ class SetTestModeResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SetTestModeResponse clone() => SetTestModeResponse()..mergeFromMessage(this);
+  SetTestModeResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   SetTestModeResponse copyWith(void Function(SetTestModeResponse) updates) =>
       super.copyWith((message) => updates(message as SetTestModeResponse))
@@ -17135,8 +17554,6 @@ class SetTestModeResponse extends $pb.GeneratedMessage {
   static SetTestModeResponse create() => SetTestModeResponse._();
   @$core.override
   SetTestModeResponse createEmptyInstance() => create();
-  static $pb.PbList<SetTestModeResponse> createRepeated() =>
-      $pb.PbList<SetTestModeResponse>();
   @$core.pragma('dart2js:noInline')
   static SetTestModeResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SetTestModeResponse>(create);
@@ -17164,8 +17581,7 @@ class SoftwareUpdateResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SoftwareUpdateResponse clone() =>
-      SoftwareUpdateResponse()..mergeFromMessage(this);
+  SoftwareUpdateResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   SoftwareUpdateResponse copyWith(
           void Function(SoftwareUpdateResponse) updates) =>
@@ -17179,8 +17595,6 @@ class SoftwareUpdateResponse extends $pb.GeneratedMessage {
   static SoftwareUpdateResponse create() => SoftwareUpdateResponse._();
   @$core.override
   SoftwareUpdateResponse createEmptyInstance() => create();
-  static $pb.PbList<SoftwareUpdateResponse> createRepeated() =>
-      $pb.PbList<SoftwareUpdateResponse>();
   @$core.pragma('dart2js:noInline')
   static SoftwareUpdateResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SoftwareUpdateResponse>(create);
@@ -17208,8 +17622,7 @@ class EnableDebugTelemResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  EnableDebugTelemResponse clone() =>
-      EnableDebugTelemResponse()..mergeFromMessage(this);
+  EnableDebugTelemResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   EnableDebugTelemResponse copyWith(
           void Function(EnableDebugTelemResponse) updates) =>
@@ -17223,8 +17636,6 @@ class EnableDebugTelemResponse extends $pb.GeneratedMessage {
   static EnableDebugTelemResponse create() => EnableDebugTelemResponse._();
   @$core.override
   EnableDebugTelemResponse createEmptyInstance() => create();
-  static $pb.PbList<EnableDebugTelemResponse> createRepeated() =>
-      $pb.PbList<EnableDebugTelemResponse>();
   @$core.pragma('dart2js:noInline')
   static EnableDebugTelemResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<EnableDebugTelemResponse>(create);
@@ -17255,13 +17666,12 @@ class GetRadioStatsResponse extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..pc<RadioStats>(1, _omitFieldNames ? '' : 'radioStats', $pb.PbFieldType.PM,
+    ..pPM<RadioStats>(1, _omitFieldNames ? '' : 'radioStats',
         subBuilder: RadioStats.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetRadioStatsResponse clone() =>
-      GetRadioStatsResponse()..mergeFromMessage(this);
+  GetRadioStatsResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetRadioStatsResponse copyWith(
           void Function(GetRadioStatsResponse) updates) =>
@@ -17275,8 +17685,6 @@ class GetRadioStatsResponse extends $pb.GeneratedMessage {
   static GetRadioStatsResponse create() => GetRadioStatsResponse._();
   @$core.override
   GetRadioStatsResponse createEmptyInstance() => create();
-  static $pb.PbList<GetRadioStatsResponse> createRepeated() =>
-      $pb.PbList<GetRadioStatsResponse>();
   @$core.pragma('dart2js:noInline')
   static GetRadioStatsResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetRadioStatsResponse>(create);
@@ -17315,15 +17723,14 @@ class RadioStats_AntennaStatus extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'rssi1', $pb.PbFieldType.OF)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'rssi2', $pb.PbFieldType.OF)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'rssi3', $pb.PbFieldType.OF)
-    ..a<$core.double>(4, _omitFieldNames ? '' : 'rssi4', $pb.PbFieldType.OF)
+    ..aD(1, _omitFieldNames ? '' : 'rssi1', fieldType: $pb.PbFieldType.OF)
+    ..aD(2, _omitFieldNames ? '' : 'rssi2', fieldType: $pb.PbFieldType.OF)
+    ..aD(3, _omitFieldNames ? '' : 'rssi3', fieldType: $pb.PbFieldType.OF)
+    ..aD(4, _omitFieldNames ? '' : 'rssi4', fieldType: $pb.PbFieldType.OF)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  RadioStats_AntennaStatus clone() =>
-      RadioStats_AntennaStatus()..mergeFromMessage(this);
+  RadioStats_AntennaStatus clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   RadioStats_AntennaStatus copyWith(
           void Function(RadioStats_AntennaStatus) updates) =>
@@ -17337,8 +17744,6 @@ class RadioStats_AntennaStatus extends $pb.GeneratedMessage {
   static RadioStats_AntennaStatus create() => RadioStats_AntennaStatus._();
   @$core.override
   RadioStats_AntennaStatus createEmptyInstance() => create();
-  static $pb.PbList<RadioStats_AntennaStatus> createRepeated() =>
-      $pb.PbList<RadioStats_AntennaStatus>();
   @$core.pragma('dart2js:noInline')
   static RadioStats_AntennaStatus getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RadioStats_AntennaStatus>(create);
@@ -17412,17 +17817,16 @@ class RadioStats_ThermalStatus extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'level', $pb.PbFieldType.OU3)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'temp', $pb.PbFieldType.OU3)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'temp2', $pb.PbFieldType.OD)
-    ..a<$core.int>(
-        4, _omitFieldNames ? '' : 'powerReduction', $pb.PbFieldType.OU3)
-    ..a<$core.int>(5, _omitFieldNames ? '' : 'dutyCycle', $pb.PbFieldType.OU3)
+    ..aI(1, _omitFieldNames ? '' : 'level', fieldType: $pb.PbFieldType.OU3)
+    ..aI(2, _omitFieldNames ? '' : 'temp', fieldType: $pb.PbFieldType.OU3)
+    ..aD(3, _omitFieldNames ? '' : 'temp2')
+    ..aI(4, _omitFieldNames ? '' : 'powerReduction',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(5, _omitFieldNames ? '' : 'dutyCycle', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  RadioStats_ThermalStatus clone() =>
-      RadioStats_ThermalStatus()..mergeFromMessage(this);
+  RadioStats_ThermalStatus clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   RadioStats_ThermalStatus copyWith(
           void Function(RadioStats_ThermalStatus) updates) =>
@@ -17436,8 +17840,6 @@ class RadioStats_ThermalStatus extends $pb.GeneratedMessage {
   static RadioStats_ThermalStatus create() => RadioStats_ThermalStatus._();
   @$core.override
   RadioStats_ThermalStatus createEmptyInstance() => create();
-  static $pb.PbList<RadioStats_ThermalStatus> createRepeated() =>
-      $pb.PbList<RadioStats_ThermalStatus>();
   @$core.pragma('dart2js:noInline')
   static RadioStats_ThermalStatus getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RadioStats_ThermalStatus>(create);
@@ -17525,9 +17927,7 @@ class RadioStats extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..e<WifiConfig_Band>(1, _omitFieldNames ? '' : 'band', $pb.PbFieldType.OE,
-        defaultOrMaker: WifiConfig_Band.RF_UNKNOWN,
-        valueOf: WifiConfig_Band.valueOf,
+    ..aE<WifiConfig_Band>(1, _omitFieldNames ? '' : 'band',
         enumValues: WifiConfig_Band.values)
     ..aOM<NetworkInterface_RxStats>(2, _omitFieldNames ? '' : 'rxStats',
         subBuilder: NetworkInterface_RxStats.create)
@@ -17540,7 +17940,7 @@ class RadioStats extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  RadioStats clone() => RadioStats()..mergeFromMessage(this);
+  RadioStats clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   RadioStats copyWith(void Function(RadioStats) updates) =>
       super.copyWith((message) => updates(message as RadioStats)) as RadioStats;
@@ -17552,7 +17952,6 @@ class RadioStats extends $pb.GeneratedMessage {
   static RadioStats create() => RadioStats._();
   @$core.override
   RadioStats createEmptyInstance() => create();
-  static $pb.PbList<RadioStats> createRepeated() => $pb.PbList<RadioStats>();
   @$core.pragma('dart2js:noInline')
   static RadioStats getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RadioStats>(create);
@@ -17640,7 +18039,7 @@ class GetTimeResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetTimeResponse clone() => GetTimeResponse()..mergeFromMessage(this);
+  GetTimeResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetTimeResponse copyWith(void Function(GetTimeResponse) updates) =>
       super.copyWith((message) => updates(message as GetTimeResponse))
@@ -17653,8 +18052,6 @@ class GetTimeResponse extends $pb.GeneratedMessage {
   static GetTimeResponse create() => GetTimeResponse._();
   @$core.override
   GetTimeResponse createEmptyInstance() => create();
-  static $pb.PbList<GetTimeResponse> createRepeated() =>
-      $pb.PbList<GetTimeResponse>();
   @$core.pragma('dart2js:noInline')
   static GetTimeResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetTimeResponse>(create);
@@ -17694,12 +18091,11 @@ class RunIperfServerResponse extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'port', $pb.PbFieldType.OU3)
+    ..aI(1, _omitFieldNames ? '' : 'port', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  RunIperfServerResponse clone() =>
-      RunIperfServerResponse()..mergeFromMessage(this);
+  RunIperfServerResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   RunIperfServerResponse copyWith(
           void Function(RunIperfServerResponse) updates) =>
@@ -17713,8 +18109,6 @@ class RunIperfServerResponse extends $pb.GeneratedMessage {
   static RunIperfServerResponse create() => RunIperfServerResponse._();
   @$core.override
   RunIperfServerResponse createEmptyInstance() => create();
-  static $pb.PbList<RunIperfServerResponse> createRepeated() =>
-      $pb.PbList<RunIperfServerResponse>();
   @$core.pragma('dart2js:noInline')
   static RunIperfServerResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RunIperfServerResponse>(create);
@@ -17758,8 +18152,7 @@ class GetGoroutineStackTracesResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  GetGoroutineStackTracesResponse clone() =>
-      GetGoroutineStackTracesResponse()..mergeFromMessage(this);
+  GetGoroutineStackTracesResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   GetGoroutineStackTracesResponse copyWith(
           void Function(GetGoroutineStackTracesResponse) updates) =>
@@ -17775,8 +18168,6 @@ class GetGoroutineStackTracesResponse extends $pb.GeneratedMessage {
       GetGoroutineStackTracesResponse._();
   @$core.override
   GetGoroutineStackTracesResponse createEmptyInstance() => create();
-  static $pb.PbList<GetGoroutineStackTracesResponse> createRepeated() =>
-      $pb.PbList<GetGoroutineStackTracesResponse>();
   @$core.pragma('dart2js:noInline')
   static GetGoroutineStackTracesResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<GetGoroutineStackTracesResponse>(
@@ -17814,7 +18205,7 @@ class DishStowResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishStowResponse clone() => DishStowResponse()..mergeFromMessage(this);
+  DishStowResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishStowResponse copyWith(void Function(DishStowResponse) updates) =>
       super.copyWith((message) => updates(message as DishStowResponse))
@@ -17827,8 +18218,6 @@ class DishStowResponse extends $pb.GeneratedMessage {
   static DishStowResponse create() => DishStowResponse._();
   @$core.override
   DishStowResponse createEmptyInstance() => create();
-  static $pb.PbList<DishStowResponse> createRepeated() =>
-      $pb.PbList<DishStowResponse>();
   @$core.pragma('dart2js:noInline')
   static DishStowResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishStowResponse>(create);
@@ -17920,53 +18309,49 @@ class DishGetContextResponse extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aOM<DeviceInfo>(1, _omitFieldNames ? '' : 'deviceInfo',
         subBuilder: DeviceInfo.create)
-    ..a<$core.double>(
-        2, _omitFieldNames ? '' : 'obstructionFraction', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        3, _omitFieldNames ? '' : 'obstructionValidS', $pb.PbFieldType.OF)
-    ..a<$core.int>(4, _omitFieldNames ? '' : 'cellId', $pb.PbFieldType.OU3)
-    ..a<$core.int>(5, _omitFieldNames ? '' : 'popRackId', $pb.PbFieldType.OU3)
-    ..a<$core.double>(
-        6, _omitFieldNames ? '' : 'secondsToSlotEnd', $pb.PbFieldType.OF)
+    ..aD(2, _omitFieldNames ? '' : 'obstructionFraction',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(3, _omitFieldNames ? '' : 'obstructionValidS',
+        fieldType: $pb.PbFieldType.OF)
+    ..aI(4, _omitFieldNames ? '' : 'cellId', fieldType: $pb.PbFieldType.OU3)
+    ..aI(5, _omitFieldNames ? '' : 'popRackId', fieldType: $pb.PbFieldType.OU3)
+    ..aD(6, _omitFieldNames ? '' : 'secondsToSlotEnd',
+        fieldType: $pb.PbFieldType.OF)
     ..aOM<DeviceState>(7, _omitFieldNames ? '' : 'deviceState',
         subBuilder: DeviceState.create)
-    ..a<$core.int>(
-        8, _omitFieldNames ? '' : 'initialSatelliteId', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        9, _omitFieldNames ? '' : 'initialGatewayId', $pb.PbFieldType.OU3)
+    ..aI(8, _omitFieldNames ? '' : 'initialSatelliteId',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(9, _omitFieldNames ? '' : 'initialGatewayId',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOB(10, _omitFieldNames ? '' : 'onBackupBeam')
     ..aOB(11, _omitFieldNames ? '' : 'debugTelemetryEnabled')
     ..aOB(12, _omitFieldNames ? '' : 'obstructionCurrent')
-    ..a<$core.double>(
-        13, _omitFieldNames ? '' : 'popPingDropRate15sMean', $pb.PbFieldType.OF,
-        protoName: 'pop_ping_drop_rate_15s_mean')
-    ..a<$core.double>(14, _omitFieldNames ? '' : 'popPingLatencyMs15sMean',
-        $pb.PbFieldType.OF,
-        protoName: 'pop_ping_latency_ms_15s_mean')
-    ..a<$core.double>(15, _omitFieldNames ? '' : 'secondsSinceLast1sOutage',
-        $pb.PbFieldType.OF,
-        protoName: 'seconds_since_last_1s_outage')
-    ..a<$core.double>(16, _omitFieldNames ? '' : 'secondsSinceLast2sOutage',
-        $pb.PbFieldType.OF,
-        protoName: 'seconds_since_last_2s_outage')
-    ..a<$core.double>(17, _omitFieldNames ? '' : 'secondsSinceLast5sOutage',
-        $pb.PbFieldType.OF,
-        protoName: 'seconds_since_last_5s_outage')
-    ..a<$core.double>(18, _omitFieldNames ? '' : 'secondsSinceLast15sOutage',
-        $pb.PbFieldType.OF,
-        protoName: 'seconds_since_last_15s_outage')
-    ..a<$core.double>(19, _omitFieldNames ? '' : 'secondsSinceLast60sOutage',
-        $pb.PbFieldType.OF,
-        protoName: 'seconds_since_last_60s_outage')
-    ..a<$core.double>(
-        20, _omitFieldNames ? '' : 'obstructionTime', $pb.PbFieldType.OF)
-    ..e<$2.UtDisablementCode>(
-        21, _omitFieldNames ? '' : 'disablementCode', $pb.PbFieldType.OE,
-        defaultOrMaker: $2.UtDisablementCode.UNKNOWN_STATE,
-        valueOf: $2.UtDisablementCode.valueOf,
+    ..aD(13, _omitFieldNames ? '' : 'popPingDropRate15sMean',
+        protoName: 'pop_ping_drop_rate_15s_mean', fieldType: $pb.PbFieldType.OF)
+    ..aD(14, _omitFieldNames ? '' : 'popPingLatencyMs15sMean',
+        protoName: 'pop_ping_latency_ms_15s_mean',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(15, _omitFieldNames ? '' : 'secondsSinceLast1sOutage',
+        protoName: 'seconds_since_last_1s_outage',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(16, _omitFieldNames ? '' : 'secondsSinceLast2sOutage',
+        protoName: 'seconds_since_last_2s_outage',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(17, _omitFieldNames ? '' : 'secondsSinceLast5sOutage',
+        protoName: 'seconds_since_last_5s_outage',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(18, _omitFieldNames ? '' : 'secondsSinceLast15sOutage',
+        protoName: 'seconds_since_last_15s_outage',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(19, _omitFieldNames ? '' : 'secondsSinceLast60sOutage',
+        protoName: 'seconds_since_last_60s_outage',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(20, _omitFieldNames ? '' : 'obstructionTime',
+        fieldType: $pb.PbFieldType.OF)
+    ..aE<$2.UtDisablementCode>(21, _omitFieldNames ? '' : 'disablementCode',
         enumValues: $2.UtDisablementCode.values)
-    ..a<$core.double>(
-        22, _omitFieldNames ? '' : 'kuMacActiveRatio', $pb.PbFieldType.OF)
+    ..aD(22, _omitFieldNames ? '' : 'kuMacActiveRatio',
+        fieldType: $pb.PbFieldType.OF)
     ..aOB(23, _omitFieldNames ? '' : 'outage1sWithin1h',
         protoName: 'outage_1s_within_1h')
     ..aOB(24, _omitFieldNames ? '' : 'outage2sWithin1h',
@@ -17976,8 +18361,7 @@ class DishGetContextResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishGetContextResponse clone() =>
-      DishGetContextResponse()..mergeFromMessage(this);
+  DishGetContextResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishGetContextResponse copyWith(
           void Function(DishGetContextResponse) updates) =>
@@ -17991,8 +18375,6 @@ class DishGetContextResponse extends $pb.GeneratedMessage {
   static DishGetContextResponse create() => DishGetContextResponse._();
   @$core.override
   DishGetContextResponse createEmptyInstance() => create();
-  static $pb.PbList<DishGetContextResponse> createRepeated() =>
-      $pb.PbList<DishGetContextResponse>();
   @$core.pragma('dart2js:noInline')
   static DishGetContextResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishGetContextResponse>(create);
@@ -18257,7 +18639,7 @@ class DeviceState extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DeviceState clone() => DeviceState()..mergeFromMessage(this);
+  DeviceState clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DeviceState copyWith(void Function(DeviceState) updates) =>
       super.copyWith((message) => updates(message as DeviceState))
@@ -18270,7 +18652,6 @@ class DeviceState extends $pb.GeneratedMessage {
   static DeviceState create() => DeviceState._();
   @$core.override
   DeviceState createEmptyInstance() => create();
-  static $pb.PbList<DeviceState> createRepeated() => $pb.PbList<DeviceState>();
   @$core.pragma('dart2js:noInline')
   static DeviceState getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DeviceState>(create);
@@ -18330,6 +18711,7 @@ class DishGetStatusResponse extends $pb.GeneratedMessage {
     DishApsStats? apsStats,
     Quaternion? ned2dishQuaternion,
     $core.Iterable<$core.MapEntry<$core.String, RouterInfo>>? downstreamRouters,
+    AccountShard? accountShard,
     DishConfig? config,
   }) {
     final result = create();
@@ -18393,6 +18775,7 @@ class DishGetStatusResponse extends $pb.GeneratedMessage {
       result.ned2dishQuaternion = ned2dishQuaternion;
     if (downstreamRouters != null)
       result.downstreamRouters.addEntries(downstreamRouters);
+    if (accountShard != null) result.accountShard = accountShard;
     if (config != null) result.config = config;
     return result;
   }
@@ -18415,59 +18798,44 @@ class DishGetStatusResponse extends $pb.GeneratedMessage {
         subBuilder: DeviceInfo.create)
     ..aOM<DeviceState>(2, _omitFieldNames ? '' : 'deviceState',
         subBuilder: DeviceState.create)
-    ..a<$core.double>(1002, _omitFieldNames ? '' : 'secondsToFirstNonemptySlot',
-        $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        1003, _omitFieldNames ? '' : 'popPingDropRate', $pb.PbFieldType.OF)
+    ..aD(1002, _omitFieldNames ? '' : 'secondsToFirstNonemptySlot',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(1003, _omitFieldNames ? '' : 'popPingDropRate',
+        fieldType: $pb.PbFieldType.OF)
     ..aOM<DishObstructionStats>(1004, _omitFieldNames ? '' : 'obstructionStats',
         subBuilder: DishObstructionStats.create)
     ..aOM<DishAlerts>(1005, _omitFieldNames ? '' : 'alerts',
         subBuilder: DishAlerts.create)
-    ..a<$core.double>(1007, _omitFieldNames ? '' : 'downlinkThroughputBps',
-        $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        1008, _omitFieldNames ? '' : 'uplinkThroughputBps', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        1009, _omitFieldNames ? '' : 'popPingLatencyMs', $pb.PbFieldType.OF)
+    ..aD(1007, _omitFieldNames ? '' : 'downlinkThroughputBps',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(1008, _omitFieldNames ? '' : 'uplinkThroughputBps',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(1009, _omitFieldNames ? '' : 'popPingLatencyMs',
+        fieldType: $pb.PbFieldType.OF)
     ..aOB(1010, _omitFieldNames ? '' : 'stowRequested')
-    ..a<$core.double>(
-        1011, _omitFieldNames ? '' : 'boresightAzimuthDeg', $pb.PbFieldType.OF)
-    ..a<$core.double>(1012, _omitFieldNames ? '' : 'boresightElevationDeg',
-        $pb.PbFieldType.OF)
+    ..aD(1011, _omitFieldNames ? '' : 'boresightAzimuthDeg',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(1012, _omitFieldNames ? '' : 'boresightElevationDeg',
+        fieldType: $pb.PbFieldType.OF)
     ..aOM<DishOutage>(1014, _omitFieldNames ? '' : 'outage',
         subBuilder: DishOutage.create)
     ..aOM<DishGpsStats>(1015, _omitFieldNames ? '' : 'gpsStats',
         subBuilder: DishGpsStats.create)
-    ..a<$core.int>(
-        1016, _omitFieldNames ? '' : 'ethSpeedMbps', $pb.PbFieldType.O3)
-    ..e<UserMobilityClass>(
-        1017, _omitFieldNames ? '' : 'mobilityClass', $pb.PbFieldType.OE,
-        defaultOrMaker: UserMobilityClass.STATIONARY,
-        valueOf: UserMobilityClass.valueOf,
+    ..aI(1016, _omitFieldNames ? '' : 'ethSpeedMbps')
+    ..aE<UserMobilityClass>(1017, _omitFieldNames ? '' : 'mobilityClass',
         enumValues: UserMobilityClass.values)
     ..aOB(1018, _omitFieldNames ? '' : 'isSnrAboveNoiseFloor')
     ..aOM<DishReadyStates>(1019, _omitFieldNames ? '' : 'readyStates',
         subBuilder: DishReadyStates.create)
-    ..e<UserClassOfService>(
-        1020, _omitFieldNames ? '' : 'classOfService', $pb.PbFieldType.OE,
-        defaultOrMaker: UserClassOfService.UNKNOWN_USER_CLASS_OF_SERVICE,
-        valueOf: UserClassOfService.valueOf,
+    ..aE<UserClassOfService>(1020, _omitFieldNames ? '' : 'classOfService',
         enumValues: UserClassOfService.values)
-    ..e<SoftwareUpdateState>(
-        1021, _omitFieldNames ? '' : 'softwareUpdateState', $pb.PbFieldType.OE,
-        defaultOrMaker: SoftwareUpdateState.SOFTWARE_UPDATE_STATE_UNKNOWN,
-        valueOf: SoftwareUpdateState.valueOf,
+    ..aE<SoftwareUpdateState>(
+        1021, _omitFieldNames ? '' : 'softwareUpdateState',
         enumValues: SoftwareUpdateState.values)
     ..aOB(1022, _omitFieldNames ? '' : 'isSnrPersistentlyLow')
-    ..e<HasActuators>(
-        1023, _omitFieldNames ? '' : 'hasActuators', $pb.PbFieldType.OE,
-        defaultOrMaker: HasActuators.HAS_ACTUATORS_UNKNOWN,
-        valueOf: HasActuators.valueOf,
+    ..aE<HasActuators>(1023, _omitFieldNames ? '' : 'hasActuators',
         enumValues: HasActuators.values)
-    ..e<$2.UtDisablementCode>(
-        1024, _omitFieldNames ? '' : 'disablementCode', $pb.PbFieldType.OE,
-        defaultOrMaker: $2.UtDisablementCode.UNKNOWN_STATE,
-        valueOf: $2.UtDisablementCode.valueOf,
+    ..aE<$2.UtDisablementCode>(1024, _omitFieldNames ? '' : 'disablementCode',
         enumValues: $2.UtDisablementCode.values)
     ..aOB(1025, _omitFieldNames ? '' : 'hasSignedCals')
     ..aOM<SoftwareUpdateStats>(
@@ -18480,14 +18848,8 @@ class DishGetStatusResponse extends $pb.GeneratedMessage {
         subBuilder: InitializationDurationSeconds.create)
     ..aOB(1029, _omitFieldNames ? '' : 'isCellDisabled')
     ..aOB(1030, _omitFieldNames ? '' : 'swupdateRebootReady')
-    ..a<$core.int>(
-        1031,
-        _omitFieldNames ? '' : 'secondsUntilSwupdateRebootPossible',
-        $pb.PbFieldType.O3)
-    ..e<RebootReason>(
-        1032, _omitFieldNames ? '' : 'rebootReason', $pb.PbFieldType.OE,
-        defaultOrMaker: RebootReason.REBOOT_REASON_NONE,
-        valueOf: RebootReason.valueOf,
+    ..aI(1031, _omitFieldNames ? '' : 'secondsUntilSwupdateRebootPossible')
+    ..aE<RebootReason>(1032, _omitFieldNames ? '' : 'rebootReason',
         enumValues: RebootReason.values)
     ..aOB(1033, _omitFieldNames ? '' : 'highPowerTestMode')
     ..pPS(1040, _omitFieldNames ? '' : 'connectedRouters')
@@ -18496,19 +18858,11 @@ class DishGetStatusResponse extends $pb.GeneratedMessage {
     ..aOB(1042, _omitFieldNames ? '' : 'isMovingFastPersisted')
     ..aOM<DishUpsuStats>(1043, _omitFieldNames ? '' : 'upsuStats',
         subBuilder: DishUpsuStats.create)
-    ..e<$3.RateLimitReason>(
-        1044,
-        _omitFieldNames ? '' : 'dlBandwidthRestrictedReason',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: $3.RateLimitReason.UNKNOWN,
-        valueOf: $3.RateLimitReason.valueOf,
+    ..aE<$3.RateLimitReason>(
+        1044, _omitFieldNames ? '' : 'dlBandwidthRestrictedReason',
         enumValues: $3.RateLimitReason.values)
-    ..e<$3.RateLimitReason>(
-        1045,
-        _omitFieldNames ? '' : 'ulBandwidthRestrictedReason',
-        $pb.PbFieldType.OE,
-        defaultOrMaker: $3.RateLimitReason.UNKNOWN,
-        valueOf: $3.RateLimitReason.valueOf,
+    ..aE<$3.RateLimitReason>(
+        1045, _omitFieldNames ? '' : 'ulBandwidthRestrictedReason',
         enumValues: $3.RateLimitReason.values)
     ..aOM<DishApsStats>(1048, _omitFieldNames ? '' : 'apsStats',
         subBuilder: DishApsStats.create)
@@ -18522,13 +18876,14 @@ class DishGetStatusResponse extends $pb.GeneratedMessage {
         valueCreator: RouterInfo.create,
         valueDefaultOrMaker: RouterInfo.getDefault,
         packageName: const $pb.PackageName('SpaceX.API.Device'))
+    ..aE<AccountShard>(1051, _omitFieldNames ? '' : 'accountShard',
+        enumValues: AccountShard.values)
     ..aOM<DishConfig>(2000, _omitFieldNames ? '' : 'config',
         subBuilder: DishConfig.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishGetStatusResponse clone() =>
-      DishGetStatusResponse()..mergeFromMessage(this);
+  DishGetStatusResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishGetStatusResponse copyWith(
           void Function(DishGetStatusResponse) updates) =>
@@ -18542,8 +18897,6 @@ class DishGetStatusResponse extends $pb.GeneratedMessage {
   static DishGetStatusResponse create() => DishGetStatusResponse._();
   @$core.override
   DishGetStatusResponse createEmptyInstance() => create();
-  static $pb.PbList<DishGetStatusResponse> createRepeated() =>
-      $pb.PbList<DishGetStatusResponse>();
   @$core.pragma('dart2js:noInline')
   static DishGetStatusResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishGetStatusResponse>(create);
@@ -18939,16 +19292,25 @@ class DishGetStatusResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1050)
   $pb.PbMap<$core.String, RouterInfo> get downstreamRouters => $_getMap(40);
 
+  @$pb.TagNumber(1051)
+  AccountShard get accountShard => $_getN(41);
+  @$pb.TagNumber(1051)
+  set accountShard(AccountShard value) => $_setField(1051, value);
+  @$pb.TagNumber(1051)
+  $core.bool hasAccountShard() => $_has(41);
+  @$pb.TagNumber(1051)
+  void clearAccountShard() => $_clearField(1051);
+
   @$pb.TagNumber(2000)
-  DishConfig get config => $_getN(41);
+  DishConfig get config => $_getN(42);
   @$pb.TagNumber(2000)
   set config(DishConfig value) => $_setField(2000, value);
   @$pb.TagNumber(2000)
-  $core.bool hasConfig() => $_has(41);
+  $core.bool hasConfig() => $_has(42);
   @$pb.TagNumber(2000)
   void clearConfig() => $_clearField(2000);
   @$pb.TagNumber(2000)
-  DishConfig ensureConfig() => $_ensure(41);
+  DishConfig ensureConfig() => $_ensure(42);
 }
 
 /// SpaceX.API.Device.DishObstructionStats is a message:
@@ -18996,28 +19358,23 @@ class DishObstructionStats extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.double>(
-        1, _omitFieldNames ? '' : 'fractionObstructed', $pb.PbFieldType.OF)
-    ..a<$core.double>(4, _omitFieldNames ? '' : 'validS', $pb.PbFieldType.OF)
+    ..aD(1, _omitFieldNames ? '' : 'fractionObstructed',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(4, _omitFieldNames ? '' : 'validS', fieldType: $pb.PbFieldType.OF)
     ..aOB(5, _omitFieldNames ? '' : 'currentlyObstructed')
-    ..a<$core.double>(
-        6,
-        _omitFieldNames ? '' : 'avgProlongedObstructionDurationS',
-        $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        7,
-        _omitFieldNames ? '' : 'avgProlongedObstructionIntervalS',
-        $pb.PbFieldType.OF)
+    ..aD(6, _omitFieldNames ? '' : 'avgProlongedObstructionDurationS',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(7, _omitFieldNames ? '' : 'avgProlongedObstructionIntervalS',
+        fieldType: $pb.PbFieldType.OF)
     ..aOB(8, _omitFieldNames ? '' : 'avgProlongedObstructionValid')
-    ..a<$core.double>(
-        9, _omitFieldNames ? '' : 'timeObstructed', $pb.PbFieldType.OF)
-    ..a<$core.int>(
-        10, _omitFieldNames ? '' : 'patchesValid', $pb.PbFieldType.OU3)
+    ..aD(9, _omitFieldNames ? '' : 'timeObstructed',
+        fieldType: $pb.PbFieldType.OF)
+    ..aI(10, _omitFieldNames ? '' : 'patchesValid',
+        fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishObstructionStats clone() =>
-      DishObstructionStats()..mergeFromMessage(this);
+  DishObstructionStats clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishObstructionStats copyWith(void Function(DishObstructionStats) updates) =>
       super.copyWith((message) => updates(message as DishObstructionStats))
@@ -19030,8 +19387,6 @@ class DishObstructionStats extends $pb.GeneratedMessage {
   static DishObstructionStats create() => DishObstructionStats._();
   @$core.override
   DishObstructionStats createEmptyInstance() => create();
-  static $pb.PbList<DishObstructionStats> createRepeated() =>
-      $pb.PbList<DishObstructionStats>();
   @$core.pragma('dart2js:noInline')
   static DishObstructionStats getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishObstructionStats>(create);
@@ -19134,6 +19489,7 @@ class DishAlerts extends $pb.GeneratedMessage {
     $core.bool? dishWaterDetected,
     $core.bool? routerWaterDetected,
     $core.bool? upsuRouterPortSlow,
+    $core.bool? noEthernetLink,
   }) {
     final result = create();
     if (motorsStuck != null) result.motorsStuck = motorsStuck;
@@ -19164,6 +19520,7 @@ class DishAlerts extends $pb.GeneratedMessage {
       result.routerWaterDetected = routerWaterDetected;
     if (upsuRouterPortSlow != null)
       result.upsuRouterPortSlow = upsuRouterPortSlow;
+    if (noEthernetLink != null) result.noEthernetLink = noEthernetLink;
     return result;
   }
 
@@ -19201,10 +19558,11 @@ class DishAlerts extends $pb.GeneratedMessage {
     ..aOB(20, _omitFieldNames ? '' : 'dishWaterDetected')
     ..aOB(21, _omitFieldNames ? '' : 'routerWaterDetected')
     ..aOB(22, _omitFieldNames ? '' : 'upsuRouterPortSlow')
+    ..aOB(23, _omitFieldNames ? '' : 'noEthernetLink')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishAlerts clone() => DishAlerts()..mergeFromMessage(this);
+  DishAlerts clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishAlerts copyWith(void Function(DishAlerts) updates) =>
       super.copyWith((message) => updates(message as DishAlerts)) as DishAlerts;
@@ -19216,7 +19574,6 @@ class DishAlerts extends $pb.GeneratedMessage {
   static DishAlerts create() => DishAlerts._();
   @$core.override
   DishAlerts createEmptyInstance() => create();
-  static $pb.PbList<DishAlerts> createRepeated() => $pb.PbList<DishAlerts>();
   @$core.pragma('dart2js:noInline')
   static DishAlerts getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishAlerts>(create);
@@ -19392,6 +19749,15 @@ class DishAlerts extends $pb.GeneratedMessage {
   $core.bool hasUpsuRouterPortSlow() => $_has(18);
   @$pb.TagNumber(22)
   void clearUpsuRouterPortSlow() => $_clearField(22);
+
+  @$pb.TagNumber(23)
+  $core.bool get noEthernetLink => $_getBF(19);
+  @$pb.TagNumber(23)
+  set noEthernetLink($core.bool value) => $_setBool(19, value);
+  @$pb.TagNumber(23)
+  $core.bool hasNoEthernetLink() => $_has(19);
+  @$pb.TagNumber(23)
+  void clearNoEthernetLink() => $_clearField(23);
 }
 
 /// SpaceX.API.Device.DishOutage is a message:
@@ -19424,9 +19790,7 @@ class DishOutage extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..e<DishOutage_Cause>(1, _omitFieldNames ? '' : 'cause', $pb.PbFieldType.OE,
-        defaultOrMaker: DishOutage_Cause.UNKNOWN,
-        valueOf: DishOutage_Cause.valueOf,
+    ..aE<DishOutage_Cause>(1, _omitFieldNames ? '' : 'cause',
         enumValues: DishOutage_Cause.values)
     ..aInt64(2, _omitFieldNames ? '' : 'startTimestampNs')
     ..a<$fixnum.Int64>(
@@ -19436,7 +19800,7 @@ class DishOutage extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishOutage clone() => DishOutage()..mergeFromMessage(this);
+  DishOutage clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishOutage copyWith(void Function(DishOutage) updates) =>
       super.copyWith((message) => updates(message as DishOutage)) as DishOutage;
@@ -19448,7 +19812,6 @@ class DishOutage extends $pb.GeneratedMessage {
   static DishOutage create() => DishOutage._();
   @$core.override
   DishOutage createEmptyInstance() => create();
-  static $pb.PbList<DishOutage> createRepeated() => $pb.PbList<DishOutage>();
   @$core.pragma('dart2js:noInline')
   static DishOutage getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishOutage>(create);
@@ -19522,13 +19885,13 @@ class DishGpsStats extends $pb.GeneratedMessage {
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
     ..aOB(1, _omitFieldNames ? '' : 'gpsValid')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'gpsSats', $pb.PbFieldType.OU3)
+    ..aI(2, _omitFieldNames ? '' : 'gpsSats', fieldType: $pb.PbFieldType.OU3)
     ..aOB(3, _omitFieldNames ? '' : 'noSatsAfterTtff')
     ..aOB(4, _omitFieldNames ? '' : 'inhibitGps')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishGpsStats clone() => DishGpsStats()..mergeFromMessage(this);
+  DishGpsStats clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishGpsStats copyWith(void Function(DishGpsStats) updates) =>
       super.copyWith((message) => updates(message as DishGpsStats))
@@ -19541,8 +19904,6 @@ class DishGpsStats extends $pb.GeneratedMessage {
   static DishGpsStats create() => DishGpsStats._();
   @$core.override
   DishGpsStats createEmptyInstance() => create();
-  static $pb.PbList<DishGpsStats> createRepeated() =>
-      $pb.PbList<DishGpsStats>();
   @$core.pragma('dart2js:noInline')
   static DishGpsStats getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishGpsStats>(create);
@@ -19628,7 +19989,7 @@ class DishReadyStates extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishReadyStates clone() => DishReadyStates()..mergeFromMessage(this);
+  DishReadyStates clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishReadyStates copyWith(void Function(DishReadyStates) updates) =>
       super.copyWith((message) => updates(message as DishReadyStates))
@@ -19641,8 +20002,6 @@ class DishReadyStates extends $pb.GeneratedMessage {
   static DishReadyStates create() => DishReadyStates._();
   @$core.override
   DishReadyStates createEmptyInstance() => create();
-  static $pb.PbList<DishReadyStates> createRepeated() =>
-      $pb.PbList<DishReadyStates>();
   @$core.pragma('dart2js:noInline')
   static DishReadyStates getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishReadyStates>(create);
@@ -19737,19 +20096,16 @@ class SoftwareUpdateStats extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..e<SoftwareUpdateState>(
-        1, _omitFieldNames ? '' : 'softwareUpdateState', $pb.PbFieldType.OE,
-        defaultOrMaker: SoftwareUpdateState.SOFTWARE_UPDATE_STATE_UNKNOWN,
-        valueOf: SoftwareUpdateState.valueOf,
+    ..aE<SoftwareUpdateState>(1, _omitFieldNames ? '' : 'softwareUpdateState',
         enumValues: SoftwareUpdateState.values)
-    ..a<$core.double>(
-        2, _omitFieldNames ? '' : 'softwareUpdateProgress', $pb.PbFieldType.OF)
+    ..aD(2, _omitFieldNames ? '' : 'softwareUpdateProgress',
+        fieldType: $pb.PbFieldType.OF)
     ..aOB(3, _omitFieldNames ? '' : 'updateRequiresReboot')
     ..aInt64(4, _omitFieldNames ? '' : 'rebootScheduledUtcTime')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SoftwareUpdateStats clone() => SoftwareUpdateStats()..mergeFromMessage(this);
+  SoftwareUpdateStats clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   SoftwareUpdateStats copyWith(void Function(SoftwareUpdateStats) updates) =>
       super.copyWith((message) => updates(message as SoftwareUpdateStats))
@@ -19762,8 +20118,6 @@ class SoftwareUpdateStats extends $pb.GeneratedMessage {
   static SoftwareUpdateStats create() => SoftwareUpdateStats._();
   @$core.override
   SoftwareUpdateStats createEmptyInstance() => create();
-  static $pb.PbList<SoftwareUpdateStats> createRepeated() =>
-      $pb.PbList<SoftwareUpdateStats>();
   @$core.pragma('dart2js:noInline')
   static SoftwareUpdateStats getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SoftwareUpdateStats>(create);
@@ -19852,37 +20206,29 @@ class AlignmentStats extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..e<HasActuators>(
-        1, _omitFieldNames ? '' : 'hasActuators', $pb.PbFieldType.OE,
-        defaultOrMaker: HasActuators.HAS_ACTUATORS_UNKNOWN,
-        valueOf: HasActuators.valueOf,
+    ..aE<HasActuators>(1, _omitFieldNames ? '' : 'hasActuators',
         enumValues: HasActuators.values)
-    ..e<ActuatorState>(
-        2, _omitFieldNames ? '' : 'actuatorState', $pb.PbFieldType.OE,
-        defaultOrMaker: ActuatorState.ACTUATOR_STATE_IDLE,
-        valueOf: ActuatorState.valueOf,
+    ..aE<ActuatorState>(2, _omitFieldNames ? '' : 'actuatorState',
         enumValues: ActuatorState.values)
-    ..a<$core.double>(
-        3, _omitFieldNames ? '' : 'tiltAngleDeg', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        4, _omitFieldNames ? '' : 'boresightAzimuthDeg', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        5, _omitFieldNames ? '' : 'boresightElevationDeg', $pb.PbFieldType.OF)
-    ..e<AttitudeEstimationState>(
-        6, _omitFieldNames ? '' : 'attitudeEstimationState', $pb.PbFieldType.OE,
-        defaultOrMaker: AttitudeEstimationState.FILTER_RESET,
-        valueOf: AttitudeEstimationState.valueOf,
+    ..aD(3, _omitFieldNames ? '' : 'tiltAngleDeg',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(4, _omitFieldNames ? '' : 'boresightAzimuthDeg',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(5, _omitFieldNames ? '' : 'boresightElevationDeg',
+        fieldType: $pb.PbFieldType.OF)
+    ..aE<AttitudeEstimationState>(
+        6, _omitFieldNames ? '' : 'attitudeEstimationState',
         enumValues: AttitudeEstimationState.values)
-    ..a<$core.double>(
-        7, _omitFieldNames ? '' : 'attitudeUncertaintyDeg', $pb.PbFieldType.OF)
-    ..a<$core.double>(8, _omitFieldNames ? '' : 'desiredBoresightAzimuthDeg',
-        $pb.PbFieldType.OF)
-    ..a<$core.double>(9, _omitFieldNames ? '' : 'desiredBoresightElevationDeg',
-        $pb.PbFieldType.OF)
+    ..aD(7, _omitFieldNames ? '' : 'attitudeUncertaintyDeg',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(8, _omitFieldNames ? '' : 'desiredBoresightAzimuthDeg',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(9, _omitFieldNames ? '' : 'desiredBoresightElevationDeg',
+        fieldType: $pb.PbFieldType.OF)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  AlignmentStats clone() => AlignmentStats()..mergeFromMessage(this);
+  AlignmentStats clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   AlignmentStats copyWith(void Function(AlignmentStats) updates) =>
       super.copyWith((message) => updates(message as AlignmentStats))
@@ -19895,8 +20241,6 @@ class AlignmentStats extends $pb.GeneratedMessage {
   static AlignmentStats create() => AlignmentStats._();
   @$core.override
   AlignmentStats createEmptyInstance() => create();
-  static $pb.PbList<AlignmentStats> createRepeated() =>
-      $pb.PbList<AlignmentStats>();
   @$core.pragma('dart2js:noInline')
   static AlignmentStats getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<AlignmentStats>(create);
@@ -20029,26 +20373,20 @@ class InitializationDurationSeconds extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.int>(
-        1, _omitFieldNames ? '' : 'attitudeInitialization', $pb.PbFieldType.O3)
-    ..a<$core.int>(
-        2, _omitFieldNames ? '' : 'burstDetected', $pb.PbFieldType.O3)
-    ..a<$core.int>(3, _omitFieldNames ? '' : 'ekfConverged', $pb.PbFieldType.O3)
-    ..a<$core.int>(4, _omitFieldNames ? '' : 'firstCplane', $pb.PbFieldType.O3)
-    ..a<$core.int>(5, _omitFieldNames ? '' : 'firstPopPing', $pb.PbFieldType.O3)
-    ..a<$core.int>(6, _omitFieldNames ? '' : 'gpsValid', $pb.PbFieldType.O3)
-    ..a<$core.int>(
-        7, _omitFieldNames ? '' : 'initialNetworkEntry', $pb.PbFieldType.O3)
-    ..a<$core.int>(
-        8, _omitFieldNames ? '' : 'networkSchedule', $pb.PbFieldType.O3)
-    ..a<$core.int>(9, _omitFieldNames ? '' : 'rfReady', $pb.PbFieldType.O3)
-    ..a<$core.int>(
-        10, _omitFieldNames ? '' : 'stableConnection', $pb.PbFieldType.O3)
+    ..aI(1, _omitFieldNames ? '' : 'attitudeInitialization')
+    ..aI(2, _omitFieldNames ? '' : 'burstDetected')
+    ..aI(3, _omitFieldNames ? '' : 'ekfConverged')
+    ..aI(4, _omitFieldNames ? '' : 'firstCplane')
+    ..aI(5, _omitFieldNames ? '' : 'firstPopPing')
+    ..aI(6, _omitFieldNames ? '' : 'gpsValid')
+    ..aI(7, _omitFieldNames ? '' : 'initialNetworkEntry')
+    ..aI(8, _omitFieldNames ? '' : 'networkSchedule')
+    ..aI(9, _omitFieldNames ? '' : 'rfReady')
+    ..aI(10, _omitFieldNames ? '' : 'stableConnection')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  InitializationDurationSeconds clone() =>
-      InitializationDurationSeconds()..mergeFromMessage(this);
+  InitializationDurationSeconds clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   InitializationDurationSeconds copyWith(
           void Function(InitializationDurationSeconds) updates) =>
@@ -20064,8 +20402,6 @@ class InitializationDurationSeconds extends $pb.GeneratedMessage {
       InitializationDurationSeconds._();
   @$core.override
   InitializationDurationSeconds createEmptyInstance() => create();
-  static $pb.PbList<InitializationDurationSeconds> createRepeated() =>
-      $pb.PbList<InitializationDurationSeconds>();
   @$core.pragma('dart2js:noInline')
   static InitializationDurationSeconds getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<InitializationDurationSeconds>(create);
@@ -20214,14 +20550,14 @@ class PLCStats extends $pb.GeneratedMessage {
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
     ..aOB(1, _omitFieldNames ? '' : 'receivingPlc')
-    ..a<$core.int>(
-        2, _omitFieldNames ? '' : 'averageTimeToEmpty', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        3, _omitFieldNames ? '' : 'averageTimeToFull', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        4, _omitFieldNames ? '' : 'batteryHealth', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        5, _omitFieldNames ? '' : 'hardwareRevisionId', $pb.PbFieldType.OU3)
+    ..aI(2, _omitFieldNames ? '' : 'averageTimeToEmpty',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(3, _omitFieldNames ? '' : 'averageTimeToFull',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(4, _omitFieldNames ? '' : 'batteryHealth',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(5, _omitFieldNames ? '' : 'hardwareRevisionId',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOB(6, _omitFieldNames ? '' : 'permanentFailure')
     ..aOM<PLCPortStats>(7, _omitFieldNames ? '' : 'port1Stats',
         protoName: 'port_1_stats', subBuilder: PLCPortStats.create)
@@ -20229,20 +20565,17 @@ class PLCStats extends $pb.GeneratedMessage {
         protoName: 'port_2_stats', subBuilder: PLCPortStats.create)
     ..aOM<PLCPortStats>(9, _omitFieldNames ? '' : 'port3Stats',
         protoName: 'port_3_stats', subBuilder: PLCPortStats.create)
-    ..e<PLCStats_ProtocolRevision>(
-        10, _omitFieldNames ? '' : 'plcRevision', $pb.PbFieldType.OE,
-        defaultOrMaker: PLCStats_ProtocolRevision.REV_D,
-        valueOf: PLCStats_ProtocolRevision.valueOf,
+    ..aE<PLCStats_ProtocolRevision>(10, _omitFieldNames ? '' : 'plcRevision',
         enumValues: PLCStats_ProtocolRevision.values)
     ..aOB(11, _omitFieldNames ? '' : 'safetyModeActive')
-    ..a<$core.int>(
-        12, _omitFieldNames ? '' : 'stateOfCharge', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        13, _omitFieldNames ? '' : 'thermalThrottleLevel', $pb.PbFieldType.OU3)
+    ..aI(12, _omitFieldNames ? '' : 'stateOfCharge',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(13, _omitFieldNames ? '' : 'thermalThrottleLevel',
+        fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  PLCStats clone() => PLCStats()..mergeFromMessage(this);
+  PLCStats clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   PLCStats copyWith(void Function(PLCStats) updates) =>
       super.copyWith((message) => updates(message as PLCStats)) as PLCStats;
@@ -20254,7 +20587,6 @@ class PLCStats extends $pb.GeneratedMessage {
   static PLCStats create() => PLCStats._();
   @$core.override
   PLCStats createEmptyInstance() => create();
-  static $pb.PbList<PLCStats> createRepeated() => $pb.PbList<PLCStats>();
   @$core.pragma('dart2js:noInline')
   static PLCStats getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PLCStats>(create);
@@ -20410,16 +20742,13 @@ class PLCPortStats extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'power', $pb.PbFieldType.OU3)
-    ..e<PLCPortStats_PortStatus>(
-        2, _omitFieldNames ? '' : 'status', $pb.PbFieldType.OE,
-        defaultOrMaker: PLCPortStats_PortStatus.INACTIVE,
-        valueOf: PLCPortStats_PortStatus.valueOf,
+    ..aI(1, _omitFieldNames ? '' : 'power', fieldType: $pb.PbFieldType.OU3)
+    ..aE<PLCPortStats_PortStatus>(2, _omitFieldNames ? '' : 'status',
         enumValues: PLCPortStats_PortStatus.values)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  PLCPortStats clone() => PLCPortStats()..mergeFromMessage(this);
+  PLCPortStats clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   PLCPortStats copyWith(void Function(PLCPortStats) updates) =>
       super.copyWith((message) => updates(message as PLCPortStats))
@@ -20432,8 +20761,6 @@ class PLCPortStats extends $pb.GeneratedMessage {
   static PLCPortStats create() => PLCPortStats._();
   @$core.override
   PLCPortStats createEmptyInstance() => create();
-  static $pb.PbList<PLCPortStats> createRepeated() =>
-      $pb.PbList<PLCPortStats>();
   @$core.pragma('dart2js:noInline')
   static PLCPortStats getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<PLCPortStats>(create);
@@ -20519,22 +20846,21 @@ class DishUpsuStats extends $pb.GeneratedMessage {
         4, _omitFieldNames ? '' : 'romVersion', $pb.PbFieldType.OU6,
         defaultOrMaker: $fixnum.Int64.ZERO)
     ..aInt64(5, _omitFieldNames ? '' : 'uptime')
-    ..a<$core.double>(6, _omitFieldNames ? '' : 'dishPower', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        7, _omitFieldNames ? '' : 'routerPower', $pb.PbFieldType.OF)
+    ..aD(6, _omitFieldNames ? '' : 'dishPower', fieldType: $pb.PbFieldType.OF)
+    ..aD(7, _omitFieldNames ? '' : 'routerPower', fieldType: $pb.PbFieldType.OF)
     ..aOB(8, _omitFieldNames ? '' : 'forceDevSignedAllowed')
     ..aOB(9, _omitFieldNames ? '' : 'debugPortLocked')
     ..aOB(10, _omitFieldNames ? '' : 'stsafeCertsLocked')
     ..aOB(11, _omitFieldNames ? '' : 'stsafeKeysLocked')
-    ..a<$core.int>(12, _omitFieldNames ? '' : 'g0Locked', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        13, _omitFieldNames ? '' : 'g0FirmwareVersion', $pb.PbFieldType.OU3)
-    ..a<$core.int>(14, _omitFieldNames ? '' : 'boardRev', $pb.PbFieldType.O3)
-    ..a<$core.int>(15, _omitFieldNames ? '' : 'g0BoardId', $pb.PbFieldType.OU3)
+    ..aI(12, _omitFieldNames ? '' : 'g0Locked', fieldType: $pb.PbFieldType.OU3)
+    ..aI(13, _omitFieldNames ? '' : 'g0FirmwareVersion',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(14, _omitFieldNames ? '' : 'boardRev')
+    ..aI(15, _omitFieldNames ? '' : 'g0BoardId', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishUpsuStats clone() => DishUpsuStats()..mergeFromMessage(this);
+  DishUpsuStats clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishUpsuStats copyWith(void Function(DishUpsuStats) updates) =>
       super.copyWith((message) => updates(message as DishUpsuStats))
@@ -20547,8 +20873,6 @@ class DishUpsuStats extends $pb.GeneratedMessage {
   static DishUpsuStats create() => DishUpsuStats._();
   @$core.override
   DishUpsuStats createEmptyInstance() => create();
-  static $pb.PbList<DishUpsuStats> createRepeated() =>
-      $pb.PbList<DishUpsuStats>();
   @$core.pragma('dart2js:noInline')
   static DishUpsuStats getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishUpsuStats>(create);
@@ -20730,14 +21054,14 @@ class DishApsStats extends $pb.GeneratedMessage {
         4, _omitFieldNames ? '' : 'romVersion', $pb.PbFieldType.OU6,
         defaultOrMaker: $fixnum.Int64.ZERO)
     ..aInt64(5, _omitFieldNames ? '' : 'uptime')
-    ..a<$core.double>(6, _omitFieldNames ? '' : 'dishPower', $pb.PbFieldType.OF)
+    ..aD(6, _omitFieldNames ? '' : 'dishPower', fieldType: $pb.PbFieldType.OF)
     ..aOB(7, _omitFieldNames ? '' : 'forceDevSignedAllowed')
     ..aOB(8, _omitFieldNames ? '' : 'debugPortLocked')
-    ..a<$core.int>(9, _omitFieldNames ? '' : 'boardRev', $pb.PbFieldType.O3)
+    ..aI(9, _omitFieldNames ? '' : 'boardRev')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishApsStats clone() => DishApsStats()..mergeFromMessage(this);
+  DishApsStats clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishApsStats copyWith(void Function(DishApsStats) updates) =>
       super.copyWith((message) => updates(message as DishApsStats))
@@ -20750,8 +21074,6 @@ class DishApsStats extends $pb.GeneratedMessage {
   static DishApsStats create() => DishApsStats._();
   @$core.override
   DishApsStats createEmptyInstance() => create();
-  static $pb.PbList<DishApsStats> createRepeated() =>
-      $pb.PbList<DishApsStats>();
   @$core.pragma('dart2js:noInline')
   static DishApsStats getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishApsStats>(create);
@@ -20860,14 +21182,14 @@ class Quaternion extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'qScalar', $pb.PbFieldType.OF)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'qX', $pb.PbFieldType.OF)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'qY', $pb.PbFieldType.OF)
-    ..a<$core.double>(4, _omitFieldNames ? '' : 'qZ', $pb.PbFieldType.OF)
+    ..aD(1, _omitFieldNames ? '' : 'qScalar', fieldType: $pb.PbFieldType.OF)
+    ..aD(2, _omitFieldNames ? '' : 'qX', fieldType: $pb.PbFieldType.OF)
+    ..aD(3, _omitFieldNames ? '' : 'qY', fieldType: $pb.PbFieldType.OF)
+    ..aD(4, _omitFieldNames ? '' : 'qZ', fieldType: $pb.PbFieldType.OF)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  Quaternion clone() => Quaternion()..mergeFromMessage(this);
+  Quaternion clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   Quaternion copyWith(void Function(Quaternion) updates) =>
       super.copyWith((message) => updates(message as Quaternion)) as Quaternion;
@@ -20879,7 +21201,6 @@ class Quaternion extends $pb.GeneratedMessage {
   static Quaternion create() => Quaternion._();
   @$core.override
   Quaternion createEmptyInstance() => create();
-  static $pb.PbList<Quaternion> createRepeated() => $pb.PbList<Quaternion>();
   @$core.pragma('dart2js:noInline')
   static Quaternion getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<Quaternion>(create);
@@ -20948,15 +21269,13 @@ class RouterInfo extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..e<RouterRole>(1, _omitFieldNames ? '' : 'role', $pb.PbFieldType.OE,
-        defaultOrMaker: RouterRole.UNSPECIFIED,
-        valueOf: RouterRole.valueOf,
+    ..aE<RouterRole>(1, _omitFieldNames ? '' : 'role',
         enumValues: RouterRole.values)
     ..aInt64(2, _omitFieldNames ? '' : 'lastSeen')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  RouterInfo clone() => RouterInfo()..mergeFromMessage(this);
+  RouterInfo clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   RouterInfo copyWith(void Function(RouterInfo) updates) =>
       super.copyWith((message) => updates(message as RouterInfo)) as RouterInfo;
@@ -20968,7 +21287,6 @@ class RouterInfo extends $pb.GeneratedMessage {
   static RouterInfo create() => RouterInfo._();
   @$core.override
   RouterInfo createEmptyInstance() => create();
-  static $pb.PbList<RouterInfo> createRepeated() => $pb.PbList<RouterInfo>();
   @$core.pragma('dart2js:noInline')
   static RouterInfo getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RouterInfo>(create);
@@ -21022,8 +21340,7 @@ class DishAuthenticateResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishAuthenticateResponse clone() =>
-      DishAuthenticateResponse()..mergeFromMessage(this);
+  DishAuthenticateResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishAuthenticateResponse copyWith(
           void Function(DishAuthenticateResponse) updates) =>
@@ -21037,8 +21354,6 @@ class DishAuthenticateResponse extends $pb.GeneratedMessage {
   static DishAuthenticateResponse create() => DishAuthenticateResponse._();
   @$core.override
   DishAuthenticateResponse createEmptyInstance() => create();
-  static $pb.PbList<DishAuthenticateResponse> createRepeated() =>
-      $pb.PbList<DishAuthenticateResponse>();
   @$core.pragma('dart2js:noInline')
   static DishAuthenticateResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishAuthenticateResponse>(create);
@@ -21089,7 +21404,7 @@ class ChallengeResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ChallengeResponse clone() => ChallengeResponse()..mergeFromMessage(this);
+  ChallengeResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ChallengeResponse copyWith(void Function(ChallengeResponse) updates) =>
       super.copyWith((message) => updates(message as ChallengeResponse))
@@ -21102,8 +21417,6 @@ class ChallengeResponse extends $pb.GeneratedMessage {
   static ChallengeResponse create() => ChallengeResponse._();
   @$core.override
   ChallengeResponse createEmptyInstance() => create();
-  static $pb.PbList<ChallengeResponse> createRepeated() =>
-      $pb.PbList<ChallengeResponse>();
   @$core.pragma('dart2js:noInline')
   static ChallengeResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ChallengeResponse>(create);
@@ -21179,7 +21492,7 @@ class DishGetHistoryResponse extends $pb.GeneratedMessage {
         $pb.PbFieldType.KF)
     ..p<$core.double>(
         1004, _omitFieldNames ? '' : 'uplinkThroughputBps', $pb.PbFieldType.KF)
-    ..pc<DishOutage>(1009, _omitFieldNames ? '' : 'outages', $pb.PbFieldType.PM,
+    ..pPM<DishOutage>(1009, _omitFieldNames ? '' : 'outages',
         subBuilder: DishOutage.create)
     ..p<$core.double>(
         1010, _omitFieldNames ? '' : 'powerIn', $pb.PbFieldType.KF)
@@ -21188,8 +21501,7 @@ class DishGetHistoryResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishGetHistoryResponse clone() =>
-      DishGetHistoryResponse()..mergeFromMessage(this);
+  DishGetHistoryResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishGetHistoryResponse copyWith(
           void Function(DishGetHistoryResponse) updates) =>
@@ -21203,8 +21515,6 @@ class DishGetHistoryResponse extends $pb.GeneratedMessage {
   static DishGetHistoryResponse create() => DishGetHistoryResponse._();
   @$core.override
   DishGetHistoryResponse createEmptyInstance() => create();
-  static $pb.PbList<DishGetHistoryResponse> createRepeated() =>
-      $pb.PbList<DishGetHistoryResponse>();
   @$core.pragma('dart2js:noInline')
   static DishGetHistoryResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishGetHistoryResponse>(create);
@@ -21278,14 +21588,14 @@ class EventLog extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..pc<UXEvent>(1, _omitFieldNames ? '' : 'events', $pb.PbFieldType.PM,
+    ..pPM<UXEvent>(1, _omitFieldNames ? '' : 'events',
         subBuilder: UXEvent.create)
     ..aInt64(2, _omitFieldNames ? '' : 'startTimestampNs')
     ..aInt64(3, _omitFieldNames ? '' : 'currentTimestampNs')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  EventLog clone() => EventLog()..mergeFromMessage(this);
+  EventLog clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   EventLog copyWith(void Function(EventLog) updates) =>
       super.copyWith((message) => updates(message as EventLog)) as EventLog;
@@ -21297,7 +21607,6 @@ class EventLog extends $pb.GeneratedMessage {
   static EventLog create() => EventLog._();
   @$core.override
   EventLog createEmptyInstance() => create();
-  static $pb.PbList<EventLog> createRepeated() => $pb.PbList<EventLog>();
   @$core.pragma('dart2js:noInline')
   static EventLog getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<EventLog>(create);
@@ -21355,13 +21664,9 @@ class UXEvent extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..e<EventSeverity>(1, _omitFieldNames ? '' : 'severity', $pb.PbFieldType.OE,
-        defaultOrMaker: EventSeverity.EVENT_SEVERITY_UNKNOWN,
-        valueOf: EventSeverity.valueOf,
+    ..aE<EventSeverity>(1, _omitFieldNames ? '' : 'severity',
         enumValues: EventSeverity.values)
-    ..e<EventReason>(2, _omitFieldNames ? '' : 'reason', $pb.PbFieldType.OE,
-        defaultOrMaker: EventReason.EVENT_REASON_UNKNOWN,
-        valueOf: EventReason.valueOf,
+    ..aE<EventReason>(2, _omitFieldNames ? '' : 'reason',
         enumValues: EventReason.values)
     ..aInt64(3, _omitFieldNames ? '' : 'startTimestampNs')
     ..a<$fixnum.Int64>(
@@ -21370,7 +21675,7 @@ class UXEvent extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  UXEvent clone() => UXEvent()..mergeFromMessage(this);
+  UXEvent clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   UXEvent copyWith(void Function(UXEvent) updates) =>
       super.copyWith((message) => updates(message as UXEvent)) as UXEvent;
@@ -21382,7 +21687,6 @@ class UXEvent extends $pb.GeneratedMessage {
   static UXEvent create() => UXEvent._();
   @$core.override
   UXEvent createEmptyInstance() => create();
-  static $pb.PbList<UXEvent> createRepeated() => $pb.PbList<UXEvent>();
   @$core.pragma('dart2js:noInline')
   static UXEvent getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UXEvent>(create);
@@ -21446,7 +21750,7 @@ class DishSetEmcResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishSetEmcResponse clone() => DishSetEmcResponse()..mergeFromMessage(this);
+  DishSetEmcResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishSetEmcResponse copyWith(void Function(DishSetEmcResponse) updates) =>
       super.copyWith((message) => updates(message as DishSetEmcResponse))
@@ -21459,8 +21763,6 @@ class DishSetEmcResponse extends $pb.GeneratedMessage {
   static DishSetEmcResponse create() => DishSetEmcResponse._();
   @$core.override
   DishSetEmcResponse createEmptyInstance() => create();
-  static $pb.PbList<DishSetEmcResponse> createRepeated() =>
-      $pb.PbList<DishSetEmcResponse>();
   @$core.pragma('dart2js:noInline')
   static DishSetEmcResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishSetEmcResponse>(create);
@@ -21502,23 +21804,19 @@ class DishGetObstructionMapResponse extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'numRows', $pb.PbFieldType.OU3)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'numCols', $pb.PbFieldType.OU3)
+    ..aI(1, _omitFieldNames ? '' : 'numRows', fieldType: $pb.PbFieldType.OU3)
+    ..aI(2, _omitFieldNames ? '' : 'numCols', fieldType: $pb.PbFieldType.OU3)
     ..p<$core.double>(3, _omitFieldNames ? '' : 'snr', $pb.PbFieldType.KF)
-    ..a<$core.double>(
-        4, _omitFieldNames ? '' : 'minElevationDeg', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        5, _omitFieldNames ? '' : 'maxThetaDeg', $pb.PbFieldType.OF)
-    ..e<ObstructionMapReferenceFrame>(
-        6, _omitFieldNames ? '' : 'mapReferenceFrame', $pb.PbFieldType.OE,
-        defaultOrMaker: ObstructionMapReferenceFrame.FRAME_UNKNOWN,
-        valueOf: ObstructionMapReferenceFrame.valueOf,
+    ..aD(4, _omitFieldNames ? '' : 'minElevationDeg',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(5, _omitFieldNames ? '' : 'maxThetaDeg', fieldType: $pb.PbFieldType.OF)
+    ..aE<ObstructionMapReferenceFrame>(
+        6, _omitFieldNames ? '' : 'mapReferenceFrame',
         enumValues: ObstructionMapReferenceFrame.values)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishGetObstructionMapResponse clone() =>
-      DishGetObstructionMapResponse()..mergeFromMessage(this);
+  DishGetObstructionMapResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishGetObstructionMapResponse copyWith(
           void Function(DishGetObstructionMapResponse) updates) =>
@@ -21534,8 +21832,6 @@ class DishGetObstructionMapResponse extends $pb.GeneratedMessage {
       DishGetObstructionMapResponse._();
   @$core.override
   DishGetObstructionMapResponse createEmptyInstance() => create();
-  static $pb.PbList<DishGetObstructionMapResponse> createRepeated() =>
-      $pb.PbList<DishGetObstructionMapResponse>();
   @$core.pragma('dart2js:noInline')
   static DishGetObstructionMapResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishGetObstructionMapResponse>(create);
@@ -21742,83 +22038,69 @@ class DishGetEmcResponse extends $pb.GeneratedMessage {
     ..a<$fixnum.Int64>(
         3, _omitFieldNames ? '' : 'timestamp', $pb.PbFieldType.OU6,
         defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$core.int>(
-        11, _omitFieldNames ? '' : 'cplaneUpdates', $pb.PbFieldType.OU3)
-    ..a<$core.double>(
-        16, _omitFieldNames ? '' : 'gpsLatitude', $pb.PbFieldType.OD)
-    ..a<$core.double>(
-        17, _omitFieldNames ? '' : 'gpsLongitude', $pb.PbFieldType.OD)
-    ..a<$core.double>(18, _omitFieldNames ? '' : 'gpsPdop', $pb.PbFieldType.OD)
-    ..a<$core.int>(19, _omitFieldNames ? '' : 'rfMode', $pb.PbFieldType.OU3)
-    ..a<$core.double>(20, _omitFieldNames ? '' : 'phi', $pb.PbFieldType.OD)
-    ..a<$core.double>(21, _omitFieldNames ? '' : 'theta', $pb.PbFieldType.OD)
-    ..a<$core.int>(22, _omitFieldNames ? '' : 'rxChannel', $pb.PbFieldType.OU3)
-    ..a<$core.int>(23, _omitFieldNames ? '' : 'txChannel', $pb.PbFieldType.OU3)
-    ..a<$core.double>(24, _omitFieldNames ? '' : 'tDbfMax', $pb.PbFieldType.OF)
-    ..a<$core.double>(25, _omitFieldNames ? '' : 'tCenter', $pb.PbFieldType.OD)
+    ..aI(11, _omitFieldNames ? '' : 'cplaneUpdates',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aD(16, _omitFieldNames ? '' : 'gpsLatitude')
+    ..aD(17, _omitFieldNames ? '' : 'gpsLongitude')
+    ..aD(18, _omitFieldNames ? '' : 'gpsPdop')
+    ..aI(19, _omitFieldNames ? '' : 'rfMode', fieldType: $pb.PbFieldType.OU3)
+    ..aD(20, _omitFieldNames ? '' : 'phi')
+    ..aD(21, _omitFieldNames ? '' : 'theta')
+    ..aI(22, _omitFieldNames ? '' : 'rxChannel', fieldType: $pb.PbFieldType.OU3)
+    ..aI(23, _omitFieldNames ? '' : 'txChannel', fieldType: $pb.PbFieldType.OU3)
+    ..aD(24, _omitFieldNames ? '' : 'tDbfMax', fieldType: $pb.PbFieldType.OF)
+    ..aD(25, _omitFieldNames ? '' : 'tCenter')
     ..aOB(30, _omitFieldNames ? '' : 'autoPowerSnowMeltEnabled')
-    ..a<$core.double>(32, _omitFieldNames ? '' : 'voltage', $pb.PbFieldType.OD)
-    ..a<$core.int>(
-        33, _omitFieldNames ? '' : 'rxBeamState', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        34, _omitFieldNames ? '' : 'txBeamState', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        35, _omitFieldNames ? '' : 'halfDuplexState', $pb.PbFieldType.OU3)
+    ..aD(32, _omitFieldNames ? '' : 'voltage')
+    ..aI(33, _omitFieldNames ? '' : 'rxBeamState',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(34, _omitFieldNames ? '' : 'txBeamState',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(35, _omitFieldNames ? '' : 'halfDuplexState',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOB(36, _omitFieldNames ? '' : 'manualTiltEnabled')
-    ..a<$core.double>(
-        37, _omitFieldNames ? '' : 'tiltAngle', $pb.PbFieldType.OD)
-    ..a<$core.int>(
-        38, _omitFieldNames ? '' : 'pllTxLockDetected', $pb.PbFieldType.OU3)
+    ..aD(37, _omitFieldNames ? '' : 'tiltAngle')
+    ..aI(38, _omitFieldNames ? '' : 'pllTxLockDetected',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOB(39, _omitFieldNames ? '' : 'eirpExceededThreshold')
     ..aOB(41, _omitFieldNames ? '' : 'idleOverrideEnabled')
     ..aOB(42, _omitFieldNames ? '' : 'thetaOverrideEnabled')
-    ..a<$core.double>(
-        43, _omitFieldNames ? '' : 'thetaOverrideValue', $pb.PbFieldType.OD)
+    ..aD(43, _omitFieldNames ? '' : 'thetaOverrideValue')
     ..aOB(44, _omitFieldNames ? '' : 'phiOverrideEnabled')
-    ..a<$core.double>(
-        45, _omitFieldNames ? '' : 'phiOverrideValue', $pb.PbFieldType.OD)
-    ..a<$core.int>(
-        46, _omitFieldNames ? '' : 'rxChanOverrideValue', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        47, _omitFieldNames ? '' : 'txChanOverrideValue', $pb.PbFieldType.OU3)
+    ..aD(45, _omitFieldNames ? '' : 'phiOverrideValue')
+    ..aI(46, _omitFieldNames ? '' : 'rxChanOverrideValue',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(47, _omitFieldNames ? '' : 'txChanOverrideValue',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOB(48, _omitFieldNames ? '' : 'skySearchOverrideEnabled')
     ..aOB(49, _omitFieldNames ? '' : 'fastSwitchingEnabled')
-    ..a<$core.int>(50, _omitFieldNames ? '' : 'modulationOverrideValue',
-        $pb.PbFieldType.OU3)
+    ..aI(50, _omitFieldNames ? '' : 'modulationOverrideValue',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOB(51, _omitFieldNames ? '' : 'forceEirpFailure')
     ..aOB(52, _omitFieldNames ? '' : 'forcePllUnlock')
-    ..a<$core.int>(
-        53, _omitFieldNames ? '' : 'utIneSuccess', $pb.PbFieldType.OU3)
+    ..aI(53, _omitFieldNames ? '' : 'utIneSuccess',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOB(54, _omitFieldNames ? '' : 'rfReady')
     ..aOB(55, _omitFieldNames ? '' : 'tiltToStowed')
     ..aOB(56, _omitFieldNames ? '' : 'reboot')
     ..aOB(57, _omitFieldNames ? '' : 'continuousMotorTest')
-    ..a<$core.double>(
-        58, _omitFieldNames ? '' : 'distanceOverrideMeters', $pb.PbFieldType.OD)
-    ..a<$core.int>(
-        62, _omitFieldNames ? '' : 'countryCodeOverride', $pb.PbFieldType.OU3)
-    ..a<$core.double>(
-        63, _omitFieldNames ? '' : 'maxPointingDistance', $pb.PbFieldType.OD)
-    ..a<$core.double>(
-        64, _omitFieldNames ? '' : 'distanceScalingFactor', $pb.PbFieldType.OD)
-    ..a<$core.int>(
-        65, _omitFieldNames ? '' : 'txDutyCycleOverride', $pb.PbFieldType.O3)
-    ..a<$core.int>(
-        66, _omitFieldNames ? '' : 'rxDutyCycleOverride', $pb.PbFieldType.O3)
-    ..a<$core.double>(67, _omitFieldNames ? '' : 'txTimeMs', $pb.PbFieldType.OF)
-    ..a<$core.double>(68, _omitFieldNames ? '' : 'rxTimeMs', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        69, _omitFieldNames ? '' : 'eirpLegalLimitDbw', $pb.PbFieldType.OD)
-    ..a<$core.double>(70, _omitFieldNames ? '' : 'eirpLegalLimitDbwOverride',
-        $pb.PbFieldType.OD)
-    ..a<$core.double>(
-        71, _omitFieldNames ? '' : 'eirpAdjustmentDb', $pb.PbFieldType.OD)
-    ..a<$core.double>(
-        72, _omitFieldNames ? '' : 'eirpPredictedDbw', $pb.PbFieldType.OD)
+    ..aD(58, _omitFieldNames ? '' : 'distanceOverrideMeters')
+    ..aI(62, _omitFieldNames ? '' : 'countryCodeOverride',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aD(63, _omitFieldNames ? '' : 'maxPointingDistance')
+    ..aD(64, _omitFieldNames ? '' : 'distanceScalingFactor')
+    ..aI(65, _omitFieldNames ? '' : 'txDutyCycleOverride')
+    ..aI(66, _omitFieldNames ? '' : 'rxDutyCycleOverride')
+    ..aD(67, _omitFieldNames ? '' : 'txTimeMs', fieldType: $pb.PbFieldType.OF)
+    ..aD(68, _omitFieldNames ? '' : 'rxTimeMs', fieldType: $pb.PbFieldType.OF)
+    ..aD(69, _omitFieldNames ? '' : 'eirpLegalLimitDbw')
+    ..aD(70, _omitFieldNames ? '' : 'eirpLegalLimitDbwOverride')
+    ..aD(71, _omitFieldNames ? '' : 'eirpAdjustmentDb')
+    ..aD(72, _omitFieldNames ? '' : 'eirpPredictedDbw')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishGetEmcResponse clone() => DishGetEmcResponse()..mergeFromMessage(this);
+  DishGetEmcResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishGetEmcResponse copyWith(void Function(DishGetEmcResponse) updates) =>
       super.copyWith((message) => updates(message as DishGetEmcResponse))
@@ -21831,8 +22113,6 @@ class DishGetEmcResponse extends $pb.GeneratedMessage {
   static DishGetEmcResponse create() => DishGetEmcResponse._();
   @$core.override
   DishGetEmcResponse createEmptyInstance() => create();
-  static $pb.PbList<DishGetEmcResponse> createRepeated() =>
-      $pb.PbList<DishGetEmcResponse>();
   @$core.pragma('dart2js:noInline')
   static DishGetEmcResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishGetEmcResponse>(create);
@@ -22330,8 +22610,7 @@ class DishSetConfigResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishSetConfigResponse clone() =>
-      DishSetConfigResponse()..mergeFromMessage(this);
+  DishSetConfigResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishSetConfigResponse copyWith(
           void Function(DishSetConfigResponse) updates) =>
@@ -22345,8 +22624,6 @@ class DishSetConfigResponse extends $pb.GeneratedMessage {
   static DishSetConfigResponse create() => DishSetConfigResponse._();
   @$core.override
   DishSetConfigResponse createEmptyInstance() => create();
-  static $pb.PbList<DishSetConfigResponse> createRepeated() =>
-      $pb.PbList<DishSetConfigResponse>();
   @$core.pragma('dart2js:noInline')
   static DishSetConfigResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishSetConfigResponse>(create);
@@ -22402,8 +22679,7 @@ class DishGetConfigResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishGetConfigResponse clone() =>
-      DishGetConfigResponse()..mergeFromMessage(this);
+  DishGetConfigResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishGetConfigResponse copyWith(
           void Function(DishGetConfigResponse) updates) =>
@@ -22417,8 +22693,6 @@ class DishGetConfigResponse extends $pb.GeneratedMessage {
   static DishGetConfigResponse create() => DishGetConfigResponse._();
   @$core.override
   DishGetConfigResponse createEmptyInstance() => create();
-  static $pb.PbList<DishGetConfigResponse> createRepeated() =>
-      $pb.PbList<DishGetConfigResponse>();
   @$core.pragma('dart2js:noInline')
   static DishGetConfigResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishGetConfigResponse>(create);
@@ -22464,8 +22738,7 @@ class DishInhibitGpsResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishInhibitGpsResponse clone() =>
-      DishInhibitGpsResponse()..mergeFromMessage(this);
+  DishInhibitGpsResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishInhibitGpsResponse copyWith(
           void Function(DishInhibitGpsResponse) updates) =>
@@ -22479,8 +22752,6 @@ class DishInhibitGpsResponse extends $pb.GeneratedMessage {
   static DishInhibitGpsResponse create() => DishInhibitGpsResponse._();
   @$core.override
   DishInhibitGpsResponse createEmptyInstance() => create();
-  static $pb.PbList<DishInhibitGpsResponse> createRepeated() =>
-      $pb.PbList<DishInhibitGpsResponse>();
   @$core.pragma('dart2js:noInline')
   static DishInhibitGpsResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishInhibitGpsResponse>(create);
@@ -22517,8 +22788,7 @@ class DishClearObstructionMapResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishClearObstructionMapResponse clone() =>
-      DishClearObstructionMapResponse()..mergeFromMessage(this);
+  DishClearObstructionMapResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishClearObstructionMapResponse copyWith(
           void Function(DishClearObstructionMapResponse) updates) =>
@@ -22534,8 +22804,6 @@ class DishClearObstructionMapResponse extends $pb.GeneratedMessage {
       DishClearObstructionMapResponse._();
   @$core.override
   DishClearObstructionMapResponse createEmptyInstance() => create();
-  static $pb.PbList<DishClearObstructionMapResponse> createRepeated() =>
-      $pb.PbList<DishClearObstructionMapResponse>();
   @$core.pragma('dart2js:noInline')
   static DishClearObstructionMapResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishClearObstructionMapResponse>(
@@ -22571,8 +22839,7 @@ class DishSetMaxPowerTestModeResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishSetMaxPowerTestModeResponse clone() =>
-      DishSetMaxPowerTestModeResponse()..mergeFromMessage(this);
+  DishSetMaxPowerTestModeResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishSetMaxPowerTestModeResponse copyWith(
           void Function(DishSetMaxPowerTestModeResponse) updates) =>
@@ -22588,8 +22855,6 @@ class DishSetMaxPowerTestModeResponse extends $pb.GeneratedMessage {
       DishSetMaxPowerTestModeResponse._();
   @$core.override
   DishSetMaxPowerTestModeResponse createEmptyInstance() => create();
-  static $pb.PbList<DishSetMaxPowerTestModeResponse> createRepeated() =>
-      $pb.PbList<DishSetMaxPowerTestModeResponse>();
   @$core.pragma('dart2js:noInline')
   static DishSetMaxPowerTestModeResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishSetMaxPowerTestModeResponse>(
@@ -22634,8 +22899,7 @@ class DishActivateRssiScanResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishActivateRssiScanResponse clone() =>
-      DishActivateRssiScanResponse()..mergeFromMessage(this);
+  DishActivateRssiScanResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishActivateRssiScanResponse copyWith(
           void Function(DishActivateRssiScanResponse) updates) =>
@@ -22651,8 +22915,6 @@ class DishActivateRssiScanResponse extends $pb.GeneratedMessage {
       DishActivateRssiScanResponse._();
   @$core.override
   DishActivateRssiScanResponse createEmptyInstance() => create();
-  static $pb.PbList<DishActivateRssiScanResponse> createRepeated() =>
-      $pb.PbList<DishActivateRssiScanResponse>();
   @$core.pragma('dart2js:noInline')
   static DishActivateRssiScanResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishActivateRssiScanResponse>(create);
@@ -22697,8 +22959,7 @@ class DishGetRssiScanResultResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishGetRssiScanResultResponse clone() =>
-      DishGetRssiScanResultResponse()..mergeFromMessage(this);
+  DishGetRssiScanResultResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishGetRssiScanResultResponse copyWith(
           void Function(DishGetRssiScanResultResponse) updates) =>
@@ -22714,8 +22975,6 @@ class DishGetRssiScanResultResponse extends $pb.GeneratedMessage {
       DishGetRssiScanResultResponse._();
   @$core.override
   DishGetRssiScanResultResponse createEmptyInstance() => create();
-  static $pb.PbList<DishGetRssiScanResultResponse> createRepeated() =>
-      $pb.PbList<DishGetRssiScanResultResponse>();
   @$core.pragma('dart2js:noInline')
   static DishGetRssiScanResultResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishGetRssiScanResultResponse>(create);
@@ -22766,20 +23025,18 @@ class DishGetRssiScanResult extends $pb.GeneratedMessage {
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
     ..aOB(1, _omitFieldNames ? '' : 'success')
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'channel', $pb.PbFieldType.OU3)
+    ..aI(2, _omitFieldNames ? '' : 'channel', fieldType: $pb.PbFieldType.OU3)
     ..a<$fixnum.Int64>(
         3, _omitFieldNames ? '' : 'requestTimestamp', $pb.PbFieldType.OU6,
         defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$core.int>(
-        4, _omitFieldNames ? '' : 'numberSamples', $pb.PbFieldType.OU3)
-    ..pc<RssiEntry>(
-        5, _omitFieldNames ? '' : 'rssiScanPoints', $pb.PbFieldType.PM,
+    ..aI(4, _omitFieldNames ? '' : 'numberSamples',
+        fieldType: $pb.PbFieldType.OU3)
+    ..pPM<RssiEntry>(5, _omitFieldNames ? '' : 'rssiScanPoints',
         subBuilder: RssiEntry.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishGetRssiScanResult clone() =>
-      DishGetRssiScanResult()..mergeFromMessage(this);
+  DishGetRssiScanResult clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishGetRssiScanResult copyWith(
           void Function(DishGetRssiScanResult) updates) =>
@@ -22793,8 +23050,6 @@ class DishGetRssiScanResult extends $pb.GeneratedMessage {
   static DishGetRssiScanResult create() => DishGetRssiScanResult._();
   @$core.override
   DishGetRssiScanResult createEmptyInstance() => create();
-  static $pb.PbList<DishGetRssiScanResult> createRepeated() =>
-      $pb.PbList<DishGetRssiScanResult>();
   @$core.pragma('dart2js:noInline')
   static DishGetRssiScanResult getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishGetRssiScanResult>(create);
@@ -22870,17 +23125,16 @@ class RssiEntry extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.double>(
-        1, _omitFieldNames ? '' : 'thetaDegree', $pb.PbFieldType.OD)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'phiDegree', $pb.PbFieldType.OD)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'rssiDbf', $pb.PbFieldType.OD)
+    ..aD(1, _omitFieldNames ? '' : 'thetaDegree')
+    ..aD(2, _omitFieldNames ? '' : 'phiDegree')
+    ..aD(3, _omitFieldNames ? '' : 'rssiDbf')
     ..a<$fixnum.Int64>(
         4, _omitFieldNames ? '' : 'scanTimestampMs', $pb.PbFieldType.OU6,
         defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  RssiEntry clone() => RssiEntry()..mergeFromMessage(this);
+  RssiEntry clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   RssiEntry copyWith(void Function(RssiEntry) updates) =>
       super.copyWith((message) => updates(message as RssiEntry)) as RssiEntry;
@@ -22892,7 +23146,6 @@ class RssiEntry extends $pb.GeneratedMessage {
   static RssiEntry create() => RssiEntry._();
   @$core.override
   RssiEntry createEmptyInstance() => create();
-  static $pb.PbList<RssiEntry> createRepeated() => $pb.PbList<RssiEntry>();
   @$core.pragma('dart2js:noInline')
   static RssiEntry getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RssiEntry>(create);
@@ -22956,8 +23209,7 @@ class DishFactoryResetResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishFactoryResetResponse clone() =>
-      DishFactoryResetResponse()..mergeFromMessage(this);
+  DishFactoryResetResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishFactoryResetResponse copyWith(
           void Function(DishFactoryResetResponse) updates) =>
@@ -22971,8 +23223,6 @@ class DishFactoryResetResponse extends $pb.GeneratedMessage {
   static DishFactoryResetResponse create() => DishFactoryResetResponse._();
   @$core.override
   DishFactoryResetResponse createEmptyInstance() => create();
-  static $pb.PbList<DishFactoryResetResponse> createRepeated() =>
-      $pb.PbList<DishFactoryResetResponse>();
   @$core.pragma('dart2js:noInline')
   static DishFactoryResetResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishFactoryResetResponse>(create);
@@ -23000,7 +23250,7 @@ class ResetButtonResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ResetButtonResponse clone() => ResetButtonResponse()..mergeFromMessage(this);
+  ResetButtonResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ResetButtonResponse copyWith(void Function(ResetButtonResponse) updates) =>
       super.copyWith((message) => updates(message as ResetButtonResponse))
@@ -23013,8 +23263,6 @@ class ResetButtonResponse extends $pb.GeneratedMessage {
   static ResetButtonResponse create() => ResetButtonResponse._();
   @$core.override
   ResetButtonResponse createEmptyInstance() => create();
-  static $pb.PbList<ResetButtonResponse> createRepeated() =>
-      $pb.PbList<ResetButtonResponse>();
   @$core.pragma('dart2js:noInline')
   static ResetButtonResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<ResetButtonResponse>(create);
@@ -23042,8 +23290,7 @@ class SetPerVehicleConfigResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  SetPerVehicleConfigResponse clone() =>
-      SetPerVehicleConfigResponse()..mergeFromMessage(this);
+  SetPerVehicleConfigResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   SetPerVehicleConfigResponse copyWith(
           void Function(SetPerVehicleConfigResponse) updates) =>
@@ -23059,8 +23306,6 @@ class SetPerVehicleConfigResponse extends $pb.GeneratedMessage {
       SetPerVehicleConfigResponse._();
   @$core.override
   SetPerVehicleConfigResponse createEmptyInstance() => create();
-  static $pb.PbList<SetPerVehicleConfigResponse> createRepeated() =>
-      $pb.PbList<SetPerVehicleConfigResponse>();
   @$core.pragma('dart2js:noInline')
   static SetPerVehicleConfigResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<SetPerVehicleConfigResponse>(create);
@@ -23088,8 +23333,7 @@ class DishAviationTestResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishAviationTestResponse clone() =>
-      DishAviationTestResponse()..mergeFromMessage(this);
+  DishAviationTestResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishAviationTestResponse copyWith(
           void Function(DishAviationTestResponse) updates) =>
@@ -23103,12 +23347,67 @@ class DishAviationTestResponse extends $pb.GeneratedMessage {
   static DishAviationTestResponse create() => DishAviationTestResponse._();
   @$core.override
   DishAviationTestResponse createEmptyInstance() => create();
-  static $pb.PbList<DishAviationTestResponse> createRepeated() =>
-      $pb.PbList<DishAviationTestResponse>();
   @$core.pragma('dart2js:noInline')
   static DishAviationTestResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishAviationTestResponse>(create);
   static DishAviationTestResponse? _defaultInstance;
+}
+
+/// SpaceX.API.Device.DishInhibitRfResponse is a message:
+class DishInhibitRfResponse extends $pb.GeneratedMessage {
+  factory DishInhibitRfResponse({
+    $core.bool? inhibitRf,
+  }) {
+    final result = create();
+    if (inhibitRf != null) result.inhibitRf = inhibitRf;
+    return result;
+  }
+
+  DishInhibitRfResponse._();
+
+  factory DishInhibitRfResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory DishInhibitRfResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'DishInhibitRfResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
+      createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'inhibitRf')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  DishInhibitRfResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  DishInhibitRfResponse copyWith(
+          void Function(DishInhibitRfResponse) updates) =>
+      super.copyWith((message) => updates(message as DishInhibitRfResponse))
+          as DishInhibitRfResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static DishInhibitRfResponse create() => DishInhibitRfResponse._();
+  @$core.override
+  DishInhibitRfResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static DishInhibitRfResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DishInhibitRfResponse>(create);
+  static DishInhibitRfResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get inhibitRf => $_getBF(0);
+  @$pb.TagNumber(1)
+  set inhibitRf($core.bool value) => $_setBool(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasInhibitRf() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearInhibitRf() => $_clearField(1);
 }
 
 /// SpaceX.API.Device.WifiSetConfigResponse is a message:
@@ -23140,8 +23439,7 @@ class WifiSetConfigResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiSetConfigResponse clone() =>
-      WifiSetConfigResponse()..mergeFromMessage(this);
+  WifiSetConfigResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiSetConfigResponse copyWith(
           void Function(WifiSetConfigResponse) updates) =>
@@ -23155,8 +23453,6 @@ class WifiSetConfigResponse extends $pb.GeneratedMessage {
   static WifiSetConfigResponse create() => WifiSetConfigResponse._();
   @$core.override
   WifiSetConfigResponse createEmptyInstance() => create();
-  static $pb.PbList<WifiSetConfigResponse> createRepeated() =>
-      $pb.PbList<WifiSetConfigResponse>();
   @$core.pragma('dart2js:noInline')
   static WifiSetConfigResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiSetConfigResponse>(create);
@@ -23202,15 +23498,14 @@ class WifiGetClientsResponse extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..pc<WifiClient>(1, _omitFieldNames ? '' : 'clients', $pb.PbFieldType.PM,
+    ..pPM<WifiClient>(1, _omitFieldNames ? '' : 'clients',
         subBuilder: WifiClient.create)
     ..aOB(2, _omitFieldNames ? '' : 'hasClientIndex')
-    ..a<$core.int>(3, _omitFieldNames ? '' : 'clientIndex', $pb.PbFieldType.O3)
+    ..aI(3, _omitFieldNames ? '' : 'clientIndex')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiGetClientsResponse clone() =>
-      WifiGetClientsResponse()..mergeFromMessage(this);
+  WifiGetClientsResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiGetClientsResponse copyWith(
           void Function(WifiGetClientsResponse) updates) =>
@@ -23224,8 +23519,6 @@ class WifiGetClientsResponse extends $pb.GeneratedMessage {
   static WifiGetClientsResponse create() => WifiGetClientsResponse._();
   @$core.override
   WifiGetClientsResponse createEmptyInstance() => create();
-  static $pb.PbList<WifiGetClientsResponse> createRepeated() =>
-      $pb.PbList<WifiGetClientsResponse>();
   @$core.pragma('dart2js:noInline')
   static WifiGetClientsResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiGetClientsResponse>(create);
@@ -23280,7 +23573,7 @@ class WifiClient_Alerts extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiClient_Alerts clone() => WifiClient_Alerts()..mergeFromMessage(this);
+  WifiClient_Alerts clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiClient_Alerts copyWith(void Function(WifiClient_Alerts) updates) =>
       super.copyWith((message) => updates(message as WifiClient_Alerts))
@@ -23293,8 +23586,6 @@ class WifiClient_Alerts extends $pb.GeneratedMessage {
   static WifiClient_Alerts create() => WifiClient_Alerts._();
   @$core.override
   WifiClient_Alerts createEmptyInstance() => create();
-  static $pb.PbList<WifiClient_Alerts> createRepeated() =>
-      $pb.PbList<WifiClient_Alerts>();
   @$core.pragma('dart2js:noInline')
   static WifiClient_Alerts getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiClient_Alerts>(create);
@@ -23387,8 +23678,7 @@ class WifiClient_FqcodelInfo extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiClient_FqcodelInfo clone() =>
-      WifiClient_FqcodelInfo()..mergeFromMessage(this);
+  WifiClient_FqcodelInfo clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiClient_FqcodelInfo copyWith(
           void Function(WifiClient_FqcodelInfo) updates) =>
@@ -23402,8 +23692,6 @@ class WifiClient_FqcodelInfo extends $pb.GeneratedMessage {
   static WifiClient_FqcodelInfo create() => WifiClient_FqcodelInfo._();
   @$core.override
   WifiClient_FqcodelInfo createEmptyInstance() => create();
-  static $pb.PbList<WifiClient_FqcodelInfo> createRepeated() =>
-      $pb.PbList<WifiClient_FqcodelInfo>();
   @$core.pragma('dart2js:noInline')
   static WifiClient_FqcodelInfo getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiClient_FqcodelInfo>(create);
@@ -23542,16 +23830,14 @@ class WifiClient_PingMetrics extends $pb.GeneratedMessage {
         protoName: 'in_unhappy_hour_2s')
     ..aOB(2, _omitFieldNames ? '' : 'inUnhappyHour5s',
         protoName: 'in_unhappy_hour_5s')
-    ..a<$core.double>(
-        3, _omitFieldNames ? '' : 'dropRate5m', $pb.PbFieldType.OF,
-        protoName: 'drop_rate_5m')
-    ..a<$core.double>(4, _omitFieldNames ? '' : 'latency5m', $pb.PbFieldType.OF,
-        protoName: 'latency_5m')
+    ..aD(3, _omitFieldNames ? '' : 'dropRate5m',
+        protoName: 'drop_rate_5m', fieldType: $pb.PbFieldType.OF)
+    ..aD(4, _omitFieldNames ? '' : 'latency5m',
+        protoName: 'latency_5m', fieldType: $pb.PbFieldType.OF)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiClient_PingMetrics clone() =>
-      WifiClient_PingMetrics()..mergeFromMessage(this);
+  WifiClient_PingMetrics clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiClient_PingMetrics copyWith(
           void Function(WifiClient_PingMetrics) updates) =>
@@ -23565,8 +23851,6 @@ class WifiClient_PingMetrics extends $pb.GeneratedMessage {
   static WifiClient_PingMetrics create() => WifiClient_PingMetrics._();
   @$core.override
   WifiClient_PingMetrics createEmptyInstance() => create();
-  static $pb.PbList<WifiClient_PingMetrics> createRepeated() =>
-      $pb.PbList<WifiClient_PingMetrics>();
   @$core.pragma('dart2js:noInline')
   static WifiClient_PingMetrics getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiClient_PingMetrics>(create);
@@ -23671,37 +23955,32 @@ class WifiClient_RxStats extends $pb.GeneratedMessage {
     ..a<$fixnum.Int64>(
         2, _omitFieldNames ? '' : 'countErrors', $pb.PbFieldType.OU6,
         defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$core.int>(3, _omitFieldNames ? '' : 'nss', $pb.PbFieldType.O3)
-    ..a<$core.int>(5, _omitFieldNames ? '' : 'mcs', $pb.PbFieldType.OU3)
-    ..a<$core.int>(6, _omitFieldNames ? '' : 'bandwidth', $pb.PbFieldType.OU3)
-    ..a<$core.int>(7, _omitFieldNames ? '' : 'guardNs', $pb.PbFieldType.OU3)
-    ..a<$core.int>(8, _omitFieldNames ? '' : 'rateMbps', $pb.PbFieldType.OU3)
-    ..a<$core.double>(
-        9, _omitFieldNames ? '' : 'airtimeFractionLast1s', $pb.PbFieldType.OF,
-        protoName: 'airtime_fraction_last_1s')
-    ..a<$core.int>(
-        10, _omitFieldNames ? '' : 'sampledPackets', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        11, _omitFieldNames ? '' : 'sampledPacketsRetried', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        12, _omitFieldNames ? '' : 'sampledPacketsDropped', $pb.PbFieldType.OU3)
-    ..a<$core.int>(13, _omitFieldNames ? '' : 'phyMode', $pb.PbFieldType.OU3)
-    ..a<$core.double>(
-        14, _omitFieldNames ? '' : 'rateMbpsLast30s', $pb.PbFieldType.OF,
-        protoName: 'rate_mbps_last_30s')
-    ..a<$core.double>(
-        15, _omitFieldNames ? '' : 'rateMbpsLast15s', $pb.PbFieldType.OF,
-        protoName: 'rate_mbps_last_15s')
-    ..a<$core.double>(
-        16, _omitFieldNames ? '' : 'rateMbpsLast1mAvg', $pb.PbFieldType.OF,
-        protoName: 'rate_mbps_last_1m_avg')
-    ..a<$core.double>(17, _omitFieldNames ? '' : 'throughputMbpsLast1mAvg',
-        $pb.PbFieldType.OF,
-        protoName: 'throughput_mbps_last_1m_avg')
+    ..aI(3, _omitFieldNames ? '' : 'nss')
+    ..aI(5, _omitFieldNames ? '' : 'mcs', fieldType: $pb.PbFieldType.OU3)
+    ..aI(6, _omitFieldNames ? '' : 'bandwidth', fieldType: $pb.PbFieldType.OU3)
+    ..aI(7, _omitFieldNames ? '' : 'guardNs', fieldType: $pb.PbFieldType.OU3)
+    ..aI(8, _omitFieldNames ? '' : 'rateMbps', fieldType: $pb.PbFieldType.OU3)
+    ..aD(9, _omitFieldNames ? '' : 'airtimeFractionLast1s',
+        protoName: 'airtime_fraction_last_1s', fieldType: $pb.PbFieldType.OF)
+    ..aI(10, _omitFieldNames ? '' : 'sampledPackets',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(11, _omitFieldNames ? '' : 'sampledPacketsRetried',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(12, _omitFieldNames ? '' : 'sampledPacketsDropped',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(13, _omitFieldNames ? '' : 'phyMode', fieldType: $pb.PbFieldType.OU3)
+    ..aD(14, _omitFieldNames ? '' : 'rateMbpsLast30s',
+        protoName: 'rate_mbps_last_30s', fieldType: $pb.PbFieldType.OF)
+    ..aD(15, _omitFieldNames ? '' : 'rateMbpsLast15s',
+        protoName: 'rate_mbps_last_15s', fieldType: $pb.PbFieldType.OF)
+    ..aD(16, _omitFieldNames ? '' : 'rateMbpsLast1mAvg',
+        protoName: 'rate_mbps_last_1m_avg', fieldType: $pb.PbFieldType.OF)
+    ..aD(17, _omitFieldNames ? '' : 'throughputMbpsLast1mAvg',
+        protoName: 'throughput_mbps_last_1m_avg', fieldType: $pb.PbFieldType.OF)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiClient_RxStats clone() => WifiClient_RxStats()..mergeFromMessage(this);
+  WifiClient_RxStats clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiClient_RxStats copyWith(void Function(WifiClient_RxStats) updates) =>
       super.copyWith((message) => updates(message as WifiClient_RxStats))
@@ -23714,8 +23993,6 @@ class WifiClient_RxStats extends $pb.GeneratedMessage {
   static WifiClient_RxStats create() => WifiClient_RxStats._();
   @$core.override
   WifiClient_RxStats createEmptyInstance() => create();
-  static $pb.PbList<WifiClient_RxStats> createRepeated() =>
-      $pb.PbList<WifiClient_RxStats>();
   @$core.pragma('dart2js:noInline')
   static WifiClient_RxStats getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiClient_RxStats>(create);
@@ -23915,25 +24192,22 @@ class WifiClient_TxStats extends $pb.GeneratedMessage {
     ..a<$fixnum.Int64>(
         2, _omitFieldNames ? '' : 'successBytes', $pb.PbFieldType.OU6,
         defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$core.int>(3, _omitFieldNames ? '' : 'nss', $pb.PbFieldType.O3)
-    ..a<$core.int>(5, _omitFieldNames ? '' : 'mcs', $pb.PbFieldType.OU3)
-    ..a<$core.int>(6, _omitFieldNames ? '' : 'bandwidth', $pb.PbFieldType.OU3)
-    ..a<$core.int>(7, _omitFieldNames ? '' : 'guardNs', $pb.PbFieldType.OU3)
-    ..a<$core.int>(8, _omitFieldNames ? '' : 'rateMbps', $pb.PbFieldType.OU3)
-    ..a<$core.double>(
-        9, _omitFieldNames ? '' : 'airtimeFractionLast1s', $pb.PbFieldType.OF,
-        protoName: 'airtime_fraction_last_1s')
-    ..a<$core.int>(10, _omitFieldNames ? '' : 'phyMode', $pb.PbFieldType.OU3)
-    ..a<$core.double>(
-        11, _omitFieldNames ? '' : 'rateMbpsLast30s', $pb.PbFieldType.OF,
-        protoName: 'rate_mbps_last_30s')
-    ..a<$core.double>(
-        12, _omitFieldNames ? '' : 'rateMbpsLast15s', $pb.PbFieldType.OF,
-        protoName: 'rate_mbps_last_15s')
+    ..aI(3, _omitFieldNames ? '' : 'nss')
+    ..aI(5, _omitFieldNames ? '' : 'mcs', fieldType: $pb.PbFieldType.OU3)
+    ..aI(6, _omitFieldNames ? '' : 'bandwidth', fieldType: $pb.PbFieldType.OU3)
+    ..aI(7, _omitFieldNames ? '' : 'guardNs', fieldType: $pb.PbFieldType.OU3)
+    ..aI(8, _omitFieldNames ? '' : 'rateMbps', fieldType: $pb.PbFieldType.OU3)
+    ..aD(9, _omitFieldNames ? '' : 'airtimeFractionLast1s',
+        protoName: 'airtime_fraction_last_1s', fieldType: $pb.PbFieldType.OF)
+    ..aI(10, _omitFieldNames ? '' : 'phyMode', fieldType: $pb.PbFieldType.OU3)
+    ..aD(11, _omitFieldNames ? '' : 'rateMbpsLast30s',
+        protoName: 'rate_mbps_last_30s', fieldType: $pb.PbFieldType.OF)
+    ..aD(12, _omitFieldNames ? '' : 'rateMbpsLast15s',
+        protoName: 'rate_mbps_last_15s', fieldType: $pb.PbFieldType.OF)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiClient_TxStats clone() => WifiClient_TxStats()..mergeFromMessage(this);
+  WifiClient_TxStats clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiClient_TxStats copyWith(void Function(WifiClient_TxStats) updates) =>
       super.copyWith((message) => updates(message as WifiClient_TxStats))
@@ -23946,8 +24220,6 @@ class WifiClient_TxStats extends $pb.GeneratedMessage {
   static WifiClient_TxStats create() => WifiClient_TxStats._();
   @$core.override
   WifiClient_TxStats createEmptyInstance() => create();
-  static $pb.PbList<WifiClient_TxStats> createRepeated() =>
-      $pb.PbList<WifiClient_TxStats>();
   @$core.pragma('dart2js:noInline')
   static WifiClient_TxStats getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiClient_TxStats>(create);
@@ -24189,89 +24461,85 @@ class WifiClient extends $pb.GeneratedMessage {
     ..aOS(1, _omitFieldNames ? '' : 'name')
     ..aOS(2, _omitFieldNames ? '' : 'macAddress')
     ..aOS(3, _omitFieldNames ? '' : 'ipAddress')
-    ..a<$core.double>(
-        4, _omitFieldNames ? '' : 'signalStrength', $pb.PbFieldType.OF)
+    ..aD(4, _omitFieldNames ? '' : 'signalStrength',
+        fieldType: $pb.PbFieldType.OF)
     ..aOM<WifiClient_RxStats>(5, _omitFieldNames ? '' : 'rxStats',
         subBuilder: WifiClient_RxStats.create)
     ..aOM<WifiClient_TxStats>(6, _omitFieldNames ? '' : 'txStats',
         subBuilder: WifiClient_TxStats.create)
-    ..a<$core.int>(
-        7, _omitFieldNames ? '' : 'associatedTimeS', $pb.PbFieldType.OU3)
+    ..aI(7, _omitFieldNames ? '' : 'associatedTimeS',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOS(8, _omitFieldNames ? '' : 'modeStr')
-    ..e<WifiClient_Interface>(
-        9, _omitFieldNames ? '' : 'iface', $pb.PbFieldType.OE,
-        defaultOrMaker: WifiClient_Interface.UNKNOWN,
-        valueOf: WifiClient_Interface.valueOf,
+    ..aE<WifiClient_Interface>(9, _omitFieldNames ? '' : 'iface',
         enumValues: WifiClient_Interface.values)
-    ..a<$core.double>(10, _omitFieldNames ? '' : 'snr', $pb.PbFieldType.OF)
-    ..a<$core.int>(11, _omitFieldNames ? '' : 'psmode', $pb.PbFieldType.O3)
-    ..a<$core.int>(
-        12, _omitFieldNames ? '' : 'channelWidth', $pb.PbFieldType.OU3)
+    ..aD(10, _omitFieldNames ? '' : 'snr', fieldType: $pb.PbFieldType.OF)
+    ..aI(11, _omitFieldNames ? '' : 'psmode')
+    ..aI(12, _omitFieldNames ? '' : 'channelWidth',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOS(13, _omitFieldNames ? '' : 'upstreamMacAddress')
-    ..e<WifiClient_Role>(14, _omitFieldNames ? '' : 'role', $pb.PbFieldType.OE,
-        defaultOrMaker: WifiClient_Role.ROLE_UNKNOWN,
-        valueOf: WifiClient_Role.valueOf,
+    ..aE<WifiClient_Role>(14, _omitFieldNames ? '' : 'role',
         enumValues: WifiClient_Role.values)
     ..aOS(15, _omitFieldNames ? '' : 'deviceId')
-    ..a<$core.int>(16, _omitFieldNames ? '' : 'swqChecks', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        17, _omitFieldNames ? '' : 'swqChecksNonEmpty', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        18, _omitFieldNames ? '' : 'mibSteerState', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        19, _omitFieldNames ? '' : 'mibSteerMethod', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        20, _omitFieldNames ? '' : 'btmRequests', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        21, _omitFieldNames ? '' : 'btmRequestsSuccess', $pb.PbFieldType.OU3)
+    ..aI(16, _omitFieldNames ? '' : 'swqChecks', fieldType: $pb.PbFieldType.OU3)
+    ..aI(17, _omitFieldNames ? '' : 'swqChecksNonEmpty',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(18, _omitFieldNames ? '' : 'mibSteerState',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(19, _omitFieldNames ? '' : 'mibSteerMethod',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(20, _omitFieldNames ? '' : 'btmRequests',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(21, _omitFieldNames ? '' : 'btmRequestsSuccess',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOS(22, _omitFieldNames ? '' : 'domain')
     ..aOB(23, _omitFieldNames ? '' : 'dot11vSupport')
     ..aOS(26, _omitFieldNames ? '' : 'ifaceName')
-    ..a<$core.int>(
-        27, _omitFieldNames ? '' : 'steerReqSuccessLast1h', $pb.PbFieldType.OU3,
-        protoName: 'steer_req_success_last_1h')
-    ..a<$core.int>(
-        28, _omitFieldNames ? '' : 'steerReqFailLast1h', $pb.PbFieldType.OU3,
-        protoName: 'steer_req_fail_last_1h')
-    ..a<$core.int>(29, _omitFieldNames ? '' : 'steerReqFailAndDissocLast1h',
-        $pb.PbFieldType.OU3,
-        protoName: 'steer_req_fail_and_dissoc_last_1h')
-    ..a<$core.int>(30, _omitFieldNames ? '' : 'steerState', $pb.PbFieldType.OU3)
+    ..aI(27, _omitFieldNames ? '' : 'steerReqSuccessLast1h',
+        protoName: 'steer_req_success_last_1h', fieldType: $pb.PbFieldType.OU3)
+    ..aI(28, _omitFieldNames ? '' : 'steerReqFailLast1h',
+        protoName: 'steer_req_fail_last_1h', fieldType: $pb.PbFieldType.OU3)
+    ..aI(29, _omitFieldNames ? '' : 'steerReqFailAndDissocLast1h',
+        protoName: 'steer_req_fail_and_dissoc_last_1h',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(30, _omitFieldNames ? '' : 'steerState',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOS(31, _omitFieldNames ? '' : 'givenName')
-    ..a<$core.int>(
-        32, _omitFieldNames ? '' : 'hopsFromController', $pb.PbFieldType.OU3)
-    ..a<$core.double>(33, _omitFieldNames ? '' : 'estTxRateMbpsFromController',
-        $pb.PbFieldType.OF)
-    ..a<$core.double>(34, _omitFieldNames ? '' : 'estRxRateMbpsFromController',
-        $pb.PbFieldType.OF)
+    ..aI(32, _omitFieldNames ? '' : 'hopsFromController',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aD(33, _omitFieldNames ? '' : 'estTxRateMbpsFromController',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(34, _omitFieldNames ? '' : 'estRxRateMbpsFromController',
+        fieldType: $pb.PbFieldType.OF)
     ..aOS(37, _omitFieldNames ? '' : 'hardwareVersion')
     ..aOS(38, _omitFieldNames ? '' : 'softwareVersion')
-    ..a<$core.int>(39, _omitFieldNames ? '' : 'apiVersion', $pb.PbFieldType.OU3)
+    ..aI(39, _omitFieldNames ? '' : 'apiVersion',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOM<WifiClient_PingMetrics>(40, _omitFieldNames ? '' : 'pingMetrics',
         subBuilder: WifiClient_PingMetrics.create)
     ..pPS(41, _omitFieldNames ? '' : 'ipv6Addresses')
     ..aOB(42, _omitFieldNames ? '' : 'blocked')
-    ..a<$core.int>(43, _omitFieldNames ? '' : 'clientId', $pb.PbFieldType.OU3)
+    ..aI(43, _omitFieldNames ? '' : 'clientId', fieldType: $pb.PbFieldType.OU3)
     ..aOM<WifiClient_FqcodelInfo>(44, _omitFieldNames ? '' : 'fqcodelInfo',
         subBuilder: WifiClient_FqcodelInfo.create)
-    ..a<$core.int>(
-        45, _omitFieldNames ? '' : 'noDataIdleS', $pb.PbFieldType.OU3)
+    ..aI(45, _omitFieldNames ? '' : 'noDataIdleS',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOB(46, _omitFieldNames ? '' : 'dhcpLeaseActive')
     ..aOB(47, _omitFieldNames ? '' : 'dhcpLeaseRenewed')
-    ..a<$core.double>(48, _omitFieldNames ? '' : 'secondsUntilDhcpLeaseExpires',
-        $pb.PbFieldType.OF)
+    ..aD(48, _omitFieldNames ? '' : 'secondsUntilDhcpLeaseExpires',
+        fieldType: $pb.PbFieldType.OF)
     ..aOB(49, _omitFieldNames ? '' : 'dhcpLeaseFound')
     ..aOM<WifiClient_Alerts>(52, _omitFieldNames ? '' : 'alerts',
         subBuilder: WifiClient_Alerts.create)
     ..aOS(53, _omitFieldNames ? '' : 'captiveClientId')
-    ..a<$core.int>(54, _omitFieldNames ? '' : 'uploadMb', $pb.PbFieldType.OU3)
-    ..a<$core.int>(55, _omitFieldNames ? '' : 'downloadMb', $pb.PbFieldType.OU3)
+    ..aI(54, _omitFieldNames ? '' : 'uploadMb', fieldType: $pb.PbFieldType.OU3)
+    ..aI(55, _omitFieldNames ? '' : 'downloadMb',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOB(60, _omitFieldNames ? '' : 'rxStatsValid')
     ..aOB(61, _omitFieldNames ? '' : 'txStatsValid')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiClient clone() => WifiClient()..mergeFromMessage(this);
+  WifiClient clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiClient copyWith(void Function(WifiClient) updates) =>
       super.copyWith((message) => updates(message as WifiClient)) as WifiClient;
@@ -24283,7 +24551,6 @@ class WifiClient extends $pb.GeneratedMessage {
   static WifiClient create() => WifiClient._();
   @$core.override
   WifiClient createEmptyInstance() => create();
-  static $pb.PbList<WifiClient> createRepeated() => $pb.PbList<WifiClient>();
   @$core.pragma('dart2js:noInline')
   static WifiClient getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiClient>(create);
@@ -24775,7 +25042,7 @@ class WifiSetupResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiSetupResponse clone() => WifiSetupResponse()..mergeFromMessage(this);
+  WifiSetupResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiSetupResponse copyWith(void Function(WifiSetupResponse) updates) =>
       super.copyWith((message) => updates(message as WifiSetupResponse))
@@ -24788,8 +25055,6 @@ class WifiSetupResponse extends $pb.GeneratedMessage {
   static WifiSetupResponse create() => WifiSetupResponse._();
   @$core.override
   WifiSetupResponse createEmptyInstance() => create();
-  static $pb.PbList<WifiSetupResponse> createRepeated() =>
-      $pb.PbList<WifiSetupResponse>();
   @$core.pragma('dart2js:noInline')
   static WifiSetupResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiSetupResponse>(create);
@@ -24830,6 +25095,8 @@ class WifiGetStatusResponse extends $pb.GeneratedMessage {
     $core.double? popIpv6PingLatencyMs,
     $core.double? secsSinceLastPublicIpv4Change,
     $2.UtDisablementCode? dishDisablementCode,
+    $core.bool? usingIndividualizedCalibration,
+    CalibrationPartitionsState? calibrationPartitionsState,
     $core.int? hopsFromController,
     WifiConfig? config,
     $core.Iterable<WifiClient>? clients,
@@ -24878,6 +25145,10 @@ class WifiGetStatusResponse extends $pb.GeneratedMessage {
       result.secsSinceLastPublicIpv4Change = secsSinceLastPublicIpv4Change;
     if (dishDisablementCode != null)
       result.dishDisablementCode = dishDisablementCode;
+    if (usingIndividualizedCalibration != null)
+      result.usingIndividualizedCalibration = usingIndividualizedCalibration;
+    if (calibrationPartitionsState != null)
+      result.calibrationPartitionsState = calibrationPartitionsState;
     if (hopsFromController != null)
       result.hopsFromController = hopsFromController;
     if (config != null) result.config = config;
@@ -24908,10 +25179,10 @@ class WifiGetStatusResponse extends $pb.GeneratedMessage {
     ..aOM<DeviceState>(4, _omitFieldNames ? '' : 'deviceState',
         subBuilder: DeviceState.create)
     ..aOS(1003, _omitFieldNames ? '' : 'ipv4WanAddress')
-    ..a<$core.double>(
-        1004, _omitFieldNames ? '' : 'pingDropRate', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        1005, _omitFieldNames ? '' : 'pingLatencyMs', $pb.PbFieldType.OF)
+    ..aD(1004, _omitFieldNames ? '' : 'pingDropRate',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(1005, _omitFieldNames ? '' : 'pingLatencyMs',
+        fieldType: $pb.PbFieldType.OF)
     ..aOM<WifiBandStatus>(1008, _omitFieldNames ? '' : 'rf2ghzStatus',
         protoName: 'rf_2ghz_status', subBuilder: WifiBandStatus.create)
     ..aOM<WifiBandStatus>(1009, _omitFieldNames ? '' : 'rf5ghzStatus',
@@ -24919,28 +25190,24 @@ class WifiGetStatusResponse extends $pb.GeneratedMessage {
     ..aOM<WifiAlerts>(1010, _omitFieldNames ? '' : 'alerts',
         subBuilder: WifiAlerts.create)
     ..aOB(1011, _omitFieldNames ? '' : 'isAviation')
-    ..a<$core.double>(
-        1012, _omitFieldNames ? '' : 'dishPingDropRate', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        1013, _omitFieldNames ? '' : 'dishPingLatencyMs', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        1014, _omitFieldNames ? '' : 'popPingDropRate', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        1015, _omitFieldNames ? '' : 'popPingLatencyMs', $pb.PbFieldType.OF)
+    ..aD(1012, _omitFieldNames ? '' : 'dishPingDropRate',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(1013, _omitFieldNames ? '' : 'dishPingLatencyMs',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(1014, _omitFieldNames ? '' : 'popPingDropRate',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(1015, _omitFieldNames ? '' : 'popPingLatencyMs',
+        fieldType: $pb.PbFieldType.OF)
     ..aOB(1016, _omitFieldNames ? '' : 'isAviationConformed')
     ..pPS(1017, _omitFieldNames ? '' : 'ipv6WanAddresses')
-    ..a<$core.double>(
-        1018, _omitFieldNames ? '' : 'dishPingDropRate5m', $pb.PbFieldType.OF,
-        protoName: 'dish_ping_drop_rate_5m')
-    ..pc<DhcpServer>(
-        1019, _omitFieldNames ? '' : 'dhcpServers', $pb.PbFieldType.PM,
+    ..aD(1018, _omitFieldNames ? '' : 'dishPingDropRate5m',
+        protoName: 'dish_ping_drop_rate_5m', fieldType: $pb.PbFieldType.OF)
+    ..pPM<DhcpServer>(1019, _omitFieldNames ? '' : 'dhcpServers',
         subBuilder: DhcpServer.create)
-    ..a<$core.double>(
-        1020, _omitFieldNames ? '' : 'popPingDropRate5m', $pb.PbFieldType.OF,
-        protoName: 'pop_ping_drop_rate_5m')
-    ..a<$core.double>(
-        1021, _omitFieldNames ? '' : 'pingDropRate5m', $pb.PbFieldType.OF,
-        protoName: 'ping_drop_rate_5m')
+    ..aD(1020, _omitFieldNames ? '' : 'popPingDropRate5m',
+        protoName: 'pop_ping_drop_rate_5m', fieldType: $pb.PbFieldType.OF)
+    ..aD(1021, _omitFieldNames ? '' : 'pingDropRate5m',
+        protoName: 'ping_drop_rate_5m', fieldType: $pb.PbFieldType.OF)
     ..aOM<PoeStats>(1022, _omitFieldNames ? '' : 'poeStats',
         subBuilder: PoeStats.create)
     ..aOS(1023, _omitFieldNames ? '' : 'dishId')
@@ -24950,38 +25217,35 @@ class WifiGetStatusResponse extends $pb.GeneratedMessage {
         subBuilder: WifiSoftwareUpdateStats.create)
     ..aOM<WifiSetupRequirement>(1026, _omitFieldNames ? '' : 'setupRequirement',
         subBuilder: WifiSetupRequirement.create)
-    ..a<$core.double>(
-        1027, _omitFieldNames ? '' : 'popIpv6PingDropRate', $pb.PbFieldType.OF)
-    ..a<$core.double>(1028, _omitFieldNames ? '' : 'popIpv6PingDropRate5m',
-        $pb.PbFieldType.OF,
-        protoName: 'pop_ipv6_ping_drop_rate_5m')
-    ..a<$core.double>(
-        1029, _omitFieldNames ? '' : 'popIpv6PingLatencyMs', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        1030,
-        _omitFieldNames ? '' : 'secsSinceLastPublicIpv4Change',
-        $pb.PbFieldType.OF)
-    ..e<$2.UtDisablementCode>(
-        1031, _omitFieldNames ? '' : 'dishDisablementCode', $pb.PbFieldType.OE,
-        defaultOrMaker: $2.UtDisablementCode.UNKNOWN_STATE,
-        valueOf: $2.UtDisablementCode.valueOf,
+    ..aD(1027, _omitFieldNames ? '' : 'popIpv6PingDropRate',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(1028, _omitFieldNames ? '' : 'popIpv6PingDropRate5m',
+        protoName: 'pop_ipv6_ping_drop_rate_5m', fieldType: $pb.PbFieldType.OF)
+    ..aD(1029, _omitFieldNames ? '' : 'popIpv6PingLatencyMs',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(1030, _omitFieldNames ? '' : 'secsSinceLastPublicIpv4Change',
+        fieldType: $pb.PbFieldType.OF)
+    ..aE<$2.UtDisablementCode>(
+        1031, _omitFieldNames ? '' : 'dishDisablementCode',
         enumValues: $2.UtDisablementCode.values)
-    ..a<$core.int>(
-        1034, _omitFieldNames ? '' : 'hopsFromController', $pb.PbFieldType.OU3)
+    ..aOB(1032, _omitFieldNames ? '' : 'usingIndividualizedCalibration')
+    ..aE<CalibrationPartitionsState>(
+        1033, _omitFieldNames ? '' : 'calibrationPartitionsState',
+        enumValues: CalibrationPartitionsState.values)
+    ..aI(1034, _omitFieldNames ? '' : 'hopsFromController',
+        fieldType: $pb.PbFieldType.OU3)
     ..aOM<WifiConfig>(2000, _omitFieldNames ? '' : 'config',
         subBuilder: WifiConfig.create)
-    ..pc<WifiClient>(3000, _omitFieldNames ? '' : 'clients', $pb.PbFieldType.PM,
+    ..pPM<WifiClient>(3000, _omitFieldNames ? '' : 'clients',
         subBuilder: WifiClient.create)
     ..aOB(3001, _omitFieldNames ? '' : 'hasClientIndex')
-    ..a<$core.int>(
-        3002, _omitFieldNames ? '' : 'clientIndex', $pb.PbFieldType.O3)
+    ..aI(3002, _omitFieldNames ? '' : 'clientIndex')
     ..aOM<RadiusStatsMap>(3003, _omitFieldNames ? '' : 'radiusStats',
         subBuilder: RadiusStatsMap.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiGetStatusResponse clone() =>
-      WifiGetStatusResponse()..mergeFromMessage(this);
+  WifiGetStatusResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiGetStatusResponse copyWith(
           void Function(WifiGetStatusResponse) updates) =>
@@ -24995,8 +25259,6 @@ class WifiGetStatusResponse extends $pb.GeneratedMessage {
   static WifiGetStatusResponse create() => WifiGetStatusResponse._();
   @$core.override
   WifiGetStatusResponse createEmptyInstance() => create();
-  static $pb.PbList<WifiGetStatusResponse> createRepeated() =>
-      $pb.PbList<WifiGetStatusResponse>();
   @$core.pragma('dart2js:noInline')
   static WifiGetStatusResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiGetStatusResponse>(create);
@@ -25293,57 +25555,76 @@ class WifiGetStatusResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1031)
   void clearDishDisablementCode() => $_clearField(1031);
 
+  @$pb.TagNumber(1032)
+  $core.bool get usingIndividualizedCalibration => $_getBF(30);
+  @$pb.TagNumber(1032)
+  set usingIndividualizedCalibration($core.bool value) => $_setBool(30, value);
+  @$pb.TagNumber(1032)
+  $core.bool hasUsingIndividualizedCalibration() => $_has(30);
+  @$pb.TagNumber(1032)
+  void clearUsingIndividualizedCalibration() => $_clearField(1032);
+
+  @$pb.TagNumber(1033)
+  CalibrationPartitionsState get calibrationPartitionsState => $_getN(31);
+  @$pb.TagNumber(1033)
+  set calibrationPartitionsState(CalibrationPartitionsState value) =>
+      $_setField(1033, value);
+  @$pb.TagNumber(1033)
+  $core.bool hasCalibrationPartitionsState() => $_has(31);
+  @$pb.TagNumber(1033)
+  void clearCalibrationPartitionsState() => $_clearField(1033);
+
   @$pb.TagNumber(1034)
-  $core.int get hopsFromController => $_getIZ(30);
+  $core.int get hopsFromController => $_getIZ(32);
   @$pb.TagNumber(1034)
-  set hopsFromController($core.int value) => $_setUnsignedInt32(30, value);
+  set hopsFromController($core.int value) => $_setUnsignedInt32(32, value);
   @$pb.TagNumber(1034)
-  $core.bool hasHopsFromController() => $_has(30);
+  $core.bool hasHopsFromController() => $_has(32);
   @$pb.TagNumber(1034)
   void clearHopsFromController() => $_clearField(1034);
 
   @$pb.TagNumber(2000)
-  WifiConfig get config => $_getN(31);
+  WifiConfig get config => $_getN(33);
   @$pb.TagNumber(2000)
   set config(WifiConfig value) => $_setField(2000, value);
   @$pb.TagNumber(2000)
-  $core.bool hasConfig() => $_has(31);
+  $core.bool hasConfig() => $_has(33);
   @$pb.TagNumber(2000)
   void clearConfig() => $_clearField(2000);
   @$pb.TagNumber(2000)
-  WifiConfig ensureConfig() => $_ensure(31);
+  WifiConfig ensureConfig() => $_ensure(33);
 
   @$pb.TagNumber(3000)
-  $pb.PbList<WifiClient> get clients => $_getList(32);
+  $pb.PbList<WifiClient> get clients => $_getList(34);
 
   @$pb.TagNumber(3001)
-  $core.bool get hasClientIndex => $_getBF(33);
+  $core.bool get hasClientIndex => $_getBF(35);
   @$pb.TagNumber(3001)
-  set hasClientIndex($core.bool value) => $_setBool(33, value);
+  set hasClientIndex($core.bool value) => $_setBool(35, value);
   @$pb.TagNumber(3001)
-  $core.bool hasHasClientIndex() => $_has(33);
+  $core.bool hasHasClientIndex() => $_has(35);
   @$pb.TagNumber(3001)
   void clearHasClientIndex() => $_clearField(3001);
 
   @$pb.TagNumber(3002)
-  $core.int get clientIndex_3002 => $_getIZ(34);
+  $core.int get clientIndex_3002 => $_getIZ(36);
   @$pb.TagNumber(3002)
-  set clientIndex_3002($core.int value) => $_setSignedInt32(34, value);
+  set clientIndex_3002($core.int value) => $_setSignedInt32(36, value);
   @$pb.TagNumber(3002)
-  $core.bool hasClientIndex_3002() => $_has(34);
+  $core.bool hasClientIndex_3002() => $_has(36);
   @$pb.TagNumber(3002)
   void clearClientIndex_3002() => $_clearField(3002);
 
   @$pb.TagNumber(3003)
-  RadiusStatsMap get radiusStats => $_getN(35);
+  RadiusStatsMap get radiusStats => $_getN(37);
   @$pb.TagNumber(3003)
   set radiusStats(RadiusStatsMap value) => $_setField(3003, value);
   @$pb.TagNumber(3003)
-  $core.bool hasRadiusStats() => $_has(35);
+  $core.bool hasRadiusStats() => $_has(37);
   @$pb.TagNumber(3003)
   void clearRadiusStats() => $_clearField(3003);
   @$pb.TagNumber(3003)
-  RadiusStatsMap ensureRadiusStats() => $_ensure(35);
+  RadiusStatsMap ensureRadiusStats() => $_ensure(37);
 }
 
 /// SpaceX.API.Device.WifiBandStatus is a message:
@@ -25381,20 +25662,20 @@ class WifiBandStatus extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.double>(
-        1, _omitFieldNames ? '' : 'chanBusyTimeFraction', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        2, _omitFieldNames ? '' : 'txAirTimeFraction', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        3, _omitFieldNames ? '' : 'rxAirTimeFraction', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        4, _omitFieldNames ? '' : 'obssAirTimeFraction', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        5, _omitFieldNames ? '' : 'edccaAirTimeFraction', $pb.PbFieldType.OF)
+    ..aD(1, _omitFieldNames ? '' : 'chanBusyTimeFraction',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(2, _omitFieldNames ? '' : 'txAirTimeFraction',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(3, _omitFieldNames ? '' : 'rxAirTimeFraction',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(4, _omitFieldNames ? '' : 'obssAirTimeFraction',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(5, _omitFieldNames ? '' : 'edccaAirTimeFraction',
+        fieldType: $pb.PbFieldType.OF)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiBandStatus clone() => WifiBandStatus()..mergeFromMessage(this);
+  WifiBandStatus clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiBandStatus copyWith(void Function(WifiBandStatus) updates) =>
       super.copyWith((message) => updates(message as WifiBandStatus))
@@ -25407,8 +25688,6 @@ class WifiBandStatus extends $pb.GeneratedMessage {
   static WifiBandStatus create() => WifiBandStatus._();
   @$core.override
   WifiBandStatus createEmptyInstance() => create();
-  static $pb.PbList<WifiBandStatus> createRepeated() =>
-      $pb.PbList<WifiBandStatus>();
   @$core.pragma('dart2js:noInline')
   static WifiBandStatus getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiBandStatus>(create);
@@ -25562,7 +25841,7 @@ class WifiAlerts extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiAlerts clone() => WifiAlerts()..mergeFromMessage(this);
+  WifiAlerts clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiAlerts copyWith(void Function(WifiAlerts) updates) =>
       super.copyWith((message) => updates(message as WifiAlerts)) as WifiAlerts;
@@ -25574,7 +25853,6 @@ class WifiAlerts extends $pb.GeneratedMessage {
   static WifiAlerts create() => WifiAlerts._();
   @$core.override
   WifiAlerts createEmptyInstance() => create();
-  static $pb.PbList<WifiAlerts> createRepeated() => $pb.PbList<WifiAlerts>();
   @$core.pragma('dart2js:noInline')
   static WifiAlerts getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiAlerts>(create);
@@ -25802,13 +26080,13 @@ class DhcpServer extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'domain')
     ..aOS(2, _omitFieldNames ? '' : 'subnet')
-    ..pc<DhcpLease>(3, _omitFieldNames ? '' : 'leases', $pb.PbFieldType.PM,
+    ..pPM<DhcpLease>(3, _omitFieldNames ? '' : 'leases',
         subBuilder: DhcpLease.create)
     ..aOB(4, _omitFieldNames ? '' : 'ipExhausted')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DhcpServer clone() => DhcpServer()..mergeFromMessage(this);
+  DhcpServer clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DhcpServer copyWith(void Function(DhcpServer) updates) =>
       super.copyWith((message) => updates(message as DhcpServer)) as DhcpServer;
@@ -25820,7 +26098,6 @@ class DhcpServer extends $pb.GeneratedMessage {
   static DhcpServer create() => DhcpServer._();
   @$core.override
   DhcpServer createEmptyInstance() => create();
-  static $pb.PbList<DhcpServer> createRepeated() => $pb.PbList<DhcpServer>();
   @$core.pragma('dart2js:noInline')
   static DhcpServer getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DhcpServer>(create);
@@ -25896,11 +26173,11 @@ class DhcpLease extends $pb.GeneratedMessage {
     ..aOS(3, _omitFieldNames ? '' : 'hostname')
     ..aOS(4, _omitFieldNames ? '' : 'expiresTime')
     ..aOB(5, _omitFieldNames ? '' : 'active')
-    ..a<$core.int>(6, _omitFieldNames ? '' : 'clientId', $pb.PbFieldType.OU3)
+    ..aI(6, _omitFieldNames ? '' : 'clientId', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DhcpLease clone() => DhcpLease()..mergeFromMessage(this);
+  DhcpLease clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DhcpLease copyWith(void Function(DhcpLease) updates) =>
       super.copyWith((message) => updates(message as DhcpLease)) as DhcpLease;
@@ -25912,7 +26189,6 @@ class DhcpLease extends $pb.GeneratedMessage {
   static DhcpLease create() => DhcpLease._();
   @$core.override
   DhcpLease createEmptyInstance() => create();
-  static $pb.PbList<DhcpLease> createRepeated() => $pb.PbList<DhcpLease>();
   @$core.pragma('dart2js:noInline')
   static DhcpLease getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DhcpLease>(create);
@@ -26013,24 +26289,22 @@ class PoeStats extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..e<PoeState>(1, _omitFieldNames ? '' : 'poeState', $pb.PbFieldType.OE,
-        defaultOrMaker: PoeState.POE_STATE_DISABLED,
-        valueOf: PoeState.valueOf,
+    ..aE<PoeState>(1, _omitFieldNames ? '' : 'poeState',
         enumValues: PoeState.values)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'poePower', $pb.PbFieldType.OF)
-    ..a<$core.int>(3, _omitFieldNames ? '' : 'poeFaultsFastOvercurrent',
-        $pb.PbFieldType.OU3)
-    ..a<$core.int>(4, _omitFieldNames ? '' : 'poeFaultsSlowOvercurrent',
-        $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        5, _omitFieldNames ? '' : 'poeFaultsOvervoltage', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        6, _omitFieldNames ? '' : 'poeFaultsUndervoltage', $pb.PbFieldType.OU3)
-    ..a<$core.double>(7, _omitFieldNames ? '' : 'vsnsVin', $pb.PbFieldType.OF)
+    ..aD(2, _omitFieldNames ? '' : 'poePower', fieldType: $pb.PbFieldType.OF)
+    ..aI(3, _omitFieldNames ? '' : 'poeFaultsFastOvercurrent',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(4, _omitFieldNames ? '' : 'poeFaultsSlowOvercurrent',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(5, _omitFieldNames ? '' : 'poeFaultsOvervoltage',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(6, _omitFieldNames ? '' : 'poeFaultsUndervoltage',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aD(7, _omitFieldNames ? '' : 'vsnsVin', fieldType: $pb.PbFieldType.OF)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  PoeStats clone() => PoeStats()..mergeFromMessage(this);
+  PoeStats clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   PoeStats copyWith(void Function(PoeStats) updates) =>
       super.copyWith((message) => updates(message as PoeStats)) as PoeStats;
@@ -26042,7 +26316,6 @@ class PoeStats extends $pb.GeneratedMessage {
   static PoeStats create() => PoeStats._();
   @$core.override
   PoeStats createEmptyInstance() => create();
-  static $pb.PbList<PoeStats> createRepeated() => $pb.PbList<PoeStats>();
   @$core.pragma('dart2js:noInline')
   static PoeStats getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PoeStats>(create);
@@ -26146,22 +26419,18 @@ class WifiSoftwareUpdateStats extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..e<WifiSoftwareUpdateState>(
-        1, _omitFieldNames ? '' : 'state', $pb.PbFieldType.OE,
-        defaultOrMaker: WifiSoftwareUpdateState.NOT_RUN,
-        valueOf: WifiSoftwareUpdateState.valueOf,
+    ..aE<WifiSoftwareUpdateState>(1, _omitFieldNames ? '' : 'state',
         enumValues: WifiSoftwareUpdateState.values)
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'softwareDownloadProgress',
-        $pb.PbFieldType.OF)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'secondsSinceGetTargetVersions',
-        $pb.PbFieldType.OF)
+    ..aD(2, _omitFieldNames ? '' : 'softwareDownloadProgress',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(3, _omitFieldNames ? '' : 'secondsSinceGetTargetVersions',
+        fieldType: $pb.PbFieldType.OF)
     ..aOS(4, _omitFieldNames ? '' : 'runningVersion')
     ..aOS(5, _omitFieldNames ? '' : 'versionInProgress')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiSoftwareUpdateStats clone() =>
-      WifiSoftwareUpdateStats()..mergeFromMessage(this);
+  WifiSoftwareUpdateStats clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiSoftwareUpdateStats copyWith(
           void Function(WifiSoftwareUpdateStats) updates) =>
@@ -26175,8 +26444,6 @@ class WifiSoftwareUpdateStats extends $pb.GeneratedMessage {
   static WifiSoftwareUpdateStats create() => WifiSoftwareUpdateStats._();
   @$core.override
   WifiSoftwareUpdateStats createEmptyInstance() => create();
-  static $pb.PbList<WifiSoftwareUpdateStats> createRepeated() =>
-      $pb.PbList<WifiSoftwareUpdateStats>();
   @$core.pragma('dart2js:noInline')
   static WifiSoftwareUpdateStats getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiSoftwareUpdateStats>(create);
@@ -26255,10 +26522,7 @@ class WifiSetupRequirement extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..e<WifiSetupRequirementState>(
-        1, _omitFieldNames ? '' : 'state', $pb.PbFieldType.OE,
-        defaultOrMaker: WifiSetupRequirementState.NOT_REQUIRED,
-        valueOf: WifiSetupRequirementState.valueOf,
+    ..aE<WifiSetupRequirementState>(1, _omitFieldNames ? '' : 'state',
         enumValues: WifiSetupRequirementState.values)
     ..a<$fixnum.Int64>(
         2, _omitFieldNames ? '' : 'pauseCountdownSeconds', $pb.PbFieldType.OU6,
@@ -26266,8 +26530,7 @@ class WifiSetupRequirement extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiSetupRequirement clone() =>
-      WifiSetupRequirement()..mergeFromMessage(this);
+  WifiSetupRequirement clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiSetupRequirement copyWith(void Function(WifiSetupRequirement) updates) =>
       super.copyWith((message) => updates(message as WifiSetupRequirement))
@@ -26280,8 +26543,6 @@ class WifiSetupRequirement extends $pb.GeneratedMessage {
   static WifiSetupRequirement create() => WifiSetupRequirement._();
   @$core.override
   WifiSetupRequirement createEmptyInstance() => create();
-  static $pb.PbList<WifiSetupRequirement> createRepeated() =>
-      $pb.PbList<WifiSetupRequirement>();
   @$core.pragma('dart2js:noInline')
   static WifiSetupRequirement getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiSetupRequirement>(create);
@@ -26348,25 +26609,24 @@ class RadiusStatsMap_RadiusStats extends $pb.GeneratedMessage {
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'ifaceName')
-    ..a<$core.int>(
-        2, _omitFieldNames ? '' : 'timeoutCount', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        3, _omitFieldNames ? '' : 'accessRequestCount', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        4, _omitFieldNames ? '' : 'accessAcceptCount', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        5, _omitFieldNames ? '' : 'accessRejectCount', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        6, _omitFieldNames ? '' : 'accessChallengeCount', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        7, _omitFieldNames ? '' : 'accountingRequestCount', $pb.PbFieldType.OU3)
-    ..a<$core.int>(8, _omitFieldNames ? '' : 'accountingResponseCount',
-        $pb.PbFieldType.OU3)
+    ..aI(2, _omitFieldNames ? '' : 'timeoutCount',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(3, _omitFieldNames ? '' : 'accessRequestCount',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(4, _omitFieldNames ? '' : 'accessAcceptCount',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(5, _omitFieldNames ? '' : 'accessRejectCount',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(6, _omitFieldNames ? '' : 'accessChallengeCount',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(7, _omitFieldNames ? '' : 'accountingRequestCount',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(8, _omitFieldNames ? '' : 'accountingResponseCount',
+        fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  RadiusStatsMap_RadiusStats clone() =>
-      RadiusStatsMap_RadiusStats()..mergeFromMessage(this);
+  RadiusStatsMap_RadiusStats clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   RadiusStatsMap_RadiusStats copyWith(
           void Function(RadiusStatsMap_RadiusStats) updates) =>
@@ -26381,8 +26641,6 @@ class RadiusStatsMap_RadiusStats extends $pb.GeneratedMessage {
   static RadiusStatsMap_RadiusStats create() => RadiusStatsMap_RadiusStats._();
   @$core.override
   RadiusStatsMap_RadiusStats createEmptyInstance() => create();
-  static $pb.PbList<RadiusStatsMap_RadiusStats> createRepeated() =>
-      $pb.PbList<RadiusStatsMap_RadiusStats>();
   @$core.pragma('dart2js:noInline')
   static RadiusStatsMap_RadiusStats getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RadiusStatsMap_RadiusStats>(create);
@@ -26497,7 +26755,7 @@ class RadiusStatsMap extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  RadiusStatsMap clone() => RadiusStatsMap()..mergeFromMessage(this);
+  RadiusStatsMap clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   RadiusStatsMap copyWith(void Function(RadiusStatsMap) updates) =>
       super.copyWith((message) => updates(message as RadiusStatsMap))
@@ -26510,8 +26768,6 @@ class RadiusStatsMap extends $pb.GeneratedMessage {
   static RadiusStatsMap create() => RadiusStatsMap._();
   @$core.override
   RadiusStatsMap createEmptyInstance() => create();
-  static $pb.PbList<RadiusStatsMap> createRepeated() =>
-      $pb.PbList<RadiusStatsMap>();
   @$core.pragma('dart2js:noInline')
   static RadiusStatsMap getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<RadiusStatsMap>(create);
@@ -26555,8 +26811,7 @@ class WifiAuthenticateResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiAuthenticateResponse clone() =>
-      WifiAuthenticateResponse()..mergeFromMessage(this);
+  WifiAuthenticateResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiAuthenticateResponse copyWith(
           void Function(WifiAuthenticateResponse) updates) =>
@@ -26570,8 +26825,6 @@ class WifiAuthenticateResponse extends $pb.GeneratedMessage {
   static WifiAuthenticateResponse create() => WifiAuthenticateResponse._();
   @$core.override
   WifiAuthenticateResponse createEmptyInstance() => create();
-  static $pb.PbList<WifiAuthenticateResponse> createRepeated() =>
-      $pb.PbList<WifiAuthenticateResponse>();
   @$core.pragma('dart2js:noInline')
   static WifiAuthenticateResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiAuthenticateResponse>(create);
@@ -26630,8 +26883,7 @@ class WifiGetHistoryResponse_DnsResolverHistory extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiGetHistoryResponse_DnsResolverHistory clone() =>
-      WifiGetHistoryResponse_DnsResolverHistory()..mergeFromMessage(this);
+  WifiGetHistoryResponse_DnsResolverHistory clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiGetHistoryResponse_DnsResolverHistory copyWith(
           void Function(WifiGetHistoryResponse_DnsResolverHistory) updates) =>
@@ -26647,9 +26899,6 @@ class WifiGetHistoryResponse_DnsResolverHistory extends $pb.GeneratedMessage {
       WifiGetHistoryResponse_DnsResolverHistory._();
   @$core.override
   WifiGetHistoryResponse_DnsResolverHistory createEmptyInstance() => create();
-  static $pb.PbList<WifiGetHistoryResponse_DnsResolverHistory>
-      createRepeated() =>
-          $pb.PbList<WifiGetHistoryResponse_DnsResolverHistory>();
   @$core.pragma('dart2js:noInline')
   static WifiGetHistoryResponse_DnsResolverHistory getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<
@@ -26769,8 +27018,7 @@ class WifiGetHistoryResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiGetHistoryResponse clone() =>
-      WifiGetHistoryResponse()..mergeFromMessage(this);
+  WifiGetHistoryResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiGetHistoryResponse copyWith(
           void Function(WifiGetHistoryResponse) updates) =>
@@ -26784,8 +27032,6 @@ class WifiGetHistoryResponse extends $pb.GeneratedMessage {
   static WifiGetHistoryResponse create() => WifiGetHistoryResponse._();
   @$core.override
   WifiGetHistoryResponse createEmptyInstance() => create();
-  static $pb.PbList<WifiGetHistoryResponse> createRepeated() =>
-      $pb.PbList<WifiGetHistoryResponse>();
   @$core.pragma('dart2js:noInline')
   static WifiGetHistoryResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiGetHistoryResponse>(create);
@@ -26880,8 +27126,7 @@ class WifiGetPingMetricsResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiGetPingMetricsResponse clone() =>
-      WifiGetPingMetricsResponse()..mergeFromMessage(this);
+  WifiGetPingMetricsResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiGetPingMetricsResponse copyWith(
           void Function(WifiGetPingMetricsResponse) updates) =>
@@ -26896,8 +27141,6 @@ class WifiGetPingMetricsResponse extends $pb.GeneratedMessage {
   static WifiGetPingMetricsResponse create() => WifiGetPingMetricsResponse._();
   @$core.override
   WifiGetPingMetricsResponse createEmptyInstance() => create();
-  static $pb.PbList<WifiGetPingMetricsResponse> createRepeated() =>
-      $pb.PbList<WifiGetPingMetricsResponse>();
   @$core.pragma('dart2js:noInline')
   static WifiGetPingMetricsResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiGetPingMetricsResponse>(create);
@@ -26983,62 +27226,53 @@ class PingMetrics extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.double>(
-        1, _omitFieldNames ? '' : 'latencyMeanMs', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        2, _omitFieldNames ? '' : 'latencyStddevMs', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        3, _omitFieldNames ? '' : 'latencyMeanMs5m', $pb.PbFieldType.OF,
-        protoName: 'latency_mean_ms_5m')
-    ..a<$core.double>(
-        4, _omitFieldNames ? '' : 'latencyMeanMs1h', $pb.PbFieldType.OF,
-        protoName: 'latency_mean_ms_1h')
-    ..a<$core.double>(
-        5, _omitFieldNames ? '' : 'latencyMeanMs1d', $pb.PbFieldType.OF,
-        protoName: 'latency_mean_ms_1d')
-    ..a<$core.double>(6, _omitFieldNames ? '' : 'dropRate', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        7, _omitFieldNames ? '' : 'dropRate5m', $pb.PbFieldType.OF,
-        protoName: 'drop_rate_5m')
-    ..a<$core.double>(
-        8, _omitFieldNames ? '' : 'dropRate1h', $pb.PbFieldType.OF,
-        protoName: 'drop_rate_1h')
-    ..a<$core.double>(
-        9, _omitFieldNames ? '' : 'dropRate1d', $pb.PbFieldType.OF,
-        protoName: 'drop_rate_1d')
-    ..a<$core.double>(10, _omitFieldNames ? '' : 'secondsSinceLastSuccess',
-        $pb.PbFieldType.OF)
-    ..a<$core.double>(11, _omitFieldNames ? '' : 'secondsSinceLast1sOutage',
-        $pb.PbFieldType.OF,
-        protoName: 'seconds_since_last_1s_outage')
-    ..a<$core.double>(12, _omitFieldNames ? '' : 'secondsSinceLast5sOutage',
-        $pb.PbFieldType.OF,
-        protoName: 'seconds_since_last_5s_outage')
-    ..a<$core.double>(
-        13, _omitFieldNames ? '' : 'happyHours1s1d', $pb.PbFieldType.OF,
-        protoName: 'happy_hours_1s_1d')
-    ..a<$core.double>(
-        14, _omitFieldNames ? '' : 'happyHours5s1d', $pb.PbFieldType.OF,
-        protoName: 'happy_hours_5s_1d')
-    ..a<$core.double>(15, _omitFieldNames ? '' : 'secondsSinceLast2sOutage',
-        $pb.PbFieldType.OF,
-        protoName: 'seconds_since_last_2s_outage')
-    ..a<$core.double>(
-        16, _omitFieldNames ? '' : 'happyHours2s1d', $pb.PbFieldType.OF,
-        protoName: 'happy_hours_2s_1d')
-    ..a<$core.double>(18, _omitFieldNames ? '' : 'secondsSinceLast15sOutage',
-        $pb.PbFieldType.OF,
-        protoName: 'seconds_since_last_15s_outage')
-    ..a<$core.double>(19, _omitFieldNames ? '' : 'secondsSinceLast60sOutage',
-        $pb.PbFieldType.OF,
-        protoName: 'seconds_since_last_60s_outage')
-    ..a<$core.double>(20, _omitFieldNames ? '' : 'secondsSinceLast300sOutage',
-        $pb.PbFieldType.OF,
-        protoName: 'seconds_since_last_300s_outage')
+    ..aD(1, _omitFieldNames ? '' : 'latencyMeanMs',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(2, _omitFieldNames ? '' : 'latencyStddevMs',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(3, _omitFieldNames ? '' : 'latencyMeanMs5m',
+        protoName: 'latency_mean_ms_5m', fieldType: $pb.PbFieldType.OF)
+    ..aD(4, _omitFieldNames ? '' : 'latencyMeanMs1h',
+        protoName: 'latency_mean_ms_1h', fieldType: $pb.PbFieldType.OF)
+    ..aD(5, _omitFieldNames ? '' : 'latencyMeanMs1d',
+        protoName: 'latency_mean_ms_1d', fieldType: $pb.PbFieldType.OF)
+    ..aD(6, _omitFieldNames ? '' : 'dropRate', fieldType: $pb.PbFieldType.OF)
+    ..aD(7, _omitFieldNames ? '' : 'dropRate5m',
+        protoName: 'drop_rate_5m', fieldType: $pb.PbFieldType.OF)
+    ..aD(8, _omitFieldNames ? '' : 'dropRate1h',
+        protoName: 'drop_rate_1h', fieldType: $pb.PbFieldType.OF)
+    ..aD(9, _omitFieldNames ? '' : 'dropRate1d',
+        protoName: 'drop_rate_1d', fieldType: $pb.PbFieldType.OF)
+    ..aD(10, _omitFieldNames ? '' : 'secondsSinceLastSuccess',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(11, _omitFieldNames ? '' : 'secondsSinceLast1sOutage',
+        protoName: 'seconds_since_last_1s_outage',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(12, _omitFieldNames ? '' : 'secondsSinceLast5sOutage',
+        protoName: 'seconds_since_last_5s_outage',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(13, _omitFieldNames ? '' : 'happyHours1s1d',
+        protoName: 'happy_hours_1s_1d', fieldType: $pb.PbFieldType.OF)
+    ..aD(14, _omitFieldNames ? '' : 'happyHours5s1d',
+        protoName: 'happy_hours_5s_1d', fieldType: $pb.PbFieldType.OF)
+    ..aD(15, _omitFieldNames ? '' : 'secondsSinceLast2sOutage',
+        protoName: 'seconds_since_last_2s_outage',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(16, _omitFieldNames ? '' : 'happyHours2s1d',
+        protoName: 'happy_hours_2s_1d', fieldType: $pb.PbFieldType.OF)
+    ..aD(18, _omitFieldNames ? '' : 'secondsSinceLast15sOutage',
+        protoName: 'seconds_since_last_15s_outage',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(19, _omitFieldNames ? '' : 'secondsSinceLast60sOutage',
+        protoName: 'seconds_since_last_60s_outage',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(20, _omitFieldNames ? '' : 'secondsSinceLast300sOutage',
+        protoName: 'seconds_since_last_300s_outage',
+        fieldType: $pb.PbFieldType.OF)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  PingMetrics clone() => PingMetrics()..mergeFromMessage(this);
+  PingMetrics clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   PingMetrics copyWith(void Function(PingMetrics) updates) =>
       super.copyWith((message) => updates(message as PingMetrics))
@@ -27051,7 +27285,6 @@ class PingMetrics extends $pb.GeneratedMessage {
   static PingMetrics create() => PingMetrics._();
   @$core.override
   PingMetrics createEmptyInstance() => create();
-  static $pb.PbList<PingMetrics> createRepeated() => $pb.PbList<PingMetrics>();
   @$core.pragma('dart2js:noInline')
   static PingMetrics getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<PingMetrics>(create);
@@ -27262,8 +27495,7 @@ class WifiGetConfigResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiGetConfigResponse clone() =>
-      WifiGetConfigResponse()..mergeFromMessage(this);
+  WifiGetConfigResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiGetConfigResponse copyWith(
           void Function(WifiGetConfigResponse) updates) =>
@@ -27277,8 +27509,6 @@ class WifiGetConfigResponse extends $pb.GeneratedMessage {
   static WifiGetConfigResponse create() => WifiGetConfigResponse._();
   @$core.override
   WifiGetConfigResponse createEmptyInstance() => create();
-  static $pb.PbList<WifiGetConfigResponse> createRepeated() =>
-      $pb.PbList<WifiGetConfigResponse>();
   @$core.pragma('dart2js:noInline')
   static WifiGetConfigResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiGetConfigResponse>(create);
@@ -27317,8 +27547,7 @@ class WifiSetMeshDeviceTrustResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiSetMeshDeviceTrustResponse clone() =>
-      WifiSetMeshDeviceTrustResponse()..mergeFromMessage(this);
+  WifiSetMeshDeviceTrustResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiSetMeshDeviceTrustResponse copyWith(
           void Function(WifiSetMeshDeviceTrustResponse) updates) =>
@@ -27334,8 +27563,6 @@ class WifiSetMeshDeviceTrustResponse extends $pb.GeneratedMessage {
       WifiSetMeshDeviceTrustResponse._();
   @$core.override
   WifiSetMeshDeviceTrustResponse createEmptyInstance() => create();
-  static $pb.PbList<WifiSetMeshDeviceTrustResponse> createRepeated() =>
-      $pb.PbList<WifiSetMeshDeviceTrustResponse>();
   @$core.pragma('dart2js:noInline')
   static WifiSetMeshDeviceTrustResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiSetMeshDeviceTrustResponse>(create);
@@ -27363,8 +27590,7 @@ class WifiSetMeshConfigResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiSetMeshConfigResponse clone() =>
-      WifiSetMeshConfigResponse()..mergeFromMessage(this);
+  WifiSetMeshConfigResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiSetMeshConfigResponse copyWith(
           void Function(WifiSetMeshConfigResponse) updates) =>
@@ -27378,8 +27604,6 @@ class WifiSetMeshConfigResponse extends $pb.GeneratedMessage {
   static WifiSetMeshConfigResponse create() => WifiSetMeshConfigResponse._();
   @$core.override
   WifiSetMeshConfigResponse createEmptyInstance() => create();
-  static $pb.PbList<WifiSetMeshConfigResponse> createRepeated() =>
-      $pb.PbList<WifiSetMeshConfigResponse>();
   @$core.pragma('dart2js:noInline')
   static WifiSetMeshConfigResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiSetMeshConfigResponse>(create);
@@ -27443,8 +27667,7 @@ class WifiGetClientHistoryResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiGetClientHistoryResponse clone() =>
-      WifiGetClientHistoryResponse()..mergeFromMessage(this);
+  WifiGetClientHistoryResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiGetClientHistoryResponse copyWith(
           void Function(WifiGetClientHistoryResponse) updates) =>
@@ -27460,8 +27683,6 @@ class WifiGetClientHistoryResponse extends $pb.GeneratedMessage {
       WifiGetClientHistoryResponse._();
   @$core.override
   WifiGetClientHistoryResponse createEmptyInstance() => create();
-  static $pb.PbList<WifiGetClientHistoryResponse> createRepeated() =>
-      $pb.PbList<WifiGetClientHistoryResponse>();
   @$core.pragma('dart2js:noInline')
   static WifiGetClientHistoryResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiGetClientHistoryResponse>(create);
@@ -27531,8 +27752,7 @@ class WifiSelfTestResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiSelfTestResponse clone() =>
-      WifiSelfTestResponse()..mergeFromMessage(this);
+  WifiSelfTestResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiSelfTestResponse copyWith(void Function(WifiSelfTestResponse) updates) =>
       super.copyWith((message) => updates(message as WifiSelfTestResponse))
@@ -27545,8 +27765,6 @@ class WifiSelfTestResponse extends $pb.GeneratedMessage {
   static WifiSelfTestResponse create() => WifiSelfTestResponse._();
   @$core.override
   WifiSelfTestResponse createEmptyInstance() => create();
-  static $pb.PbList<WifiSelfTestResponse> createRepeated() =>
-      $pb.PbList<WifiSelfTestResponse>();
   @$core.pragma('dart2js:noInline')
   static WifiSelfTestResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiSelfTestResponse>(create);
@@ -27606,8 +27824,7 @@ class WifiSelfTest_TestResult extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiSelfTest_TestResult clone() =>
-      WifiSelfTest_TestResult()..mergeFromMessage(this);
+  WifiSelfTest_TestResult clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiSelfTest_TestResult copyWith(
           void Function(WifiSelfTest_TestResult) updates) =>
@@ -27621,8 +27838,6 @@ class WifiSelfTest_TestResult extends $pb.GeneratedMessage {
   static WifiSelfTest_TestResult create() => WifiSelfTest_TestResult._();
   @$core.override
   WifiSelfTest_TestResult createEmptyInstance() => create();
-  static $pb.PbList<WifiSelfTest_TestResult> createRepeated() =>
-      $pb.PbList<WifiSelfTest_TestResult>();
   @$core.pragma('dart2js:noInline')
   static WifiSelfTest_TestResult getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiSelfTest_TestResult>(create);
@@ -27691,18 +27906,16 @@ class WifiSelfTest extends $pb.GeneratedMessage {
     ..aOB(1, _omitFieldNames ? '' : 'totalSuccess')
     ..aOM<WifiSelfTest_TestResult>(2, _omitFieldNames ? '' : 'fused',
         subBuilder: WifiSelfTest_TestResult.create)
-    ..pc<WifiSelfTest_TestResult>(
-        3, _omitFieldNames ? '' : 'ethPhys', $pb.PbFieldType.PM,
+    ..pPM<WifiSelfTest_TestResult>(3, _omitFieldNames ? '' : 'ethPhys',
         subBuilder: WifiSelfTest_TestResult.create)
-    ..pc<WifiSelfTest_TestResult>(
-        4, _omitFieldNames ? '' : 'pcis', $pb.PbFieldType.PM,
+    ..pPM<WifiSelfTest_TestResult>(4, _omitFieldNames ? '' : 'pcis',
         subBuilder: WifiSelfTest_TestResult.create)
     ..aOM<WifiSelfTest_TestResult>(5, _omitFieldNames ? '' : 'bl2Prod',
         subBuilder: WifiSelfTest_TestResult.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiSelfTest clone() => WifiSelfTest()..mergeFromMessage(this);
+  WifiSelfTest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiSelfTest copyWith(void Function(WifiSelfTest) updates) =>
       super.copyWith((message) => updates(message as WifiSelfTest))
@@ -27715,8 +27928,6 @@ class WifiSelfTest extends $pb.GeneratedMessage {
   static WifiSelfTest create() => WifiSelfTest._();
   @$core.override
   WifiSelfTest createEmptyInstance() => create();
-  static $pb.PbList<WifiSelfTest> createRepeated() =>
-      $pb.PbList<WifiSelfTest>();
   @$core.pragma('dart2js:noInline')
   static WifiSelfTest getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiSelfTest>(create);
@@ -27803,8 +28014,7 @@ class WifiGuestInfoResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiGuestInfoResponse clone() =>
-      WifiGuestInfoResponse()..mergeFromMessage(this);
+  WifiGuestInfoResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiGuestInfoResponse copyWith(
           void Function(WifiGuestInfoResponse) updates) =>
@@ -27818,8 +28028,6 @@ class WifiGuestInfoResponse extends $pb.GeneratedMessage {
   static WifiGuestInfoResponse create() => WifiGuestInfoResponse._();
   @$core.override
   WifiGuestInfoResponse createEmptyInstance() => create();
-  static $pb.PbList<WifiGuestInfoResponse> createRepeated() =>
-      $pb.PbList<WifiGuestInfoResponse>();
   @$core.pragma('dart2js:noInline')
   static WifiGuestInfoResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiGuestInfoResponse>(create);
@@ -27899,7 +28107,7 @@ class WifiRfTestResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiRfTestResponse clone() => WifiRfTestResponse()..mergeFromMessage(this);
+  WifiRfTestResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiRfTestResponse copyWith(void Function(WifiRfTestResponse) updates) =>
       super.copyWith((message) => updates(message as WifiRfTestResponse))
@@ -27912,8 +28120,6 @@ class WifiRfTestResponse extends $pb.GeneratedMessage {
   static WifiRfTestResponse create() => WifiRfTestResponse._();
   @$core.override
   WifiRfTestResponse createEmptyInstance() => create();
-  static $pb.PbList<WifiRfTestResponse> createRepeated() =>
-      $pb.PbList<WifiRfTestResponse>();
   @$core.pragma('dart2js:noInline')
   static WifiRfTestResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiRfTestResponse>(create);
@@ -27958,8 +28164,7 @@ class WifiGetPersistentStatsResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiGetPersistentStatsResponse clone() =>
-      WifiGetPersistentStatsResponse()..mergeFromMessage(this);
+  WifiGetPersistentStatsResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiGetPersistentStatsResponse copyWith(
           void Function(WifiGetPersistentStatsResponse) updates) =>
@@ -27975,8 +28180,6 @@ class WifiGetPersistentStatsResponse extends $pb.GeneratedMessage {
       WifiGetPersistentStatsResponse._();
   @$core.override
   WifiGetPersistentStatsResponse createEmptyInstance() => create();
-  static $pb.PbList<WifiGetPersistentStatsResponse> createRepeated() =>
-      $pb.PbList<WifiGetPersistentStatsResponse>();
   @$core.pragma('dart2js:noInline')
   static WifiGetPersistentStatsResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiGetPersistentStatsResponse>(create);
@@ -28020,13 +28223,12 @@ class WifiPersistentStats_Event extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'count', $pb.PbFieldType.OU3)
+    ..aI(1, _omitFieldNames ? '' : 'count', fieldType: $pb.PbFieldType.OU3)
     ..aInt64(2, _omitFieldNames ? '' : 'lastOccurredTimestamp')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiPersistentStats_Event clone() =>
-      WifiPersistentStats_Event()..mergeFromMessage(this);
+  WifiPersistentStats_Event clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiPersistentStats_Event copyWith(
           void Function(WifiPersistentStats_Event) updates) =>
@@ -28040,8 +28242,6 @@ class WifiPersistentStats_Event extends $pb.GeneratedMessage {
   static WifiPersistentStats_Event create() => WifiPersistentStats_Event._();
   @$core.override
   WifiPersistentStats_Event createEmptyInstance() => create();
-  static $pb.PbList<WifiPersistentStats_Event> createRepeated() =>
-      $pb.PbList<WifiPersistentStats_Event>();
   @$core.pragma('dart2js:noInline')
   static WifiPersistentStats_Event getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiPersistentStats_Event>(create);
@@ -28122,7 +28322,7 @@ class WifiPersistentStats extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiPersistentStats clone() => WifiPersistentStats()..mergeFromMessage(this);
+  WifiPersistentStats clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiPersistentStats copyWith(void Function(WifiPersistentStats) updates) =>
       super.copyWith((message) => updates(message as WifiPersistentStats))
@@ -28135,8 +28335,6 @@ class WifiPersistentStats extends $pb.GeneratedMessage {
   static WifiPersistentStats create() => WifiPersistentStats._();
   @$core.override
   WifiPersistentStats createEmptyInstance() => create();
-  static $pb.PbList<WifiPersistentStats> createRepeated() =>
-      $pb.PbList<WifiPersistentStats>();
   @$core.pragma('dart2js:noInline')
   static WifiPersistentStats getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiPersistentStats>(create);
@@ -28235,8 +28433,7 @@ class WifiGetFirewallResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiGetFirewallResponse clone() =>
-      WifiGetFirewallResponse()..mergeFromMessage(this);
+  WifiGetFirewallResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiGetFirewallResponse copyWith(
           void Function(WifiGetFirewallResponse) updates) =>
@@ -28250,8 +28447,6 @@ class WifiGetFirewallResponse extends $pb.GeneratedMessage {
   static WifiGetFirewallResponse create() => WifiGetFirewallResponse._();
   @$core.override
   WifiGetFirewallResponse createEmptyInstance() => create();
-  static $pb.PbList<WifiGetFirewallResponse> createRepeated() =>
-      $pb.PbList<WifiGetFirewallResponse>();
   @$core.pragma('dart2js:noInline')
   static WifiGetFirewallResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiGetFirewallResponse>(create);
@@ -28304,8 +28499,7 @@ class WifiFactoryTestCommandResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiFactoryTestCommandResponse clone() =>
-      WifiFactoryTestCommandResponse()..mergeFromMessage(this);
+  WifiFactoryTestCommandResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiFactoryTestCommandResponse copyWith(
           void Function(WifiFactoryTestCommandResponse) updates) =>
@@ -28321,8 +28515,6 @@ class WifiFactoryTestCommandResponse extends $pb.GeneratedMessage {
       WifiFactoryTestCommandResponse._();
   @$core.override
   WifiFactoryTestCommandResponse createEmptyInstance() => create();
-  static $pb.PbList<WifiFactoryTestCommandResponse> createRepeated() =>
-      $pb.PbList<WifiFactoryTestCommandResponse>();
   @$core.pragma('dart2js:noInline')
   static WifiFactoryTestCommandResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiFactoryTestCommandResponse>(create);
@@ -28372,19 +28564,15 @@ class WifiBackhaulStatsResponse extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aOB(1, _omitFieldNames ? '' : 'success')
     ..aOS(2, _omitFieldNames ? '' : 'bssid')
-    ..e<IfaceType>(3, _omitFieldNames ? '' : 'iface', $pb.PbFieldType.OE,
-        defaultOrMaker: IfaceType.IFACE_TYPE_UNKNOWN,
-        valueOf: IfaceType.valueOf,
+    ..aE<IfaceType>(3, _omitFieldNames ? '' : 'iface',
         enumValues: IfaceType.values)
-    ..a<$core.int>(4, _omitFieldNames ? '' : 'preference', $pb.PbFieldType.OU3)
-    ..pc<WifiSiteSurveyResult>(
-        5, _omitFieldNames ? '' : 'siteSurveyScan', $pb.PbFieldType.PM,
+    ..aI(4, _omitFieldNames ? '' : 'preference', fieldType: $pb.PbFieldType.OU3)
+    ..pPM<WifiSiteSurveyResult>(5, _omitFieldNames ? '' : 'siteSurveyScan',
         protoName: 'siteSurveyScan', subBuilder: WifiSiteSurveyResult.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiBackhaulStatsResponse clone() =>
-      WifiBackhaulStatsResponse()..mergeFromMessage(this);
+  WifiBackhaulStatsResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiBackhaulStatsResponse copyWith(
           void Function(WifiBackhaulStatsResponse) updates) =>
@@ -28398,8 +28586,6 @@ class WifiBackhaulStatsResponse extends $pb.GeneratedMessage {
   static WifiBackhaulStatsResponse create() => WifiBackhaulStatsResponse._();
   @$core.override
   WifiBackhaulStatsResponse createEmptyInstance() => create();
-  static $pb.PbList<WifiBackhaulStatsResponse> createRepeated() =>
-      $pb.PbList<WifiBackhaulStatsResponse>();
   @$core.pragma('dart2js:noInline')
   static WifiBackhaulStatsResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiBackhaulStatsResponse>(create);
@@ -28483,28 +28669,21 @@ class WifiSiteSurveyResult extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.double>(1, _omitFieldNames ? '' : 'rssi', $pb.PbFieldType.OF)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'channel', $pb.PbFieldType.OU3)
+    ..aD(1, _omitFieldNames ? '' : 'rssi', fieldType: $pb.PbFieldType.OF)
+    ..aI(2, _omitFieldNames ? '' : 'channel', fieldType: $pb.PbFieldType.OU3)
     ..aOS(3, _omitFieldNames ? '' : 'ssid')
-    ..e<WifiSecurity>(4, _omitFieldNames ? '' : 'security', $pb.PbFieldType.OE,
-        defaultOrMaker: WifiSecurity.WIFI_SECURITY_UNKNOWN,
-        valueOf: WifiSecurity.valueOf,
+    ..aE<WifiSecurity>(4, _omitFieldNames ? '' : 'security',
         enumValues: WifiSecurity.values)
-    ..e<WifiMode>(5, _omitFieldNames ? '' : 'wirelessMode', $pb.PbFieldType.OE,
-        defaultOrMaker: WifiMode.WIFI_MODE_DEFAULT,
-        valueOf: WifiMode.valueOf,
+    ..aE<WifiMode>(5, _omitFieldNames ? '' : 'wirelessMode',
         enumValues: WifiMode.values)
-    ..e<IfaceType>(6, _omitFieldNames ? '' : 'iface', $pb.PbFieldType.OE,
-        defaultOrMaker: IfaceType.IFACE_TYPE_UNKNOWN,
-        valueOf: IfaceType.valueOf,
+    ..aE<IfaceType>(6, _omitFieldNames ? '' : 'iface',
         enumValues: IfaceType.values)
     ..aOS(7, _omitFieldNames ? '' : 'macAddress')
-    ..a<$core.double>(8, _omitFieldNames ? '' : 'estRxRate', $pb.PbFieldType.OF)
+    ..aD(8, _omitFieldNames ? '' : 'estRxRate', fieldType: $pb.PbFieldType.OF)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiSiteSurveyResult clone() =>
-      WifiSiteSurveyResult()..mergeFromMessage(this);
+  WifiSiteSurveyResult clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiSiteSurveyResult copyWith(void Function(WifiSiteSurveyResult) updates) =>
       super.copyWith((message) => updates(message as WifiSiteSurveyResult))
@@ -28517,8 +28696,6 @@ class WifiSiteSurveyResult extends $pb.GeneratedMessage {
   static WifiSiteSurveyResult create() => WifiSiteSurveyResult._();
   @$core.override
   WifiSiteSurveyResult createEmptyInstance() => create();
-  static $pb.PbList<WifiSiteSurveyResult> createRepeated() =>
-      $pb.PbList<WifiSiteSurveyResult>();
   @$core.pragma('dart2js:noInline')
   static WifiSiteSurveyResult getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiSiteSurveyResult>(create);
@@ -28618,8 +28795,7 @@ class WifiClientSandboxResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiClientSandboxResponse clone() =>
-      WifiClientSandboxResponse()..mergeFromMessage(this);
+  WifiClientSandboxResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiClientSandboxResponse copyWith(
           void Function(WifiClientSandboxResponse) updates) =>
@@ -28633,8 +28809,6 @@ class WifiClientSandboxResponse extends $pb.GeneratedMessage {
   static WifiClientSandboxResponse create() => WifiClientSandboxResponse._();
   @$core.override
   WifiClientSandboxResponse createEmptyInstance() => create();
-  static $pb.PbList<WifiClientSandboxResponse> createRepeated() =>
-      $pb.PbList<WifiClientSandboxResponse>();
   @$core.pragma('dart2js:noInline')
   static WifiClientSandboxResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiClientSandboxResponse>(create);
@@ -28670,7 +28844,7 @@ class WifiUpdateResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiUpdateResponse clone() => WifiUpdateResponse()..mergeFromMessage(this);
+  WifiUpdateResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiUpdateResponse copyWith(void Function(WifiUpdateResponse) updates) =>
       super.copyWith((message) => updates(message as WifiUpdateResponse))
@@ -28683,8 +28857,6 @@ class WifiUpdateResponse extends $pb.GeneratedMessage {
   static WifiUpdateResponse create() => WifiUpdateResponse._();
   @$core.override
   WifiUpdateResponse createEmptyInstance() => create();
-  static $pb.PbList<WifiUpdateResponse> createRepeated() =>
-      $pb.PbList<WifiUpdateResponse>();
   @$core.pragma('dart2js:noInline')
   static WifiUpdateResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiUpdateResponse>(create);
@@ -28700,6 +28872,132 @@ class WifiUpdateResponse extends $pb.GeneratedMessage {
   void clearStats() => $_clearField(1);
   @$pb.TagNumber(1)
   WifiSoftwareUpdateStats ensureStats() => $_ensure(0);
+}
+
+/// SpaceX.API.Device.WifiRunDebugNetsysResponse is a message:
+class WifiRunDebugNetsysResponse extends $pb.GeneratedMessage {
+  factory WifiRunDebugNetsysResponse() => create();
+
+  WifiRunDebugNetsysResponse._();
+
+  factory WifiRunDebugNetsysResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory WifiRunDebugNetsysResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'WifiRunDebugNetsysResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  WifiRunDebugNetsysResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  WifiRunDebugNetsysResponse copyWith(
+          void Function(WifiRunDebugNetsysResponse) updates) =>
+      super.copyWith(
+              (message) => updates(message as WifiRunDebugNetsysResponse))
+          as WifiRunDebugNetsysResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static WifiRunDebugNetsysResponse create() => WifiRunDebugNetsysResponse._();
+  @$core.override
+  WifiRunDebugNetsysResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static WifiRunDebugNetsysResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<WifiRunDebugNetsysResponse>(create);
+  static WifiRunDebugNetsysResponse? _defaultInstance;
+}
+
+/// SpaceX.API.Device.WifiResetEthPhyResponse is a message:
+class WifiResetEthPhyResponse extends $pb.GeneratedMessage {
+  factory WifiResetEthPhyResponse() => create();
+
+  WifiResetEthPhyResponse._();
+
+  factory WifiResetEthPhyResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory WifiResetEthPhyResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'WifiResetEthPhyResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  WifiResetEthPhyResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  WifiResetEthPhyResponse copyWith(
+          void Function(WifiResetEthPhyResponse) updates) =>
+      super.copyWith((message) => updates(message as WifiResetEthPhyResponse))
+          as WifiResetEthPhyResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static WifiResetEthPhyResponse create() => WifiResetEthPhyResponse._();
+  @$core.override
+  WifiResetEthPhyResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static WifiResetEthPhyResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<WifiResetEthPhyResponse>(create);
+  static WifiResetEthPhyResponse? _defaultInstance;
+}
+
+/// SpaceX.API.Device.WifiFlushHardwareNatResponse is a message:
+class WifiFlushHardwareNatResponse extends $pb.GeneratedMessage {
+  factory WifiFlushHardwareNatResponse() => create();
+
+  WifiFlushHardwareNatResponse._();
+
+  factory WifiFlushHardwareNatResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory WifiFlushHardwareNatResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'WifiFlushHardwareNatResponse',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  WifiFlushHardwareNatResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  WifiFlushHardwareNatResponse copyWith(
+          void Function(WifiFlushHardwareNatResponse) updates) =>
+      super.copyWith(
+              (message) => updates(message as WifiFlushHardwareNatResponse))
+          as WifiFlushHardwareNatResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static WifiFlushHardwareNatResponse create() =>
+      WifiFlushHardwareNatResponse._();
+  @$core.override
+  WifiFlushHardwareNatResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static WifiFlushHardwareNatResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<WifiFlushHardwareNatResponse>(create);
+  static WifiFlushHardwareNatResponse? _defaultInstance;
 }
 
 /// SpaceX.API.Device.TransceiverIFLoopbackTestResponse is a message:
@@ -28733,18 +29031,17 @@ class TransceiverIFLoopbackTestResponse extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.double>(
-        1, _omitFieldNames ? '' : 'berLoopbackTest', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        2, _omitFieldNames ? '' : 'snrLoopbackTest', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        3, _omitFieldNames ? '' : 'rssiLoopbackTest', $pb.PbFieldType.OF)
+    ..aD(1, _omitFieldNames ? '' : 'berLoopbackTest',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(2, _omitFieldNames ? '' : 'snrLoopbackTest',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(3, _omitFieldNames ? '' : 'rssiLoopbackTest',
+        fieldType: $pb.PbFieldType.OF)
     ..aOB(4, _omitFieldNames ? '' : 'pllLock')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  TransceiverIFLoopbackTestResponse clone() =>
-      TransceiverIFLoopbackTestResponse()..mergeFromMessage(this);
+  TransceiverIFLoopbackTestResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   TransceiverIFLoopbackTestResponse copyWith(
           void Function(TransceiverIFLoopbackTestResponse) updates) =>
@@ -28760,8 +29057,6 @@ class TransceiverIFLoopbackTestResponse extends $pb.GeneratedMessage {
       TransceiverIFLoopbackTestResponse._();
   @$core.override
   TransceiverIFLoopbackTestResponse createEmptyInstance() => create();
-  static $pb.PbList<TransceiverIFLoopbackTestResponse> createRepeated() =>
-      $pb.PbList<TransceiverIFLoopbackTestResponse>();
   @$core.pragma('dart2js:noInline')
   static TransceiverIFLoopbackTestResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<TransceiverIFLoopbackTestResponse>(
@@ -28846,46 +29141,28 @@ class TransceiverGetStatusResponse extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..e<TransceiverModulatorState>(
-        1, _omitFieldNames ? '' : 'modState', $pb.PbFieldType.OE,
-        defaultOrMaker: TransceiverModulatorState.MODSTATE_UNKNOWN,
-        valueOf: TransceiverModulatorState.valueOf,
+    ..aE<TransceiverModulatorState>(1, _omitFieldNames ? '' : 'modState',
         enumValues: TransceiverModulatorState.values)
-    ..e<TransceiverModulatorState>(
-        2, _omitFieldNames ? '' : 'demodState', $pb.PbFieldType.OE,
-        defaultOrMaker: TransceiverModulatorState.MODSTATE_UNKNOWN,
-        valueOf: TransceiverModulatorState.valueOf,
+    ..aE<TransceiverModulatorState>(2, _omitFieldNames ? '' : 'demodState',
         enumValues: TransceiverModulatorState.values)
-    ..e<TransceiverTxRxState>(
-        3, _omitFieldNames ? '' : 'txState', $pb.PbFieldType.OE,
-        defaultOrMaker: TransceiverTxRxState.TXRX_UNKNOWN,
-        valueOf: TransceiverTxRxState.valueOf,
+    ..aE<TransceiverTxRxState>(3, _omitFieldNames ? '' : 'txState',
         enumValues: TransceiverTxRxState.values)
-    ..e<TransceiverTxRxState>(
-        4, _omitFieldNames ? '' : 'rxState', $pb.PbFieldType.OE,
-        defaultOrMaker: TransceiverTxRxState.TXRX_UNKNOWN,
-        valueOf: TransceiverTxRxState.valueOf,
+    ..aE<TransceiverTxRxState>(4, _omitFieldNames ? '' : 'rxState',
         enumValues: TransceiverTxRxState.values)
-    ..e<DishState>(1006, _omitFieldNames ? '' : 'state', $pb.PbFieldType.OE,
-        defaultOrMaker: DishState.UNKNOWN,
-        valueOf: DishState.valueOf,
+    ..aE<DishState>(1006, _omitFieldNames ? '' : 'state',
         enumValues: DishState.values)
     ..aOM<TransceiverFaults>(1007, _omitFieldNames ? '' : 'faults',
         subBuilder: TransceiverFaults.create)
-    ..e<TransceiverTransmitBlankingState>(1008,
-        _omitFieldNames ? '' : 'transmitBlankingState', $pb.PbFieldType.OE,
-        defaultOrMaker: TransceiverTransmitBlankingState.TB_UNKNOWN,
-        valueOf: TransceiverTransmitBlankingState.valueOf,
+    ..aE<TransceiverTransmitBlankingState>(
+        1008, _omitFieldNames ? '' : 'transmitBlankingState',
         enumValues: TransceiverTransmitBlankingState.values)
-    ..a<$core.double>(
-        1009, _omitFieldNames ? '' : 'modemAsicTemp', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        1010, _omitFieldNames ? '' : 'txIfTemp', $pb.PbFieldType.OF)
+    ..aD(1009, _omitFieldNames ? '' : 'modemAsicTemp',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(1010, _omitFieldNames ? '' : 'txIfTemp', fieldType: $pb.PbFieldType.OF)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  TransceiverGetStatusResponse clone() =>
-      TransceiverGetStatusResponse()..mergeFromMessage(this);
+  TransceiverGetStatusResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   TransceiverGetStatusResponse copyWith(
           void Function(TransceiverGetStatusResponse) updates) =>
@@ -28901,8 +29178,6 @@ class TransceiverGetStatusResponse extends $pb.GeneratedMessage {
       TransceiverGetStatusResponse._();
   @$core.override
   TransceiverGetStatusResponse createEmptyInstance() => create();
-  static $pb.PbList<TransceiverGetStatusResponse> createRepeated() =>
-      $pb.PbList<TransceiverGetStatusResponse>();
   @$core.pragma('dart2js:noInline')
   static TransceiverGetStatusResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<TransceiverGetStatusResponse>(create);
@@ -29028,7 +29303,7 @@ class TransceiverFaults extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  TransceiverFaults clone() => TransceiverFaults()..mergeFromMessage(this);
+  TransceiverFaults clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   TransceiverFaults copyWith(void Function(TransceiverFaults) updates) =>
       super.copyWith((message) => updates(message as TransceiverFaults))
@@ -29041,8 +29316,6 @@ class TransceiverFaults extends $pb.GeneratedMessage {
   static TransceiverFaults create() => TransceiverFaults._();
   @$core.override
   TransceiverFaults createEmptyInstance() => create();
-  static $pb.PbList<TransceiverFaults> createRepeated() =>
-      $pb.PbList<TransceiverFaults>();
   @$core.pragma('dart2js:noInline')
   static TransceiverFaults getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<TransceiverFaults>(create);
@@ -29166,70 +29439,65 @@ class TransceiverGetTelemetryResponse extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.int>(
-        1001, _omitFieldNames ? '' : 'antennaPointingMode', $pb.PbFieldType.OU3)
-    ..a<$core.double>(
-        1002, _omitFieldNames ? '' : 'antennaPitch', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        1003, _omitFieldNames ? '' : 'antennaRoll', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        1004, _omitFieldNames ? '' : 'antennaRxTheta', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        1005, _omitFieldNames ? '' : 'antennaTrueHeading', $pb.PbFieldType.OF)
-    ..a<$core.int>(
-        1006, _omitFieldNames ? '' : 'rxChannel', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        1007, _omitFieldNames ? '' : 'currentCellId', $pb.PbFieldType.OU3)
-    ..a<$core.double>(
-        1008, _omitFieldNames ? '' : 'secondsUntilSlotEnd', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        1009, _omitFieldNames ? '' : 'wbRssiPeakMagDb', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        1010, _omitFieldNames ? '' : 'popPingDropRate', $pb.PbFieldType.OF)
-    ..a<$core.double>(1011, _omitFieldNames ? '' : 'snrDb', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        1012, _omitFieldNames ? '' : 'l1SnrAvgDb', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        1013, _omitFieldNames ? '' : 'l1SnrMinDb', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        1014, _omitFieldNames ? '' : 'l1SnrMaxDb', $pb.PbFieldType.OF)
-    ..a<$core.int>(
-        1015, _omitFieldNames ? '' : 'lmacSatelliteId', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        1016, _omitFieldNames ? '' : 'targetSatelliteId', $pb.PbFieldType.OU3)
-    ..a<$core.int>(1017, _omitFieldNames ? '' : 'grantMcs', $pb.PbFieldType.OU3)
-    ..a<$core.double>(
-        1018, _omitFieldNames ? '' : 'grantSymbolsAvg', $pb.PbFieldType.OF)
-    ..a<$core.int>(1019, _omitFieldNames ? '' : 'dedGrant', $pb.PbFieldType.OU3)
-    ..a<$core.int>(1020, _omitFieldNames ? '' : 'mobilityProactiveSlotChange',
-        $pb.PbFieldType.OU3)
-    ..a<$core.int>(1021, _omitFieldNames ? '' : 'mobilityReactiveSlotChange',
-        $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        1022, _omitFieldNames ? '' : 'rfpTotalSynFailed', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        1023, _omitFieldNames ? '' : 'numOutOfSeq', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        1024, _omitFieldNames ? '' : 'numUlmapDrop', $pb.PbFieldType.OU3)
-    ..a<$core.double>(1025, _omitFieldNames ? '' : 'currentSecondsOfSchedule',
-        $pb.PbFieldType.OF)
-    ..a<$core.int>(
-        1026,
-        _omitFieldNames ? '' : 'sendLabelSwitchToGroundFailedCalls',
-        $pb.PbFieldType.OU3)
-    ..a<$core.double>(
-        1027, _omitFieldNames ? '' : 'emaVelocityX', $pb.PbFieldType.OD)
-    ..a<$core.double>(
-        1028, _omitFieldNames ? '' : 'emaVelocityY', $pb.PbFieldType.OD)
-    ..a<$core.double>(
-        1029, _omitFieldNames ? '' : 'emaVelocityZ', $pb.PbFieldType.OD)
-    ..a<$core.double>(
-        1030, _omitFieldNames ? '' : 'ceRssiDb', $pb.PbFieldType.OF)
+    ..aI(1001, _omitFieldNames ? '' : 'antennaPointingMode',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aD(1002, _omitFieldNames ? '' : 'antennaPitch',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(1003, _omitFieldNames ? '' : 'antennaRoll',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(1004, _omitFieldNames ? '' : 'antennaRxTheta',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(1005, _omitFieldNames ? '' : 'antennaTrueHeading',
+        fieldType: $pb.PbFieldType.OF)
+    ..aI(1006, _omitFieldNames ? '' : 'rxChannel',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(1007, _omitFieldNames ? '' : 'currentCellId',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aD(1008, _omitFieldNames ? '' : 'secondsUntilSlotEnd',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(1009, _omitFieldNames ? '' : 'wbRssiPeakMagDb',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(1010, _omitFieldNames ? '' : 'popPingDropRate',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(1011, _omitFieldNames ? '' : 'snrDb', fieldType: $pb.PbFieldType.OF)
+    ..aD(1012, _omitFieldNames ? '' : 'l1SnrAvgDb',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(1013, _omitFieldNames ? '' : 'l1SnrMinDb',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(1014, _omitFieldNames ? '' : 'l1SnrMaxDb',
+        fieldType: $pb.PbFieldType.OF)
+    ..aI(1015, _omitFieldNames ? '' : 'lmacSatelliteId',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(1016, _omitFieldNames ? '' : 'targetSatelliteId',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(1017, _omitFieldNames ? '' : 'grantMcs',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aD(1018, _omitFieldNames ? '' : 'grantSymbolsAvg',
+        fieldType: $pb.PbFieldType.OF)
+    ..aI(1019, _omitFieldNames ? '' : 'dedGrant',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(1020, _omitFieldNames ? '' : 'mobilityProactiveSlotChange',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(1021, _omitFieldNames ? '' : 'mobilityReactiveSlotChange',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(1022, _omitFieldNames ? '' : 'rfpTotalSynFailed',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(1023, _omitFieldNames ? '' : 'numOutOfSeq',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(1024, _omitFieldNames ? '' : 'numUlmapDrop',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aD(1025, _omitFieldNames ? '' : 'currentSecondsOfSchedule',
+        fieldType: $pb.PbFieldType.OF)
+    ..aI(1026, _omitFieldNames ? '' : 'sendLabelSwitchToGroundFailedCalls',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aD(1027, _omitFieldNames ? '' : 'emaVelocityX')
+    ..aD(1028, _omitFieldNames ? '' : 'emaVelocityY')
+    ..aD(1029, _omitFieldNames ? '' : 'emaVelocityZ')
+    ..aD(1030, _omitFieldNames ? '' : 'ceRssiDb', fieldType: $pb.PbFieldType.OF)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  TransceiverGetTelemetryResponse clone() =>
-      TransceiverGetTelemetryResponse()..mergeFromMessage(this);
+  TransceiverGetTelemetryResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   TransceiverGetTelemetryResponse copyWith(
           void Function(TransceiverGetTelemetryResponse) updates) =>
@@ -29245,8 +29513,6 @@ class TransceiverGetTelemetryResponse extends $pb.GeneratedMessage {
       TransceiverGetTelemetryResponse._();
   @$core.override
   TransceiverGetTelemetryResponse createEmptyInstance() => create();
-  static $pb.PbList<TransceiverGetTelemetryResponse> createRepeated() =>
-      $pb.PbList<TransceiverGetTelemetryResponse>();
   @$core.pragma('dart2js:noInline')
   static TransceiverGetTelemetryResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<TransceiverGetTelemetryResponse>(
@@ -29563,7 +29829,7 @@ class StartUnlockResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  StartUnlockResponse clone() => StartUnlockResponse()..mergeFromMessage(this);
+  StartUnlockResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   StartUnlockResponse copyWith(void Function(StartUnlockResponse) updates) =>
       super.copyWith((message) => updates(message as StartUnlockResponse))
@@ -29576,8 +29842,6 @@ class StartUnlockResponse extends $pb.GeneratedMessage {
   static StartUnlockResponse create() => StartUnlockResponse._();
   @$core.override
   StartUnlockResponse createEmptyInstance() => create();
-  static $pb.PbList<StartUnlockResponse> createRepeated() =>
-      $pb.PbList<StartUnlockResponse>();
   @$core.pragma('dart2js:noInline')
   static StartUnlockResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<StartUnlockResponse>(create);
@@ -29635,12 +29899,11 @@ class FinishUnlockResponse extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'status', $pb.PbFieldType.OU3)
+    ..aI(1, _omitFieldNames ? '' : 'status', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  FinishUnlockResponse clone() =>
-      FinishUnlockResponse()..mergeFromMessage(this);
+  FinishUnlockResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   FinishUnlockResponse copyWith(void Function(FinishUnlockResponse) updates) =>
       super.copyWith((message) => updates(message as FinishUnlockResponse))
@@ -29653,8 +29916,6 @@ class FinishUnlockResponse extends $pb.GeneratedMessage {
   static FinishUnlockResponse create() => FinishUnlockResponse._();
   @$core.override
   FinishUnlockResponse createEmptyInstance() => create();
-  static $pb.PbList<FinishUnlockResponse> createRepeated() =>
-      $pb.PbList<FinishUnlockResponse>();
   @$core.pragma('dart2js:noInline')
   static FinishUnlockResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<FinishUnlockResponse>(create);
@@ -29707,19 +29968,16 @@ class WifiGetDiagnosticsResponse_Network extends $pb.GeneratedMessage {
     ..aOS(1, _omitFieldNames ? '' : 'domain')
     ..aOS(2, _omitFieldNames ? '' : 'ipv4')
     ..pPS(3, _omitFieldNames ? '' : 'ipv6')
-    ..a<$core.int>(
-        10, _omitFieldNames ? '' : 'clientsEthernet', $pb.PbFieldType.OU3)
-    ..a<$core.int>(
-        11, _omitFieldNames ? '' : 'clients2ghz', $pb.PbFieldType.OU3,
-        protoName: 'clients_2ghz')
-    ..a<$core.int>(
-        12, _omitFieldNames ? '' : 'clients5ghz', $pb.PbFieldType.OU3,
-        protoName: 'clients_5ghz')
+    ..aI(10, _omitFieldNames ? '' : 'clientsEthernet',
+        fieldType: $pb.PbFieldType.OU3)
+    ..aI(11, _omitFieldNames ? '' : 'clients2ghz',
+        protoName: 'clients_2ghz', fieldType: $pb.PbFieldType.OU3)
+    ..aI(12, _omitFieldNames ? '' : 'clients5ghz',
+        protoName: 'clients_5ghz', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiGetDiagnosticsResponse_Network clone() =>
-      WifiGetDiagnosticsResponse_Network()..mergeFromMessage(this);
+  WifiGetDiagnosticsResponse_Network clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiGetDiagnosticsResponse_Network copyWith(
           void Function(WifiGetDiagnosticsResponse_Network) updates) =>
@@ -29735,8 +29993,6 @@ class WifiGetDiagnosticsResponse_Network extends $pb.GeneratedMessage {
       WifiGetDiagnosticsResponse_Network._();
   @$core.override
   WifiGetDiagnosticsResponse_Network createEmptyInstance() => create();
-  static $pb.PbList<WifiGetDiagnosticsResponse_Network> createRepeated() =>
-      $pb.PbList<WifiGetDiagnosticsResponse_Network>();
   @$core.pragma('dart2js:noInline')
   static WifiGetDiagnosticsResponse_Network getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiGetDiagnosticsResponse_Network>(
@@ -29825,14 +30081,13 @@ class WifiGetDiagnosticsResponse extends $pb.GeneratedMessage {
     ..aOS(1, _omitFieldNames ? '' : 'id')
     ..aOS(2, _omitFieldNames ? '' : 'hardwareVersion')
     ..aOS(3, _omitFieldNames ? '' : 'softwareVersion')
-    ..pc<WifiGetDiagnosticsResponse_Network>(
-        4, _omitFieldNames ? '' : 'networks', $pb.PbFieldType.PM,
+    ..pPM<WifiGetDiagnosticsResponse_Network>(
+        4, _omitFieldNames ? '' : 'networks',
         subBuilder: WifiGetDiagnosticsResponse_Network.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiGetDiagnosticsResponse clone() =>
-      WifiGetDiagnosticsResponse()..mergeFromMessage(this);
+  WifiGetDiagnosticsResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiGetDiagnosticsResponse copyWith(
           void Function(WifiGetDiagnosticsResponse) updates) =>
@@ -29847,8 +30102,6 @@ class WifiGetDiagnosticsResponse extends $pb.GeneratedMessage {
   static WifiGetDiagnosticsResponse create() => WifiGetDiagnosticsResponse._();
   @$core.override
   WifiGetDiagnosticsResponse createEmptyInstance() => create();
-  static $pb.PbList<WifiGetDiagnosticsResponse> createRepeated() =>
-      $pb.PbList<WifiGetDiagnosticsResponse>();
   @$core.pragma('dart2js:noInline')
   static WifiGetDiagnosticsResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiGetDiagnosticsResponse>(create);
@@ -29943,8 +30196,7 @@ class DishGetDiagnosticsResponse_Alerts extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishGetDiagnosticsResponse_Alerts clone() =>
-      DishGetDiagnosticsResponse_Alerts()..mergeFromMessage(this);
+  DishGetDiagnosticsResponse_Alerts clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishGetDiagnosticsResponse_Alerts copyWith(
           void Function(DishGetDiagnosticsResponse_Alerts) updates) =>
@@ -29960,8 +30212,6 @@ class DishGetDiagnosticsResponse_Alerts extends $pb.GeneratedMessage {
       DishGetDiagnosticsResponse_Alerts._();
   @$core.override
   DishGetDiagnosticsResponse_Alerts createEmptyInstance() => create();
-  static $pb.PbList<DishGetDiagnosticsResponse_Alerts> createRepeated() =>
-      $pb.PbList<DishGetDiagnosticsResponse_Alerts>();
   @$core.pragma('dart2js:noInline')
   static DishGetDiagnosticsResponse_Alerts getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishGetDiagnosticsResponse_Alerts>(
@@ -30084,19 +30334,18 @@ class DishGetDiagnosticsResponse_AlignmentStats extends $pb.GeneratedMessage {
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
-    ..a<$core.double>(
-        1, _omitFieldNames ? '' : 'boresightAzimuthDeg', $pb.PbFieldType.OF)
-    ..a<$core.double>(
-        2, _omitFieldNames ? '' : 'boresightElevationDeg', $pb.PbFieldType.OF)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'desiredBoresightAzimuthDeg',
-        $pb.PbFieldType.OF)
-    ..a<$core.double>(4, _omitFieldNames ? '' : 'desiredBoresightElevationDeg',
-        $pb.PbFieldType.OF)
+    ..aD(1, _omitFieldNames ? '' : 'boresightAzimuthDeg',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(2, _omitFieldNames ? '' : 'boresightElevationDeg',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(3, _omitFieldNames ? '' : 'desiredBoresightAzimuthDeg',
+        fieldType: $pb.PbFieldType.OF)
+    ..aD(4, _omitFieldNames ? '' : 'desiredBoresightElevationDeg',
+        fieldType: $pb.PbFieldType.OF)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishGetDiagnosticsResponse_AlignmentStats clone() =>
-      DishGetDiagnosticsResponse_AlignmentStats()..mergeFromMessage(this);
+  DishGetDiagnosticsResponse_AlignmentStats clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishGetDiagnosticsResponse_AlignmentStats copyWith(
           void Function(DishGetDiagnosticsResponse_AlignmentStats) updates) =>
@@ -30112,9 +30361,6 @@ class DishGetDiagnosticsResponse_AlignmentStats extends $pb.GeneratedMessage {
       DishGetDiagnosticsResponse_AlignmentStats._();
   @$core.override
   DishGetDiagnosticsResponse_AlignmentStats createEmptyInstance() => create();
-  static $pb.PbList<DishGetDiagnosticsResponse_AlignmentStats>
-      createRepeated() =>
-          $pb.PbList<DishGetDiagnosticsResponse_AlignmentStats>();
   @$core.pragma('dart2js:noInline')
   static DishGetDiagnosticsResponse_AlignmentStats getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<
@@ -30196,19 +30442,16 @@ class DishGetDiagnosticsResponse_Location extends $pb.GeneratedMessage {
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
     ..aOB(1, _omitFieldNames ? '' : 'enabled')
-    ..a<$core.double>(2, _omitFieldNames ? '' : 'latitude', $pb.PbFieldType.OD)
-    ..a<$core.double>(3, _omitFieldNames ? '' : 'longitude', $pb.PbFieldType.OD)
-    ..a<$core.double>(
-        4, _omitFieldNames ? '' : 'altitudeMeters', $pb.PbFieldType.OD)
+    ..aD(2, _omitFieldNames ? '' : 'latitude')
+    ..aD(3, _omitFieldNames ? '' : 'longitude')
+    ..aD(4, _omitFieldNames ? '' : 'altitudeMeters')
     ..aOB(5, _omitFieldNames ? '' : 'uncertaintyMetersValid')
-    ..a<$core.double>(
-        6, _omitFieldNames ? '' : 'uncertaintyMeters', $pb.PbFieldType.OD)
-    ..a<$core.double>(7, _omitFieldNames ? '' : 'gpsTimeS', $pb.PbFieldType.OD)
+    ..aD(6, _omitFieldNames ? '' : 'uncertaintyMeters')
+    ..aD(7, _omitFieldNames ? '' : 'gpsTimeS')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishGetDiagnosticsResponse_Location clone() =>
-      DishGetDiagnosticsResponse_Location()..mergeFromMessage(this);
+  DishGetDiagnosticsResponse_Location clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishGetDiagnosticsResponse_Location copyWith(
           void Function(DishGetDiagnosticsResponse_Location) updates) =>
@@ -30224,8 +30467,6 @@ class DishGetDiagnosticsResponse_Location extends $pb.GeneratedMessage {
       DishGetDiagnosticsResponse_Location._();
   @$core.override
   DishGetDiagnosticsResponse_Location createEmptyInstance() => create();
-  static $pb.PbList<DishGetDiagnosticsResponse_Location> createRepeated() =>
-      $pb.PbList<DishGetDiagnosticsResponse_Location>();
   @$core.pragma('dart2js:noInline')
   static DishGetDiagnosticsResponse_Location getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<
@@ -30348,18 +30589,14 @@ class DishGetDiagnosticsResponse extends $pb.GeneratedMessage {
     ..aOS(1, _omitFieldNames ? '' : 'id')
     ..aOS(2, _omitFieldNames ? '' : 'hardwareVersion')
     ..aOS(3, _omitFieldNames ? '' : 'softwareVersion')
-    ..a<$core.int>(4, _omitFieldNames ? '' : 'utcOffsetS', $pb.PbFieldType.O3)
+    ..aI(4, _omitFieldNames ? '' : 'utcOffsetS')
     ..aOM<DishGetDiagnosticsResponse_Alerts>(5, _omitFieldNames ? '' : 'alerts',
         subBuilder: DishGetDiagnosticsResponse_Alerts.create)
-    ..e<DishGetDiagnosticsResponse_DisablementCode>(
-        6, _omitFieldNames ? '' : 'disablementCode', $pb.PbFieldType.OE,
-        defaultOrMaker: DishGetDiagnosticsResponse_DisablementCode.UNKNOWN,
-        valueOf: DishGetDiagnosticsResponse_DisablementCode.valueOf,
+    ..aE<DishGetDiagnosticsResponse_DisablementCode>(
+        6, _omitFieldNames ? '' : 'disablementCode',
         enumValues: DishGetDiagnosticsResponse_DisablementCode.values)
-    ..e<DishGetDiagnosticsResponse_TestResult>(
-        7, _omitFieldNames ? '' : 'hardwareSelfTest', $pb.PbFieldType.OE,
-        defaultOrMaker: DishGetDiagnosticsResponse_TestResult.NO_RESULT,
-        valueOf: DishGetDiagnosticsResponse_TestResult.valueOf,
+    ..aE<DishGetDiagnosticsResponse_TestResult>(
+        7, _omitFieldNames ? '' : 'hardwareSelfTest',
         enumValues: DishGetDiagnosticsResponse_TestResult.values)
     ..aOM<DishGetDiagnosticsResponse_Location>(
         8, _omitFieldNames ? '' : 'location',
@@ -30377,8 +30614,7 @@ class DishGetDiagnosticsResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DishGetDiagnosticsResponse clone() =>
-      DishGetDiagnosticsResponse()..mergeFromMessage(this);
+  DishGetDiagnosticsResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   DishGetDiagnosticsResponse copyWith(
           void Function(DishGetDiagnosticsResponse) updates) =>
@@ -30393,8 +30629,6 @@ class DishGetDiagnosticsResponse extends $pb.GeneratedMessage {
   static DishGetDiagnosticsResponse create() => DishGetDiagnosticsResponse._();
   @$core.override
   DishGetDiagnosticsResponse createEmptyInstance() => create();
-  static $pb.PbList<DishGetDiagnosticsResponse> createRepeated() =>
-      $pb.PbList<DishGetDiagnosticsResponse>();
   @$core.pragma('dart2js:noInline')
   static DishGetDiagnosticsResponse getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<DishGetDiagnosticsResponse>(create);
@@ -30556,7 +30790,7 @@ class ToDevice extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ToDevice clone() => ToDevice()..mergeFromMessage(this);
+  ToDevice clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   ToDevice copyWith(void Function(ToDevice) updates) =>
       super.copyWith((message) => updates(message as ToDevice)) as ToDevice;
@@ -30568,13 +30802,16 @@ class ToDevice extends $pb.GeneratedMessage {
   static ToDevice create() => ToDevice._();
   @$core.override
   ToDevice createEmptyInstance() => create();
-  static $pb.PbList<ToDevice> createRepeated() => $pb.PbList<ToDevice>();
   @$core.pragma('dart2js:noInline')
   static ToDevice getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ToDevice>(create);
   static ToDevice? _defaultInstance;
 
+  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
   ToDevice_Message whichMessage() => _ToDevice_MessageByTag[$_whichOneof(0)]!;
+  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
   void clearMessage() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -30621,7 +30858,7 @@ class HealthCheck extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  HealthCheck clone() => HealthCheck()..mergeFromMessage(this);
+  HealthCheck clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   HealthCheck copyWith(void Function(HealthCheck) updates) =>
       super.copyWith((message) => updates(message as HealthCheck))
@@ -30634,7 +30871,6 @@ class HealthCheck extends $pb.GeneratedMessage {
   static HealthCheck create() => HealthCheck._();
   @$core.override
   HealthCheck createEmptyInstance() => create();
-  static $pb.PbList<HealthCheck> createRepeated() => $pb.PbList<HealthCheck>();
   @$core.pragma('dart2js:noInline')
   static HealthCheck getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<HealthCheck>(create);
@@ -30687,7 +30923,7 @@ class FromDevice extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  FromDevice clone() => FromDevice()..mergeFromMessage(this);
+  FromDevice clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   FromDevice copyWith(void Function(FromDevice) updates) =>
       super.copyWith((message) => updates(message as FromDevice)) as FromDevice;
@@ -30699,14 +30935,19 @@ class FromDevice extends $pb.GeneratedMessage {
   static FromDevice create() => FromDevice._();
   @$core.override
   FromDevice createEmptyInstance() => create();
-  static $pb.PbList<FromDevice> createRepeated() => $pb.PbList<FromDevice>();
   @$core.pragma('dart2js:noInline')
   static FromDevice getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<FromDevice>(create);
   static FromDevice? _defaultInstance;
 
+  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  @$pb.TagNumber(3)
   FromDevice_Message whichMessage() =>
       _FromDevice_MessageByTag[$_whichOneof(0)]!;
+  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  @$pb.TagNumber(3)
   void clearMessage() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -30811,7 +31052,7 @@ class Event extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  Event clone() => Event()..mergeFromMessage(this);
+  Event clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   Event copyWith(void Function(Event) updates) =>
       super.copyWith((message) => updates(message as Event)) as Event;
@@ -30823,13 +31064,22 @@ class Event extends $pb.GeneratedMessage {
   static Event create() => Event._();
   @$core.override
   Event createEmptyInstance() => create();
-  static $pb.PbList<Event> createRepeated() => $pb.PbList<Event>();
   @$core.pragma('dart2js:noInline')
   static Event getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Event>(create);
   static Event? _defaultInstance;
 
+  @$pb.TagNumber(3001)
+  @$pb.TagNumber(3002)
+  @$pb.TagNumber(3003)
+  @$pb.TagNumber(3004)
+  @$pb.TagNumber(3005)
   Event_Event whichEvent() => _Event_EventByTag[$_whichOneof(0)]!;
+  @$pb.TagNumber(3001)
+  @$pb.TagNumber(3002)
+  @$pb.TagNumber(3003)
+  @$pb.TagNumber(3004)
+  @$pb.TagNumber(3005)
   void clearEvent() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(3001)
@@ -30920,8 +31170,7 @@ class WifiNewClientConnectedEvent extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiNewClientConnectedEvent clone() =>
-      WifiNewClientConnectedEvent()..mergeFromMessage(this);
+  WifiNewClientConnectedEvent clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiNewClientConnectedEvent copyWith(
           void Function(WifiNewClientConnectedEvent) updates) =>
@@ -30937,8 +31186,6 @@ class WifiNewClientConnectedEvent extends $pb.GeneratedMessage {
       WifiNewClientConnectedEvent._();
   @$core.override
   WifiNewClientConnectedEvent createEmptyInstance() => create();
-  static $pb.PbList<WifiNewClientConnectedEvent> createRepeated() =>
-      $pb.PbList<WifiNewClientConnectedEvent>();
   @$core.pragma('dart2js:noInline')
   static WifiNewClientConnectedEvent getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiNewClientConnectedEvent>(create);
@@ -30990,8 +31237,7 @@ class WifiAccountBondingEvent extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiAccountBondingEvent clone() =>
-      WifiAccountBondingEvent()..mergeFromMessage(this);
+  WifiAccountBondingEvent clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiAccountBondingEvent copyWith(
           void Function(WifiAccountBondingEvent) updates) =>
@@ -31005,8 +31251,6 @@ class WifiAccountBondingEvent extends $pb.GeneratedMessage {
   static WifiAccountBondingEvent create() => WifiAccountBondingEvent._();
   @$core.override
   WifiAccountBondingEvent createEmptyInstance() => create();
-  static $pb.PbList<WifiAccountBondingEvent> createRepeated() =>
-      $pb.PbList<WifiAccountBondingEvent>();
   @$core.pragma('dart2js:noInline')
   static WifiAccountBondingEvent getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiAccountBondingEvent>(create);
@@ -31068,7 +31312,7 @@ class WifiNewPeerEvent extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiNewPeerEvent clone() => WifiNewPeerEvent()..mergeFromMessage(this);
+  WifiNewPeerEvent clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiNewPeerEvent copyWith(void Function(WifiNewPeerEvent) updates) =>
       super.copyWith((message) => updates(message as WifiNewPeerEvent))
@@ -31081,8 +31325,6 @@ class WifiNewPeerEvent extends $pb.GeneratedMessage {
   static WifiNewPeerEvent create() => WifiNewPeerEvent._();
   @$core.override
   WifiNewPeerEvent createEmptyInstance() => create();
-  static $pb.PbList<WifiNewPeerEvent> createRepeated() =>
-      $pb.PbList<WifiNewPeerEvent>();
   @$core.pragma('dart2js:noInline')
   static WifiNewPeerEvent getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiNewPeerEvent>(create);
@@ -31131,12 +31373,11 @@ class WifiCloudStatusEvent extends $pb.GeneratedMessage {
     ..aOB(1, _omitFieldNames ? '' : 'directLinkToDish')
     ..aOS(2, _omitFieldNames ? '' : 'hardwareVersion')
     ..aOB(3, _omitFieldNames ? '' : 'isBypassed')
-    ..a<$core.int>(4, _omitFieldNames ? '' : 'apiVersion', $pb.PbFieldType.OU3)
+    ..aI(4, _omitFieldNames ? '' : 'apiVersion', fieldType: $pb.PbFieldType.OU3)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  WifiCloudStatusEvent clone() =>
-      WifiCloudStatusEvent()..mergeFromMessage(this);
+  WifiCloudStatusEvent clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   WifiCloudStatusEvent copyWith(void Function(WifiCloudStatusEvent) updates) =>
       super.copyWith((message) => updates(message as WifiCloudStatusEvent))
@@ -31149,8 +31390,6 @@ class WifiCloudStatusEvent extends $pb.GeneratedMessage {
   static WifiCloudStatusEvent create() => WifiCloudStatusEvent._();
   @$core.override
   WifiCloudStatusEvent createEmptyInstance() => create();
-  static $pb.PbList<WifiCloudStatusEvent> createRepeated() =>
-      $pb.PbList<WifiCloudStatusEvent>();
   @$core.pragma('dart2js:noInline')
   static WifiCloudStatusEvent getDefault() => _defaultInstance ??=
       $pb.GeneratedMessage.$_defaultFor<WifiCloudStatusEvent>(create);

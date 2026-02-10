@@ -11,7 +11,7 @@ import 'package:star_debug/utils/format.dart';
 import 'package:star_debug/utils/kv_widget.dart';
 import 'package:star_debug/utils/snapshot.dart';
 import 'package:star_debug/utils/view_options.dart';
-import 'package:time_machine/time_machine.dart';
+import 'package:time_machine2/time_machine2.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 const String _TAG="DishWidget";
@@ -65,11 +65,13 @@ class _DishWidgetState extends State<DishWidget> with TickerProviderStateMixin {
         }
 
         if (status.hasStowRequested()) {
-          b.kv(M.grpc.DishGetStatus.stow_requested, status.stowRequested);
+          b.kv(M.grpc.DishGetStatus.stow_requested, status.stowRequested,
+              hint: M.grpc.DishGetStatus.stow_requested__hint);
         }
 
         if (status.hasSecondsToFirstNonemptySlot())
-          b.kv(M.grpc.DishGetStatus.seconds_to_first_nonempty_slot, status.secondsToFirstNonemptySlot);
+          b.kv(M.grpc.DishGetStatus.seconds_to_first_nonempty_slot, status.secondsToFirstNonemptySlot,
+              hint: M.grpc.DishGetStatus.seconds_to_first_nonempty_slot__hint);
 
         if (status.hasMobilityClass()) {
           b.kv(M.grpc.DishGetStatus.mobility_class, status.mobilityClass,
@@ -78,17 +80,18 @@ class _DishWidgetState extends State<DishWidget> with TickerProviderStateMixin {
 
         if (status.hasClassOfService()) {
           b.kv(M.grpc.DishGetStatus.class_of_service, status.classOfService,
-              hint: Format.formatEnumHint(M.grpc.possible_options__hint, UserClassOfService.values)
+              hint: Format.formatEnumHint(M.grpc.DishGetStatus.class_of_service__hint, UserClassOfService.values)
           );
         }
 
         if (status.hasHasActuators()) {
-          b.kv(M.grpc.DishGetStatus.has_actuators, status.hasActuators);
+          b.kv(M.grpc.DishGetStatus.has_actuators, status.hasActuators,
+              hint: M.grpc.DishGetStatus.has_actuators__hint);
         }
         if (status.hasAlignmentStats()) {
           if (status.alignmentStats.hasActuatorState()){
             b.kv(M.grpc.DishGetStatus.actuator_state, status.alignmentStats.actuatorState,
-                hint: Format.formatEnumHint(M.grpc.possible_options__hint, ActuatorState.values)
+                hint: Format.formatEnumHint(M.grpc.DishGetStatus.actuator_state__hint, ActuatorState.values)
             );
           }
         }
@@ -127,7 +130,7 @@ class _DishWidgetState extends State<DishWidget> with TickerProviderStateMixin {
               s = "$s (${(status.softwareUpdateStats.softwareUpdateProgress*100).toStringAsFixed(0)}%)";
             }
           b.kv(M.grpc.DishGetStatus.software_update_state, s,
-              hint: Format.formatEnumHint(M.grpc.possible_options__hint, SoftwareUpdateState.values)
+              hint: Format.formatEnumHint(M.grpc.DishGetStatus.software_update_state__hint, SoftwareUpdateState.values)
           );
         }
 
@@ -186,14 +189,14 @@ class _DishWidgetState extends State<DishWidget> with TickerProviderStateMixin {
         var config = status.config;
         b.header(M.header.config);
         b.kv(M.grpc.DishConfig.snow_melt_mode, config.snowMeltMode,
-          hint: Format.formatEnumHint(M.grpc.possible_options__hint, DishConfig_SnowMeltMode.values)
+          hint: Format.formatEnumHint(M.grpc.DishConfig.snow_melt_mode__hint, DishConfig_SnowMeltMode.values)
         );
         b.kv(M.grpc.DishConfig.location_request_mode,
             config.locationRequestMode,
             hint: M.grpc.DishConfig.location_request_mode__hint
         );
         b.kv(M.grpc.DishConfig.level_dish_mode, config.levelDishMode,
-            hint: Format.formatEnumHint(M.grpc.possible_options__hint, DishConfig_LevelDishMode.values)
+            hint: Format.formatEnumHint(M.grpc.DishConfig.level_dish_mode__hint, DishConfig_LevelDishMode.values)
         );
 
         if (!config.powerSaveMode)
@@ -216,14 +219,18 @@ class _DishWidgetState extends State<DishWidget> with TickerProviderStateMixin {
         b.header(M.header.gps_stats);
         var stats = status.gpsStats;
         // if (stats.hasGpsValid())
-        b.kv(M.grpc.DishGpsStats.gps_valid, stats.gpsValid, ok: stats.gpsValid);
+        b.kv(M.grpc.DishGpsStats.gps_valid, stats.gpsValid, ok: stats.gpsValid,
+            hint: M.grpc.DishGpsStats.gps_valid__hint);
 
         if (stats.hasGpsSats())
-          b.kv(M.grpc.DishGpsStats.gps_sats, stats.gpsSats);
+          b.kv(M.grpc.DishGpsStats.gps_sats, stats.gpsSats,
+              hint: M.grpc.DishGpsStats.gps_sats__hint);
         if (stats.hasNoSatsAfterTtff())
-          b.kv(M.grpc.DishGpsStats.no_sats_after_ttff, stats.noSatsAfterTtff);
+          b.kv(M.grpc.DishGpsStats.no_sats_after_ttff, stats.noSatsAfterTtff,
+              hint: M.grpc.DishGpsStats.no_sats_after_ttff__hint);
         if (stats.hasInhibitGps())
-          b.kv(M.grpc.DishGpsStats.inhibit_gps, stats.inhibitGps);
+          b.kv(M.grpc.DishGpsStats.inhibit_gps, stats.inhibitGps,
+              hint: M.grpc.DishGpsStats.inhibit_gps__hint);
 
         if (widget.snap.dishGetLocationStarlink!=null)
           location(b, "Starlink", widget.snap.dishGetLocationStarlink!, hide: opts.hideLocation);
@@ -240,52 +247,66 @@ class _DishWidgetState extends State<DishWidget> with TickerProviderStateMixin {
         b.header(M.header.antenna);
 
         if (status.hasBoresightAzimuthDeg())
-          b.kv(M.grpc.DishGetStatus.boresight_azimuth_deg, status.boresightAzimuthDeg.toStringAsFixed(2));
+          b.kv(M.grpc.DishGetStatus.boresight_azimuth_deg, status.boresightAzimuthDeg.toStringAsFixed(2),
+              hint: M.grpc.DishGetStatus.boresight_azimuth_deg__hint);
 
         if (status.hasBoresightElevationDeg())
-          b.kv(M.grpc.DishGetStatus.boresight_elevation_deg, status.boresightElevationDeg.toStringAsFixed(2));
+          b.kv(M.grpc.DishGetStatus.boresight_elevation_deg, status.boresightElevationDeg.toStringAsFixed(2),
+              hint: M.grpc.DishGetStatus.boresight_elevation_deg__hint);
 
         if (status.hasAlignmentStats()) {
           if (status.alignmentStats.hasDesiredBoresightAzimuthDeg())
-            b.kv(M.grpc.AlignmentStats.desired_boresight_azimuth_deg, status.alignmentStats.desiredBoresightAzimuthDeg.toStringAsFixed(2));
+            b.kv(M.grpc.AlignmentStats.desired_boresight_azimuth_deg, status.alignmentStats.desiredBoresightAzimuthDeg.toStringAsFixed(2),
+                hint: M.grpc.AlignmentStats.desired_boresight_azimuth_deg__hint);
 
           if (status.alignmentStats.hasDesiredBoresightElevationDeg())
-            b.kv(M.grpc.AlignmentStats.desired_boresight_elevation_deg, status.alignmentStats.desiredBoresightElevationDeg.toStringAsFixed(2));
+            b.kv(M.grpc.AlignmentStats.desired_boresight_elevation_deg, status.alignmentStats.desiredBoresightElevationDeg.toStringAsFixed(2),
+                hint: M.grpc.AlignmentStats.desired_boresight_elevation_deg__hint);
         }
 
         // if (status.hasIsSnrAboveNoiseFloor())
-        b.kv(M.grpc.DishGetStatus.is_snr_above_noise_floor, status.isSnrAboveNoiseFloor, ok:status.isSnrAboveNoiseFloor);
+        b.kv(M.grpc.DishGetStatus.is_snr_above_noise_floor, status.isSnrAboveNoiseFloor, ok:status.isSnrAboveNoiseFloor,
+            hint: M.grpc.DishGetStatus.is_snr_above_noise_floor__hint);
 
         // if (status.hasIsSnrPersistentlyLow())
-        b.kv(M.grpc.DishGetStatus.is_snr_persistently_low, status.isSnrPersistentlyLow);
+        b.kv(M.grpc.DishGetStatus.is_snr_persistently_low, status.isSnrPersistentlyLow,
+            hint: M.grpc.DishGetStatus.is_snr_persistently_low__hint);
 
         if (status.hasObstructionStats()) {
           var stats = status.obstructionStats;
           if (stats.hasFractionObstructed())
             b.kv(M.grpc.DishObstructionStats.fraction_obstructed,
-                "${(stats.fractionObstructed * 100).toStringAsFixed(2)} %");
+                "${(stats.fractionObstructed * 100).toStringAsFixed(2)} %",
+                hint: M.grpc.DishObstructionStats.fraction_obstructed__hint);
 
           if (stats.hasValidS())
-            b.kv(M.grpc.DishObstructionStats.valid_s, Format.secD(stats.validS));
+            b.kv(M.grpc.DishObstructionStats.valid_s, Format.secD(stats.validS),
+                hint: M.grpc.DishObstructionStats.valid_s__hint);
 
-          b.kv(M.grpc.DishObstructionStats.currently_obstructed, stats.currentlyObstructed);
+          b.kv(M.grpc.DishObstructionStats.currently_obstructed, stats.currentlyObstructed,
+              hint: M.grpc.DishObstructionStats.currently_obstructed__hint);
 
           if (stats.hasAvgProlongedObstructionDurationS())
             b.kv(M.grpc.DishObstructionStats.avg_prolonged_obstruction_duration_s,
-                Format.secD(stats.avgProlongedObstructionDurationS));
+                Format.secD(stats.avgProlongedObstructionDurationS),
+                hint: M.grpc.DishObstructionStats.avg_prolonged_obstruction_duration_s__hint);
 
           if (stats.hasAvgProlongedObstructionIntervalS())
             b.kv(M.grpc.DishObstructionStats.avg_prolonged_obstruction_interval_s,
-                Format.secD(stats.avgProlongedObstructionIntervalS));
+                Format.secD(stats.avgProlongedObstructionIntervalS),
+                hint: M.grpc.DishObstructionStats.avg_prolonged_obstruction_interval_s__hint);
 
           if (stats.hasAvgProlongedObstructionValid())
-            b.kv(M.grpc.DishObstructionStats.avg_prolonged_obstruction_valid, stats.avgProlongedObstructionValid);
+            b.kv(M.grpc.DishObstructionStats.avg_prolonged_obstruction_valid, stats.avgProlongedObstructionValid,
+                hint: M.grpc.DishObstructionStats.avg_prolonged_obstruction_valid__hint);
 
           if (stats.hasTimeObstructed())
-            b.kv(M.grpc.DishObstructionStats.time_obstructed, stats.timeObstructed);
+            b.kv(M.grpc.DishObstructionStats.time_obstructed, stats.timeObstructed,
+                hint: M.grpc.DishObstructionStats.time_obstructed__hint);
 
           if (stats.hasPatchesValid())
-            b.kv(M.grpc.DishObstructionStats.patches_valid, stats.patchesValid);
+            b.kv(M.grpc.DishObstructionStats.patches_valid, stats.patchesValid,
+                hint: M.grpc.DishObstructionStats.patches_valid__hint);
         }
 
         if (b.widgets.length > 1) {

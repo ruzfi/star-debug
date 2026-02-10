@@ -1027,6 +1027,48 @@ class BootInfoGrpcMessagesUk extends BootInfoGrpcMessages {
   /// "Остання причина"
   /// ```
   String get last_reason => """Остання причина""";
+
+  /// ```dart
+  /// """
+  /// Можливі варіанти:
+  ///
+  /// - **UNKNOWN**
+  /// - **FORGOTTEN** - Причину завантаження не зафіксовано.
+  /// - **POWER_CYCLE** - Пристрій було вимкнено та увімкнено.
+  /// - **COMMAND** - Перезавантаження за командою.
+  /// - **SOFTWARE_UPDATE** - Перезавантаження після оновлення прошивки.
+  /// - **CONFIG_UPDATE** - Перезавантаження після зміни конфігурації.
+  /// - **UPTIME_FDIR** - Перезавантаження через виявлення помилки uptime.
+  /// - **REPEATER_FDIR** - Перезавантаження через виявлення помилки ретранслятора.
+  /// - **AVIATION_ETH_WAN_FDIR** - Перезавантаження через помилку авіаційного Ethernet WAN.
+  /// - **KERNEL_PANIC** - Перезавантаження через kernel panic.
+  /// - **MCU_BRINGUP_FAILED_FDIR** - Перезавантаження через помилку ініціалізації MCU.
+  /// - **AVIATION_OUTAGE_FDIR** - Перезавантаження через авіаційний збій.
+  /// - **SOFTWARE_WATCHDOG** - Перезавантаження через програмний watchdog.
+  /// - **INTENTIONAL_KERNEL_PANIC** - Навмисний kernel panic для діагностики.
+  /// - **HARDWARE_WATCHDOG** - Перезавантаження через апаратний watchdog.
+  /// - **REPEATER_UNTRUSTED_FDIR** - Перезавантаження через ненадійний ретранслятор.
+  /// """
+  /// ```
+  String get last_reason__hint => """Можливі варіанти:
+
+- **UNKNOWN**
+- **FORGOTTEN** - Причину завантаження не зафіксовано.
+- **POWER_CYCLE** - Пристрій було вимкнено та увімкнено.
+- **COMMAND** - Перезавантаження за командою.
+- **SOFTWARE_UPDATE** - Перезавантаження після оновлення прошивки.
+- **CONFIG_UPDATE** - Перезавантаження після зміни конфігурації.
+- **UPTIME_FDIR** - Перезавантаження через виявлення помилки uptime.
+- **REPEATER_FDIR** - Перезавантаження через виявлення помилки ретранслятора.
+- **AVIATION_ETH_WAN_FDIR** - Перезавантаження через помилку авіаційного Ethernet WAN.
+- **KERNEL_PANIC** - Перезавантаження через kernel panic.
+- **MCU_BRINGUP_FAILED_FDIR** - Перезавантаження через помилку ініціалізації MCU.
+- **AVIATION_OUTAGE_FDIR** - Перезавантаження через авіаційний збій.
+- **SOFTWARE_WATCHDOG** - Перезавантаження через програмний watchdog.
+- **INTENTIONAL_KERNEL_PANIC** - Навмисний kernel panic для діагностики.
+- **HARDWARE_WATCHDOG** - Перезавантаження через апаратний watchdog.
+- **REPEATER_UNTRUSTED_FDIR** - Перезавантаження через ненадійний ретранслятор.
+""";
 }
 
 class DishOutageGrpcMessagesUk extends DishOutageGrpcMessages {
@@ -1052,7 +1094,11 @@ class DishOutageGrpcMessagesUk extends DishOutageGrpcMessages {
   /// - **OBSTRUCTED** - Забагато перешкод. Переконайтеся, що антена має кут огляду неба 140°
   ///    (принаймні в тій частині, куди вона зазвичай орієнтована).
   /// - **NO_DOWNLINK** - Канал передачі даних з супутників не ініціалізовано.
-  /// - OTHER_OPTIONS
+  /// - **NO_PINGS** - Тарілка не отримує пінгів від мережі.
+  /// - **ACTUATOR_ACTIVITY** - Приводи тарілки рухаються (нахил або обертання).
+  /// - **CABLE_TEST** - Тарілка виконує тест кабелю.
+  /// - **SLEEPING** - Тарілка в режимі сну (енергозбереження).
+  /// - **SKY_SEARCH** - Тарілка шукає супутники в небі.
   /// """
   /// ```
   String get cause__hint =>
@@ -1068,7 +1114,11 @@ class DishOutageGrpcMessagesUk extends DishOutageGrpcMessages {
 - **OBSTRUCTED** - Забагато перешкод. Переконайтеся, що антена має кут огляду неба 140°
    (принаймні в тій частині, куди вона зазвичай орієнтована).
 - **NO_DOWNLINK** - Канал передачі даних з супутників не ініціалізовано.
-- OTHER_OPTIONS
+- **NO_PINGS** - Тарілка не отримує пінгів від мережі.
+- **ACTUATOR_ACTIVITY** - Приводи тарілки рухаються (нахил або обертання).
+- **CABLE_TEST** - Тарілка виконує тест кабелю.
+- **SLEEPING** - Тарілка в режимі сну (енергозбереження).
+- **SKY_SEARCH** - Тарілка шукає супутники в небі.
 """;
 
   /// ```dart
@@ -1097,9 +1147,20 @@ class DishGpsStatsGrpcMessagesUk extends DishGpsStatsGrpcMessages {
   String get gps_valid => """GPS дійсний""";
 
   /// ```dart
+  /// "Чи отримала тарілка дійсний GPS-фікс."
+  /// ```
+  String get gps_valid__hint => """Чи отримала тарілка дійсний GPS-фікс.""";
+
+  /// ```dart
   /// "GPS супутники"
   /// ```
   String get gps_sats => """GPS супутники""";
+
+  /// ```dart
+  /// "Кількість GPS-супутників, які наразі бачить тарілка."
+  /// ```
+  String get gps_sats__hint =>
+      """Кількість GPS-супутників, які наразі бачить тарілка.""";
 
   /// ```dart
   /// "Немає супутників після першого фіксу"
@@ -1107,9 +1168,21 @@ class DishGpsStatsGrpcMessagesUk extends DishGpsStatsGrpcMessages {
   String get no_sats_after_ttff => """Немає супутників після першого фіксу""";
 
   /// ```dart
+  /// "Чи було втрачено видимість GPS-супутників після першого фіксу (TTFF). Може вказувати на проблеми з GPS-антеною."
+  /// ```
+  String get no_sats_after_ttff__hint =>
+      """Чи було втрачено видимість GPS-супутників після першого фіксу (TTFF). Може вказувати на проблеми з GPS-антеною.""";
+
+  /// ```dart
   /// "Не довіряти GPS"
   /// ```
   String get inhibit_gps => """Не довіряти GPS""";
+
+  /// ```dart
+  /// "Чи ігнорується внутрішній GPS тарілки на користь альтернативного джерела місцезнаходження."
+  /// ```
+  String get inhibit_gps__hint =>
+      """Чи ігнорується внутрішній GPS тарілки на користь альтернативного джерела місцезнаходження.""";
 }
 
 class DishReadyStatesGrpcMessagesUk extends DishReadyStatesGrpcMessages {
@@ -1271,6 +1344,22 @@ class DishConfigGrpcMessagesUk extends DishConfigGrpcMessages {
   String get snow_melt_mode => """Snow melt mode""";
 
   /// ```dart
+  /// """
+  /// Можливі варіанти:
+  ///
+  /// - **AUTO** - Тарілка автоматично розтоплює сніг при виявленні.
+  /// - **ALWAYS_ON** - Нагрівач для танення снігу завжди увімкнений.
+  /// - **ALWAYS_OFF** - Нагрівач для танення снігу завжди вимкнений.
+  /// """
+  /// ```
+  String get snow_melt_mode__hint => """Можливі варіанти:
+
+- **AUTO** - Тарілка автоматично розтоплює сніг при виявленні.
+- **ALWAYS_ON** - Нагрівач для танення снігу завжди увімкнений.
+- **ALWAYS_OFF** - Нагрівач для танення снігу завжди вимкнений.
+""";
+
+  /// ```dart
   /// "Location request mode"
   /// ```
   String get location_request_mode => """Location request mode""";
@@ -1299,6 +1388,20 @@ class DishConfigGrpcMessagesUk extends DishConfigGrpcMessages {
   /// "Level dish mode"
   /// ```
   String get level_dish_mode => """Level dish mode""";
+
+  /// ```dart
+  /// """
+  /// Можливі варіанти:
+  ///
+  /// - **TILT_LIKE_NORMAL** - Тарілка нахиляється як зазвичай для відстеження супутників.
+  /// - **FORCE_LEVEL** - Тарілка примусово залишається рівною (горизонтально).
+  /// """
+  /// ```
+  String get level_dish_mode__hint => """Можливі варіанти:
+
+- **TILT_LIKE_NORMAL** - Тарілка нахиляється як зазвичай для відстеження супутників.
+- **FORCE_LEVEL** - Тарілка примусово залишається рівною (горизонтально).
+""";
 
   /// ```dart
   /// "Power save start minutes"
@@ -1333,14 +1436,32 @@ class DishObstructionStatsGrpcMessagesUk
   String get fraction_obstructed => """Частка часу с перешкодами""";
 
   /// ```dart
+  /// "Відсоток неба, закритого перешкодами від огляду тарілки. Чим менше, тим краще."
+  /// ```
+  String get fraction_obstructed__hint =>
+      """Відсоток неба, закритого перешкодами від огляду тарілки. Чим менше, тим краще.""";
+
+  /// ```dart
   /// "Time valid"
   /// ```
   String get valid_s => """Time valid""";
 
   /// ```dart
+  /// "Тривалість, протягом якої дані про перешкоди збирались і вважаються дійсними."
+  /// ```
+  String get valid_s__hint =>
+      """Тривалість, протягом якої дані про перешкоди збирались і вважаються дійсними.""";
+
+  /// ```dart
   /// "Є перешкода"
   /// ```
   String get currently_obstructed => """Є перешкода""";
+
+  /// ```dart
+  /// "Чи заблокований наразі сигнал тарілки перешкодою."
+  /// ```
+  String get currently_obstructed__hint =>
+      """Чи заблокований наразі сигнал тарілки перешкодою.""";
 
   /// ```dart
   /// "Середній час тривалих перешкод"
@@ -1349,10 +1470,22 @@ class DishObstructionStatsGrpcMessagesUk
       """Середній час тривалих перешкод""";
 
   /// ```dart
+  /// "Середня тривалість тривалих перешкод сигналу."
+  /// ```
+  String get avg_prolonged_obstruction_duration_s__hint =>
+      """Середня тривалість тривалих перешкод сигналу.""";
+
+  /// ```dart
   /// "Середній час між тривалими перешкодами"
   /// ```
   String get avg_prolonged_obstruction_interval_s =>
       """Середній час між тривалими перешкодами""";
+
+  /// ```dart
+  /// "Середній час між тривалими перешкодами."
+  /// ```
+  String get avg_prolonged_obstruction_interval_s__hint =>
+      """Середній час між тривалими перешкодами.""";
 
   /// ```dart
   /// "Average prolonged obstruction valid"
@@ -1361,14 +1494,32 @@ class DishObstructionStatsGrpcMessagesUk
       """Average prolonged obstruction valid""";
 
   /// ```dart
+  /// "Чи зібрано достатньо даних для надійної статистики тривалих перешкод."
+  /// ```
+  String get avg_prolonged_obstruction_valid__hint =>
+      """Чи зібрано достатньо даних для надійної статистики тривалих перешкод.""";
+
+  /// ```dart
   /// "Тривалість перешкоди"
   /// ```
   String get time_obstructed => """Тривалість перешкоди""";
 
   /// ```dart
+  /// "Загальна частка часу, протягом якого сигнал тарілки був заблокований перешкодами."
+  /// ```
+  String get time_obstructed__hint =>
+      """Загальна частка часу, протягом якого сигнал тарілки був заблокований перешкодами.""";
+
+  /// ```dart
   /// "Patches valid"
   /// ```
   String get patches_valid => """Patches valid""";
+
+  /// ```dart
+  /// "Чи містять патчі карти перешкод дійсні дані."
+  /// ```
+  String get patches_valid__hint =>
+      """Чи містять патчі карти перешкод дійсні дані.""";
 }
 
 class DishGetStatusGrpcMessagesUk extends DishGetStatusGrpcMessages {
@@ -1391,6 +1542,12 @@ class DishGetStatusGrpcMessagesUk extends DishGetStatusGrpcMessages {
   /// ```
   String get seconds_to_first_nonempty_slot =>
       """Час до першого непорожнього слота""";
+
+  /// ```dart
+  /// "Час до наступного запланованого слота зв'язку тарілки з супутником."
+  /// ```
+  String get seconds_to_first_nonempty_slot__hint =>
+      """Час до наступного запланованого слота зв'язку тарілки з супутником.""";
 
   /// ```dart
   /// "Частка часу с перешкодами"
@@ -1497,14 +1654,32 @@ class DishGetStatusGrpcMessagesUk extends DishGetStatusGrpcMessages {
   String get stow_requested => """Складання в процесі""";
 
   /// ```dart
+  /// "Чи було надіслано команду складання. У складеному стані тарілка згортається для зберігання або транспортування."
+  /// ```
+  String get stow_requested__hint =>
+      """Чи було надіслано команду складання. У складеному стані тарілка згортається для зберігання або транспортування.""";
+
+  /// ```dart
   /// "Азимут осі панелі, град"
   /// ```
   String get boresight_azimuth_deg => """Азимут осі панелі, град""";
 
   /// ```dart
+  /// "Горизонтальний кут компасу, в якому наразі спрямована антенна панель тарілки, в градусах."
+  /// ```
+  String get boresight_azimuth_deg__hint =>
+      """Горизонтальний кут компасу, в якому наразі спрямована антенна панель тарілки, в градусах.""";
+
+  /// ```dart
   /// "Кут підйому панелі, град"
   /// ```
   String get boresight_elevation_deg => """Кут підйому панелі, град""";
+
+  /// ```dart
+  /// "Вертикальний кут, під яким наразі спрямована антенна панель тарілки відносно горизонту, в градусах."
+  /// ```
+  String get boresight_elevation_deg__hint =>
+      """Вертикальний кут, під яким наразі спрямована антенна панель тарілки відносно горизонту, в градусах.""";
 
   /// ```dart
   /// "Швидкість Ethernet, Mbps"
@@ -1520,12 +1695,16 @@ class DishGetStatusGrpcMessagesUk extends DishGetStatusGrpcMessages {
   /// """
   /// Можливі варіанти:
   ///
-  /// - OTHER_OPTIONS
+  /// - **STATIONARY** - Тарілка встановлена на фіксованому місці (домашнє використання).
+  /// - **NOMADIC** - Тарілку можна переміщувати між локаціями, але не використовувати під час руху.
+  /// - **MOBILE** - Тарілка використовується під час руху (човни, будинки на колесах тощо).
   /// """
   /// ```
   String get mobility_class__hint => """Можливі варіанти:
 
-- OTHER_OPTIONS
+- **STATIONARY** - Тарілка встановлена на фіксованому місці (домашнє використання).
+- **NOMADIC** - Тарілку можна переміщувати між локаціями, але не використовувати під час руху.
+- **MOBILE** - Тарілка використовується під час руху (човни, будинки на колесах тощо).
 """;
 
   /// ```dart
@@ -1534,9 +1713,35 @@ class DishGetStatusGrpcMessagesUk extends DishGetStatusGrpcMessages {
   String get is_snr_above_noise_floor => """SNR вище за рівень шуму""";
 
   /// ```dart
+  /// "Чи перевищує відношення сигнал/шум мінімальний поріг, необхідний для надійного зв'язку."
+  /// ```
+  String get is_snr_above_noise_floor__hint =>
+      """Чи перевищує відношення сигнал/шум мінімальний поріг, необхідний для надійного зв'язку.""";
+
+  /// ```dart
   /// "Клас сервісу"
   /// ```
   String get class_of_service => """Клас сервісу""";
+
+  /// ```dart
+  /// """
+  /// Можливі варіанти:
+  ///
+  /// - **UNKNOWN**
+  /// - **CONSUMER** - Домашній план Starlink.
+  /// - **BUSINESS** - План Starlink Business.
+  /// - **BUSINESS_PLUS** - План Starlink Business Plus з підвищеним пріоритетом.
+  /// - **COMMERCIAL_AVIATION** - Авіаційний план Starlink для комерційних літаків.
+  /// """
+  /// ```
+  String get class_of_service__hint => """Можливі варіанти:
+
+- **UNKNOWN**
+- **CONSUMER** - Домашній план Starlink.
+- **BUSINESS** - План Starlink Business.
+- **BUSINESS_PLUS** - План Starlink Business Plus з підвищеним пріоритетом.
+- **COMMERCIAL_AVIATION** - Авіаційний план Starlink для комерційних літаків.
+""";
 
   /// ```dart
   /// "Стан оновлення"
@@ -1544,9 +1749,43 @@ class DishGetStatusGrpcMessagesUk extends DishGetStatusGrpcMessages {
   String get software_update_state => """Стан оновлення""";
 
   /// ```dart
+  /// """
+  /// Можливі варіанти:
+  ///
+  /// - **UNKNOWN**
+  /// - **IDLE** - Оновлення не виконується.
+  /// - **FETCHING** - Завантаження нового оновлення.
+  /// - **PRE_CHECK** - Виконання перевірок перед оновленням.
+  /// - **WRITING** - Запис оновлення на розділ.
+  /// - **POST_CHECK** - Перевірка після оновлення.
+  /// - **REBOOT_REQUIRED** - Оновлення готове, потрібне перезавантаження.
+  /// - **DISABLED** - Оновлення вимкнено.
+  /// - **FAULTED** - Помилка процесу оновлення.
+  /// """
+  /// ```
+  String get software_update_state__hint => """Можливі варіанти:
+
+- **UNKNOWN**
+- **IDLE** - Оновлення не виконується.
+- **FETCHING** - Завантаження нового оновлення.
+- **PRE_CHECK** - Виконання перевірок перед оновленням.
+- **WRITING** - Запис оновлення на розділ.
+- **POST_CHECK** - Перевірка після оновлення.
+- **REBOOT_REQUIRED** - Оновлення готове, потрібне перезавантаження.
+- **DISABLED** - Оновлення вимкнено.
+- **FAULTED** - Помилка процесу оновлення.
+""";
+
+  /// ```dart
   /// "SNR стабільно низький"
   /// ```
   String get is_snr_persistently_low => """SNR стабільно низький""";
+
+  /// ```dart
+  /// "Чи було відношення сигнал/шум стабільно нижче допустимого рівня. Може вказувати на перешкоди або проблеми з обладнанням."
+  /// ```
+  String get is_snr_persistently_low__hint =>
+      """Чи було відношення сигнал/шум стабільно нижче допустимого рівня. Може вказувати на перешкоди або проблеми з обладнанням.""";
 
   /// ```dart
   /// "Наявність приводу"
@@ -1554,9 +1793,47 @@ class DishGetStatusGrpcMessagesUk extends DishGetStatusGrpcMessages {
   String get has_actuators => """Наявність приводу""";
 
   /// ```dart
+  /// "Чи має тарілка моторизовані приводи для нахилу та обертання."
+  /// ```
+  String get has_actuators__hint =>
+      """Чи має тарілка моторизовані приводи для нахилу та обертання.""";
+
+  /// ```dart
   /// "Стан приводів"
   /// ```
   String get actuator_state => """Стан приводів""";
+
+  /// ```dart
+  /// """
+  /// Можливі варіанти:
+  ///
+  /// - **IDLE** - Приводи в стані спокою, тарілка в нормальній робочій позиції.
+  /// - **FULL_TILT** - Тарілка повністю нахилена.
+  /// - **ROTATE** - Тарілка обертається.
+  /// - **TILT** - Тарілка нахиляється.
+  /// - **UNWRAP_POSITIVE** - Тарілка розмотує кабелі в позитивному напрямку.
+  /// - **UNWRAP_NEGATIVE** - Тарілка розмотує кабелі в негативному напрямку.
+  /// - **TILT_TO_STOWED** - Тарілка нахиляється в складене (плоске) положення.
+  /// - **FAULTED** - Привід несправний, потребує уваги.
+  /// - **WAIT_TIL_STATIC** - Очікування, поки тарілка стане нерухомою.
+  /// - **DRIVE_TO_MOBILE_POSITION** - Переміщення в мобільну робочу позицію.
+  /// - **MOBILE_WAIT** - Очікування в мобільному режимі.
+  /// """
+  /// ```
+  String get actuator_state__hint => """Можливі варіанти:
+
+- **IDLE** - Приводи в стані спокою, тарілка в нормальній робочій позиції.
+- **FULL_TILT** - Тарілка повністю нахилена.
+- **ROTATE** - Тарілка обертається.
+- **TILT** - Тарілка нахиляється.
+- **UNWRAP_POSITIVE** - Тарілка розмотує кабелі в позитивному напрямку.
+- **UNWRAP_NEGATIVE** - Тарілка розмотує кабелі в негативному напрямку.
+- **TILT_TO_STOWED** - Тарілка нахиляється в складене (плоске) положення.
+- **FAULTED** - Привід несправний, потребує уваги.
+- **WAIT_TIL_STATIC** - Очікування, поки тарілка стане нерухомою.
+- **DRIVE_TO_MOBILE_POSITION** - Переміщення в мобільну робочу позицію.
+- **MOBILE_WAIT** - Очікування в мобільному режимі.
+""";
 
   /// ```dart
   /// "Стан сервісу"
@@ -1567,12 +1844,40 @@ class DishGetStatusGrpcMessagesUk extends DishGetStatusGrpcMessages {
   /// """
   /// Можливі варіанти:
   ///
-  /// - OTHER_OPTIONS
+  /// - **UNKNOWN_STATE**
+  /// - **OKAY** - Сервіс працює нормально.
+  /// - **NO_ACTIVE_ACCOUNT** - Немає активного облікового запису Starlink для цієї тарілки.
+  /// - **TOO_FAR_FROM_SERVICE_ADDRESS** - Тарілка занадто далеко від зареєстрованої адреси обслуговування.
+  /// - **IN_OCEAN** - Розташування тарілки визначено як океан.
+  /// - **BLOCKED_COUNTRY** - Сервіс Starlink недоступний у цій країні.
+  /// - **DATA_OVERAGE_SANDBOX_POLICY** - Ліміт даних перевищено.
+  /// - **CELL_IS_DISABLED** - Стільник Starlink, що обслуговує цю зону, вимкнено.
+  /// - **ROAM_RESTRICTED** - Роумінг обмежений для цього плану або місця.
+  /// - **UNKNOWN_LOCATION** - Тарілка не може визначити своє місцезнаходження.
+  /// - **ACCOUNT_DISABLED** - Обліковий запис Starlink вимкнено.
+  /// - **UNSUPPORTED_VERSION** - Версія прошивки тарілки більше не підтримується.
+  /// - **MOVING_TOO_FAST_FOR_POLICY** - Тарілка рухається швидше, ніж дозволено планом обслуговування.
+  /// - **UNDER_AVIATION_FLYOVER_LIMITS** - Нижче авіаційних обмежень висоти прольоту.
+  /// - **BLOCKED_AREA** - Тарілка знаходиться в обмеженій або заблокованій зоні.
   /// """
   /// ```
   String get disablement_code__hint => """Можливі варіанти:
 
-- OTHER_OPTIONS
+- **UNKNOWN_STATE**
+- **OKAY** - Сервіс працює нормально.
+- **NO_ACTIVE_ACCOUNT** - Немає активного облікового запису Starlink для цієї тарілки.
+- **TOO_FAR_FROM_SERVICE_ADDRESS** - Тарілка занадто далеко від зареєстрованої адреси обслуговування.
+- **IN_OCEAN** - Розташування тарілки визначено як океан.
+- **BLOCKED_COUNTRY** - Сервіс Starlink недоступний у цій країні.
+- **DATA_OVERAGE_SANDBOX_POLICY** - Ліміт даних перевищено.
+- **CELL_IS_DISABLED** - Стільник Starlink, що обслуговує цю зону, вимкнено.
+- **ROAM_RESTRICTED** - Роумінг обмежений для цього плану або місця.
+- **UNKNOWN_LOCATION** - Тарілка не може визначити своє місцезнаходження.
+- **ACCOUNT_DISABLED** - Обліковий запис Starlink вимкнено.
+- **UNSUPPORTED_VERSION** - Версія прошивки тарілки більше не підтримується.
+- **MOVING_TOO_FAST_FOR_POLICY** - Тарілка рухається швидше, ніж дозволено планом обслуговування.
+- **UNDER_AVIATION_FLYOVER_LIMITS** - Нижче авіаційних обмежень висоти прольоту.
+- **BLOCKED_AREA** - Тарілка знаходиться в обмеженій або заблокованій зоні.
 """;
 
   /// ```dart
@@ -1584,12 +1889,46 @@ class DishGetStatusGrpcMessagesUk extends DishGetStatusGrpcMessages {
   /// """
   /// Можливі варіанти:
   ///
-  /// - OTHER_OPTIONS
+  /// - **NONE**
+  /// - **MANUAL** - Перезавантаження ініційоване користувачем вручну.
+  /// - **LOSS_OF_COMM** - Перезавантаження через втрату зв'язку з мережею.
+  /// - **SWUPDATE_NOW** - Негайне перезавантаження для оновлення.
+  /// - **SWUPDATE_SCHEDULED** - Заплановане перезавантаження для оновлення.
+  /// - **APP** - Перезавантаження через додаток Starlink.
+  /// - **EMC** - Перезавантаження через підсистему EMC.
+  /// - **FACTORY_RESET** - Перезавантаження після скидання до заводських налаштувань.
+  /// - **TEST_CASE** - Перезавантаження через тестовий сценарій.
+  /// - **THERMAL_POWER_CUT** - Перезавантаження через захист від перегріву.
+  /// - **CRITICAL_PROCESS_DIED** - Критичний процес завершився аварійно.
+  /// - **NO_RF_READY** - RF front end не вдалося ініціалізувати.
+  /// - **POSTPONED_LOSS_OF_COMM** - Відкладене перезавантаження після втрати зв'язку.
+  /// - **SWUPDATE_STATIONARY** - Оновлення прошивки в стаціонарному режимі.
+  /// - **AAP_CRASH** - Збій цифрового формувача променя (AAP).
+  /// - **XP70_SACS** - Збій підсистеми XP70 SACS.
+  /// - **INE_FAILED** - Помилка початкового входу в мережу.
+  /// - **KERNEL_TAINTED** - Ядро було забруднене (наприклад, помилка модуля).
   /// """
   /// ```
   String get reboot_reason__hint => """Можливі варіанти:
 
-- OTHER_OPTIONS
+- **NONE**
+- **MANUAL** - Перезавантаження ініційоване користувачем вручну.
+- **LOSS_OF_COMM** - Перезавантаження через втрату зв'язку з мережею.
+- **SWUPDATE_NOW** - Негайне перезавантаження для оновлення.
+- **SWUPDATE_SCHEDULED** - Заплановане перезавантаження для оновлення.
+- **APP** - Перезавантаження через додаток Starlink.
+- **EMC** - Перезавантаження через підсистему EMC.
+- **FACTORY_RESET** - Перезавантаження після скидання до заводських налаштувань.
+- **TEST_CASE** - Перезавантаження через тестовий сценарій.
+- **THERMAL_POWER_CUT** - Перезавантаження через захист від перегріву.
+- **CRITICAL_PROCESS_DIED** - Критичний процес завершився аварійно.
+- **NO_RF_READY** - RF front end не вдалося ініціалізувати.
+- **POSTPONED_LOSS_OF_COMM** - Відкладене перезавантаження після втрати зв'язку.
+- **SWUPDATE_STATIONARY** - Оновлення прошивки в стаціонарному режимі.
+- **AAP_CRASH** - Збій цифрового формувача променя (AAP).
+- **XP70_SACS** - Збій підсистеми XP70 SACS.
+- **INE_FAILED** - Помилка початкового входу в мережу.
+- **KERNEL_TAINTED** - Ядро було забруднене (наприклад, помилка модуля).
 """;
 }
 
@@ -1629,6 +1968,26 @@ class AlignmentStatsGrpcMessagesUk extends AlignmentStatsGrpcMessages {
   String get attitude_estimation_state => """Attitude estimation state""";
 
   /// ```dart
+  /// """
+  /// Можливі варіанти:
+  ///
+  /// - **FILTER_RESET** - Фільтр орієнтації скинуто, оцінка ще не розпочата.
+  /// - **FILTER_UNCONVERGED** - Фільтр орієнтації працює, але ще не збігся.
+  /// - **FILTER_CONVERGED** - Фільтр орієнтації збігся, оцінка положення стабільна.
+  /// - **FILTER_FAULTED** - Помилка фільтра орієнтації.
+  /// - **FILTER_INVALID** - Стан фільтра орієнтації недійсний.
+  /// """
+  /// ```
+  String get attitude_estimation_state__hint => """Можливі варіанти:
+
+- **FILTER_RESET** - Фільтр орієнтації скинуто, оцінка ще не розпочата.
+- **FILTER_UNCONVERGED** - Фільтр орієнтації працює, але ще не збігся.
+- **FILTER_CONVERGED** - Фільтр орієнтації збігся, оцінка положення стабільна.
+- **FILTER_FAULTED** - Помилка фільтра орієнтації.
+- **FILTER_INVALID** - Стан фільтра орієнтації недійсний.
+""";
+
+  /// ```dart
   /// "Attitude uncertainty, deg"
   /// ```
   String get attitude_uncertainty_deg => """Attitude uncertainty, deg""";
@@ -1640,10 +1999,22 @@ class AlignmentStatsGrpcMessagesUk extends AlignmentStatsGrpcMessages {
       """Desired boresight Azimuth angle, deg""";
 
   /// ```dart
+  /// "Цільовий горизонтальний напрямок, в якому тарілка повинна бути спрямована для оптимального зв'язку з супутниками, в градусах."
+  /// ```
+  String get desired_boresight_azimuth_deg__hint =>
+      """Цільовий горизонтальний напрямок, в якому тарілка повинна бути спрямована для оптимального зв'язку з супутниками, в градусах.""";
+
+  /// ```dart
   /// "Desired boresight Elevation angle, deg"
   /// ```
   String get desired_boresight_elevation_deg =>
       """Desired boresight Elevation angle, deg""";
+
+  /// ```dart
+  /// "Цільовий вертикальний кут, під яким тарілка повинна бути спрямована для оптимального зв'язку з супутниками, в градусах."
+  /// ```
+  String get desired_boresight_elevation_deg__hint =>
+      """Цільовий вертикальний кут, під яким тарілка повинна бути спрямована для оптимального зв'язку з супутниками, в градусах.""";
 }
 
 class ClientNameGrpcMessagesUk extends ClientNameGrpcMessages {
@@ -2497,6 +2868,25 @@ Map<String, String> get messagesUkMap => {
   """grpc.DeviceInfo.x_build_date""": """Дата прошивки""",
   """grpc.DeviceInfo.x_timezone""": """Часова зона""",
   """grpc.BootInfo.last_reason""": """Остання причина""",
+  """grpc.BootInfo.last_reason__hint""": """Можливі варіанти:
+
+- **UNKNOWN**
+- **FORGOTTEN** - Причину завантаження не зафіксовано.
+- **POWER_CYCLE** - Пристрій було вимкнено та увімкнено.
+- **COMMAND** - Перезавантаження за командою.
+- **SOFTWARE_UPDATE** - Перезавантаження після оновлення прошивки.
+- **CONFIG_UPDATE** - Перезавантаження після зміни конфігурації.
+- **UPTIME_FDIR** - Перезавантаження через виявлення помилки uptime.
+- **REPEATER_FDIR** - Перезавантаження через виявлення помилки ретранслятора.
+- **AVIATION_ETH_WAN_FDIR** - Перезавантаження через помилку авіаційного Ethernet WAN.
+- **KERNEL_PANIC** - Перезавантаження через kernel panic.
+- **MCU_BRINGUP_FAILED_FDIR** - Перезавантаження через помилку ініціалізації MCU.
+- **AVIATION_OUTAGE_FDIR** - Перезавантаження через авіаційний збій.
+- **SOFTWARE_WATCHDOG** - Перезавантаження через програмний watchdog.
+- **INTENTIONAL_KERNEL_PANIC** - Навмисний kernel panic для діагностики.
+- **HARDWARE_WATCHDOG** - Перезавантаження через апаратний watchdog.
+- **REPEATER_UNTRUSTED_FDIR** - Перезавантаження через ненадійний ретранслятор.
+""",
   """grpc.DishOutage.cause""": """Причина""",
   """grpc.DishOutage.cause__hint""":
       """Причина, чому тарілка не на зв'язку. Можливі варіанти:
@@ -2511,16 +2901,28 @@ Map<String, String> get messagesUkMap => {
 - **OBSTRUCTED** - Забагато перешкод. Переконайтеся, що антена має кут огляду неба 140°
    (принаймні в тій частині, куди вона зазвичай орієнтована).
 - **NO_DOWNLINK** - Канал передачі даних з супутників не ініціалізовано.
-- OTHER_OPTIONS
+- **NO_PINGS** - Тарілка не отримує пінгів від мережі.
+- **ACTUATOR_ACTIVITY** - Приводи тарілки рухаються (нахил або обертання).
+- **CABLE_TEST** - Тарілка виконує тест кабелю.
+- **SLEEPING** - Тарілка в режимі сну (енергозбереження).
+- **SKY_SEARCH** - Тарілка шукає супутники в небі.
 """,
   """grpc.DishOutage.start_timestamp_ns""": """Start timestamp, ns""",
   """grpc.DishOutage.duration_ns""": """Duration, ns""",
   """grpc.DishOutage.did_switch""": """Did switch""",
   """grpc.DishGpsStats.gps_valid""": """GPS дійсний""",
+  """grpc.DishGpsStats.gps_valid__hint""":
+      """Чи отримала тарілка дійсний GPS-фікс.""",
   """grpc.DishGpsStats.gps_sats""": """GPS супутники""",
+  """grpc.DishGpsStats.gps_sats__hint""":
+      """Кількість GPS-супутників, які наразі бачить тарілка.""",
   """grpc.DishGpsStats.no_sats_after_ttff""":
       """Немає супутників після першого фіксу""",
+  """grpc.DishGpsStats.no_sats_after_ttff__hint""":
+      """Чи було втрачено видимість GPS-супутників після першого фіксу (TTFF). Може вказувати на проблеми з GPS-антеною.""",
   """grpc.DishGpsStats.inhibit_gps""": """Не довіряти GPS""",
+  """grpc.DishGpsStats.inhibit_gps__hint""":
+      """Чи ігнорується внутрішній GPS тарілки на користь альтернативного джерела місцезнаходження.""",
   """grpc.DishReadyStates.cady""": """Тактовий генератор""",
   """grpc.DishReadyStates.scp""": """Інтерфейс шини RFFE""",
   """grpc.DishReadyStates.l1l2""": """Модем L1L2""",
@@ -2559,6 +2961,12 @@ Map<String, String> get messagesUkMap => {
   """grpc.DishInitDuration.stableConnection_hint""":
       """Термінал отримав стабільне з'єднання за мережею.""",
   """grpc.DishConfig.snow_melt_mode""": """Snow melt mode""",
+  """grpc.DishConfig.snow_melt_mode__hint""": """Можливі варіанти:
+
+- **AUTO** - Тарілка автоматично розтоплює сніг при виявленні.
+- **ALWAYS_ON** - Нагрівач для танення снігу завжди увімкнений.
+- **ALWAYS_OFF** - Нагрівач для танення снігу завжди вимкнений.
+""",
   """grpc.DishConfig.location_request_mode""": """Location request mode""",
   """grpc.DishConfig.location_request_mode__hint""": """Можливі варіанти:
  - **NONE** - Starlink не публікує своє місцезнаходження в локальну мережу.
@@ -2569,6 +2977,11 @@ Map<String, String> get messagesUkMap => {
 *Advanced* -> *Debug Data* -> *Allow access on local network*.
 """,
   """grpc.DishConfig.level_dish_mode""": """Level dish mode""",
+  """grpc.DishConfig.level_dish_mode__hint""": """Можливі варіанти:
+
+- **TILT_LIKE_NORMAL** - Тарілка нахиляється як зазвичай для відстеження супутників.
+- **FORCE_LEVEL** - Тарілка примусово залишається рівною (горизонтально).
+""",
   """grpc.DishConfig.power_save_start_minutes""":
       """Power save start minutes""",
   """grpc.DishConfig.power_save_duration_minutes""":
@@ -2578,21 +2991,39 @@ Map<String, String> get messagesUkMap => {
       """Для Starlink можна налаштувати режим сну. Starlink не надає Інтернет і не топить сніг під час сну.""",
   """grpc.DishObstructionStats.fraction_obstructed""":
       """Частка часу с перешкодами""",
+  """grpc.DishObstructionStats.fraction_obstructed__hint""":
+      """Відсоток неба, закритого перешкодами від огляду тарілки. Чим менше, тим краще.""",
   """grpc.DishObstructionStats.valid_s""": """Time valid""",
+  """grpc.DishObstructionStats.valid_s__hint""":
+      """Тривалість, протягом якої дані про перешкоди збирались і вважаються дійсними.""",
   """grpc.DishObstructionStats.currently_obstructed""": """Є перешкода""",
+  """grpc.DishObstructionStats.currently_obstructed__hint""":
+      """Чи заблокований наразі сигнал тарілки перешкодою.""",
   """grpc.DishObstructionStats.avg_prolonged_obstruction_duration_s""":
       """Середній час тривалих перешкод""",
+  """grpc.DishObstructionStats.avg_prolonged_obstruction_duration_s__hint""":
+      """Середня тривалість тривалих перешкод сигналу.""",
   """grpc.DishObstructionStats.avg_prolonged_obstruction_interval_s""":
       """Середній час між тривалими перешкодами""",
+  """grpc.DishObstructionStats.avg_prolonged_obstruction_interval_s__hint""":
+      """Середній час між тривалими перешкодами.""",
   """grpc.DishObstructionStats.avg_prolonged_obstruction_valid""":
       """Average prolonged obstruction valid""",
+  """grpc.DishObstructionStats.avg_prolonged_obstruction_valid__hint""":
+      """Чи зібрано достатньо даних для надійної статистики тривалих перешкод.""",
   """grpc.DishObstructionStats.time_obstructed""": """Тривалість перешкоди""",
+  """grpc.DishObstructionStats.time_obstructed__hint""":
+      """Загальна частка часу, протягом якого сигнал тарілки був заблокований перешкодами.""",
   """grpc.DishObstructionStats.patches_valid""": """Patches valid""",
+  """grpc.DishObstructionStats.patches_valid__hint""":
+      """Чи містять патчі карти перешкод дійсні дані.""",
   """grpc.DishGetStatus.uptime_s""": """Час після завантаження""",
   """grpc.DishGetStatus.uptime_s__hint""":
       """Час роботи тарілки від останнього перезавантаження.""",
   """grpc.DishGetStatus.seconds_to_first_nonempty_slot""":
       """Час до першого непорожнього слота""",
+  """grpc.DishGetStatus.seconds_to_first_nonempty_slot__hint""":
+      """Час до наступного запланованого слота зв'язку тарілки з супутником.""",
   """grpc.DishGetStatus.fraction_obstructed""": """Частка часу с перешкодами""",
   """grpc.DishGetStatus.valid_s""": """valid_s""",
   """grpc.DishGetStatus.currently_obstructed""": """currently_obstructed""",
@@ -2624,31 +3055,110 @@ Map<String, String> get messagesUkMap => {
 **PoP Ping Drop Rate** вказує на частку пакетів, які втрачаються під час передачі між користувацьким терміналом та точкою присутності.
 """,
   """grpc.DishGetStatus.stow_requested""": """Складання в процесі""",
+  """grpc.DishGetStatus.stow_requested__hint""":
+      """Чи було надіслано команду складання. У складеному стані тарілка згортається для зберігання або транспортування.""",
   """grpc.DishGetStatus.boresight_azimuth_deg""": """Азимут осі панелі, град""",
+  """grpc.DishGetStatus.boresight_azimuth_deg__hint""":
+      """Горизонтальний кут компасу, в якому наразі спрямована антенна панель тарілки, в градусах.""",
   """grpc.DishGetStatus.boresight_elevation_deg""":
       """Кут підйому панелі, град""",
+  """grpc.DishGetStatus.boresight_elevation_deg__hint""":
+      """Вертикальний кут, під яким наразі спрямована антенна панель тарілки відносно горизонту, в градусах.""",
   """grpc.DishGetStatus.eth_speed_mbps""": """Швидкість Ethernet, Mbps""",
   """grpc.DishGetStatus.mobility_class""": """Клас мобільності""",
   """grpc.DishGetStatus.mobility_class__hint""": """Можливі варіанти:
 
-- OTHER_OPTIONS
+- **STATIONARY** - Тарілка встановлена на фіксованому місці (домашнє використання).
+- **NOMADIC** - Тарілку можна переміщувати між локаціями, але не використовувати під час руху.
+- **MOBILE** - Тарілка використовується під час руху (човни, будинки на колесах тощо).
 """,
   """grpc.DishGetStatus.is_snr_above_noise_floor""":
       """SNR вище за рівень шуму""",
+  """grpc.DishGetStatus.is_snr_above_noise_floor__hint""":
+      """Чи перевищує відношення сигнал/шум мінімальний поріг, необхідний для надійного зв'язку.""",
   """grpc.DishGetStatus.class_of_service""": """Клас сервісу""",
+  """grpc.DishGetStatus.class_of_service__hint""": """Можливі варіанти:
+
+- **UNKNOWN**
+- **CONSUMER** - Домашній план Starlink.
+- **BUSINESS** - План Starlink Business.
+- **BUSINESS_PLUS** - План Starlink Business Plus з підвищеним пріоритетом.
+- **COMMERCIAL_AVIATION** - Авіаційний план Starlink для комерційних літаків.
+""",
   """grpc.DishGetStatus.software_update_state""": """Стан оновлення""",
+  """grpc.DishGetStatus.software_update_state__hint""": """Можливі варіанти:
+
+- **UNKNOWN**
+- **IDLE** - Оновлення не виконується.
+- **FETCHING** - Завантаження нового оновлення.
+- **PRE_CHECK** - Виконання перевірок перед оновленням.
+- **WRITING** - Запис оновлення на розділ.
+- **POST_CHECK** - Перевірка після оновлення.
+- **REBOOT_REQUIRED** - Оновлення готове, потрібне перезавантаження.
+- **DISABLED** - Оновлення вимкнено.
+- **FAULTED** - Помилка процесу оновлення.
+""",
   """grpc.DishGetStatus.is_snr_persistently_low""": """SNR стабільно низький""",
+  """grpc.DishGetStatus.is_snr_persistently_low__hint""":
+      """Чи було відношення сигнал/шум стабільно нижче допустимого рівня. Може вказувати на перешкоди або проблеми з обладнанням.""",
   """grpc.DishGetStatus.has_actuators""": """Наявність приводу""",
+  """grpc.DishGetStatus.has_actuators__hint""":
+      """Чи має тарілка моторизовані приводи для нахилу та обертання.""",
   """grpc.DishGetStatus.actuator_state""": """Стан приводів""",
+  """grpc.DishGetStatus.actuator_state__hint""": """Можливі варіанти:
+
+- **IDLE** - Приводи в стані спокою, тарілка в нормальній робочій позиції.
+- **FULL_TILT** - Тарілка повністю нахилена.
+- **ROTATE** - Тарілка обертається.
+- **TILT** - Тарілка нахиляється.
+- **UNWRAP_POSITIVE** - Тарілка розмотує кабелі в позитивному напрямку.
+- **UNWRAP_NEGATIVE** - Тарілка розмотує кабелі в негативному напрямку.
+- **TILT_TO_STOWED** - Тарілка нахиляється в складене (плоске) положення.
+- **FAULTED** - Привід несправний, потребує уваги.
+- **WAIT_TIL_STATIC** - Очікування, поки тарілка стане нерухомою.
+- **DRIVE_TO_MOBILE_POSITION** - Переміщення в мобільну робочу позицію.
+- **MOBILE_WAIT** - Очікування в мобільному режимі.
+""",
   """grpc.DishGetStatus.disablement_code""": """Стан сервісу""",
   """grpc.DishGetStatus.disablement_code__hint""": """Можливі варіанти:
 
-- OTHER_OPTIONS
+- **UNKNOWN_STATE**
+- **OKAY** - Сервіс працює нормально.
+- **NO_ACTIVE_ACCOUNT** - Немає активного облікового запису Starlink для цієї тарілки.
+- **TOO_FAR_FROM_SERVICE_ADDRESS** - Тарілка занадто далеко від зареєстрованої адреси обслуговування.
+- **IN_OCEAN** - Розташування тарілки визначено як океан.
+- **BLOCKED_COUNTRY** - Сервіс Starlink недоступний у цій країні.
+- **DATA_OVERAGE_SANDBOX_POLICY** - Ліміт даних перевищено.
+- **CELL_IS_DISABLED** - Стільник Starlink, що обслуговує цю зону, вимкнено.
+- **ROAM_RESTRICTED** - Роумінг обмежений для цього плану або місця.
+- **UNKNOWN_LOCATION** - Тарілка не може визначити своє місцезнаходження.
+- **ACCOUNT_DISABLED** - Обліковий запис Starlink вимкнено.
+- **UNSUPPORTED_VERSION** - Версія прошивки тарілки більше не підтримується.
+- **MOVING_TOO_FAST_FOR_POLICY** - Тарілка рухається швидше, ніж дозволено планом обслуговування.
+- **UNDER_AVIATION_FLYOVER_LIMITS** - Нижче авіаційних обмежень висоти прольоту.
+- **BLOCKED_AREA** - Тарілка знаходиться в обмеженій або заблокованій зоні.
 """,
   """grpc.DishGetStatus.reboot_reason""": """Причина перезавантаження""",
   """grpc.DishGetStatus.reboot_reason__hint""": """Можливі варіанти:
 
-- OTHER_OPTIONS
+- **NONE**
+- **MANUAL** - Перезавантаження ініційоване користувачем вручну.
+- **LOSS_OF_COMM** - Перезавантаження через втрату зв'язку з мережею.
+- **SWUPDATE_NOW** - Негайне перезавантаження для оновлення.
+- **SWUPDATE_SCHEDULED** - Заплановане перезавантаження для оновлення.
+- **APP** - Перезавантаження через додаток Starlink.
+- **EMC** - Перезавантаження через підсистему EMC.
+- **FACTORY_RESET** - Перезавантаження після скидання до заводських налаштувань.
+- **TEST_CASE** - Перезавантаження через тестовий сценарій.
+- **THERMAL_POWER_CUT** - Перезавантаження через захист від перегріву.
+- **CRITICAL_PROCESS_DIED** - Критичний процес завершився аварійно.
+- **NO_RF_READY** - RF front end не вдалося ініціалізувати.
+- **POSTPONED_LOSS_OF_COMM** - Відкладене перезавантаження після втрати зв'язку.
+- **SWUPDATE_STATIONARY** - Оновлення прошивки в стаціонарному режимі.
+- **AAP_CRASH** - Збій цифрового формувача променя (AAP).
+- **XP70_SACS** - Збій підсистеми XP70 SACS.
+- **INE_FAILED** - Помилка початкового входу в мережу.
+- **KERNEL_TAINTED** - Ядро було забруднене (наприклад, помилка модуля).
 """,
   """grpc.AlignmentStats.has_actuators""": """has_actuators""",
   """grpc.AlignmentStats.actuator_state""": """actuator_state""",
@@ -2659,12 +3169,25 @@ Map<String, String> get messagesUkMap => {
       """Panel boresight Elevation angle, deg""",
   """grpc.AlignmentStats.attitude_estimation_state""":
       """Attitude estimation state""",
+  """grpc.AlignmentStats.attitude_estimation_state__hint""":
+      """Можливі варіанти:
+
+- **FILTER_RESET** - Фільтр орієнтації скинуто, оцінка ще не розпочата.
+- **FILTER_UNCONVERGED** - Фільтр орієнтації працює, але ще не збігся.
+- **FILTER_CONVERGED** - Фільтр орієнтації збігся, оцінка положення стабільна.
+- **FILTER_FAULTED** - Помилка фільтра орієнтації.
+- **FILTER_INVALID** - Стан фільтра орієнтації недійсний.
+""",
   """grpc.AlignmentStats.attitude_uncertainty_deg""":
       """Attitude uncertainty, deg""",
   """grpc.AlignmentStats.desired_boresight_azimuth_deg""":
       """Desired boresight Azimuth angle, deg""",
+  """grpc.AlignmentStats.desired_boresight_azimuth_deg__hint""":
+      """Цільовий горизонтальний напрямок, в якому тарілка повинна бути спрямована для оптимального зв'язку з супутниками, в градусах.""",
   """grpc.AlignmentStats.desired_boresight_elevation_deg""":
       """Desired boresight Elevation angle, deg""",
+  """grpc.AlignmentStats.desired_boresight_elevation_deg__hint""":
+      """Цільовий вертикальний кут, під яким тарілка повинна бути спрямована для оптимального зв'язку з супутниками, в градусах.""",
   """grpc.ClientName.mac_address""": """mac_address""",
   """grpc.ClientName.given_name""": """given_name""",
   """grpc.Network.ipv4""": """ipv4""",
