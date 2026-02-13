@@ -96,7 +96,7 @@ void buildEventLogs(BuildContext context, ThemeData theme, DishGetHistoryRespons
       setExpanded(!expanded);
   },);
 
-  if (eventLog.events.length>num_rows && expanded==true)
+  if (eventLog.events.length>num_rows && expanded==false)
     b.widgets.add(GestureDetector(
         onTap: () {
           if (setExpanded!=null && expanded!=null)
