@@ -24,7 +24,8 @@ const String _TAG="DishWidget";
 class DishWidget extends StatefulWidget {
   final ViewOptions viewOptions;
   final Snapshot snap;
-  const DishWidget({super.key, required this.viewOptions, required this.snap});
+  final bool showActions;
+  const DishWidget({super.key, required this.viewOptions, required this.snap, this.showActions = false});
 
   @override
   State createState() => _DishWidgetState();
@@ -52,37 +53,6 @@ class _DishWidgetState extends State<DishWidget> with TickerProviderStateMixin {
     );
   }
 
-  // Future<String> withConnectedHandleJson( Request req, {bool router = false}) async {
-  //   return await withConnected((stub, channel) async {
-  //     var resp = await stub.handle(req);
-  //
-  //     log("Received response: ${jsonEncode(resp.toProto3Json())}");
-  //
-  //     return JsonEncoder.withIndent("  ").convert(resp.toProto3Json());
-  //   }, router: router) ?? "";
-  // }
-  //
-  // Widget reqButton(String name, Request Function() reqBuilder, {bool router = false}){
-  //   return OutlinedButton(onPressed: () async {
-  //     text = await withConnectedHandleJson(reqBuilder(), router: router);
-  //     img = null;
-  //     setState(() {});
-  //   }, child: Text(name));
-  // }
-  Widget reqButton(String name, Request Function() reqBuilder, {bool router = false}){
-    return OutlinedButton(
-        onPressed: () async {
-          try {
-            var text = await withConnectedHandleJson(reqBuilder(), router: router);
-            R.showSnackBarText(text);
-          }finally{
-          }
-        },
-        style: OutlinedButton.styleFrom(padding: EdgeInsets.fromLTRB(5,3,5,3)),
-        child: Text(name)
-    );
-  }
-
   Future<String> withConnectedHandleJson( Request req, {bool router = false}) async {
     return await withConnected((stub, channel) async {
       var resp = await stub.handle(req, options: CallOptions(timeout: Duration(seconds: 3)));
@@ -92,6 +62,7 @@ class _DishWidgetState extends State<DishWidget> with TickerProviderStateMixin {
       return JsonEncoder.withIndent("  ").convert(resp.toProto3Json());
     }, router: router) ?? "";
   }
+
   Future<T?> withConnected<T>(Future<T> Function(DeviceClient stub, ClientChannel channel) callback, {bool router = false} ) async {
     final channel = ClientChannel(
       router ? '192.168.1.1' : '192.168.100.1',
@@ -118,6 +89,49 @@ class _DishWidgetState extends State<DishWidget> with TickerProviderStateMixin {
 
     return null;
   }
+
+  Widget reqButton(String name, Request Function() reqBuilder, {bool router = false}){
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(4, 2, 4, 2),
+      child: OutlinedButton(
+          onPressed: () async {
+            try {
+              var text = await withConnectedHandleJson(reqBuilder(), router: router);
+              R.showSnackBarText(text);
+            }finally{
+            }
+          },
+          style: OutlinedButton.styleFrom(padding: EdgeInsets.fromLTRB(5,3,5,3)),
+          child: Text(name)
+      ),
+    );
+  }
+
+  List<Widget> buildActions() {
+    var b = KVWidgetBuilder(context, theme);
+    b.header(M.header.actions);
+
+
+    bool gpsInhibited = widget.snap.dishGetStatus?.gpsStats.inhibitGps ?? false;
+
+    b.widgets.add(Wrap(
+      // mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        reqButton(M.general.reboot, () => Request(reboot: RebootRequest())),
+        reqButton(M.general.stow, () => Request(dishStow: DishStowRequest(unstow: false))),
+        reqButton(M.general.unstow, () => Request(dishStow: DishStowRequest(unstow: true))),
+        if (gpsInhibited)
+          reqButton(M.general.uninhibit_gps, () => Request(dishInhibitGps: DishInhibitGpsRequest(inhibitGps: false)), router: false)
+        else
+          reqButton(M.general.inhibit_gps, () => Request(dishInhibitGps: DishInhibitGpsRequest(inhibitGps: true)), router: false),
+        reqButton("InhibitRf", () => Request(dishInhibitRf: DishInhibitRfRequest(inhibitRf: true)), router: false),
+        reqButton("No InhibitRf", () => Request(dishInhibitRf: DishInhibitRfRequest(inhibitRf: false)), router: false),
+      ],
+    ));
+
+    return b.widgets;
+  }
+
   List<Widget> _buildBody(){
     List<Widget> rows = [];
 
@@ -126,14 +140,6 @@ class _DishWidgetState extends State<DishWidget> with TickerProviderStateMixin {
       {
         var b = KVWidgetBuilder(context, theme);
         b.header(M.header.general);
-
-        b.widgets.add( Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            reqButton("DishInhibitRfRequest True", () => Request(dishInhibitRf: DishInhibitRfRequest(inhibitRf: true)), router: false),
-            reqButton("DishInhibitRfRequest False", () => Request(dishInhibitRf: DishInhibitRfRequest(inhibitRf: false)), router: false),
-          ],
-        ));
 
         if (status.hasDeviceState()) {
           if (status.deviceState.hasUptimeS())
@@ -221,6 +227,9 @@ class _DishWidgetState extends State<DishWidget> with TickerProviderStateMixin {
 
       if (status.hasAlerts())
         rows.addAll(buildAlertsWidget(context, theme, status.alerts.toProto3Json() as Map<String, dynamic>));
+
+      if (widget.showActions)
+        rows.addAll(buildActions());
 
       {
         var b = KVWidgetBuilder(context, theme);

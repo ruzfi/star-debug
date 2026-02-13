@@ -718,6 +718,11 @@ class HeaderMessagesUk extends HeaderMessages {
   /// "Під'єднані роутери"
   /// ```
   String get connected_routers => """Під'єднані роутери""";
+
+  /// ```dart
+  /// "Операції"
+  /// ```
+  String get actions => """Операції""";
 }
 
 class TabsMessagesUk extends TabsMessages {
@@ -2820,6 +2825,7 @@ Map<String, String> get messagesUkMap => {
   """header.client""": """Клієнт""",
   """header.features""": """Функції""",
   """header.connected_routers""": """Під'єднані роутери""",
+  """header.actions""": """Операції""",
   """tabs.app.unknown""": """Невідомо""",
   """tabs.app.app_version""": """Версія додатку""",
   """tabs.app.app_environment""": """Середовище додатку""",

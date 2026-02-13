@@ -140,6 +140,7 @@ header:
   client: Client
   features: Features
   connected_routers: Connected routers
+  actions: Actions
 
 tabs:
   app:

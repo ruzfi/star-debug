@@ -144,6 +144,7 @@ header:
   client: Клієнт
   features: Функції
   connected_routers: Під'єднані роутери
+  actions: Операції
 
 tabs:
   app:
