@@ -6,6 +6,7 @@
 
 ### Enhancements:
 - Migrate Outages to Event Log.
+- Improved fields descriptions.
 
 
 ## 1.2b76
