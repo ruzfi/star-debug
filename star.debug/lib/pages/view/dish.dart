@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart' hide Notification, Card, ConnectionState;
 import 'package:recase/recase.dart';
 import 'package:star_debug/grpc/starlink/network.pb.dart';

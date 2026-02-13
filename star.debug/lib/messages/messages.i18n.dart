@@ -629,6 +629,11 @@ class LiveMessages {
   String get outages => """Outages""";
 
   /// ```dart
+  /// "Event Logs"
+  /// ```
+  String get event_logs => """Event Logs""";
+
+  /// ```dart
   /// "... $n records before ..."
   /// ```
   String n_records_before(n) => """... $n records before ...""";
@@ -2801,6 +2806,7 @@ Moreover, in the case of a moving router, its route can be followed.
   """live.starlink_live""": """Starlink Live""",
   """live.check_update""": """Check Update""",
   """live.outages""": """Outages""",
+  """live.event_logs""": """Event Logs""",
   """header.general""": """General""",
   """header.signal""": """Signal""",
   """header.network""": """Network""",
