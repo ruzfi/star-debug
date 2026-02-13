@@ -959,6 +959,20 @@ class EventReason extends $pb.ProtobufEnum {
   static const EventReason EVENT_REASON_CLIENT_RECONNECTING_OFTEN =
       EventReason._(
           42, _omitEnumNames ? '' : 'EVENT_REASON_CLIENT_RECONNECTING_OFTEN');
+  static const EventReason EVENT_REASON_CLIENT_SWITCHING_BAND = EventReason._(
+      43, _omitEnumNames ? '' : 'EVENT_REASON_CLIENT_SWITCHING_BAND');
+  static const EventReason EVENT_REASON_CLIENT_SWITCHING_UPSTREAM_MAC =
+      EventReason._(44,
+          _omitEnumNames ? '' : 'EVENT_REASON_CLIENT_SWITCHING_UPSTREAM_MAC');
+  @$core.Deprecated('This enum value is deprecated')
+  static const EventReason EVENT_REASON_ROUTER_MESH_CONNECTION_CHANGING =
+      EventReason._(45,
+          _omitEnumNames ? '' : 'EVENT_REASON_ROUTER_MESH_CONNECTION_CHANGING');
+  static const EventReason EVENT_REASON_MESH_BACKHAUL_LOW_PHY = EventReason._(
+      46, _omitEnumNames ? '' : 'EVENT_REASON_MESH_BACKHAUL_LOW_PHY');
+  static const EventReason EVENT_REASON_ROUTER_HIGH_OVERLAPPING_BSS =
+      EventReason._(
+          47, _omitEnumNames ? '' : 'EVENT_REASON_ROUTER_HIGH_OVERLAPPING_BSS');
 
   static const $core.List<EventReason> values = <EventReason>[
     EVENT_REASON_UNKNOWN,
@@ -1004,14 +1018,43 @@ class EventReason extends $pb.ProtobufEnum {
     EVENT_REASON_ROUTER_DISH_PING_DROP,
     EVENT_REASON_ROUTER_UT_CONNECTED_TO_LAN,
     EVENT_REASON_CLIENT_RECONNECTING_OFTEN,
+    EVENT_REASON_CLIENT_SWITCHING_BAND,
+    EVENT_REASON_CLIENT_SWITCHING_UPSTREAM_MAC,
+    EVENT_REASON_ROUTER_MESH_CONNECTION_CHANGING,
+    EVENT_REASON_MESH_BACKHAUL_LOW_PHY,
+    EVENT_REASON_ROUTER_HIGH_OVERLAPPING_BSS,
   ];
 
   static final $core.List<EventReason?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 42);
+      $pb.ProtobufEnum.$_initByValueList(values, 47);
   static EventReason? valueOf($core.int value) =>
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 
   const EventReason._(super.value, super.name);
+}
+
+/// SpaceX.API.Device.MeshConnectionChange is an enum:
+class MeshConnectionChange extends $pb.ProtobufEnum {
+  @$core.Deprecated('This enum value is deprecated')
+  static const MeshConnectionChange REPEATER_CHANGE_UNKNOWN =
+      MeshConnectionChange._(
+          0, _omitEnumNames ? '' : 'REPEATER_CHANGE_UNKNOWN');
+  @$core.Deprecated('This enum value is deprecated')
+  static const MeshConnectionChange REPEATER_CHANGE_DISCONNECTED =
+      MeshConnectionChange._(
+          1, _omitEnumNames ? '' : 'REPEATER_CHANGE_DISCONNECTED');
+
+  static const $core.List<MeshConnectionChange> values = <MeshConnectionChange>[
+    REPEATER_CHANGE_UNKNOWN,
+    REPEATER_CHANGE_DISCONNECTED,
+  ];
+
+  static final $core.List<MeshConnectionChange?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 1);
+  static MeshConnectionChange? valueOf($core.int value) =>
+      value < 0 || value >= _byValue.length ? null : _byValue[value];
+
+  const MeshConnectionChange._(super.value, super.name);
 }
 
 /// SpaceX.API.Device.ObstructionMapReferenceFrame is an enum:

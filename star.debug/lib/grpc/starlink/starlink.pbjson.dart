@@ -556,6 +556,15 @@ const EventReason$json = {
     {'1': 'EVENT_REASON_ROUTER_DISH_PING_DROP', '2': 40},
     {'1': 'EVENT_REASON_ROUTER_UT_CONNECTED_TO_LAN', '2': 41},
     {'1': 'EVENT_REASON_CLIENT_RECONNECTING_OFTEN', '2': 42},
+    {'1': 'EVENT_REASON_CLIENT_SWITCHING_BAND', '2': 43},
+    {'1': 'EVENT_REASON_CLIENT_SWITCHING_UPSTREAM_MAC', '2': 44},
+    {
+      '1': 'EVENT_REASON_ROUTER_MESH_CONNECTION_CHANGING',
+      '2': 45,
+      '3': {'1': true},
+    },
+    {'1': 'EVENT_REASON_MESH_BACKHAUL_LOW_PHY', '2': 46},
+    {'1': 'EVENT_REASON_ROUTER_HIGH_OVERLAPPING_BSS', '2': 47},
   ],
 };
 
@@ -594,7 +603,33 @@ final $typed_data.Uint8List eventReasonDescriptor = $convert.base64Decode(
     'TkdfT0ZURU4QJhImCiJFVkVOVF9SRUFTT05fUk9VVEVSX0NPTk5UUkFDS19GVUxMECcSJgoiRV'
     'ZFTlRfUkVBU09OX1JPVVRFUl9ESVNIX1BJTkdfRFJPUBAoEisKJ0VWRU5UX1JFQVNPTl9ST1VU'
     'RVJfVVRfQ09OTkVDVEVEX1RPX0xBThApEioKJkVWRU5UX1JFQVNPTl9DTElFTlRfUkVDT05ORU'
-    'NUSU5HX09GVEVOECo=');
+    'NUSU5HX09GVEVOECoSJgoiRVZFTlRfUkVBU09OX0NMSUVOVF9TV0lUQ0hJTkdfQkFORBArEi4K'
+    'KkVWRU5UX1JFQVNPTl9DTElFTlRfU1dJVENISU5HX1VQU1RSRUFNX01BQxAsEjQKLEVWRU5UX1'
+    'JFQVNPTl9ST1VURVJfTUVTSF9DT05ORUNUSU9OX0NIQU5HSU5HEC0aAggBEiYKIkVWRU5UX1JF'
+    'QVNPTl9NRVNIX0JBQ0tIQVVMX0xPV19QSFkQLhIsCihFVkVOVF9SRUFTT05fUk9VVEVSX0hJR0'
+    'hfT1ZFUkxBUFBJTkdfQlNTEC8=');
+
+@$core.Deprecated('Use meshConnectionChangeDescriptor instead')
+const MeshConnectionChange$json = {
+  '1': 'MeshConnectionChange',
+  '2': [
+    {
+      '1': 'REPEATER_CHANGE_UNKNOWN',
+      '2': 0,
+      '3': {'1': true},
+    },
+    {
+      '1': 'REPEATER_CHANGE_DISCONNECTED',
+      '2': 1,
+      '3': {'1': true},
+    },
+  ],
+};
+
+/// Descriptor for `MeshConnectionChange`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List meshConnectionChangeDescriptor = $convert.base64Decode(
+    'ChRNZXNoQ29ubmVjdGlvbkNoYW5nZRIfChdSRVBFQVRFUl9DSEFOR0VfVU5LTk9XThAAGgIIAR'
+    'IkChxSRVBFQVRFUl9DSEFOR0VfRElTQ09OTkVDVEVEEAEaAggB');
 
 @$core.Deprecated('Use obstructionMapReferenceFrameDescriptor instead')
 const ObstructionMapReferenceFrame$json = {
@@ -1602,6 +1637,15 @@ const Request$json = {
       '9': 0,
       '10': 'getDiagnostics'
     },
+    {
+      '1': 'get_gnss_measurement',
+      '3': 7000,
+      '4': 1,
+      '5': 11,
+      '6': '.SpaceX.API.Device.GetGnssMeasurementRequest',
+      '9': 0,
+      '10': 'getGnssMeasurement'
+    },
   ],
   '8': [
     {'1': 'request'},
@@ -1762,9 +1806,11 @@ final $typed_data.Uint8List requestDescriptor = $convert.base64Decode(
     'cxJwChl0cmFuc2NlaXZlcl9nZXRfdGVsZW1ldHJ5GKQfIAEoCzIxLlNwYWNlWC5BUEkuRGV2aW'
     'NlLlRyYW5zY2VpdmVyR2V0VGVsZW1ldHJ5UmVxdWVzdEgAUhd0cmFuc2NlaXZlckdldFRlbGVt'
     'ZXRyeRJUCg9nZXRfZGlhZ25vc3RpY3MY8C4gASgLMiguU3BhY2VYLkFQSS5EZXZpY2UuR2V0RG'
-    'lhZ25vc3RpY3NSZXF1ZXN0SABSDmdldERpYWdub3N0aWNzQgkKB3JlcXVlc3RKBgj6BxD7B0oG'
-    'CIEIEIIISgYIgggQgwhKBgjcDxDdD0oGCOAPEOEPSgYIwxcQxBdKBgjGFxDHF0oGCIIZEIMZUh'
-    'RzdGFydF9kaXNoX3NlbGZfdGVzdA==');
+    'lhZ25vc3RpY3NSZXF1ZXN0SABSDmdldERpYWdub3N0aWNzEmEKFGdldF9nbnNzX21lYXN1cmVt'
+    'ZW50GNg2IAEoCzIsLlNwYWNlWC5BUEkuRGV2aWNlLkdldEduc3NNZWFzdXJlbWVudFJlcXVlc3'
+    'RIAFISZ2V0R25zc01lYXN1cmVtZW50QgkKB3JlcXVlc3RKBgj6BxD7B0oGCIEIEIIISgYIgggQ'
+    'gwhKBgjcDxDdD0oGCOAPEOEPSgYIwxcQxBdKBgjGFxDHF0oGCIIZEIMZUhRzdGFydF9kaXNoX3'
+    'NlbGZfdGVzdA==');
 
 @$core.Deprecated('Use signedDataDescriptor instead')
 const SignedData$json = {
@@ -5701,6 +5747,15 @@ const GetDiagnosticsRequest$json = {
 final $typed_data.Uint8List getDiagnosticsRequestDescriptor =
     $convert.base64Decode('ChVHZXREaWFnbm9zdGljc1JlcXVlc3Q=');
 
+@$core.Deprecated('Use getGnssMeasurementRequestDescriptor instead')
+const GetGnssMeasurementRequest$json = {
+  '1': 'GetGnssMeasurementRequest',
+};
+
+/// Descriptor for `GetGnssMeasurementRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getGnssMeasurementRequestDescriptor =
+    $convert.base64Decode('ChlHZXRHbnNzTWVhc3VyZW1lbnRSZXF1ZXN0');
+
 @$core.Deprecated('Use responseDescriptor instead')
 const Response$json = {
   '1': 'Response',
@@ -6410,6 +6465,15 @@ const Response$json = {
       '9': 0,
       '10': 'dishGetDiagnostics'
     },
+    {
+      '1': 'get_gnss_measurement',
+      '3': 7000,
+      '4': 1,
+      '5': 11,
+      '6': '.SpaceX.API.Device.GetGnssMeasurementResponse',
+      '9': 0,
+      '10': 'getGnssMeasurement'
+    },
   ],
   '8': [
     {'1': 'response'},
@@ -6556,9 +6620,10 @@ final $typed_data.Uint8List responseDescriptor = $convert.base64Decode(
     'MY8C4gASgLMi0uU3BhY2VYLkFQSS5EZXZpY2UuV2lmaUdldERpYWdub3N0aWNzUmVzcG9uc2VI'
     'AFISd2lmaUdldERpYWdub3N0aWNzEmIKFGRpc2hfZ2V0X2RpYWdub3N0aWNzGPEuIAEoCzItLl'
     'NwYWNlWC5BUEkuRGV2aWNlLkRpc2hHZXREaWFnbm9zdGljc1Jlc3BvbnNlSABSEmRpc2hHZXRE'
-    'aWFnbm9zdGljc0IKCghyZXNwb25zZUoGCPoHEPsHSgYIgggQgwhKBgjcDxDdD0oGCN4PEN8PSg'
-    'YI6Q8Q6g9KBgjAFxDBF0oGCMMXEMQXSgYIxhcQxxdKBgiDGRCEGVIUc3RhcnRfZGlzaF9zZWxm'
-    'X3Rlc3Q=');
+    'aWFnbm9zdGljcxJiChRnZXRfZ25zc19tZWFzdXJlbWVudBjYNiABKAsyLS5TcGFjZVguQVBJLk'
+    'RldmljZS5HZXRHbnNzTWVhc3VyZW1lbnRSZXNwb25zZUgAUhJnZXRHbnNzTWVhc3VyZW1lbnRC'
+    'CgoIcmVzcG9uc2VKBgj6BxD7B0oGCIIIEIMISgYI3A8Q3Q9KBgjeDxDfD0oGCOkPEOoPSgYIwB'
+    'cQwRdKBgjDFxDEF0oGCMYXEMcXSgYIgxkQhBlSFHN0YXJ0X2Rpc2hfc2VsZl90ZXN0');
 
 @$core.Deprecated('Use statusDescriptor instead')
 const Status$json = {
@@ -8252,6 +8317,7 @@ const DishGetStatusResponse$json = {
       '6': '.SpaceX.API.Device.AccountShard',
       '10': 'accountShard'
     },
+    {'1': 'mac_flag', '3': 1052, '4': 1, '5': 8, '10': 'macFlag'},
     {
       '1': 'config',
       '3': 2000,
@@ -8343,12 +8409,12 @@ final $typed_data.Uint8List dishGetStatusResponseDescriptor = $convert.base64Dec
     'NlLlF1YXRlcm5pb25SEm5lZDJkaXNoUXVhdGVybmlvbhJvChJkb3duc3RyZWFtX3JvdXRlcnMY'
     'mgggAygLMj8uU3BhY2VYLkFQSS5EZXZpY2UuRGlzaEdldFN0YXR1c1Jlc3BvbnNlLkRvd25zdH'
     'JlYW1Sb3V0ZXJzRW50cnlSEWRvd25zdHJlYW1Sb3V0ZXJzEkUKDWFjY291bnRfc2hhcmQYmwgg'
-    'ASgOMh8uU3BhY2VYLkFQSS5EZXZpY2UuQWNjb3VudFNoYXJkUgxhY2NvdW50U2hhcmQSNgoGY2'
-    '9uZmlnGNAPIAEoCzIdLlNwYWNlWC5BUEkuRGV2aWNlLkRpc2hDb25maWdSBmNvbmZpZxpjChZE'
-    'b3duc3RyZWFtUm91dGVyc0VudHJ5EhAKA2tleRgBIAEoCVIDa2V5EjMKBXZhbHVlGAIgASgLMh'
-    '0uU3BhY2VYLkFQSS5EZXZpY2UuUm91dGVySW5mb1IFdmFsdWU6AjgBSgYI6QcQ6gdKBgjuBxDv'
-    'B0oGCPUHEPYHSgYIlggQlwhKBgiXCBCYCFITcGh5X3J4X2JlYW1fc25yX2F2Z1IIdF9jZW50ZX'
-    'I=');
+    'ASgOMh8uU3BhY2VYLkFQSS5EZXZpY2UuQWNjb3VudFNoYXJkUgxhY2NvdW50U2hhcmQSGgoIbW'
+    'FjX2ZsYWcYnAggASgIUgdtYWNGbGFnEjYKBmNvbmZpZxjQDyABKAsyHS5TcGFjZVguQVBJLkRl'
+    'dmljZS5EaXNoQ29uZmlnUgZjb25maWcaYwoWRG93bnN0cmVhbVJvdXRlcnNFbnRyeRIQCgNrZX'
+    'kYASABKAlSA2tleRIzCgV2YWx1ZRgCIAEoCzIdLlNwYWNlWC5BUEkuRGV2aWNlLlJvdXRlcklu'
+    'Zm9SBXZhbHVlOgI4AUoGCOkHEOoHSgYI7gcQ7wdKBgj1BxD2B0oGCJYIEJcISgYIlwgQmAhSE3'
+    'BoeV9yeF9iZWFtX3Nucl9hdmdSCHRfY2VudGVy');
 
 @$core.Deprecated('Use dishObstructionStatsDescriptor instead')
 const DishObstructionStats$json = {
@@ -9272,6 +9338,52 @@ const UXEvent$json = {
       '9': 0,
       '10': 'clientReconnectingOftenMetadata'
     },
+    {
+      '1': 'client_switching_band_metadata',
+      '3': 6,
+      '4': 1,
+      '5': 11,
+      '6': '.SpaceX.API.Device.ClientSwitchingBandMetadata',
+      '9': 0,
+      '10': 'clientSwitchingBandMetadata'
+    },
+    {
+      '1': 'client_switching_upstream_mac_metadata',
+      '3': 7,
+      '4': 1,
+      '5': 11,
+      '6': '.SpaceX.API.Device.ClientSwitchingUpstreamMacMetadata',
+      '9': 0,
+      '10': 'clientSwitchingUpstreamMacMetadata'
+    },
+    {
+      '1': 'mesh_connection_changing_metadata',
+      '3': 8,
+      '4': 1,
+      '5': 11,
+      '6': '.SpaceX.API.Device.MeshConnectionChangingMetadata',
+      '8': {'3': true},
+      '9': 0,
+      '10': 'meshConnectionChangingMetadata',
+    },
+    {
+      '1': 'mesh_backhaul_low_phy_metadata',
+      '3': 9,
+      '4': 1,
+      '5': 11,
+      '6': '.SpaceX.API.Device.MeshBackhaulLowPhyMetadata',
+      '9': 0,
+      '10': 'meshBackhaulLowPhyMetadata'
+    },
+    {
+      '1': 'high_overlapping_bss_metadata',
+      '3': 10,
+      '4': 1,
+      '5': 11,
+      '6': '.SpaceX.API.Device.HighOverlappingBssMetadata',
+      '9': 0,
+      '10': 'highOverlappingBssMetadata'
+    },
   ],
   '8': [
     {'1': 'metadata'},
@@ -9286,7 +9398,18 @@ final $typed_data.Uint8List uXEventDescriptor = $convert.base64Decode(
     'N0YW1wTnMSHwoLZHVyYXRpb25fbnMYBCABKARSCmR1cmF0aW9uTnMSgQEKImNsaWVudF9yZWNv'
     'bm5lY3Rpbmdfb2Z0ZW5fbWV0YWRhdGEYBSABKAsyMi5TcGFjZVguQVBJLkRldmljZS5DbGllbn'
     'RSZWNvbm5lY3RpbmdPZnRlbk1ldGFkYXRhSABSH2NsaWVudFJlY29ubmVjdGluZ09mdGVuTWV0'
-    'YWRhdGFCCgoIbWV0YWRhdGE=');
+    'YWRhdGESdQoeY2xpZW50X3N3aXRjaGluZ19iYW5kX21ldGFkYXRhGAYgASgLMi4uU3BhY2VYLk'
+    'FQSS5EZXZpY2UuQ2xpZW50U3dpdGNoaW5nQmFuZE1ldGFkYXRhSABSG2NsaWVudFN3aXRjaGlu'
+    'Z0JhbmRNZXRhZGF0YRKLAQomY2xpZW50X3N3aXRjaGluZ191cHN0cmVhbV9tYWNfbWV0YWRhdG'
+    'EYByABKAsyNS5TcGFjZVguQVBJLkRldmljZS5DbGllbnRTd2l0Y2hpbmdVcHN0cmVhbU1hY01l'
+    'dGFkYXRhSABSImNsaWVudFN3aXRjaGluZ1Vwc3RyZWFtTWFjTWV0YWRhdGESggEKIW1lc2hfY2'
+    '9ubmVjdGlvbl9jaGFuZ2luZ19tZXRhZGF0YRgIIAEoCzIxLlNwYWNlWC5BUEkuRGV2aWNlLk1l'
+    'c2hDb25uZWN0aW9uQ2hhbmdpbmdNZXRhZGF0YUICGAFIAFIebWVzaENvbm5lY3Rpb25DaGFuZ2'
+    'luZ01ldGFkYXRhEnMKHm1lc2hfYmFja2hhdWxfbG93X3BoeV9tZXRhZGF0YRgJIAEoCzItLlNw'
+    'YWNlWC5BUEkuRGV2aWNlLk1lc2hCYWNraGF1bExvd1BoeU1ldGFkYXRhSABSGm1lc2hCYWNraG'
+    'F1bExvd1BoeU1ldGFkYXRhEnIKHWhpZ2hfb3ZlcmxhcHBpbmdfYnNzX21ldGFkYXRhGAogASgL'
+    'Mi0uU3BhY2VYLkFQSS5EZXZpY2UuSGlnaE92ZXJsYXBwaW5nQnNzTWV0YWRhdGFIAFIaaGlnaE'
+    '92ZXJsYXBwaW5nQnNzTWV0YWRhdGFCCgoIbWV0YWRhdGE=');
 
 @$core.Deprecated('Use clientReconnectingOftenMetadataDescriptor instead')
 const ClientReconnectingOftenMetadata$json = {
@@ -9301,6 +9424,124 @@ final $typed_data.Uint8List clientReconnectingOftenMetadataDescriptor =
     $convert.base64Decode(
         'Ch9DbGllbnRSZWNvbm5lY3RpbmdPZnRlbk1ldGFkYXRhEhoKCGNsaWVudElkGAEgASgNUghjbG'
         'llbnRJZA==');
+
+@$core.Deprecated('Use clientSwitchingBandMetadataDescriptor instead')
+const ClientSwitchingBandMetadata$json = {
+  '1': 'ClientSwitchingBandMetadata',
+  '2': [
+    {'1': 'clientId', '3': 1, '4': 1, '5': 13, '10': 'clientId'},
+    {'1': 'fromBand', '3': 2, '4': 1, '5': 9, '10': 'fromBand'},
+    {'1': 'toBand', '3': 3, '4': 1, '5': 9, '10': 'toBand'},
+  ],
+};
+
+/// Descriptor for `ClientSwitchingBandMetadata`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List clientSwitchingBandMetadataDescriptor =
+    $convert.base64Decode(
+        'ChtDbGllbnRTd2l0Y2hpbmdCYW5kTWV0YWRhdGESGgoIY2xpZW50SWQYASABKA1SCGNsaWVudE'
+        'lkEhoKCGZyb21CYW5kGAIgASgJUghmcm9tQmFuZBIWCgZ0b0JhbmQYAyABKAlSBnRvQmFuZA==');
+
+@$core.Deprecated('Use clientSwitchingUpstreamMacMetadataDescriptor instead')
+const ClientSwitchingUpstreamMacMetadata$json = {
+  '1': 'ClientSwitchingUpstreamMacMetadata',
+  '2': [
+    {'1': 'clientId', '3': 1, '4': 1, '5': 13, '10': 'clientId'},
+  ],
+};
+
+/// Descriptor for `ClientSwitchingUpstreamMacMetadata`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List clientSwitchingUpstreamMacMetadataDescriptor =
+    $convert.base64Decode(
+        'CiJDbGllbnRTd2l0Y2hpbmdVcHN0cmVhbU1hY01ldGFkYXRhEhoKCGNsaWVudElkGAEgASgNUg'
+        'hjbGllbnRJZA==');
+
+@$core.Deprecated('Use meshConnectionChangingMetadataDescriptor instead')
+const MeshConnectionChangingMetadata$json = {
+  '1': 'MeshConnectionChangingMetadata',
+  '2': [
+    {
+      '1': 'repeaterId',
+      '3': 1,
+      '4': 1,
+      '5': 9,
+      '8': {'3': true},
+      '10': 'repeaterId',
+    },
+    {
+      '1': 'change',
+      '3': 2,
+      '4': 1,
+      '5': 14,
+      '6': '.SpaceX.API.Device.MeshConnectionChange',
+      '8': {'3': true},
+      '10': 'change',
+    },
+  ],
+};
+
+/// Descriptor for `MeshConnectionChangingMetadata`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List meshConnectionChangingMetadataDescriptor =
+    $convert.base64Decode(
+        'Ch5NZXNoQ29ubmVjdGlvbkNoYW5naW5nTWV0YWRhdGESIgoKcmVwZWF0ZXJJZBgBIAEoCUICGA'
+        'FSCnJlcGVhdGVySWQSQwoGY2hhbmdlGAIgASgOMicuU3BhY2VYLkFQSS5EZXZpY2UuTWVzaENv'
+        'bm5lY3Rpb25DaGFuZ2VCAhgBUgZjaGFuZ2U=');
+
+@$core.Deprecated('Use meshBackhaulLowPhyMetadataDescriptor instead')
+const MeshBackhaulLowPhyMetadata$json = {
+  '1': 'MeshBackhaulLowPhyMetadata',
+  '2': [
+    {'1': 'repeaterIds', '3': 1, '4': 3, '5': 9, '10': 'repeaterIds'},
+  ],
+};
+
+/// Descriptor for `MeshBackhaulLowPhyMetadata`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List meshBackhaulLowPhyMetadataDescriptor =
+    $convert.base64Decode(
+        'ChpNZXNoQmFja2hhdWxMb3dQaHlNZXRhZGF0YRIgCgtyZXBlYXRlcklkcxgBIAMoCVILcmVwZW'
+        'F0ZXJJZHM=');
+
+@$core.Deprecated('Use highOverlappingBssMetadataDescriptor instead')
+const HighOverlappingBssMetadata$json = {
+  '1': 'HighOverlappingBssMetadata',
+  '2': [
+    {
+      '1': 'high_overlapping_bss_stats',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.SpaceX.API.Device.HighOverlappingBssStats',
+      '10': 'highOverlappingBssStats'
+    },
+  ],
+};
+
+/// Descriptor for `HighOverlappingBssMetadata`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List highOverlappingBssMetadataDescriptor =
+    $convert.base64Decode(
+        'ChpIaWdoT3ZlcmxhcHBpbmdCc3NNZXRhZGF0YRJnChpoaWdoX292ZXJsYXBwaW5nX2Jzc19zdG'
+        'F0cxgBIAMoCzIqLlNwYWNlWC5BUEkuRGV2aWNlLkhpZ2hPdmVybGFwcGluZ0Jzc1N0YXRzUhdo'
+        'aWdoT3ZlcmxhcHBpbmdCc3NTdGF0cw==');
+
+@$core.Deprecated('Use highOverlappingBssStatsDescriptor instead')
+const HighOverlappingBssStats$json = {
+  '1': 'HighOverlappingBssStats',
+  '2': [
+    {'1': 'iface', '3': 1, '4': 1, '5': 9, '10': 'iface'},
+    {
+      '1': 'average_overlapping_bss_percentage',
+      '3': 2,
+      '4': 1,
+      '5': 13,
+      '10': 'averageOverlappingBssPercentage'
+    },
+  ],
+};
+
+/// Descriptor for `HighOverlappingBssStats`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List highOverlappingBssStatsDescriptor = $convert.base64Decode(
+    'ChdIaWdoT3ZlcmxhcHBpbmdCc3NTdGF0cxIUCgVpZmFjZRgBIAEoCVIFaWZhY2USSwoiYXZlcm'
+    'FnZV9vdmVybGFwcGluZ19ic3NfcGVyY2VudGFnZRgCIAEoDVIfYXZlcmFnZU92ZXJsYXBwaW5n'
+    'QnNzUGVyY2VudGFnZQ==');
 
 @$core.Deprecated('Use dishSetEmcResponseDescriptor instead')
 const DishSetEmcResponse$json = {
@@ -10645,6 +10886,7 @@ const WifiGetStatusResponse$json = {
       '5': 13,
       '10': 'hopsFromController'
     },
+    {'1': 'no_wan_link', '3': 1035, '4': 1, '5': 8, '10': 'noWanLink'},
     {
       '1': 'config',
       '3': 2000,
@@ -10727,13 +10969,13 @@ final $typed_data.Uint8List wifiGetStatusResponseDescriptor = $convert.base64Dec
     'HnVzaW5nSW5kaXZpZHVhbGl6ZWRDYWxpYnJhdGlvbhJwChxjYWxpYnJhdGlvbl9wYXJ0aXRpb2'
     '5zX3N0YXRlGIkIIAEoDjItLlNwYWNlWC5BUEkuRGV2aWNlLkNhbGlicmF0aW9uUGFydGl0aW9u'
     'c1N0YXRlUhpjYWxpYnJhdGlvblBhcnRpdGlvbnNTdGF0ZRIxChRob3BzX2Zyb21fY29udHJvbG'
-    'xlchiKCCABKA1SEmhvcHNGcm9tQ29udHJvbGxlchI2CgZjb25maWcY0A8gASgLMh0uU3BhY2VY'
-    'LkFQSS5EZXZpY2UuV2lmaUNvbmZpZ1IGY29uZmlnEjgKB2NsaWVudHMYuBcgAygLMh0uU3BhY2'
-    'VYLkFQSS5EZXZpY2UuV2lmaUNsaWVudFIHY2xpZW50cxIpChBoYXNfY2xpZW50X2luZGV4GLkX'
-    'IAEoCFIOaGFzQ2xpZW50SW5kZXgSIgoMY2xpZW50X2luZGV4GLoXIAEoBVILY2xpZW50SW5kZX'
-    'gSRQoMcmFkaXVzX3N0YXRzGLsXIAEoCzIhLlNwYWNlWC5BUEkuRGV2aWNlLlJhZGl1c1N0YXRz'
-    'TWFwUgtyYWRpdXNTdGF0c0oECAIQA0oECAUQBkoECAYQB0oECAcQCEoGCOkHEOoHSgYI6gcQ6w'
-    'dKBgjuBxDvB0oGCO8HEPAH');
+    'xlchiKCCABKA1SEmhvcHNGcm9tQ29udHJvbGxlchIfCgtub193YW5fbGluaxiLCCABKAhSCW5v'
+    'V2FuTGluaxI2CgZjb25maWcY0A8gASgLMh0uU3BhY2VYLkFQSS5EZXZpY2UuV2lmaUNvbmZpZ1'
+    'IGY29uZmlnEjgKB2NsaWVudHMYuBcgAygLMh0uU3BhY2VYLkFQSS5EZXZpY2UuV2lmaUNsaWVu'
+    'dFIHY2xpZW50cxIpChBoYXNfY2xpZW50X2luZGV4GLkXIAEoCFIOaGFzQ2xpZW50SW5kZXgSIg'
+    'oMY2xpZW50X2luZGV4GLoXIAEoBVILY2xpZW50SW5kZXgSRQoMcmFkaXVzX3N0YXRzGLsXIAEo'
+    'CzIhLlNwYWNlWC5BUEkuRGV2aWNlLlJhZGl1c1N0YXRzTWFwUgtyYWRpdXNTdGF0c0oECAIQA0'
+    'oECAUQBkoECAYQB0oECAcQCEoGCOkHEOoHSgYI6gcQ6wdKBgjuBxDvB0oGCO8HEPAH');
 
 @$core.Deprecated('Use wifiBandStatusDescriptor instead')
 const WifiBandStatus$json = {
@@ -12663,6 +12905,29 @@ final $typed_data.Uint8List dishGetDiagnosticsResponseDescriptor = $convert.base
     'VBAMEgwKCEZVU0VfQVZTEA0SBwoDR1BTEA4SBwoDSU1VEA8SBwoDUEhZEBASDQoJU0NQX0VSUk'
     '9SEBESDwoLVEVNUEVSQVRVUkUQEhIKCgZWVFNFTlMQE0oECAwQDUoECA0QDlIeZGxfYmFuZHdp'
     'ZHRoX3Jlc3RyaWN0ZWRfcmVhc29uUh51bF9iYW5kd2lkdGhfcmVzdHJpY3RlZF9yZWFzb24=');
+
+@$core.Deprecated('Use getGnssMeasurementResponseDescriptor instead')
+const GetGnssMeasurementResponse$json = {
+  '1': 'GetGnssMeasurementResponse',
+  '2': [
+    {'1': 'device_id', '3': 1, '4': 1, '5': 9, '10': 'deviceId'},
+    {
+      '1': 'measurements',
+      '3': 2,
+      '4': 3,
+      '5': 11,
+      '6': '.SpaceX.API.Device.Gnss.Measurement',
+      '10': 'measurements'
+    },
+  ],
+};
+
+/// Descriptor for `GetGnssMeasurementResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getGnssMeasurementResponseDescriptor =
+    $convert.base64Decode(
+        'ChpHZXRHbnNzTWVhc3VyZW1lbnRSZXNwb25zZRIbCglkZXZpY2VfaWQYASABKAlSCGRldmljZU'
+        'lkEkcKDG1lYXN1cmVtZW50cxgCIAMoCzIjLlNwYWNlWC5BUEkuRGV2aWNlLkduc3MuTWVhc3Vy'
+        'ZW1lbnRSDG1lYXN1cmVtZW50cw==');
 
 @$core.Deprecated('Use toDeviceDescriptor instead')
 const ToDevice$json = {
