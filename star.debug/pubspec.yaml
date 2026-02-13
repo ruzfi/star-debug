@@ -31,7 +31,10 @@ dependencies:
   firebase_core: ^4.4.0
   firebase_crashlytics: any
   firebase_analytics: any
-  clipboard: ^3.0.14
+  clipboard: #^3.0.14
+    git: # fix windows build issues
+      url: https://github.com/dongfengweixiao/flutter_clipboard.git
+      ref: 6f8dce7
   time_machine2: ^0.13.1
   flutter_timezone: ^5.0.1
   upgrader: ^12.5.0
