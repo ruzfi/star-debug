@@ -1,5 +1,3 @@
-
-
 import 'package:clipboard/clipboard.dart';
 import 'package:flex_list/flex_list.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +25,7 @@ class KVWidgetBuilder extends KVConsumer{
   }
 
   @override
-  void kvs(String k, String v, {bool? ok, String? hint, bool isLoading = false}) {
+  void kvs(String k, String v, {bool? ok, String? hint, bool isLoading = false, Widget? kw}) {
     widgets.add(InkWell(
       onTap: () async {
         if (hint==null)
@@ -53,7 +51,7 @@ class KVWidgetBuilder extends KVConsumer{
                     SizedBox(width: 4,)
                   ],
 
-                Text("$k:",
+                kw ?? Text("$k:",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     )

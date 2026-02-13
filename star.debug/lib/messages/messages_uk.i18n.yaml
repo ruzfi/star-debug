@@ -125,6 +125,7 @@ live:
   starlink_live: Starlink Live
   check_update: Перевірити оновлення
   outages: Відключення
+  event_logs: Лог події
   n_records_before(n): ... $n записів попереду ...
 
 header:
@@ -143,6 +144,7 @@ header:
   client: Клієнт
   features: Функції
   connected_routers: Під'єднані роутери
+  actions: Операції
 
 tabs:
   app:

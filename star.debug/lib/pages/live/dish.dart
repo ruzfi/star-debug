@@ -8,9 +8,7 @@ import 'package:star_debug/preloaded.dart';
 import 'package:grpc/grpc.dart';
 import 'package:star_debug/utils/kv_widget.dart';
 import 'package:star_debug/utils/view_options.dart';
-import 'package:time_machine2/time_machine2.dart';
-
-import '../../utils/format.dart';
+import '../view/common.dart';
 
 const String _TAG="DishTab";
 
@@ -28,7 +26,7 @@ class _DishTabState extends State<DishTab> with TickerProviderStateMixin {
 
   List<Widget> charts = [];
 
-  bool outageExpand = false;
+  bool eventLogExpand = false;
 
   @override
   void initState() {
@@ -76,11 +74,11 @@ class _DishTabState extends State<DishTab> with TickerProviderStateMixin {
     theme = Theme.of(context);
     return Center(
       child: Column(children:
-      _buildBody(),),
+      _buildBody(context),),
     );
   }
 
-  List<Widget> _buildBody(){
+  List<Widget> _buildBody(BuildContext context){
     final conn = R.dish;
 
     if (conn==null || conn.isClosed)
@@ -99,50 +97,12 @@ class _DishTabState extends State<DishTab> with TickerProviderStateMixin {
       rows.add(DishWidget(
         snap: buildLiveSnapshot(),
         viewOptions: ViewOptions(),
+        showActions: true,
       ));
 
-      var outages = conn.dishGetHistory.data?.outages ?? [];
-      if (outages.isNotEmpty && R.features.outagesHistory) {
-        var b = KVWidgetBuilder(context, theme);
-        b.header(M.live.outages, more: [
-          Expanded(child: Container()),
-          Icon(outageExpand?Icons.expand_less:Icons.expand_more, size: 20,),
-        ],onTap: () {
-          setState(() {
-            outageExpand = !outageExpand;
-          });
-        },);
-
-        if (outages.length>10 && !outageExpand)
-          b.widgets.add(GestureDetector(
-            onTap: () {
-              setState(() {
-                outageExpand = !outageExpand;
-              });
-            },
-            child: Text(M.live.n_records_before(outages.length-10), textAlign: TextAlign.center,)
-          ));
-
-        // int now = DateTime.now().millisecondsSinceEpoch;
-        // int last = (outages.last.startTimestampNs~/1000~/1000).toInt();
-        // int delta = (now-last)~/(60*60*24*1000)*60*60*24*1000;
-        for (var o in outages.length<=10 || outageExpand ? outages : outages.skip(outages.length-10) ) {
-          if (o.startTimestampNs==-1) {
-            b.kvs("${o.cause}", "");
-            continue;
-          }
-
-          int ts_int = (o.startTimestampNs~/1000~/1000).toInt();
-
-          // var ts = Instant.fromEpochMilliseconds(ts_int+delta).inLocalZone();
-          var ts = Instant.fromEpochMilliseconds(ts_int).inLocalZone();
-
-          b.kvs("${ts.toString("HH:mm:ss")} ${o.cause}", "${Format.secD(o.durationNs.toDouble()/1000/1000/1000)}");
-          // print("OUTAGE ${o.cause} ${o.didSwitch} ${o.durationNs.toDouble()/1000/1000/1000} ${o.startTimestampNs.toDouble()/1000/1000/1000}");
-        }
-        rows.addAll(b.widgets);
-      }
-
+      buildEventLogs(context, theme, conn.dishGetHistory.data, rows, 10, expanded: eventLogExpand, setExpanded: (log) {
+        setState(() { eventLogExpand = log; });
+      },);
 
       if (charts.isNotEmpty) {
         var b = KVWidgetBuilder(context, theme);

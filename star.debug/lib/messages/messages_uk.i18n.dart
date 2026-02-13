@@ -630,6 +630,11 @@ class LiveMessagesUk extends LiveMessages {
   String get outages => """Відключення""";
 
   /// ```dart
+  /// "Лог події"
+  /// ```
+  String get event_logs => """Лог події""";
+
+  /// ```dart
   /// "... $n записів попереду ..."
   /// ```
   String n_records_before(n) => """... $n записів попереду ...""";
@@ -713,6 +718,11 @@ class HeaderMessagesUk extends HeaderMessages {
   /// "Під'єднані роутери"
   /// ```
   String get connected_routers => """Під'єднані роутери""";
+
+  /// ```dart
+  /// "Операції"
+  /// ```
+  String get actions => """Операції""";
 }
 
 class TabsMessagesUk extends TabsMessages {
@@ -2799,6 +2809,7 @@ Map<String, String> get messagesUkMap => {
   """live.starlink_live""": """Starlink Live""",
   """live.check_update""": """Перевірити оновлення""",
   """live.outages""": """Відключення""",
+  """live.event_logs""": """Лог події""",
   """header.general""": """Загальне""",
   """header.signal""": """Сигнал""",
   """header.network""": """Мережа""",
@@ -2814,6 +2825,7 @@ Map<String, String> get messagesUkMap => {
   """header.client""": """Клієнт""",
   """header.features""": """Функції""",
   """header.connected_routers""": """Під'єднані роутери""",
+  """header.actions""": """Операції""",
   """tabs.app.unknown""": """Невідомо""",
   """tabs.app.app_version""": """Версія додатку""",
   """tabs.app.app_environment""": """Середовище додатку""",
