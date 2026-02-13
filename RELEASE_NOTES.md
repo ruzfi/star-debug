@@ -1,3 +1,13 @@
+## 1.2b78
+
+### New Features:
+- Dish Inhibit RF.
+- Other small changes
+
+### Enhancements:
+- Migrate Outages to Event Log.
+
+
 ## 1.2b76
 
 ### Enhancements:
