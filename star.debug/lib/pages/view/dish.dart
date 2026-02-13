@@ -1,4 +1,8 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:flutter/material.dart' hide Notification, Card, ConnectionState;
+import 'package:grpc/grpc.dart';
 import 'package:recase/recase.dart';
 import 'package:star_debug/grpc/starlink/network.pb.dart';
 import 'package:star_debug/grpc/starlink/starlink.pbgrpc.dart';
@@ -13,12 +17,15 @@ import 'package:star_debug/utils/view_options.dart';
 import 'package:time_machine2/time_machine2.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+import '../../utils/log_utils.dart';
+
 const String _TAG="DishWidget";
 
 class DishWidget extends StatefulWidget {
   final ViewOptions viewOptions;
   final Snapshot snap;
-  const DishWidget({super.key, required this.viewOptions, required this.snap});
+  final bool showActions;
+  const DishWidget({super.key, required this.viewOptions, required this.snap, this.showActions = false});
 
   @override
   State createState() => _DishWidgetState();
@@ -44,6 +51,93 @@ class _DishWidgetState extends State<DishWidget> with TickerProviderStateMixin {
       mainAxisSize: MainAxisSize.min,
       children: _buildBody(),
     );
+  }
+
+  Future<String> withConnectedHandleJson( Request req, {bool router = false}) async {
+    return await withConnected((stub, channel) async {
+      var resp = await stub.handle(req, options: CallOptions(timeout: Duration(seconds: 3)));
+
+      log("Received response: ${jsonEncode(resp.toProto3Json())}");
+
+      return JsonEncoder.withIndent("  ").convert(resp.toProto3Json());
+    }, router: router) ?? "";
+  }
+
+  Future<T?> withConnected<T>(Future<T> Function(DeviceClient stub, ClientChannel channel) callback, {bool router = false} ) async {
+    final channel = ClientChannel(
+      router ? '192.168.1.1' : '192.168.100.1',
+      port: router ? 9000 : 9200,
+      options: ChannelOptions(
+        credentials: ChannelCredentials.insecure(),
+        codecRegistry: CodecRegistry(codecs: const [GzipCodec(), IdentityCodec()]),
+        connectionTimeout: Duration(seconds: 3),
+        idleTimeout: Duration(seconds: 10),
+      ),
+    );
+    final stub = DeviceClient(channel);
+
+    try {
+      T res = await callback(stub, channel);
+      return res;
+    } catch (e, s) {
+      LogUtils.ers(_TAG, "", e, s);
+      R.showSnackBarText("$e");
+    }
+    finally {
+      await channel.shutdown();
+    }
+
+    return null;
+  }
+
+  Widget reqButton(String name, Request Function() reqBuilder, {bool router = false}){
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
+      child: OutlinedButton(
+          onPressed: () async {
+            try {
+              var text = await withConnectedHandleJson(reqBuilder(), router: router);
+              R.showSnackBarText(text);
+            }finally{
+            }
+          },
+          style: OutlinedButton.styleFrom(padding: EdgeInsets.fromLTRB(5,3,5,3)),
+          child: Text(name)
+      ),
+    );
+  }
+
+  List<Widget> buildActions() {
+    var b = KVWidgetBuilder(context, theme);
+    b.header(M.header.actions);
+
+
+    bool gpsInhibited = widget.snap.dishGetStatus?.gpsStats.inhibitGps ?? false;
+    bool rfInhibited = widget.snap.dishGetStatus?.outage.cause == DishOutage_Cause.SKY_SEARCH;
+
+    b.widgets.add(Wrap(
+      // mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        reqButton(M.general.reboot, () => Request(reboot: RebootRequest())),
+        reqButton(M.general.stow, () => Request(dishStow: DishStowRequest(unstow: false))),
+        reqButton(M.general.unstow, () => Request(dishStow: DishStowRequest(unstow: true))),
+      ],
+    ));
+    b.widgets.add(Wrap(
+      // mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        if (gpsInhibited)
+          reqButton(M.general.uninhibit_gps, () => Request(dishInhibitGps: DishInhibitGpsRequest(inhibitGps: false)), router: false)
+        else
+          reqButton(M.general.inhibit_gps, () => Request(dishInhibitGps: DishInhibitGpsRequest(inhibitGps: true)), router: false),
+        if (rfInhibited)
+          reqButton("Uninhibit RF", () => Request(dishInhibitRf: DishInhibitRfRequest(inhibitRf: false)), router: false)
+        else
+          reqButton("Inhibit RF", () => Request(dishInhibitRf: DishInhibitRfRequest(inhibitRf: true)), router: false),
+      ],
+    ));
+
+    return b.widgets;
   }
 
   List<Widget> _buildBody(){
@@ -102,6 +196,9 @@ class _DishWidgetState extends State<DishWidget> with TickerProviderStateMixin {
                 hint: Format.formatEnumHint(M.grpc.DishOutage.cause__hint, DishOutage_Cause.values),
                 ok: false
             );
+            b.kv("DidSwitch",
+                status.outage.didSwitch,
+            );
         }
 
         if (status.hasDisablementCode()) {
@@ -138,6 +235,9 @@ class _DishWidgetState extends State<DishWidget> with TickerProviderStateMixin {
 
       if (status.hasAlerts())
         rows.addAll(buildAlertsWidget(context, theme, status.alerts.toProto3Json() as Map<String, dynamic>));
+
+      if (widget.showActions)
+        rows.addAll(buildActions());
 
       {
         var b = KVWidgetBuilder(context, theme);

@@ -184,6 +184,7 @@ class _DebugPageState extends State<DebugPage> with TickerProviderStateMixin {
     //           applyPowerSaveMode: false,
     //         )
     //     )), router: false),
+    //     reqButton("GetGnssMeasurement", () => Request(getGnssMeasurement: GetGnssMeasurementRequest()), router: false),
     //   ],
     // ));
 
@@ -192,6 +193,20 @@ class _DebugPageState extends State<DebugPage> with TickerProviderStateMixin {
       children: [
 
         reqButton("UpdateRequestRouter", () => Request(update: UpdateRequest()), router: true),
+      ],
+    ));
+
+    res.add(Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        reqButton("DishInhibitRf True", () => Request(dishInhibitRf: DishInhibitRfRequest(inhibitRf: true)), router: false),
+        reqButton("DishInhibitRf False", () => Request(dishInhibitRf: DishInhibitRfRequest(inhibitRf: false)), router: false),
+      ],
+    ));
+
+    res.add(Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
       ],
     ));
 

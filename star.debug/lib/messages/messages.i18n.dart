@@ -717,6 +717,11 @@ class HeaderMessages {
   /// "Connected routers"
   /// ```
   String get connected_routers => """Connected routers""";
+
+  /// ```dart
+  /// "Actions"
+  /// ```
+  String get actions => """Actions""";
 }
 
 class TabsMessages {
@@ -2822,6 +2827,7 @@ Moreover, in the case of a moving router, its route can be followed.
   """header.client""": """Client""",
   """header.features""": """Features""",
   """header.connected_routers""": """Connected routers""",
+  """header.actions""": """Actions""",
   """tabs.app.unknown""": """Unknown""",
   """tabs.app.app_version""": """App version""",
   """tabs.app.app_environment""": """App environment""",

@@ -97,6 +97,7 @@ class _DishTabState extends State<DishTab> with TickerProviderStateMixin {
       rows.add(DishWidget(
         snap: buildLiveSnapshot(),
         viewOptions: ViewOptions(),
+        showActions: true,
       ));
 
       buildEventLogs(context, theme, conn.dishGetHistory.data, rows, 10, expanded: eventLogExpand, setExpanded: (log) {
