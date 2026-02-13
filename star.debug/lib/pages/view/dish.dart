@@ -92,7 +92,7 @@ class _DishWidgetState extends State<DishWidget> with TickerProviderStateMixin {
 
   Widget reqButton(String name, Request Function() reqBuilder, {bool router = false}){
     return Padding(
-      padding: const EdgeInsets.fromLTRB(4, 2, 4, 2),
+      padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
       child: OutlinedButton(
           onPressed: () async {
             try {
@@ -113,6 +113,7 @@ class _DishWidgetState extends State<DishWidget> with TickerProviderStateMixin {
 
 
     bool gpsInhibited = widget.snap.dishGetStatus?.gpsStats.inhibitGps ?? false;
+    bool rfInhibited = widget.snap.dishGetStatus?.outage.cause == DishOutage_Cause.SKY_SEARCH;
 
     b.widgets.add(Wrap(
       // mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -120,12 +121,19 @@ class _DishWidgetState extends State<DishWidget> with TickerProviderStateMixin {
         reqButton(M.general.reboot, () => Request(reboot: RebootRequest())),
         reqButton(M.general.stow, () => Request(dishStow: DishStowRequest(unstow: false))),
         reqButton(M.general.unstow, () => Request(dishStow: DishStowRequest(unstow: true))),
+      ],
+    ));
+    b.widgets.add(Wrap(
+      // mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
         if (gpsInhibited)
           reqButton(M.general.uninhibit_gps, () => Request(dishInhibitGps: DishInhibitGpsRequest(inhibitGps: false)), router: false)
         else
           reqButton(M.general.inhibit_gps, () => Request(dishInhibitGps: DishInhibitGpsRequest(inhibitGps: true)), router: false),
-        reqButton("InhibitRf", () => Request(dishInhibitRf: DishInhibitRfRequest(inhibitRf: true)), router: false),
-        reqButton("No InhibitRf", () => Request(dishInhibitRf: DishInhibitRfRequest(inhibitRf: false)), router: false),
+        if (rfInhibited)
+          reqButton("Uninhibit RF", () => Request(dishInhibitRf: DishInhibitRfRequest(inhibitRf: false)), router: false)
+        else
+          reqButton("Inhibit RF", () => Request(dishInhibitRf: DishInhibitRfRequest(inhibitRf: true)), router: false),
       ],
     ));
 
