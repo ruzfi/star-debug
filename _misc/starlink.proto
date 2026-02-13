@@ -10,6 +10,7 @@ package SpaceX.API.Device;
 import "status.proto";
 import "network.proto";
 import "telemetron.proto";
+import "gnss.proto";
 
 //SpaceX.API.Device.Device is a service:
 service Device {
@@ -112,6 +113,7 @@ message Request {
 //    .SpaceX.API.Device.Services.Unlock.StartUnlockRequest start_unlock = 5000;
 //    .SpaceX.API.Device.Services.Unlock.FinishUnlockRequest finish_unlock = 5001;
     .SpaceX.API.Device.GetDiagnosticsRequest get_diagnostics = 6000;
+    .SpaceX.API.Device.GetGnssMeasurementRequest get_gnss_measurement = 7000;
   }
   reserved 1018, 1025, 1026, 2012, 2016, 3011, 3014, 3202;
   reserved "start_dish_self_test";
@@ -1272,6 +1274,10 @@ message FinishUnlockRequest {
 message GetDiagnosticsRequest {
 }
 
+//SpaceX.API.Device.GetGnssMeasurementRequest is a message:
+message GetGnssMeasurementRequest {
+}
+
 //SpaceX.API.Device.Response is a message:
 message Response {
   uint64 id = 1;
@@ -1357,6 +1363,7 @@ message Response {
 //    .SpaceX.API.Device.Services.Unlock.FinishUnlockResponse finish_unlock = 5001;
     .SpaceX.API.Device.WifiGetDiagnosticsResponse wifi_get_diagnostics = 6000;
     .SpaceX.API.Device.DishGetDiagnosticsResponse dish_get_diagnostics = 6001;
+    .SpaceX.API.Device.GetGnssMeasurementResponse get_gnss_measurement = 7000;
   }
   reserved 1018, 1026, 2012, 2014, 2025, 3008, 3011, 3014, 3203;
   reserved "start_dish_self_test";
@@ -1742,6 +1749,7 @@ message DeviceState {
   uint64 uptime_s = 1;
 }
 
+
 //SpaceX.API.Device.DishGetStatusResponse is a message:
 message DishGetStatusResponse {
   .SpaceX.API.Device.DeviceInfo device_info = 1;
@@ -1786,6 +1794,7 @@ message DishGetStatusResponse {
   .SpaceX.API.Device.Quaternion ned2dish_quaternion = 1049;
   map<string, .SpaceX.API.Device.RouterInfo> downstream_routers = 1050;
   .SpaceX.API.Device.AccountShard account_shard = 1051;
+  bool mac_flag = 1052;
   .SpaceX.API.Device.DishConfig config = 2000;
   reserved 1001, 1006, 1013, 1046, 1047;
   reserved "phy_rx_beam_snr_avg", "t_center";
@@ -2114,6 +2123,11 @@ message UXEvent {
   uint64 duration_ns = 4;
   oneof metadata {
     .SpaceX.API.Device.ClientReconnectingOftenMetadata client_reconnecting_often_metadata = 5;
+    .SpaceX.API.Device.ClientSwitchingBandMetadata client_switching_band_metadata = 6;
+    .SpaceX.API.Device.ClientSwitchingUpstreamMacMetadata client_switching_upstream_mac_metadata = 7;
+    .SpaceX.API.Device.MeshConnectionChangingMetadata mesh_connection_changing_metadata = 8 [deprecated = true];
+    .SpaceX.API.Device.MeshBackhaulLowPhyMetadata mesh_backhaul_low_phy_metadata = 9;
+    .SpaceX.API.Device.HighOverlappingBssMetadata high_overlapping_bss_metadata = 10;
   }
 }
 
@@ -2170,11 +2184,56 @@ enum EventReason {
   EVENT_REASON_ROUTER_DISH_PING_DROP = 40;
   EVENT_REASON_ROUTER_UT_CONNECTED_TO_LAN = 41;
   EVENT_REASON_CLIENT_RECONNECTING_OFTEN = 42;
+  EVENT_REASON_CLIENT_SWITCHING_BAND = 43;
+  EVENT_REASON_CLIENT_SWITCHING_UPSTREAM_MAC = 44;
+  EVENT_REASON_ROUTER_MESH_CONNECTION_CHANGING = 45 [deprecated = true];
+  EVENT_REASON_MESH_BACKHAUL_LOW_PHY = 46;
+  EVENT_REASON_ROUTER_HIGH_OVERLAPPING_BSS = 47;
 }
 
 //SpaceX.API.Device.ClientReconnectingOftenMetadata is a message:
 message ClientReconnectingOftenMetadata {
   uint32 clientId = 1;
+}
+
+//SpaceX.API.Device.ClientSwitchingBandMetadata is a message:
+message ClientSwitchingBandMetadata {
+  uint32 clientId = 1;
+  string fromBand = 2;
+  string toBand = 3;
+}
+
+//SpaceX.API.Device.ClientSwitchingUpstreamMacMetadata is a message:
+message ClientSwitchingUpstreamMacMetadata {
+  uint32 clientId = 1;
+}
+
+//SpaceX.API.Device.MeshConnectionChangingMetadata is a message:
+message MeshConnectionChangingMetadata {
+  string repeaterId = 1 [deprecated = true];
+  .SpaceX.API.Device.MeshConnectionChange change = 2 [deprecated = true];
+}
+
+//SpaceX.API.Device.MeshConnectionChange is an enum:
+enum MeshConnectionChange {
+  REPEATER_CHANGE_UNKNOWN = 0 [deprecated = true];
+  REPEATER_CHANGE_DISCONNECTED = 1 [deprecated = true];
+}
+
+//SpaceX.API.Device.MeshBackhaulLowPhyMetadata is a message:
+message MeshBackhaulLowPhyMetadata {
+  repeated string repeaterIds = 1;
+}
+
+//SpaceX.API.Device.HighOverlappingBssMetadata is a message:
+message HighOverlappingBssMetadata {
+  repeated .SpaceX.API.Device.HighOverlappingBssStats high_overlapping_bss_stats = 1;
+}
+
+//SpaceX.API.Device.HighOverlappingBssStats is a message:
+message HighOverlappingBssStats {
+  string iface = 1;
+  uint32 average_overlapping_bss_percentage = 2;
 }
 
 //SpaceX.API.Device.DishSetEmcResponse is a message:
@@ -2520,6 +2579,7 @@ message WifiGetStatusResponse {
   bool using_individualized_calibration = 1032;
   .SpaceX.API.Device.CalibrationPartitionsState calibration_partitions_state = 1033;
   uint32 hops_from_controller = 1034;
+  bool no_wan_link = 1035;
   .SpaceX.API.Device.WifiConfig config = 2000;
   repeated .SpaceX.API.Device.WifiClient clients = 3000;
   bool has_client_index = 3001;
@@ -3091,6 +3151,12 @@ message DishGetDiagnosticsResponse {
   }
   reserved 12, 13;
   reserved "dl_bandwidth_restricted_reason", "ul_bandwidth_restricted_reason";
+}
+
+//SpaceX.API.Device.GetGnssMeasurementResponse is a message:
+message GetGnssMeasurementResponse {
+  string device_id = 1;
+  repeated .SpaceX.API.Device.Gnss.Measurement measurements = 2;
 }
 
 //SpaceX.API.Device.ToDevice is a message:

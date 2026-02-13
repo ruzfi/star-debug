@@ -13,6 +13,8 @@ List<Widget> buildDeviceInfoWidget(BuildContext context, ThemeData theme, Device
       b.kv(M.grpc.DeviceInfo.id, deviceInfo.id, hide: opts.hideIds);
     if (deviceInfo.hasHardwareVersion())
       b.kv(M.grpc.DeviceInfo.hardware_version, deviceInfo.hardwareVersion);
+    if (deviceInfo.hasHardwareIndex())
+      b.kv(M.grpc.DeviceInfo.hardware_version, deviceInfo.hardwareIndex);
     if (deviceInfo.hasSoftwareVersion())
       b.kv(M.grpc.DeviceInfo.software_version, deviceInfo.softwareVersion + (apiVersion!=null ? "\nAPI $apiVersion" : ""));
     if (deviceInfo.hasManufacturedVersion() && deviceInfo.manufacturedVersion!="")
