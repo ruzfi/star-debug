@@ -242,7 +242,7 @@ enum User {
   GUEST_LAN = 6;
   SENSITIVE_COMMANDING = 7;
   LAN_TLS = 8;
-  CLOUD_INDIA = 9;
+  CLOUD_INDIA = 9 [deprecated = true];
 }
 
 //SpaceX.API.Device.FactoryResetRequest is a message:
@@ -292,7 +292,7 @@ enum PositionSource {
   STARLINK = 5;
   GNC_FUSED = 6;
   GNC_BAD_SAT = 7;
-  GNC_NO_ACCEL = 8;
+  GNC_GPS = 8;
   GNC_PNT = 9;
   GNC_STATIC = 10;
 }
@@ -720,6 +720,8 @@ message WifiConfig {
   bool apply_disable_sandbox_fail_open = 1116;
   bool custom_dns_disabled = 1117;
   bool apply_custom_dns_disabled = 1118 [deprecated = true];
+  bool foreflight_enabled = 1119;
+  bool apply_foreflight_enabled = 1120;
   .SpaceX.API.Device.BootInfo boot = 3001;
   map<string, .SpaceX.API.Device.MeshConfig> mesh_configs_updates = 3033;
   oneof wan_traffic_control {
@@ -777,7 +779,8 @@ message WifiConfig {
     bool disable_when_offline_old = 1029 [deprecated = true];
     repeated .SpaceX.API.Device.WifiConfig.StaticRoute static_routes = 1030;
     bool disable_when_offline = 1031;
-    .SpaceX.API.Device.TlsConfig onboard_radius_tls_config = 1032;
+    .SpaceX.API.Device.TlsConfig onboard_radius_tls_config_old = 1032 [deprecated = true];
+    .SpaceX.API.Device.TlsConfig onboard_radius_tls_config = 1033;
     reserved 1000, 1001, 1002, 1004, 1005, 1006, 1018, 1019;
     reserved "client_authorization_required", "unauthorized_client_domain_allow_list";
   }
@@ -925,7 +928,7 @@ message TlsConfig {
   string key = 1;
   string cert = 2;
   string client_ca_cert = 3;
-  string server_ca_cert = 4;
+  string server_ca_cert = 4 [deprecated = true];
 }
 
 //SpaceX.API.Device.BootInfo is a message:
@@ -1410,7 +1413,23 @@ message DeviceInfo {
   bool dish_cohoused = 13;
   int32 board_rev = 14;
   string build_id = 15;
+  .SpaceX.API.Device.HardwareIndex hardware_index = 16;
   .SpaceX.API.Device.BootInfo boot = 1001;
+}
+
+//SpaceX.API.Device.HardwareIndex is an enum:
+enum HardwareIndex {
+  UNKNOWN_HARDWARE_INDEX = 0;
+  ROUTER_GEN_1 = 1010;
+  ROUTER_GEN_2 = 1020;
+  ROUTER_MINI_COHOUSED_1 = 1021;
+  ROUTER_BLOCK_2_OR_3 = 1022;
+  ROUTER_GEN_3 = 1030;
+  ROUTER_BLOCK_4 = 1031;
+  ROUTER_BLOCK_4P1 = 1032;
+  ROUTER_MINI_1 = 1040;
+  ROUTER_MINI_COHOUSED_2 = 1041;
+  ROUTER_GEN_4 = 1050;
 }
 
 //SpaceX.API.Device.GetNextIdResponse is a message:
@@ -2093,6 +2112,9 @@ message UXEvent {
   .SpaceX.API.Device.EventReason reason = 2;
   int64 start_timestamp_ns = 3;
   uint64 duration_ns = 4;
+  oneof metadata {
+    .SpaceX.API.Device.ClientReconnectingOftenMetadata client_reconnecting_often_metadata = 5;
+  }
 }
 
 //SpaceX.API.Device.EventSeverity is an enum:
@@ -2139,12 +2161,20 @@ enum EventReason {
   EVENT_REASON_ROUTER_DHCP_SERVER_EXHAUSTED = 31;
   EVENT_REASON_ROUTER_DNS_IPV4_SERVER_FAIL_TO_START = 32;
   EVENT_REASON_ROUTER_DNS_IPV6_SERVER_FAIL_TO_START = 33;
-  EVENT_REASON_ROUTER_SET_CUSTOM_DNS_DISALLOWED = 34;
-  EVENT_REASON_ROUTER_SET_CUSTOM_DNS_ALLOWED = 35;
+  EVENT_REASON_ROUTER_SET_CUSTOM_DNS_DISALLOWED = 34 [deprecated = true];
+  EVENT_REASON_ROUTER_SET_CUSTOM_DNS_ALLOWED = 35 [deprecated = true];
   EVENT_REASON_ROUTER_MAX_WIRELESS_CLIENTS = 36;
   EVENT_REASON_ROUTER_MAX_5GHIGH_WIRELESS_CLIENTS = 37;
   EVENT_REASON_ROUTER_MESH_TOPOLOGY_CHANGING_OFTEN = 38;
   EVENT_REASON_ROUTER_CONNTRACK_FULL = 39;
+  EVENT_REASON_ROUTER_DISH_PING_DROP = 40;
+  EVENT_REASON_ROUTER_UT_CONNECTED_TO_LAN = 41;
+  EVENT_REASON_CLIENT_RECONNECTING_OFTEN = 42;
+}
+
+//SpaceX.API.Device.ClientReconnectingOftenMetadata is a message:
+message ClientReconnectingOftenMetadata {
+  uint32 clientId = 1;
 }
 
 //SpaceX.API.Device.DishSetEmcResponse is a message:
@@ -2361,6 +2391,8 @@ message WifiClient {
   string captive_client_id = 53;
   uint32 upload_mb = 54;
   uint32 download_mb = 55;
+  .SpaceX.API.Device.WifiClient.CaptiveState captive_state = 56;
+  .SpaceX.API.Device.WifiClient.SandboxState sandbox_state = 57;
   bool rx_stats_valid = 60;
   bool tx_stats_valid = 61;
   message Alerts {
@@ -2418,6 +2450,13 @@ message WifiClient {
     float rate_mbps_last_15s = 12;
     reserved 4;
   }
+  enum CaptiveState {
+    CAPTIVE_STATE_NOT_CONFIGURED = 0;
+    CAPTIVE_STATE_UNKNOWN = 1;
+    CAPTIVE_STATE_CAPTIVE = 2;
+    CAPTIVE_STATE_NOT_CAPTIVE = 3;
+    CAPTIVE_STATE_PARTIALLY_CAPTIVE = 4;
+  }
   enum Interface {
     UNKNOWN = 0;
     ETH = 1;
@@ -2430,6 +2469,13 @@ message WifiClient {
     CLIENT = 1;
     REPEATER = 2;
     CONTROLLER = 3;
+  }
+  enum SandboxState {
+    SANDBOX_STATE_NOT_CONFIGURED = 0;
+    SANDBOX_STATE_UNKNOWN = 1;
+    SANDBOX_STATE_SANDBOXED = 2;
+    SANDBOX_STATE_UNSANDBOXED = 3;
+    SANDBOX_STATE_PARTIALLY_SANDBOXED = 4;
   }
   reserved 50, 51;
   reserved "authorized", "sandbox_client_id";

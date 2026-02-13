@@ -6517,6 +6517,8 @@ class WifiConfig_Network extends $pb.GeneratedMessage {
     $core.bool? disableWhenOfflineOld,
     $core.Iterable<WifiConfig_StaticRoute>? staticRoutes,
     $core.bool? disableWhenOffline,
+    @$core.Deprecated('This field is deprecated.')
+    TlsConfig? onboardRadiusTlsConfigOld,
     TlsConfig? onboardRadiusTlsConfig,
   }) {
     final result = create();
@@ -6549,6 +6551,8 @@ class WifiConfig_Network extends $pb.GeneratedMessage {
     if (staticRoutes != null) result.staticRoutes.addAll(staticRoutes);
     if (disableWhenOffline != null)
       result.disableWhenOffline = disableWhenOffline;
+    if (onboardRadiusTlsConfigOld != null)
+      result.onboardRadiusTlsConfigOld = onboardRadiusTlsConfigOld;
     if (onboardRadiusTlsConfig != null)
       result.onboardRadiusTlsConfig = onboardRadiusTlsConfig;
     return result;
@@ -6604,7 +6608,9 @@ class WifiConfig_Network extends $pb.GeneratedMessage {
     ..pPM<WifiConfig_StaticRoute>(1030, _omitFieldNames ? '' : 'staticRoutes',
         subBuilder: WifiConfig_StaticRoute.create)
     ..aOB(1031, _omitFieldNames ? '' : 'disableWhenOffline')
-    ..aOM<TlsConfig>(1032, _omitFieldNames ? '' : 'onboardRadiusTlsConfig',
+    ..aOM<TlsConfig>(1032, _omitFieldNames ? '' : 'onboardRadiusTlsConfigOld',
+        subBuilder: TlsConfig.create)
+    ..aOM<TlsConfig>(1033, _omitFieldNames ? '' : 'onboardRadiusTlsConfig',
         subBuilder: TlsConfig.create)
     ..hasRequiredFields = false;
 
@@ -6810,16 +6816,32 @@ class WifiConfig_Network extends $pb.GeneratedMessage {
   @$pb.TagNumber(1031)
   void clearDisableWhenOffline() => $_clearField(1031);
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(1032)
-  TlsConfig get onboardRadiusTlsConfig => $_getN(23);
+  TlsConfig get onboardRadiusTlsConfigOld => $_getN(23);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(1032)
-  set onboardRadiusTlsConfig(TlsConfig value) => $_setField(1032, value);
+  set onboardRadiusTlsConfigOld(TlsConfig value) => $_setField(1032, value);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(1032)
-  $core.bool hasOnboardRadiusTlsConfig() => $_has(23);
+  $core.bool hasOnboardRadiusTlsConfigOld() => $_has(23);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(1032)
-  void clearOnboardRadiusTlsConfig() => $_clearField(1032);
+  void clearOnboardRadiusTlsConfigOld() => $_clearField(1032);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(1032)
-  TlsConfig ensureOnboardRadiusTlsConfig() => $_ensure(23);
+  TlsConfig ensureOnboardRadiusTlsConfigOld() => $_ensure(23);
+
+  @$pb.TagNumber(1033)
+  TlsConfig get onboardRadiusTlsConfig => $_getN(24);
+  @$pb.TagNumber(1033)
+  set onboardRadiusTlsConfig(TlsConfig value) => $_setField(1033, value);
+  @$pb.TagNumber(1033)
+  $core.bool hasOnboardRadiusTlsConfig() => $_has(24);
+  @$pb.TagNumber(1033)
+  void clearOnboardRadiusTlsConfig() => $_clearField(1033);
+  @$pb.TagNumber(1033)
+  TlsConfig ensureOnboardRadiusTlsConfig() => $_ensure(24);
 }
 
 class WifiConfig_StaticRoute extends $pb.GeneratedMessage {
@@ -7238,6 +7260,8 @@ class WifiConfig extends $pb.GeneratedMessage {
     $core.bool? customDnsDisabled,
     @$core.Deprecated('This field is deprecated.')
     $core.bool? applyCustomDnsDisabled,
+    $core.bool? foreflightEnabled,
+    $core.bool? applyForeflightEnabled,
     BootInfo? boot,
     $core.Iterable<$core.MapEntry<$core.String, MeshConfig>>?
         meshConfigsUpdates,
@@ -7419,6 +7443,9 @@ class WifiConfig extends $pb.GeneratedMessage {
     if (customDnsDisabled != null) result.customDnsDisabled = customDnsDisabled;
     if (applyCustomDnsDisabled != null)
       result.applyCustomDnsDisabled = applyCustomDnsDisabled;
+    if (foreflightEnabled != null) result.foreflightEnabled = foreflightEnabled;
+    if (applyForeflightEnabled != null)
+      result.applyForeflightEnabled = applyForeflightEnabled;
     if (boot != null) result.boot = boot;
     if (meshConfigsUpdates != null)
       result.meshConfigsUpdates.addEntries(meshConfigsUpdates);
@@ -7631,6 +7658,8 @@ class WifiConfig extends $pb.GeneratedMessage {
     ..aOB(1116, _omitFieldNames ? '' : 'applyDisableSandboxFailOpen')
     ..aOB(1117, _omitFieldNames ? '' : 'customDnsDisabled')
     ..aOB(1118, _omitFieldNames ? '' : 'applyCustomDnsDisabled')
+    ..aOB(1119, _omitFieldNames ? '' : 'foreflightEnabled')
+    ..aOB(1120, _omitFieldNames ? '' : 'applyForeflightEnabled')
     ..aOM<BootInfo>(3001, _omitFieldNames ? '' : 'boot',
         subBuilder: BootInfo.create)
     ..m<$core.String, MeshConfig>(
@@ -8744,52 +8773,70 @@ class WifiConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(1118)
   void clearApplyCustomDnsDisabled() => $_clearField(1118);
 
+  @$pb.TagNumber(1119)
+  $core.bool get foreflightEnabled => $_getBF(120);
+  @$pb.TagNumber(1119)
+  set foreflightEnabled($core.bool value) => $_setBool(120, value);
+  @$pb.TagNumber(1119)
+  $core.bool hasForeflightEnabled() => $_has(120);
+  @$pb.TagNumber(1119)
+  void clearForeflightEnabled() => $_clearField(1119);
+
+  @$pb.TagNumber(1120)
+  $core.bool get applyForeflightEnabled => $_getBF(121);
+  @$pb.TagNumber(1120)
+  set applyForeflightEnabled($core.bool value) => $_setBool(121, value);
+  @$pb.TagNumber(1120)
+  $core.bool hasApplyForeflightEnabled() => $_has(121);
+  @$pb.TagNumber(1120)
+  void clearApplyForeflightEnabled() => $_clearField(1120);
+
   @$pb.TagNumber(3001)
-  BootInfo get boot => $_getN(120);
+  BootInfo get boot => $_getN(122);
   @$pb.TagNumber(3001)
   set boot(BootInfo value) => $_setField(3001, value);
   @$pb.TagNumber(3001)
-  $core.bool hasBoot() => $_has(120);
+  $core.bool hasBoot() => $_has(122);
   @$pb.TagNumber(3001)
   void clearBoot() => $_clearField(3001);
   @$pb.TagNumber(3001)
-  BootInfo ensureBoot() => $_ensure(120);
+  BootInfo ensureBoot() => $_ensure(122);
 
   @$pb.TagNumber(3033)
-  $pb.PbMap<$core.String, MeshConfig> get meshConfigsUpdates => $_getMap(121);
+  $pb.PbMap<$core.String, MeshConfig> get meshConfigsUpdates => $_getMap(123);
 
   @$pb.TagNumber(4001)
-  NoTrafficControl get wanNoTrafficControl => $_getN(122);
+  NoTrafficControl get wanNoTrafficControl => $_getN(124);
   @$pb.TagNumber(4001)
   set wanNoTrafficControl(NoTrafficControl value) => $_setField(4001, value);
   @$pb.TagNumber(4001)
-  $core.bool hasWanNoTrafficControl() => $_has(122);
+  $core.bool hasWanNoTrafficControl() => $_has(124);
   @$pb.TagNumber(4001)
   void clearWanNoTrafficControl() => $_clearField(4001);
   @$pb.TagNumber(4001)
-  NoTrafficControl ensureWanNoTrafficControl() => $_ensure(122);
+  NoTrafficControl ensureWanNoTrafficControl() => $_ensure(124);
 
   @$pb.TagNumber(4002)
-  AckSuppression get wanAckSuppression => $_getN(123);
+  AckSuppression get wanAckSuppression => $_getN(125);
   @$pb.TagNumber(4002)
   set wanAckSuppression(AckSuppression value) => $_setField(4002, value);
   @$pb.TagNumber(4002)
-  $core.bool hasWanAckSuppression() => $_has(123);
+  $core.bool hasWanAckSuppression() => $_has(125);
   @$pb.TagNumber(4002)
   void clearWanAckSuppression() => $_clearField(4002);
   @$pb.TagNumber(4002)
-  AckSuppression ensureWanAckSuppression() => $_ensure(123);
+  AckSuppression ensureWanAckSuppression() => $_ensure(125);
 
   @$pb.TagNumber(4003)
-  CakeRateLimit get wanCakeRateLimit => $_getN(124);
+  CakeRateLimit get wanCakeRateLimit => $_getN(126);
   @$pb.TagNumber(4003)
   set wanCakeRateLimit(CakeRateLimit value) => $_setField(4003, value);
   @$pb.TagNumber(4003)
-  $core.bool hasWanCakeRateLimit() => $_has(124);
+  $core.bool hasWanCakeRateLimit() => $_has(126);
   @$pb.TagNumber(4003)
   void clearWanCakeRateLimit() => $_clearField(4003);
   @$pb.TagNumber(4003)
-  CakeRateLimit ensureWanCakeRateLimit() => $_ensure(124);
+  CakeRateLimit ensureWanCakeRateLimit() => $_ensure(126);
 }
 
 /// SpaceX.API.Device.MeshConfig is a message:
@@ -9344,7 +9391,7 @@ class TlsConfig extends $pb.GeneratedMessage {
     $core.String? key,
     $core.String? cert,
     $core.String? clientCaCert,
-    $core.String? serverCaCert,
+    @$core.Deprecated('This field is deprecated.') $core.String? serverCaCert,
   }) {
     final result = create();
     if (key != null) result.key = key;
@@ -9419,12 +9466,16 @@ class TlsConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearClientCaCert() => $_clearField(3);
 
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(4)
   $core.String get serverCaCert => $_getSZ(3);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(4)
   set serverCaCert($core.String value) => $_setString(3, value);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(4)
   $core.bool hasServerCaCert() => $_has(3);
+  @$core.Deprecated('This field is deprecated.')
   @$pb.TagNumber(4)
   void clearServerCaCert() => $_clearField(4);
 }
@@ -14842,6 +14893,7 @@ class DeviceInfo extends $pb.GeneratedMessage {
     $core.bool? dishCohoused,
     $core.int? boardRev,
     $core.String? buildId,
+    HardwareIndex? hardwareIndex,
     BootInfo? boot,
   }) {
     final result = create();
@@ -14863,6 +14915,7 @@ class DeviceInfo extends $pb.GeneratedMessage {
     if (dishCohoused != null) result.dishCohoused = dishCohoused;
     if (boardRev != null) result.boardRev = boardRev;
     if (buildId != null) result.buildId = buildId;
+    if (hardwareIndex != null) result.hardwareIndex = hardwareIndex;
     if (boot != null) result.boot = boot;
     return result;
   }
@@ -14896,6 +14949,8 @@ class DeviceInfo extends $pb.GeneratedMessage {
     ..aOB(13, _omitFieldNames ? '' : 'dishCohoused')
     ..aI(14, _omitFieldNames ? '' : 'boardRev')
     ..aOS(15, _omitFieldNames ? '' : 'buildId')
+    ..aE<HardwareIndex>(16, _omitFieldNames ? '' : 'hardwareIndex',
+        enumValues: HardwareIndex.values)
     ..aOM<BootInfo>(1001, _omitFieldNames ? '' : 'boot',
         subBuilder: BootInfo.create)
     ..hasRequiredFields = false;
@@ -15053,16 +15108,25 @@ class DeviceInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(15)
   void clearBuildId() => $_clearField(15);
 
+  @$pb.TagNumber(16)
+  HardwareIndex get hardwareIndex => $_getN(15);
+  @$pb.TagNumber(16)
+  set hardwareIndex(HardwareIndex value) => $_setField(16, value);
+  @$pb.TagNumber(16)
+  $core.bool hasHardwareIndex() => $_has(15);
+  @$pb.TagNumber(16)
+  void clearHardwareIndex() => $_clearField(16);
+
   @$pb.TagNumber(1001)
-  BootInfo get boot => $_getN(15);
+  BootInfo get boot => $_getN(16);
   @$pb.TagNumber(1001)
   set boot(BootInfo value) => $_setField(1001, value);
   @$pb.TagNumber(1001)
-  $core.bool hasBoot() => $_has(15);
+  $core.bool hasBoot() => $_has(16);
   @$pb.TagNumber(1001)
   void clearBoot() => $_clearField(1001);
   @$pb.TagNumber(1001)
-  BootInfo ensureBoot() => $_ensure(15);
+  BootInfo ensureBoot() => $_ensure(16);
 }
 
 /// SpaceX.API.Device.GetNextIdResponse is a message:
@@ -21634,6 +21698,8 @@ class EventLog extends $pb.GeneratedMessage {
   void clearCurrentTimestampNs() => $_clearField(3);
 }
 
+enum UXEvent_Metadata { clientReconnectingOftenMetadata, notSet }
+
 /// SpaceX.API.Device.UXEvent is a message:
 class UXEvent extends $pb.GeneratedMessage {
   factory UXEvent({
@@ -21641,12 +21707,15 @@ class UXEvent extends $pb.GeneratedMessage {
     EventReason? reason,
     $fixnum.Int64? startTimestampNs,
     $fixnum.Int64? durationNs,
+    ClientReconnectingOftenMetadata? clientReconnectingOftenMetadata,
   }) {
     final result = create();
     if (severity != null) result.severity = severity;
     if (reason != null) result.reason = reason;
     if (startTimestampNs != null) result.startTimestampNs = startTimestampNs;
     if (durationNs != null) result.durationNs = durationNs;
+    if (clientReconnectingOftenMetadata != null)
+      result.clientReconnectingOftenMetadata = clientReconnectingOftenMetadata;
     return result;
   }
 
@@ -21659,11 +21728,16 @@ class UXEvent extends $pb.GeneratedMessage {
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
+  static const $core.Map<$core.int, UXEvent_Metadata> _UXEvent_MetadataByTag = {
+    5: UXEvent_Metadata.clientReconnectingOftenMetadata,
+    0: UXEvent_Metadata.notSet
+  };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'UXEvent',
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
       createEmptyInstance: create)
+    ..oo(0, [5])
     ..aE<EventSeverity>(1, _omitFieldNames ? '' : 'severity',
         enumValues: EventSeverity.values)
     ..aE<EventReason>(2, _omitFieldNames ? '' : 'reason',
@@ -21672,6 +21746,9 @@ class UXEvent extends $pb.GeneratedMessage {
     ..a<$fixnum.Int64>(
         4, _omitFieldNames ? '' : 'durationNs', $pb.PbFieldType.OU6,
         defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<ClientReconnectingOftenMetadata>(
+        5, _omitFieldNames ? '' : 'clientReconnectingOftenMetadata',
+        subBuilder: ClientReconnectingOftenMetadata.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -21691,6 +21768,11 @@ class UXEvent extends $pb.GeneratedMessage {
   static UXEvent getDefault() =>
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UXEvent>(create);
   static UXEvent? _defaultInstance;
+
+  @$pb.TagNumber(5)
+  UXEvent_Metadata whichMetadata() => _UXEvent_MetadataByTag[$_whichOneof(0)]!;
+  @$pb.TagNumber(5)
+  void clearMetadata() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
   EventSeverity get severity => $_getN(0);
@@ -21727,6 +21809,81 @@ class UXEvent extends $pb.GeneratedMessage {
   $core.bool hasDurationNs() => $_has(3);
   @$pb.TagNumber(4)
   void clearDurationNs() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  ClientReconnectingOftenMetadata get clientReconnectingOftenMetadata =>
+      $_getN(4);
+  @$pb.TagNumber(5)
+  set clientReconnectingOftenMetadata(ClientReconnectingOftenMetadata value) =>
+      $_setField(5, value);
+  @$pb.TagNumber(5)
+  $core.bool hasClientReconnectingOftenMetadata() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearClientReconnectingOftenMetadata() => $_clearField(5);
+  @$pb.TagNumber(5)
+  ClientReconnectingOftenMetadata ensureClientReconnectingOftenMetadata() =>
+      $_ensure(4);
+}
+
+/// SpaceX.API.Device.ClientReconnectingOftenMetadata is a message:
+class ClientReconnectingOftenMetadata extends $pb.GeneratedMessage {
+  factory ClientReconnectingOftenMetadata({
+    $core.int? clientId,
+  }) {
+    final result = create();
+    if (clientId != null) result.clientId = clientId;
+    return result;
+  }
+
+  ClientReconnectingOftenMetadata._();
+
+  factory ClientReconnectingOftenMetadata.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ClientReconnectingOftenMetadata.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ClientReconnectingOftenMetadata',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'SpaceX.API.Device'),
+      createEmptyInstance: create)
+    ..aI(1, _omitFieldNames ? '' : 'clientId',
+        protoName: 'clientId', fieldType: $pb.PbFieldType.OU3)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ClientReconnectingOftenMetadata clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ClientReconnectingOftenMetadata copyWith(
+          void Function(ClientReconnectingOftenMetadata) updates) =>
+      super.copyWith(
+              (message) => updates(message as ClientReconnectingOftenMetadata))
+          as ClientReconnectingOftenMetadata;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ClientReconnectingOftenMetadata create() =>
+      ClientReconnectingOftenMetadata._();
+  @$core.override
+  ClientReconnectingOftenMetadata createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ClientReconnectingOftenMetadata getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ClientReconnectingOftenMetadata>(
+          create);
+  static ClientReconnectingOftenMetadata? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get clientId => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set clientId($core.int value) => $_setUnsignedInt32(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasClientId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearClientId() => $_clearField(1);
 }
 
 /// SpaceX.API.Device.DishSetEmcResponse is a message:
@@ -24377,6 +24534,8 @@ class WifiClient extends $pb.GeneratedMessage {
     $core.String? captiveClientId,
     $core.int? uploadMb,
     $core.int? downloadMb,
+    WifiClient_CaptiveState? captiveState,
+    WifiClient_SandboxState? sandboxState,
     $core.bool? rxStatsValid,
     $core.bool? txStatsValid,
   }) {
@@ -24439,6 +24598,8 @@ class WifiClient extends $pb.GeneratedMessage {
     if (captiveClientId != null) result.captiveClientId = captiveClientId;
     if (uploadMb != null) result.uploadMb = uploadMb;
     if (downloadMb != null) result.downloadMb = downloadMb;
+    if (captiveState != null) result.captiveState = captiveState;
+    if (sandboxState != null) result.sandboxState = sandboxState;
     if (rxStatsValid != null) result.rxStatsValid = rxStatsValid;
     if (txStatsValid != null) result.txStatsValid = txStatsValid;
     return result;
@@ -24534,6 +24695,10 @@ class WifiClient extends $pb.GeneratedMessage {
     ..aI(54, _omitFieldNames ? '' : 'uploadMb', fieldType: $pb.PbFieldType.OU3)
     ..aI(55, _omitFieldNames ? '' : 'downloadMb',
         fieldType: $pb.PbFieldType.OU3)
+    ..aE<WifiClient_CaptiveState>(56, _omitFieldNames ? '' : 'captiveState',
+        enumValues: WifiClient_CaptiveState.values)
+    ..aE<WifiClient_SandboxState>(57, _omitFieldNames ? '' : 'sandboxState',
+        enumValues: WifiClient_SandboxState.values)
     ..aOB(60, _omitFieldNames ? '' : 'rxStatsValid')
     ..aOB(61, _omitFieldNames ? '' : 'txStatsValid')
     ..hasRequiredFields = false;
@@ -25002,21 +25167,39 @@ class WifiClient extends $pb.GeneratedMessage {
   @$pb.TagNumber(55)
   void clearDownloadMb() => $_clearField(55);
 
+  @$pb.TagNumber(56)
+  WifiClient_CaptiveState get captiveState => $_getN(49);
+  @$pb.TagNumber(56)
+  set captiveState(WifiClient_CaptiveState value) => $_setField(56, value);
+  @$pb.TagNumber(56)
+  $core.bool hasCaptiveState() => $_has(49);
+  @$pb.TagNumber(56)
+  void clearCaptiveState() => $_clearField(56);
+
+  @$pb.TagNumber(57)
+  WifiClient_SandboxState get sandboxState => $_getN(50);
+  @$pb.TagNumber(57)
+  set sandboxState(WifiClient_SandboxState value) => $_setField(57, value);
+  @$pb.TagNumber(57)
+  $core.bool hasSandboxState() => $_has(50);
+  @$pb.TagNumber(57)
+  void clearSandboxState() => $_clearField(57);
+
   @$pb.TagNumber(60)
-  $core.bool get rxStatsValid => $_getBF(49);
+  $core.bool get rxStatsValid => $_getBF(51);
   @$pb.TagNumber(60)
-  set rxStatsValid($core.bool value) => $_setBool(49, value);
+  set rxStatsValid($core.bool value) => $_setBool(51, value);
   @$pb.TagNumber(60)
-  $core.bool hasRxStatsValid() => $_has(49);
+  $core.bool hasRxStatsValid() => $_has(51);
   @$pb.TagNumber(60)
   void clearRxStatsValid() => $_clearField(60);
 
   @$pb.TagNumber(61)
-  $core.bool get txStatsValid => $_getBF(50);
+  $core.bool get txStatsValid => $_getBF(52);
   @$pb.TagNumber(61)
-  set txStatsValid($core.bool value) => $_setBool(50, value);
+  set txStatsValid($core.bool value) => $_setBool(52, value);
   @$pb.TagNumber(61)
-  $core.bool hasTxStatsValid() => $_has(50);
+  $core.bool hasTxStatsValid() => $_has(52);
   @$pb.TagNumber(61)
   void clearTxStatsValid() => $_clearField(61);
 }
