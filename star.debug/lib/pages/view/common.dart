@@ -5,6 +5,8 @@ import 'package:star_debug/utils/kv_widget.dart';
 import 'package:star_debug/utils/view_options.dart';
 import 'package:time_machine2/time_machine2.dart';
 
+import '../../utils/format.dart';
+
 List<Widget> buildDeviceInfoWidget(BuildContext context, ThemeData theme, DeviceInfo deviceInfo, {int? apiVersion, required ViewOptions opts}) {
     var b = KVWidgetBuilder(context, theme);
 
@@ -68,4 +70,77 @@ List<Widget> buildAlertsWidget(BuildContext context, ThemeData theme, Map<String
   }
 
   return b.widgets;
+}
+
+String formatEventReason(EventReason reason){
+  var res = reason.name;
+  res = res.replaceFirst("EVENT_REASON_", "");
+  return res;
+}
+
+void buildEventLogs(BuildContext context, ThemeData theme, DishGetHistoryResponse? getHistory, List<Widget> rows,
+    int num_rows, {bool? expanded, void Function(bool)? setExpanded}
+) {
+  var eventLog = getHistory?.eventLog;
+
+  if (eventLog==null || eventLog.events.isEmpty)
+    return;
+
+  var b = KVWidgetBuilder(context, theme);
+  b.header(M.live.event_logs, more: [
+    Expanded(child: Container()),
+    if (expanded!=null)
+      Icon(expanded?Icons.expand_less:Icons.expand_more, size: 20,),
+  ],onTap: () {
+    if (setExpanded!=null && expanded!=null)
+      setExpanded(!expanded);
+  },);
+
+  if (eventLog.events.length>num_rows && expanded==true)
+    b.widgets.add(GestureDetector(
+        onTap: () {
+          if (setExpanded!=null && expanded!=null)
+            setExpanded(!expanded);
+        },
+        child: Text(M.live.n_records_before(eventLog.events.length-10), textAlign: TextAlign.center,)
+    ));
+
+  for (var o in eventLog.events.length<=num_rows || expanded==true ? eventLog.events : eventLog.events.skip(eventLog.events.length-num_rows) ) {
+    Widget? icon;
+    // if (o.severity==EventSeverity.EVENT_SEVERITY_UNKNOWN);
+    if (o.severity==EventSeverity.EVENT_SEVERITY_WARNING)
+      icon = Icon(Icons.warning, size: 16, color: Colors.deepOrange,);
+    if (o.severity==EventSeverity.EVENT_SEVERITY_CAUTION)
+      icon = Icon(Icons.warning, size: 16, color: Colors.orange,);
+    if (o.severity==EventSeverity.EVENT_SEVERITY_ADVISORY)
+      icon = Icon(Icons.info, size: 16, color: Colors.blueAccent,);
+
+    if (o.startTimestampNs==-1) {
+      b.kvs("${formatEventReason(o.reason)}", "",
+        kw: Row(
+          spacing: 3,
+          children: [
+            ?icon,
+            Text(formatEventReason(o.reason), style: TextStyle(fontWeight: FontWeight.bold,)),
+          ],
+        )
+      );
+      continue;
+    }
+
+    int ts_int = (o.startTimestampNs~/1000~/1000).toInt();
+
+    var ts = Instant.fromEpochMilliseconds(ts_int).inLocalZone();
+    b.kvs("${ts.toString("HH:mm:ss")} ", "${Format.secD(o.durationNs.toDouble()/1000/1000/1000)}",
+        kw: Row(
+          spacing: 3,
+          children: [
+            Text(ts.toString("HH:mm:ss"), style: TextStyle(fontWeight: FontWeight.bold,)),
+            ?icon,
+            Text(formatEventReason(o.reason), style: TextStyle(fontWeight: FontWeight.bold,)),
+          ],
+        )
+    );
+  }
+  rows.addAll(b.widgets);
 }

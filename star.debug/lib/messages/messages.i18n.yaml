@@ -121,6 +121,7 @@ live:
   starlink_live: "Starlink Live"
   check_update: Check Update
   outages: Outages
+  event_logs: Event Logs
   n_records_before(n): ... $n records before ...
 
 header:

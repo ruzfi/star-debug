@@ -22,6 +22,8 @@ import 'package:star_debug/utils/utils.dart';
 import 'package:star_debug/utils/view_options.dart';
 import 'package:time_machine2/time_machine2.dart';
 
+import '../view/common.dart';
+
 const String _TAG="ShareScreenshot";
 
 class ShareScreenshot<TItem> extends StatefulWidget
@@ -79,7 +81,7 @@ class _ShareScreenshotState<TItem> extends State<ShareScreenshot<TItem>>
         InheritedTheme.captureAll(
           context,
           Material(
-            child: buildImage()
+            child: buildImage(context)
           ),
         ),
       );
@@ -103,8 +105,12 @@ class _ShareScreenshotState<TItem> extends State<ShareScreenshot<TItem>>
       setState(() {});
   }
 
-  Widget buildImage(){
+  Widget buildImage(BuildContext context){
     List<Widget> items = [];
+
+    List<Widget> rows = [];
+    var theme = Theme.of(context);
+    buildEventLogs(context, theme, widget.snap.dishGetHistory, rows, 20);
 
     return IntrinsicWidth(
       child: Column(
@@ -142,7 +148,7 @@ class _ShareScreenshotState<TItem> extends State<ShareScreenshot<TItem>>
                       child: Column(
                         children: [
                           ...buildCharts(),
-                          ...buildOutages(),
+                          ...rows
                         ],
                       ),
                   ),
@@ -169,33 +175,6 @@ class _ShareScreenshotState<TItem> extends State<ShareScreenshot<TItem>>
     );
   }
 
-  List<Widget> buildOutages() {
-    var outages = widget.snap.dishGetHistory?.outages ?? [];
-    var b = KVWidgetBuilder(context, Theme.of(context));
-    if (outages.isNotEmpty && R.features.outagesHistory) {
-
-      b.header(M.live.outages);
-
-      if (outages.length>20)
-        b.widgets.add(Text(M.live.n_records_before(outages.length-20), textAlign: TextAlign.center,));
-
-      for (var o in outages.length<=20 ? outages : outages.skip(outages.length-20) ) {
-        if (o.startTimestampNs==-1) {
-          b.kvs("${o.cause}", "");
-          continue;
-        }
-
-        int ts_int = (o.startTimestampNs~/1000~/1000).toInt();
-
-        // var ts = Instant.fromEpochMilliseconds(ts_int+delta).inLocalZone();
-        var ts = Instant.fromEpochMilliseconds(ts_int).inLocalZone();
-
-        b.kvs("${ts.toString("HH:mm:ss")} ${o.cause}", "${Format.secD(o.durationNs.toDouble()/1000/1000/1000)}");
-        // print("OUTAGE ${o.cause} ${o.didSwitch} ${o.durationNs.toDouble()/1000/1000/1000} ${o.startTimestampNs.toDouble()/1000/1000/1000}");
-      }
-    }
-    return b.widgets;
-  }
   List<Widget> buildCharts(){
     List<Widget> items = [];
     var history = widget.snap.dishGetHistory;

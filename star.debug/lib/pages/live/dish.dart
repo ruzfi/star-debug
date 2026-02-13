@@ -1,9 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart' hide Notification, Card, ConnectionState;
-import 'package:flutter_timezone/flutter_timezone.dart';
-import 'package:star_debug/controller/conn/dish_connection.dart';
-import 'package:star_debug/grpc/starlink/starlink.pbenum.dart';
 import 'package:star_debug/messages/i18n.dart';
 import 'package:star_debug/pages/live.dart';
 import 'package:star_debug/pages/view/dish.dart';
@@ -11,9 +8,7 @@ import 'package:star_debug/preloaded.dart';
 import 'package:grpc/grpc.dart';
 import 'package:star_debug/utils/kv_widget.dart';
 import 'package:star_debug/utils/view_options.dart';
-import 'package:time_machine2/time_machine2.dart';
-
-import '../../utils/format.dart';
+import '../view/common.dart';
 
 const String _TAG="DishTab";
 
@@ -31,7 +26,6 @@ class _DishTabState extends State<DishTab> with TickerProviderStateMixin {
 
   List<Widget> charts = [];
 
-  bool outageExpand = false;
   bool eventLogExpand = false;
 
   @override
@@ -80,11 +74,11 @@ class _DishTabState extends State<DishTab> with TickerProviderStateMixin {
     theme = Theme.of(context);
     return Center(
       child: Column(children:
-      _buildBody(),),
+      _buildBody(context),),
     );
   }
 
-  List<Widget> _buildBody(){
+  List<Widget> _buildBody(BuildContext context){
     final conn = R.dish;
 
     if (conn==null || conn.isClosed)
@@ -105,8 +99,9 @@ class _DishTabState extends State<DishTab> with TickerProviderStateMixin {
         viewOptions: ViewOptions(),
       ));
 
-      buildEvents(conn, rows);
-      buildOutages(conn, rows);
+      buildEventLogs(context, theme, conn.dishGetHistory.data, rows, 10, expanded: eventLogExpand, setExpanded: (log) {
+        setState(() { eventLogExpand = log; });
+      },);
 
       if (charts.isNotEmpty) {
         var b = KVWidgetBuilder(context, theme);
@@ -118,103 +113,6 @@ class _DishTabState extends State<DishTab> with TickerProviderStateMixin {
       }
     }
     return rows;
-  }
-
-  String formatEventReason(EventReason reason){
-    var res = reason.name;
-    res = res.replaceFirst("EVENT_REASON_", "");
-    return res;
-  }
-
-  void buildEvents(DishConnection conn, List<Widget> rows) {
-    var eventLog = conn.dishGetHistory.data?.eventLog;
-
-    if (eventLog==null || eventLog.events.isEmpty || !R.features.eventLog)
-      return;
-
-    var b = KVWidgetBuilder(context, theme);
-    b.header(M.live.outages, more: [
-      Expanded(child: Container()),
-      Icon(eventLogExpand?Icons.expand_less:Icons.expand_more, size: 20,),
-    ],onTap: () {
-      setState(() {
-        eventLogExpand = !eventLogExpand;
-      });
-    },);
-
-    if (eventLog.events.length>10 && !eventLogExpand)
-      b.widgets.add(GestureDetector(
-        onTap: () {
-          setState(() {
-            eventLogExpand = !eventLogExpand;
-          });
-        },
-        child: Text(M.live.n_records_before(eventLog.events.length-10), textAlign: TextAlign.center,)
-      ));
-
-    // int now = DateTime.now().millisecondsSinceEpoch;
-    // int last = (outages.last.startTimestampNs~/1000~/1000).toInt();
-    // int delta = (now-last)~/(60*60*24*1000)*60*60*24*1000;
-    for (var o in eventLog.events.length<=10 || eventLogExpand ? eventLog.events : eventLog.events.skip(eventLog.events.length-10) ) {
-      if (o.startTimestampNs==-1) {
-        b.kvs("${formatEventReason(o.reason)}", "");
-        continue;
-      }
-
-      int ts_int = (o.startTimestampNs~/1000~/1000).toInt();
-
-      // var ts = Instant.fromEpochMilliseconds(ts_int+delta).inLocalZone();
-      var ts = Instant.fromEpochMilliseconds(ts_int).inLocalZone();
-
-      b.kvs("${ts.toString("HH:mm:ss")} ${formatEventReason(o.reason)}", "${Format.secD(o.durationNs.toDouble()/1000/1000/1000)}");
-      // print("OUTAGE ${o.cause} ${o.didSwitch} ${o.durationNs.toDouble()/1000/1000/1000} ${o.startTimestampNs.toDouble()/1000/1000/1000}");
-    }
-    rows.addAll(b.widgets);
-  }
-
-  void buildOutages(DishConnection conn, List<Widget> rows) {
-    var outages = conn.dishGetHistory.data?.outages ?? [];
-    if (outages.isNotEmpty && R.features.outagesHistory) {
-      var b = KVWidgetBuilder(context, theme);
-      b.header(M.live.outages, more: [
-        Expanded(child: Container()),
-        Icon(outageExpand?Icons.expand_less:Icons.expand_more, size: 20,),
-      ],onTap: () {
-        setState(() {
-          outageExpand = !outageExpand;
-        });
-      },);
-
-      if (outages.length>10 && !outageExpand)
-        b.widgets.add(GestureDetector(
-          onTap: () {
-            setState(() {
-              outageExpand = !outageExpand;
-            });
-          },
-          child: Text(M.live.n_records_before(outages.length-10), textAlign: TextAlign.center,)
-        ));
-
-      // int now = DateTime.now().millisecondsSinceEpoch;
-      // int last = (outages.last.startTimestampNs~/1000~/1000).toInt();
-      // int delta = (now-last)~/(60*60*24*1000)*60*60*24*1000;
-      for (var o in outages.length<=10 || outageExpand ? outages : outages.skip(outages.length-10) ) {
-        if (o.startTimestampNs==-1) {
-          b.kvs("${o.cause}", "");
-          continue;
-        }
-
-        int ts_int = (o.startTimestampNs~/1000~/1000).toInt();
-
-        // var ts = Instant.fromEpochMilliseconds(ts_int+delta).inLocalZone();
-        var ts = Instant.fromEpochMilliseconds(ts_int).inLocalZone();
-
-        b.kvs("${ts.toString("HH:mm:ss")} ${o.cause}", "${Format.secD(o.durationNs.toDouble()/1000/1000/1000)}");
-        // print("OUTAGE ${o.cause} ${o.didSwitch} ${o.durationNs.toDouble()/1000/1000/1000} ${o.startTimestampNs.toDouble()/1000/1000/1000}");
-      }
-      rows.addAll(b.widgets);
-    }
-
   }
 
 }

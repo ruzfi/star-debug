@@ -630,6 +630,11 @@ class LiveMessagesUk extends LiveMessages {
   String get outages => """Відключення""";
 
   /// ```dart
+  /// "Лог події"
+  /// ```
+  String get event_logs => """Лог події""";
+
+  /// ```dart
   /// "... $n записів попереду ..."
   /// ```
   String n_records_before(n) => """... $n записів попереду ...""";
@@ -2799,6 +2804,7 @@ Map<String, String> get messagesUkMap => {
   """live.starlink_live""": """Starlink Live""",
   """live.check_update""": """Перевірити оновлення""",
   """live.outages""": """Відключення""",
+  """live.event_logs""": """Лог події""",
   """header.general""": """Загальне""",
   """header.signal""": """Сигнал""",
   """header.network""": """Мережа""",
